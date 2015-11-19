@@ -1,0 +1,18 @@
+# Eclipse
+.classpath
+.settings/
+.project
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Build
+target
+.mvn/
+bower_components/
+log/
