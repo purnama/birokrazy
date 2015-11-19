@@ -1,15 +1,16 @@
 {
-    "name": "hackmdk3",
-    "version": "0.0.1-SNAPSHOT",
-    "license": "MIT",
-    "authors": [
-        "arthur@purnama.de"
-    ],
-    "description": "Hackathon Merdeka 3.0",
-    "dependencies": {
-        "angular": "1.4.7",
-        "bootstrap": "3.3.5",
-        "modernizr": "2.8.3",
-        "respond": "1.4.2"
-    }
+  "name": "hackmdk3",
+  "version": "0.0.1-SNAPSHOT",
+  "license": "MIT",
+  "authors": [
+    "arthur@purnama.de"
+  ],
+  "description": "Hackathon Merdeka 3.0",
+  "dependencies": {
+    "angular": "1.4.7",
+    "bootstrap": "3.3.5",
+    "modernizr": "2.8.3",
+    "respond": "1.4.2",
+    "angular-route": "~1.4.7"
+  }
 }
