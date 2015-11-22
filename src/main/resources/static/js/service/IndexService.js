@@ -1,9 +1,9 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('HighlightService', function($http) {
+hackMdk3App.factory('IndexService', function($http) {
     var promise;
-    var highlightService = {
+    var indexService = {
         findAll: function() {
             if ( !promise ) {
                 // $http returns a promise, which has a then function, which also returns a promise
@@ -18,5 +18,5 @@ hackMdk3App.factory('HighlightService', function($http) {
             return promise;
         }
     };
-    return highlightService;
+    return indexService;
 });
