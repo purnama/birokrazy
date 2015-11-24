@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @RestController
-public class IndexController {
-
-    @RequestMapping(path = {"/about", "/login"})
-    public String forward(){
-        return "forward:/";
-    }
+@RequestMapping(path = "api/v1/public")
+public class PublicController {
 }

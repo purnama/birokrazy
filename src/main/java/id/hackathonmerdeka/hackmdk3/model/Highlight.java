@@ -14,13 +14,13 @@ public class Highlight implements Serializable {
 
     @Id
     @GeneratedValue()
-    Long id;
+    private Long id;
 
     @Column(nullable = false)
-    String title;
+    private String title;
 
     @Column(nullable = false)
-    String description;
+    private String description;
 
     public Long getId() {
         return id;
