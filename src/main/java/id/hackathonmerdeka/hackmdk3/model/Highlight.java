@@ -1,9 +1,6 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -15,6 +12,9 @@ public class Highlight implements Serializable {
     @Id
     @GeneratedValue()
     private Long id;
+
+    @Version
+    private Long version;
 
     @Column(nullable = false)
     private String title;

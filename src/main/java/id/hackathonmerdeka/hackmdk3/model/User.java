@@ -1,10 +1,8 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -15,6 +13,9 @@ public class User implements Serializable {
     @Id
     @GeneratedValue()
     private Long id;
+
+    @Version
+    private Long version;
 
     @Column(nullable = false, unique = true)
     private String username;
@@ -28,12 +29,23 @@ public class User implements Serializable {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @OneToMany(mappedBy = "user")
+    private Set<UserRole> roles;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getUsername() {
@@ -66,5 +78,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
     }
 }
