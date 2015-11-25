@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @RestController
-public class LoginController extends PublicController {
+public class LoginController extends ProtectedController {
 
 	@Autowired
 	private UserRepository repository;
 
 	@RequestMapping(path="/login", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public Iterable<User> findAll(){
-		return repository.findAll();
+	public User findOne(){
+		for(User user : repository.findAll()){
+			return user;
+		}
+		return null;
 	}
 
 }

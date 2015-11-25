@@ -7,10 +7,8 @@ hackMdk3App.controller('LoginController', ['$rootScope', '$scope', '$location', 
     $scope.login = function() {
         loginService.authenticate($scope.credentials, function() {
             if ($rootScope.authenticated) {
-                $location.path("/");
                 $scope.error = false;
             } else {
-                $location.path("/login");
                 $scope.error = true;
             }
         });
