@@ -3,9 +3,18 @@
   "version": "0.0.1-SNAPSHOT",
   "license": "MIT",
   "authors": [
-    { "name": "Arthur Purnama", "email": "arthur@purnama.de" },
-    { "name": "Andi Sastra Wandy", "email": "andi.s.wandy@gmail.com" },
-    { "name": "Widya Saseno", "email": "saseno@gmail.com" }
+    {
+      "name": "Arthur Purnama",
+      "email": "arthur@purnama.de"
+    },
+    {
+      "name": "Andi Sastra Wandy",
+      "email": "andi.s.wandy@gmail.com"
+    },
+    {
+      "name": "Widya Saseno",
+      "email": "saseno@gmail.com"
+    }
   ],
   "description": "Hackathon Merdeka 3.0",
   "dependencies": {
@@ -13,6 +22,7 @@
     "bootstrap": "~3.3.5",
     "modernizr": "~2.8.3",
     "respond": "~1.4.2",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "angular-cookies": "~1.4.8"
   }
 }

@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -15,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController extends ProtectedController {
 
-	@Autowired
-	private UserRepository repository;
+    @Autowired
+    private UserRepository repository;
 
-	@RequestMapping(path="/login", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public User findByUsername(@RequestParam(required = false) String username){
-		return repository.findByUsername(username);
-	}
+    @RequestMapping(path = "/login", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public User findByUsername(Principal user) {
+        return repository.findByUsername(user.getName());
+    }
 
 }

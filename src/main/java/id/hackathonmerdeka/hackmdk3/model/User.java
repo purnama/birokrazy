@@ -1,5 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -21,6 +23,7 @@ public class User implements Serializable {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(nullable = false)

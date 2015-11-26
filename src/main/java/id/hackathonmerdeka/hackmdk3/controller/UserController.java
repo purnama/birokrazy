@@ -4,6 +4,7 @@ import id.hackathonmerdeka.hackmdk3.model.User;
 import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class UserController extends ProtectedController {
 	@Autowired
 	private UserRepository repository;
 
+	@PreAuthorize("hasAuthority('ADMINISTRATOR')")
 	@RequestMapping(path="/user", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Iterable<User> findAll(){
 		return repository.findAll();

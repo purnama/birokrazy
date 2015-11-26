@@ -51,6 +51,7 @@
                 <li ng-class="{ active: isActive('/')}"><a href="/">Start</a></li>
                 <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
                 <li ng-class="{ active: isActive('/login')}"><a href="/login">Login</a></li>
+                <li ng-class="{ active: isActive('/user')}"><a href="/user">User</a></li>
             </ul>
             <div ng-controller="AuthController">
                 <form role="form" ng-submit="login()" ng-show="!authenticated" class="navbar-form navbar-right">
@@ -88,15 +89,19 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 
 <script src="js/HackMdk3App.js"></script>
 <script src="js/service/IndexService.js"></script>
 <script src="js/service/AuthService.js"></script>
+<script src="js/service/UserService.js"></script>
+<script src="js/service/ErrorService.js"></script>
 <script src="js/controller/IndexController.js"></script>
 <script src="js/controller/AboutController.js"></script>
 <script src="js/controller/AuthController.js"></script>
 <script src="js/controller/HeaderController.js"></script>
 <script src="js/controller/UserController.js"></script>
+<script src="js/controller/LoginController.js"></script>
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

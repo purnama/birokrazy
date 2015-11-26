@@ -7,5 +7,5 @@ INSERT INTO user (username, password, name, email) VALUES ('user', 'user', 'Pram
 INSERT INTO user (username, password, name, email) VALUES ('pns', 'pns', 'Bagus Wicaksana', 'bagus.wicaksana@momoku.net');
 
 INSERT INTO user_role(user_id, role) VALUES (1, 'ADMINISTRATOR');
-INSERT INTO user_role(user_id, role) VALUES (2, 'STANDARD');
+INSERT INTO user_role(user_id, role) VALUES (2, 'USER');
 INSERT INTO user_role(user_id, role) VALUES (3, 'OFFICIAL');
