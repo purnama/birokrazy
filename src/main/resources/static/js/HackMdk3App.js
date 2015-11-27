@@ -46,8 +46,26 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/about.tpl.html',
             controller: 'AboutController'
         }).
+        when('/official', {
+            templateUrl: $constant.templates.include,
+            controller: 'OfficialController',
+            access: {
+                requiresLogin: true,
+                permissions: [$constant.roles.admin, $constant.roles.official],
+                atLeastOne: true
+            }
+        }).
+        when('/requirement', {
+            templateUrl: $constant.templates.include,
+            controller: 'RequirementController',
+            access: {
+                requiresLogin: true,
+                permissions: [$constant.roles.admin, $constant.roles.user],
+                atLeastOne: true
+            }
+        }).
         when('/user', {
-            templateUrl: 'templates/include.tpl.html',
+            templateUrl: $constant.templates.include,
             controller: 'UserController',
             access: {
                 requiresLogin: true,

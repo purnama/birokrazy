@@ -16,26 +16,26 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                     // $http returns a promise, which has a then function, which also returns a promise
                     $http.get($constant.apiVersion.protected + '/login', {
                         headers: headers
-                    }).then(function successCallback(response) {
+                    }).then(function (response) {
                         $rootScope.authenticated = true;
                         $cookies.putObject("authenticated", true);
                         $rootScope.user = response.data;
                         $cookies.putObject("user", response.data);
                         callback && callback();
-                    }, function errorCallback(response) {
+                    }, function (response) {
                         $rootScope.authenticated = false;
                         callback && callback();
                     });
                 }
             },
             invalidate: function (callback) {
-                $http.get('/logout', {}).then(function successCallback(response) {
+                $http.get('/logout', {}).then(function (response) {
                     $rootScope.authenticated = false;
                     $rootScope.user = undefined;
                     $cookies.remove("authenticated");
                     $cookies.remove("user");
                     callback && callback();
-                }, function errorCallback(response) {
+                }, function (response) {
                     $rootScope.authenticated = false;
                     callback && callback();
                 });
@@ -64,15 +64,23 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                             if (!access.atLeastOne) {
                                 hasPermission = hasPermission && loweredPermissions.indexOf(permission) > -1;
                                 // if all the permissions are required and hasPermission is false there is no point carrying on
-                            } else if (atLeastOne) {
+                                if (hasPermission === false) {
+                                    $scope.templateUrl = $constant.templates.error403;
+                                    break;
+                                }
+                            } else if (access.atLeastOne) {
                                 hasPermission = loweredPermissions.indexOf(permission) > -1;
                                 // if we only need one of the permissions and we have it there is no point carrying on
-                            }
-                            if (hasPermission === false) {
-                                $scope.templateUrl = $constant.templates.error403;
-                                break;
+                                if (hasPermission) {
+                                    break;
+                                }
                             }
                         }
+                        if (hasPermission === false) {
+                            $scope.templateUrl = $constant.templates.error403;
+                        }
+
+
                     }
                 }
                 if(!$scope.templateUrl) {

@@ -14,7 +14,7 @@ import java.security.Principal;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @RestController
-public class LoginController extends ProtectedController {
+public class AuthController extends ProtectedController {
 
     @Autowired
     private UserRepository repository;

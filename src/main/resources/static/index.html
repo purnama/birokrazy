@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Birokrazy</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
@@ -50,23 +50,24 @@
             <ul class="nav navbar-nav" ng-controller="HeaderController">
                 <li ng-class="{ active: isActive('/')}"><a href="/">Start</a></li>
                 <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
-                <li ng-class="{ active: isActive('/login')}"><a href="/login">Login</a></li>
                 <li ng-class="{ active: isActive('/user')}"><a href="/user">User</a></li>
+                <li ng-class="{ active: isActive('/official')}"><a href="/official">Official</a></li>
+                <li ng-class="{ active: isActive('/requirement')}"><a href="/requirement">Requirement</a></li>
             </ul>
             <div ng-controller="AuthController">
-                <form role="form" ng-submit="login()" ng-show="!authenticated" class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="Username" class="form-control" ng-model="credentials.username">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control"
-                               ng-model="credentials.password">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
+                <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-edit" ></span> Register</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in" ></span> Sign in</a></li>
+                </ul>
                 <ul ng-show="authenticated" class="nav navbar-nav navbar-right">
-                    <li><a href="#">{{user.name}}</a></li>
-                    <li><a href="" ng-click="logout()">Logout</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" >{{user.name}} <span class="caret"></span></div>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Account Settings</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-lock"></span>&nbsp;Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" ng-click="logout()">Sign out <span class="glyphicon glyphicon-log-out" ></span></a>  </li>
                 </ul>
             </div>
 
@@ -98,6 +99,8 @@
 <script src="js/service/ErrorService.js"></script>
 <script src="js/controller/IndexController.js"></script>
 <script src="js/controller/AboutController.js"></script>
+<script src="js/controller/OfficialController.js"></script>
+<script src="js/controller/RequirementController.js"></script>
 <script src="js/controller/AuthController.js"></script>
 <script src="js/controller/HeaderController.js"></script>
 <script src="js/controller/UserController.js"></script>

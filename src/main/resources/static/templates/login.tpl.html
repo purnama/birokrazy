@@ -1,18 +1,34 @@
 <div class="container">
-    <!-- Example row of columns -->
+    <div class="row"><br/></div>
     <div class="row">
-        <div class="col-md-12">
-            <h2>Login</h2>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget erat at leo interdum imperdiet
-                id nec quam. Ut sollicitudin ex sit amet nisl faucibus facilisis. Pellentesque tempus, lacus a tincidunt
-                vestibulum, erat enim semper diam, id elementum nisl nulla nec metus. Class aptent taciti sociosqu ad
-                litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum
-                mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus
-                iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae. Suspendisse potenti. Nulla
-                venenatis dapibus erat sed vehicula.
-            </p>
+        <div class="col-md-4"/>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Login
+                </div>
+                <div class="panel-body">
+                    <form role="form" ng-submit="login()" ng-controller="AuthController">
+                        <div class="form-group input-group">
+                            <input type="text" placeholder="Username" class="form-control"
+                                   ng-model="credentials.username">
+                            <div class="input-group-addon" aria-hidden="true">
+                                <span class="glyphicon glyphicon-user " />
+                            </div>
+                        </div>
+                        <div class="form-group input-group">
+                            <input type="password" placeholder="Password" class="form-control"
+                                   ng-model="credentials.password">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"/>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                       <small><a href="#">Register</a> <b>&middot;</b> <a href="#">Forgot password</a></small>
+                    </form>
+                </div>
+            </div>
         </div>
+        <div class="col-md-4"/>
     </div>
 </div>

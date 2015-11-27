@@ -48,7 +48,6 @@ public class Application {
 
     @Configuration
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-    @ComponentScan(basePackages = {"id.hackathonmerdeka.hackmdk3"})
     protected static class ApiWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Bean
