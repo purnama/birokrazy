@@ -7,32 +7,29 @@
                 </div>
                 <div class="panel-body">
 
-                    <table class="table table-striped ">
-                        <tr>
-                            <th>Judul Laporan</th>
-                            <td>
-                                <div class="form-group form-group-sm ">
-                                    <input type="text" class="form-control" placeholder="Kecurangan pada"
-                                           aria-describedby="basic-addon2">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Judul Laporan</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="Kecurangan pada"
+                                       aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Catatan Laporan</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" placeholder="Saya menemukan kecurangan pada..."
+                                          rows="10" id="keteranganLaporan"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label class="col-sm-3 control-label">&nbsp;</label>
+                            <div class="col-sm-9">
+                            <button type="button" class="btn btn-sm btn-success">Lapor!</button>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Catatan Laporan</th>
-                            <td>
-                                <div class="form-group form-group-sm">
-                                    <textarea class="form-control" placeholder="Saya menemukan kecurangan pada..."
-                                              rows="10" id="keteranganLaporan"></textarea>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-success">Lapor!</button>
-                            </td>
-                        </tr>
-                    </table>
+                        </div>
+                    </form>
 
                 </div>
 
