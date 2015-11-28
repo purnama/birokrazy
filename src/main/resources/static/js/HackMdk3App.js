@@ -116,7 +116,16 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 permissions: [$constant.roles.admin]
             }
         }).
+        when('/review', {
+            templateUrl: 'templates/review.tpl.html',
+            controller: "ReviewController"
+        }).
+        when('/trend', {
+            templateUrl: 'templates/trend.tpl.html',
+            controller: "TrendController"
+        }).
         otherwise({redirectTo: '/error/404.html'});
+
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     }]);
 

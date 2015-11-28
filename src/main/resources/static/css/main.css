@@ -4,7 +4,14 @@
    Author's custom styles
    ========================================================================== */
 
+.star-rating {
+    display: inline;
+}
 
+.provice-name {
+    text-align: center;
+    vertical-align: middle;
+}
 
 
 
