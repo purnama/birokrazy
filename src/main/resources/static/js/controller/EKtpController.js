@@ -3,12 +3,6 @@
  */
 hackMdk3App.controller('EKtpController', ['$scope', '$location', function ($scope, $location) {
 
-
-    $(".review").rating({
-        readonly: true,
-        showClear: false
-    });
-
     if ($location.path() === '/e-ktp') {
         $scope.templateUrl = 'templates/e-ktp.info.tpl.html';
     } else if ($location.path() === '/e-ktp/informasi') {

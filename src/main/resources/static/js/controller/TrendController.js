@@ -18,12 +18,6 @@ hackMdk3App.controller('TrendController', ['$scope', function ($scope) {
         title: {
             text: ''
         },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
         xAxis: {
             categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             title: {
