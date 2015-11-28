@@ -1,20 +1,18 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        <div class="col-md-12">
+        <div class="page-header">
             <h2>E-KTP</h2>
-            <ul class="nav navbar-default">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li ng-class="{ active: isActive('/e-ktp/informasi')}" role="presentation"><a href="/e-ktp/informasi">Informasi</a></li>
-                            <li ng-class="{ active: isActive('/e-ktp/persyaratan')}" role="presentation"><a href="/e-ktp/persyaratan">Persyaratan</a></li>
-                            <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation"><a href="/e-ktp/proses">Proses</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </ul>
-            <ng-include src="templateUrl"/>
         </div>
+
+        <ul class="nav nav-tabs " role="tablist">
+            <li ng-class="{ active: isActive('/e-ktp/informasi')}" role="presentation"><a href="/e-ktp/informasi">Informasi</a></li>
+            <li ng-class="{ active: isActive('/e-ktp/persyaratan')}" role="presentation"><a href="/e-ktp/persyaratan">Persyaratan</a></li>
+            <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation"><a href="/e-ktp/proses">Proses</a></li>
+        </ul>
+
+    </div>
+    <div class="row">
+        <ng-include src="templateUrl"/>
     </div>
 </div>
