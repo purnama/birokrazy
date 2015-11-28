@@ -11,18 +11,18 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">Informasi <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Deskripsi</a></li>
-                                    <li><a href="#">Lokasi</a></li>
-                                    <li><a href="#">Statistik</a></li>
+                                    <li><a href="/e-ktp/deskripsi">Deskripsi</a></li>
+                                    <li><a href="/e-ktp/lokasi">Lokasi</a></li>
+                                    <li><a href="/e-ktp/statistik">Statistik</a></li>
                                 </ul>
                             </li>
-                            <li role="presentation"><a href="#">Persyaratan</a></li>
-                            <li role="presentation"><a href="#">Proses</a></li>
+                            <li ng-class="{ active: isActive('/e-ktp/persyaratan')}" role="presentation"><a href="/e-ktp/persyaratan">Persyaratan</a></li>
+                            <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation"><a href="/e-ktp/proses">Proses</a></li>
                         </ul>
                     </div>
                 </div>
             </ul>
-            <ng-include src="templateUrl" />
+            <ng-include src="templateUrl"/>
         </div>
     </div>
 </div>

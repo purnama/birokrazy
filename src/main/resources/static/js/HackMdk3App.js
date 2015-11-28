@@ -19,7 +19,7 @@ hackMdk3App.constant('$constant', {
         index: '/',
         login: '/login'
     },
-    roles:{
+    roles: {
         admin: 'ADMINISTRATOR',
         user: 'USER',
         official: 'OFFICIAL'
@@ -44,9 +44,28 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
         }).
         when('/e-ktp', {
             templateUrl: 'templates/e-ktp.tpl.html',
-            controller: 'AboutController'
+            controller: 'EKtpController'
         }).
-
+        when('/e-ktp/persyaratan', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
+        when('/e-ktp/proses', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
+        when('/e-ktp/deskripsi', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
+        when('/e-ktp/lokasi', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
+        when('/e-ktp/statistik', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
         when('/imb', {
             templateUrl: 'templates/imb.tpl.html',
             controller: 'ImbController'
