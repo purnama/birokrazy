@@ -1,30 +1,204 @@
-<ul class="nav nav-pills " role="tablist">
-    <li ng-class="{ active: isActive('/imb/deskripsi')}"><a href="#deskripsi">Deskripsi</a></li>
-    <li ng-class="{ active: isActive('/imb/lokasi')}"><a href="#lokasi">Lokasi</a></li>
-    <li ng-class="{ active: isActive('/imb/statistik')}"><a href="#statistik">Statistik</a></li>
-</ul>
+<div class="col-sm-12">
+    <div class="page-header">
+        <h3>Deskripsi</h3>
+    </div>
 
-<div class="col-md-12">
     <p>
-        <h2 id="deskripsi">imb Info page...</h2>
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget erat at leo interdum imperdiet
-        id nec quam. Ut sollicitudin ex sit amet nisl faucibus facilisis. Pellentesque tempus, lacus a tincidunt
-        vestibulum, erat enim semper diam, id elementum nisl nulla nec metus. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum
-        mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus
-        iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae. Suspendisse potenti. Nulla
-        venenatis dapibus erat sed vehicula.
+        Izin Mendirikan Bangunan atau biasa dikenal dengan IMB adalah perizinan yang diberikan oleh Kepala
+        Daerah kepada pemilik bangunan untuk membangun baru, mengubah, memperluas, mengurangi, dan/atau
+        merawat bangunan sesuai dengan persyaratan administratif dan persyaratan teknis yang berlaku. IMB
+        merupakan salah satu produk hukum untuk mewujudkan tatanan tertentu sehingga tercipta ketertiban,
+        keamanan, keselamatan, kenyamanan, sekaligus kepastian hukum. Kewajiban setiap orang atau badan yang
+        akan mendirikan bangunan untuk memiliki Izin Mendirikan Bangunan diatur pada Pasal 5 ayat 1 Perda 7 Tahun 2009.
     </p>
 
     <p>
-        Morbi pretium nunc eget tellus interdum porttitor. Donec ipsum ligula, tincidunt vitae molestie ut,
-        suscipit in diam. Nunc dapibus turpis lectus, nec pretium tortor auctor vitae. Mauris eleifend lobortis
-        est, ac vehicula dui aliquam eu. Vivamus tempus sed elit sed lobortis. Pellentesque tincidunt dignissim
-        arcu, non dictum eros. Donec lacinia, sapien et sollicitudin placerat, magna lectus varius ipsum, eu
-        convallis arcu risus eget neque. Donec aliquet porta malesuada. Donec tincidunt suscipit porttitor.
-        Quisque ante diam, feugiat vitae tellus in, hendrerit ultrices libero. Aliquam blandit dolor dolor,
-        vitae volutpat ipsum tincidunt at.
+        IMB akan melegalkan suatu bangunan yang direncanakan sesuai dengan Tata Ruang yang telah ditentukan.
+        Selain itu, adanya IMB menunjukkan bahwa rencana kostruksi bangunan tersebut juga dapat dipertanggungjawabkan
+        dengan maksud untuk kepentingan bersama.
     </p>
+
+</div>
+
+<div class="col-sm-12">
+
+    <div class="page-header">
+        <h3>Lokasi</h3>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-striped ">
+                <tr>
+                    <th>Provinsi</th>
+                    <td>
+                        <fieldset>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select>
+                                        <option value="1">DKI Jakarta</option>
+                                        <option value="2">Jawa Tengah</option>
+                                        <option value="3">Jawa Timur</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Kabupaten/Kota</th>
+                    <td>
+                        <fieldset>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select>
+                                        <option value="1">Jakarta Barat</option>
+                                        <option value="2">Jakarta Timur</option>
+                                        <option value="3">Jakarta Utara</option>
+                                        <option value="1">Jakarta Selatan</option>
+                                        <option value="2">Jakarta Pusat</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Kecamatan</th>
+                    <td>
+                        <fieldset>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select>
+                                        <option value="1">Cengkareng</option>
+                                        <option value="2">Grogol Petamburan</option>
+                                        <option value="3">Kalideres</option>
+                                        <option value="1">Kebon Jeruk</option>
+                                        <option value="2">Kembangan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Kelurahan</th>
+                    <td>
+                        <fieldset>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select>
+                                        <option value="1">Kedaung</option>
+                                        <option value="1">Kapuk</option>
+                                        <option value="1">Cengkareng Barat</option>
+                                        <option value="1">Cengkareng Timur</option>
+                                        <option value="1">Rawa Buaya</option>
+                                        <option value="1">Duri Kosambi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-info">Cari Lokasi PTSP Anda</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>Keluarahan Kedaung</td>
+                            </tr>
+                            <tr>
+                                <td>jalan Kedaung Raya no. 123</td>
+                            </tr>
+                            <tr>
+                                <td>Jakarta Barat 12345</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Telp. 021 121212</td>
+                            </tr>
+                            <tr>
+                                <td>Email ptsp@jakarta-barat.id</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Jam Buka:</td>
+                            </tr>
+                            <tr>
+                                <td>Senin - Jumat 09:00 - 17:00</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="col-sm-12">
+    <div class="page-header">
+        <h3>Statistik</h3>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Pelayanan</h3>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Lama Menunggu</h3>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Trend Kejadian</h3>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Laporan</h3>
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
 </div>
