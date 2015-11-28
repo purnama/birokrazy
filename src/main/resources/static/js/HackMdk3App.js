@@ -46,10 +46,32 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'AboutController'
         }).
+
         when('/imb', {
             templateUrl: 'templates/imb.tpl.html',
             controller: 'ImbController'
         }).
+        when('/imb/persyaratan', {
+            templateUrl: 'templates/imb.tpl.html',
+            controller: 'ImbController'
+        }).
+        when('/imb/proses', {
+            templateUrl: 'templates/imb.tpl.html',
+            controller: 'ImbController'
+        }).
+        when('/imb/deskripsi', {
+            templateUrl: 'templates/imb.tpl.html',
+            controller: 'ImbController'
+        }).
+        when('/imb/lokasi', {
+            templateUrl: 'templates/imb.tpl.html',
+            controller: 'ImbController'
+        }).
+        when('/imb/statistik', {
+            templateUrl: 'templates/imb.tpl.html',
+            controller: 'ImbController'
+        }).
+
         when('/izinUsaha', {
             templateUrl: 'templates/e-ktp.tpl.html',
         }).
