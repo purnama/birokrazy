@@ -43,15 +43,15 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             controller: 'LoginController'
         }).
         when('/e-ktp', {
-            templateUrl: 'templates/about.tpl.html',
+            templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'AboutController'
         }).
         when('/imb', {
-            templateUrl: 'templates/about.tpl.html',
+            templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'AboutController'
         }).
         when('/izinUsaha', {
-            templateUrl: 'templates/about.tpl.html',
+            templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'AboutController'
         }).
         when('/official', {
