@@ -31,4 +31,15 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             return viewLocation === $location.path();
         };
 
+        $(".rating").rating({
+            readonly: true,
+            showClear: false
+        });
+
+        $scope.testFunction = function(){
+            alert('testing....');
+            $scope.testValue = 'testing value...';
+        };
+
+
     }]);
