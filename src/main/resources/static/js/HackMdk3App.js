@@ -46,23 +46,15 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
         }).
+        when('/e-ktp/informasi', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
         when('/e-ktp/persyaratan', {
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
         }).
         when('/e-ktp/proses', {
-            templateUrl: 'templates/e-ktp.tpl.html',
-            controller: 'EKtpController'
-        }).
-        when('/e-ktp/deskripsi', {
-            templateUrl: 'templates/e-ktp.tpl.html',
-            controller: 'EKtpController'
-        }).
-        when('/e-ktp/lokasi', {
-            templateUrl: 'templates/e-ktp.tpl.html',
-            controller: 'EKtpController'
-        }).
-        when('/e-ktp/statistik', {
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
         }).
