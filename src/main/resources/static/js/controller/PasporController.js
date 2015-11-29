@@ -4,14 +4,11 @@ hackMdk3App.controller('PasporController', ['$scope', '$location',
         if ($location.path() === '/paspor') {
             $scope.templateUrl = 'templates/paspor.info.tpl.html';
         }
-        else if ($location.path() === '/paspor/deskripsi') {
-            $scope.templateUrl = 'templates/paspor.info.tpl.html';
-        }
         else if ($location.path() === '/paspor/proses') {
             $scope.templateUrl = 'templates/paspor.proses.tpl.html';
         }
-        else if ($location.path() === '/paspor/lapor') {
-            $scope.templateUrl = 'templates/paspor.lapor.tpl.html';
+        else if ($location.path() === '/paspor/review') {
+            $scope.templateUrl = 'templates/include.review.tpl.html';
         }
 
         $scope.isActive = function (viewLocation) {
