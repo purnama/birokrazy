@@ -8,15 +8,20 @@
 
             <ul class="nav nav-tabs " role="tablist">
                 <li ng-class="{ active: isActive('/imb')}" role="presentation"><a href="/imb">Informasi</a></li>
-                <li ng-class="{ active: isActive('/imb/proses')}" role="presentation"><a href="/imb/proses">Persyaratan & Proses</a></li>
-                <li ng-class="{ active: isActive('/imb/review')}" role="presentation"><a href="/imb/review">Review</a></li>
-                <li ng-class="{ active: isActive('/imb/listDokumen')}" role="presentation"><a href="/imb/listDokumen">test</a></li>
+                <li ng-class="{ active: isActive('/imb/proses')}" role="presentation"><a href="/imb/proses">Persyaratan
+                    & Proses</a></li>
+                <li ng-class="{ active: isActive('/imb/review')}" role="presentation"><a href="/imb/review">Review</a>
+                </li>
+                <li ng-class="{ active: isActive('/imb/listDokumen')}" role="presentation"><a href="/imb/listDokumen">test</a>
+                </li>
             </ul>
         </div>
     </div>
     <div class="row">
-        <p>&nbsp;</p>
-        <ng-include src="templateUrl"/>
+        <div class="col-md-12">
+            <p>&nbsp;</p>
+            <ng-include src="templateUrl"/>
+        </div>
     </div>
 
 </div>
