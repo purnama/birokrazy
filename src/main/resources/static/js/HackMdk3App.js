@@ -120,6 +120,10 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 permissions: [$constant.roles.admin]
             }
         }).
+        when('/user/myDocument', {
+            templateUrl: 'templates/user.dokument.list.tpl.html',
+            controller: 'UserController'
+        }).
         when('/trend', {
             templateUrl: 'templates/trend.tpl.html',
             controller: "TrendController"

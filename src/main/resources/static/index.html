@@ -76,6 +76,7 @@
                     <li class="dropdown">
                         <div class="dropdown-toggle navbar-text" data-toggle="dropdown" role="button" >{{user.name}} <span class="caret"></span></div>
                         <ul class="dropdown-menu">
+                            <li ng-class="{ active: isActive('/user/myDocument')}"><a href="/user/myDocument"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;My Documents</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Account Settings</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-lock"></span>&nbsp;Change Password</a></li>
                         </ul>
