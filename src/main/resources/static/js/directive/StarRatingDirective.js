@@ -6,7 +6,7 @@ hackMdk3App.directive("hackmdk3StarRating", function(){
         restrict: 'A',
         link: function(scope, iElement, iAttrs) {
             $(iElement).rating({
-                readonly: true,
+                readonly: iAttrs.readonly?true:false,
                 showClear: false,
                 showCaption: false
             });

@@ -25,6 +25,7 @@
     "angular-route": "~1.4.7",
     "angular-cookies": "~1.4.8",
     "bootstrap-star-rating": "~3.5.5",
-    "highcharts": "highcharts-release#~4.1.9"
+    "highcharts": "highcharts-release#~4.1.9",
+    "components-font-awesome": "~4.5.0"
   }
 }

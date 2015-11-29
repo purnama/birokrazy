@@ -134,7 +134,7 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
     }]).run(['$rootScope', '$location',
     function ($rootScope, $location) {
         $rootScope.path = $location.path();
-        $('.navbar-collapse').click('li', function() {
+        $('li.menu-point').click(function() {
             $('.navbar-collapse').collapse('hide');
         });
     }]);

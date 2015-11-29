@@ -1,33 +1,34 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Lapor</h3>
+        <h3 class="panel-title">Write Review</h3>
     </div>
     <div class="panel-body">
-        <table class="table table-striped ">
-            <tr>
-                <th>Judul Laporan</th>
-                <td>
-                    <div class="form-group form-group-sm ">
-                        <input type="text" class="form-control" placeholder="Kecurangan pada"
-                               aria-describedby="basic-addon2">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>Catatan Laporan</th>
-                <td>
-                    <div class="form-group form-group-sm">
-                                <textarea class="form-control" placeholder="Saya menemukan kecurangan pada..." rows="10"
-                                          id="keteranganLaporan"></textarea>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <button type="button" class="btn btn-sm btn-success">Lapor!</button>
-                </td>
-            </tr>
-        </table>
+        <form>
+            <div class="form-group social-buttons">
+                <label class="control-label">Rating</label>
+                <input type="text" class="rating form-control" hackmdk3-star-rating data-size="xs"/>
+                <div class="pull-right">
+                    <button class="btn btn-facebook" ng-click="facebookAction()" ng-class="{active: facebook, 'btn-social': facebook, 'btn-social-icon': !facebook}">
+                        <i class="fa fa-facebook"></i> <span ng-show="facebook">Share on facebook</span>
+                    </button>
+                    <button class="btn btn-twitter" ng-click="twitterAction()" ng-class="{active: twitter, 'btnSocial': twitter, 'btn-social-icon': !twitter}">
+                        <i class="fa fa-twitter"></i> <span ng ng-show="twitter">Share on twitter</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Subject</label>
+                <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Keterangan</label>
+                <textarea class="form-control" placeholder="Tulis keterangan" rows="10"></textarea>
+            </div>
+            <div class="form-inline form-group">
+                <button type="submit" class="btn btn-primary pull-right">Kirim</button>
+                <button ng-click="showPostAction()" type="button" class="btn btn-default">Batal</button>
+            </div>
+        </form>
     </div>
 </div>
