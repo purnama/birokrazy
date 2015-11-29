@@ -37,19 +37,19 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             {id: 7, name : 'Duri Kosambi'}
         ];
 
-        $scope.listOfOptions = [
+        $scope.yesNoQuestionListOfOption = [
             {id: 0, name: '--pilih--'},
             {id: 1, name: 'Ya'},
             {id: 2, name: 'Tidak'}
         ];
 
-        $scope.listOfOptionsImb_ = [
+        $scope.suratKepemilikanTanahListOfOption = [
             {id: 0, name: '--pilih--'},
             {id: 1, name: 'Berupa sertifikat tanah dari BPN yang dilegalisir Notaris'},
             {id: 2, name: 'Berupa Kartu Kapling dari Pemerintah Daerah/ Pusat (yang dilegalisir Pemerintah Kotamadya/ Instansi Pusat penerbit Kartu Kapling)'}
         ];
 
-        $scope.listOfOptionsImb_peruntukan = [
+        $scope.peruntukanIMListOfOption = [
             {id: 0, name: '--pilih--'},
             {id: 1, name: 'Rumah Tinggal (Real Estate)'},
             {id: 2, name: 'Rumah Tinggal (Pemugaran gol A dan B)'},
@@ -66,6 +66,11 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
         $scope.isShowZonaKhusus = false;
         $scope.isShowGolonganLokasi = false;
         $scope.isShowBentangBangunan = false;
+
+        $scope.isShowImbPersyaratan = false;
+        $scope.isShowImbProcess = false;
+
+        $scope.totalAnswered = 0;
 
         if ($location.path() === '/imb') {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
@@ -101,7 +106,6 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
         $scope.selectedItemChanged = function(data){
             console.log(data);
         }
-
 
         $scope.imbPeruntukanIMB = function(peruntukanIMB){
             if(peruntukanIMB.id !== 0){
@@ -161,7 +165,11 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
 
         $scope.imbBentangBangunan = function(bentangBangunan){
             if(bentangBangunan.id !== 0){
+                $scope.isShowImbPersyaratan = true;
+                $scope.isShowImbProcess = true;
             }else {
+                $scope.isShowImbPersyaratan = false;
+                $scope.isShowImbProcess = false;
             }
         }
 

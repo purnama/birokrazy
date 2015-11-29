@@ -14,7 +14,7 @@
                 <label class="col-sm-4 control-label">Peruntukan</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptionsImb_peruntukan track by option.id"
+                    <select class="form-control" ng-options="option.name for option in peruntukanIMListOfOption track by option.id"
                             ng-model="peruntukanIMB"
                             ng-change="imbPeruntukanIMB(peruntukanIMB)">
                     </select>
@@ -25,7 +25,7 @@
                 <label class="col-sm-4 control-label">Atas nama perusahaan</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="atasNamaPerusahaan"
                             ng-change="imbAtasNamaPerusahaan(atasNamaPerusahaan)">
                     </select>
@@ -36,7 +36,7 @@
                 <label class="col-sm-4 control-label">Fotocopy Surat Kepemilikan Tanah</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in suratKepemilikanTanahListOfOption track by option.id"
                             ng-model="suratKepemilikanTanah"
                             ng-change="imbSuratKepemilikanTanah(suratKepemilikanTanah)">
                     </select>
@@ -48,7 +48,7 @@
                         class="glyphicon glyphicon-question-sign"/></label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="olehRTLP"
                             ng-change="imbOlehRTLP(olehRTLP)">
                     </select>
@@ -59,7 +59,7 @@
                 <label class="col-sm-4 control-label">Luas tanah > 5000 m2</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="luasTanah"
                             ng-change="imbLuasTanah(luasTanah)">
                     </select>
@@ -71,7 +71,7 @@
                         class="glyphicon glyphicon-question-sign"/></label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="zonaKhusus"
                             ng-change="imbZonaKhusus(zonaKhusus)">
                     </select>
@@ -83,7 +83,7 @@
                         class="glyphicon glyphicon-question-sign"/></label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="golonganLokasi"
                             ng-change="imbGolonganLokasi(golonganLokasi)">
                     </select>
@@ -95,7 +95,7 @@
                         class="glyphicon glyphicon-question-sign"/></label>
 
                 <div class="col-sm-8">
-                    <select class="form-control" ng-options="option.name for option in listOfOptions track by option.id"
+                    <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="bentangBangunan"
                             ng-change="imbBentangBangunan(bentangBangunan)">
                     </select>
@@ -107,11 +107,12 @@
 </div>
 </div>
 
-    <div class="panel panel-default" >
+    <div class="panel panel-default" ng-show="isShowImbPersyaratan">
         <div class="panel-heading">
             <h3 class="panel-title">Persyaratan IMB</h3>
         </div>
         <div class="panel-body">
+            Berdasarkan kebutuhan kamu, maka kamu memerlukan dokument sebagai berikut:
             <div class="panel-body funkyradio">
                 <div class="funkyradio-success"><input type="checkbox" name="checkbox1" id="checkbox1"/><label
                         for="checkbox1">Foto Copy KTP</label></div>
@@ -170,7 +171,7 @@
 
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-show="isShowImbProcess">
         <div class="panel-heading">
             <h3 class="panel-title">Proses IMB</h3>
         </div>
