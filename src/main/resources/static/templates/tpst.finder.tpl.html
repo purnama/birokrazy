@@ -1,0 +1,80 @@
+<div class="panel panel-default" ng-controller="TPSTFinderController">
+    <div class="panel-heading">
+        <h3 class="panel-title">Lokasi</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Propinsi</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control"
+                            ng-options="option.name for option in daftarProvinsi track by option.id"
+                            ng-model="provinsi" ng-change="changeProvinsi(provinsi)">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Kabupaten/Kota</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control"
+                            ng-options="option.name for option in daftarProvinsi track by option.id"
+                            ng-model="provinsi" ng-change="changeProvinsi(provinsi)">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Kecamatan</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control"
+                            ng-options="option.name for option in daftarProvinsi track by option.id"
+                            ng-model="provinsi" ng-change="changeProvinsi(provinsi)">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Kelurahan</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control"
+                            ng-options="option.name for option in daftarProvinsi track by option.id"
+                            ng-model="provinsi" ng-change="changeProvinsi(provinsi)">
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div class="alert alert-info" role="alert">
+            <table>
+                <tr>
+                    <td>Keluarahan Kedaung</td>
+                </tr>
+                <tr>
+                    <td>jalan Kedaung Raya no. 123</td>
+                </tr>
+                <tr>
+                    <td>Jakarta Barat 12345</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Telp. 021 121212</td>
+                </tr>
+                <tr>
+                    <td>Email ptsp@jakarta-barat.id</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Jam Buka:</td>
+                </tr>
+                <tr>
+                    <td>Senin - Jumat 09:00 - 17:00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

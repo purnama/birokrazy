@@ -86,7 +86,7 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/imb.tpl.html',
             controller: 'ImbController'
         }).
-        when('/imb/lapor', {
+        when('/imb/review', {
             templateUrl: 'templates/imb.tpl.html',
             controller: 'ImbController'
         }).
