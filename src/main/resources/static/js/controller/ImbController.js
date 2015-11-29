@@ -37,6 +37,28 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             {id: 7, name : 'Duri Kosambi'}
         ];
 
+        $scope.listOfOptions = [
+            {id: 0, name: '--pilih--'},
+            {id: 1, name: 'Ya'},
+            {id: 2, name: 'Tidak'}
+        ];
+
+        $scope.listOfOptionsImb_ = [
+            {id: 0, name: '--pilih--'},
+            {id: 1, name: 'Berupa sertifikat tanah dari BPN yang dilegalisir Notaris'},
+            {id: 2, name: 'Berupa Kartu Kapling dari Pemerintah Daerah/ Pusat (yang dilegalisir Pemerintah Kotamadya/ Instansi Pusat penerbit Kartu Kapling)'}
+        ];
+
+        $scope.isShowSyarat = false;
+
+        $scope.isShowAtasNamaPerusahaan = false;
+        $scope.isShowSuratKepemilikanTanah = false;
+        $scope.isShowOlehRTLP = false;
+        $scope.isShowLuasTanah = false;
+        $scope.isShowZonaKhusus = false;
+        $scope.isShowGolonganLokasi = false;
+        $scope.isShowBentangBangunan = false;
+
         if ($location.path() === '/imb') {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
         }
@@ -55,12 +77,66 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
-        };
+        }
 
         $scope.testFunction = function(data){
             $scope.testValue = data;
             console.log($scope.testValue);
-        };
+        }
 
+        $scope.showPersyaratan = function(data){
+            if(data === '1'){
+
+            }
+        }
+
+        $scope.selectedItemChanged = function(data){
+            console.log(data);
+        }
+
+
+        $scope.imbAtasNamaPerusahaan = function(atasNamaPerusahaan){
+            if(atasNamaPerusahaan.id !== 0){
+                $scope.isShowSuratKepemilikanTanah = true;
+            }else {
+                $scope.isShowSuratKepemilikanTanah = false;
+            }
+        }
+
+        $scope.imbSuratKepemilikanTanah = function(suratKepemilikanTanah){
+            if(suratKepemilikanTanah.id !== 0){
+            }else {
+            }
+        }
+
+        $scope.imbOlehRTLP = function(olehRTLP){
+            if(olehRTLP.id !== 0){
+            }else {
+            }
+        }
+
+        $scope.imbLuasTanah = function(luasTanah){
+            if(luasTanah.id !== 0){
+            }else {
+            }
+        }
+
+        $scope.imbZonaKhusus = function(zonaKhusus){
+            if(zonaKhusus.id !== 0){
+            }else {
+            }
+        }
+
+        $scope.imbGolonganLokasi = function(golonganLokasi){
+            if(golonganLokasi.id !== 0){
+            }else {
+            }
+        }
+
+        $scope.imbBentangBangunan = function(bentangBangunan){
+            if(olehRTLP.id !== 0){
+            }else {
+            }
+        }
 
     }]);
