@@ -2,6 +2,18 @@
 hackMdk3App.controller('ImbController', ['$scope', '$location',
     function ($scope, $location) {
 
+        $scope.daftarProvinsi = [
+            {id: 1, name : '-- Pilih Propinsi --'},
+            {id: 2, name : 'DKI Jakarta'},
+            {id: 3, name : 'Jawa Tengah'},
+            {id: 4, name : 'Jawa Timur'}
+        ];
+
+        $scope.daftarKabupatenKota = [];
+        $scope.daftarKecamatan = [];
+        $scope.daftarKelurahan = [];
+
+
         if ($location.path() === '/imb') {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
         }
@@ -21,7 +33,10 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             $scope.templateUrl = 'templates/imb.proses.tpl.html';
         }
         else if($location.path() === '/imb/lapor') {
-            $scope.templateUrl = 'templates/imb.lapor.tpl.html';
+            $scope.templateUrl = 'templates/addReview.tpl.html';
+        }
+        else if($location.path() === '/imb/testing') {
+            $scope.templateUrl = 'templates/userOpenProcess.tpl.html';
         }
         else {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
@@ -31,14 +46,9 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             return viewLocation === $location.path();
         };
 
-        $(".rating").rating({
-            readonly: true,
-            showClear: false
-        });
-
-        $scope.testFunction = function(){
-            alert('testing....');
-            $scope.testValue = 'testing value...';
+        $scope.testFunction = function(data){
+            $scope.testValue = data;
+            console.log($scope.testValue);
         };
 
 

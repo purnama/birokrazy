@@ -1,16 +1,17 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        <div class="page-header">
-            <h2>Ijin Mendirikan Bangunan (IMB)</h2>
-        </div>
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2>Ijin Mendirikan Bangunan (IMB)</h2>
+            </div>
 
-        <ul class="nav nav-tabs " role="tablist">
-            <li ng-class="{ active: isActive('/imb')}" role="presentation"><a href="/imb">Informasi</a></li>
-            <!-- <li ng-class="{ active: isActive('/imb/persyaratan')}" role="presentation"><a href="/imb/persyaratan">Persyaratan & Proses</a></li> -->
-            <li ng-class="{ active: isActive('/imb/proses')}" role="presentation"><a href="/imb/proses">Persyaratan & Proses</a></li>
-            <li ng-class="{ active: isActive('/imb/lapor')}" role="presentation"><a href="/imb/lapor">Lapor</a></li>
-        </ul>
+            <ul class="nav nav-tabs " role="tablist">
+                <li ng-class="{ active: isActive('/imb')}" role="presentation"><a href="/imb">Informasi</a></li>
+                <li ng-class="{ active: isActive('/imb/proses')}" role="presentation"><a href="/imb/proses">Persyaratan & Proses</a></li>
+                <li ng-class="{ active: isActive('/imb/lapor')}" role="presentation"><a href="/imb/lapor">Review</a></li>
+            </ul>
+        </div>
     </div>
     <div class="row">
         <ng-include src="templateUrl"/>
