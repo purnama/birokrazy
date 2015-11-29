@@ -12,4 +12,12 @@ hackMdk3App.controller('ReviewPostController', ['$scope',
         $scope.showPostAction = function (){
             $scope.showPost = $scope.showPost ? false : true;
         }
+        $scope.submitAction = function (alert) {
+            $scope.showPost = false;
+            $scope.alert = alert;
+            $scope.successMessage = 'Your review is successfully posted.';
+            window.setTimeout(function () {
+                $('.alert').alert('close');
+            }, 3000);
+        }
     }]);

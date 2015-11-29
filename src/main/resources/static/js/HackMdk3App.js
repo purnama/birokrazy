@@ -134,7 +134,10 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
     }]).run(['$rootScope', '$location',
     function ($rootScope, $location) {
         $rootScope.path = $location.path();
-        $('li.menu-point').click(function() {
+        $('li.menu-point').click(function () {
             $('.navbar-collapse').collapse('hide');
+        });
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#success-alert").alert('close');
         });
     }]);
