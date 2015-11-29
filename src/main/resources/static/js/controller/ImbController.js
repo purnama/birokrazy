@@ -109,68 +109,209 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
 
         $scope.imbPeruntukanIMB = function(peruntukanIMB){
             if(peruntukanIMB.id !== 0){
-                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.totalAnswered = 1;
             }else {
-                $scope.isShowAtasNamaPerusahaan = false;
+                $scope.totalAnswered = 0;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbAtasNamaPerusahaan = function(atasNamaPerusahaan){
             if(atasNamaPerusahaan.id !== 0){
-                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.totalAnswered = 2;
             }else {
-                $scope.isShowSuratKepemilikanTanah = false;
+                $scope.totalAnswered = 1;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbSuratKepemilikanTanah = function(suratKepemilikanTanah){
             if(suratKepemilikanTanah.id !== 0){
-                $scope.isShowOlehRTLP = true;
+                $scope.totalAnswered = 3;
             }else {
-                $scope.isShowOlehRTLP = false;
+                $scope.totalAnswered = 2;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbOlehRTLP = function(olehRTLP){
             if(olehRTLP.id !== 0){
-                $scope.isShowLuasTanah = true;
+                $scope.totalAnswered = 4;
             }else {
-                $scope.isShowLuasTanah = false;
+                $scope.totalAnswered = 3;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbLuasTanah = function(luasTanah){
             if(luasTanah.id !== 0){
-                $scope.isShowZonaKhusus = true;
+                $scope.totalAnswered = 5;
             }else {
-                $scope.isShowZonaKhusus = false;
+                $scope.totalAnswered = 4;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbZonaKhusus = function(zonaKhusus){
             if(zonaKhusus.id !== 0){
-                $scope.isShowGolonganLokasi = true;
+                $scope.totalAnswered = 6;
             }else {
-                $scope.isShowGolonganLokasi = false;
+                $scope.totalAnswered = 5;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbGolonganLokasi = function(golonganLokasi){
             if(golonganLokasi.id !== 0){
-                $scope.isShowBentangBangunan = true;
+                $scope.totalAnswered = 7;
             }else {
-                $scope.isShowBentangBangunan = false;
+                $scope.totalAnswered = 6;
             }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
         }
 
         $scope.imbBentangBangunan = function(bentangBangunan){
             if(bentangBangunan.id !== 0){
+                $scope.totalAnswered = 8;
+            }else {
+                $scope.totalAnswered = 7;
+            }
+
+            $scope.updateQuestionsView($scope.totalAnswered);
+        }
+
+        $scope.updateQuestionsView = function(totalAnsweredQuestion){
+
+            $scope.isShowAtasNamaPerusahaan = false;
+            $scope.isShowSuratKepemilikanTanah = false;
+            $scope.isShowOlehRTLP = false;
+            $scope.isShowLuasTanah = false;
+            $scope.isShowZonaKhusus = false;
+            $scope.isShowGolonganLokasi = false;
+            $scope.isShowBentangBangunan = false;
+
+            $scope.isShowImbPersyaratan = false;
+            $scope.isShowImbProcess = false;
+
+            if(totalAnsweredQuestion > 7)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+                $scope.isShowLuasTanah = true;
+                $scope.isShowZonaKhusus = true;
+                $scope.isShowGolonganLokasi = true;
+                $scope.isShowBentangBangunan = true;
+
                 $scope.isShowImbPersyaratan = true;
                 $scope.isShowImbProcess = true;
-            }else {
-                $scope.isShowImbPersyaratan = false;
-                $scope.isShowImbProcess = false;
+            }
+            else if(totalAnsweredQuestion > 6)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+                $scope.isShowLuasTanah = true;
+                $scope.isShowZonaKhusus = true;
+                $scope.isShowGolonganLokasi = true;
+                $scope.isShowBentangBangunan = true;
+            }
+            else if(totalAnsweredQuestion > 5)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+                $scope.isShowLuasTanah = true;
+                $scope.isShowZonaKhusus = true;
+                $scope.isShowGolonganLokasi = true;
+
+            }
+            else if(totalAnsweredQuestion > 4)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+                $scope.isShowLuasTanah = true;
+                $scope.isShowZonaKhusus = true;
+
+            }
+            else if(totalAnsweredQuestion > 3)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+                $scope.isShowLuasTanah = true;
+
+            }
+            else if(totalAnsweredQuestion > 2)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+                $scope.isShowOlehRTLP = true;
+
+            }
+            else if(totalAnsweredQuestion > 1)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+                $scope.isShowSuratKepemilikanTanah = true;
+
+            }
+            else if(totalAnsweredQuestion > 0)
+            {
+                $scope.isShowAtasNamaPerusahaan = true;
+
             }
         }
+
+        $scope.counter = 0;
+        $scope.maxbar = 6;
+        $scope.currentBar = 0;
+        $scope.currentWidth = '';
+
+        $scope.Math = window.Math;
+
+        $scope.isActiveStep2 = true;
+        $scope.isActiveStep3 = true;
+        $scope.isActiveStep4 = true;
+        $scope.isActiveStep5 = true;
+        $scope.isActiveStep6 = true;
+
+        $scope.processCheckBox = function(confirmed){
+            if(confirmed) {
+                $scope.counter++;
+            }else{
+                $scope.counter--;
+            }
+
+            $scope.currentBar = Math.floor(($scope.counter / $scope.maxbar ) * 100);
+            $scope.currentWidth = 'width: ' + $scope.currentBar + '%';
+
+            if($scope.counter === 1){
+                $scope.isActiveStep2 = false;
+
+            }else if($scope.counter === 2){
+                $scope.isActiveStep3 = false;
+
+            }else if($scope.counter === 3){
+                $scope.isActiveStep4 = false;
+
+            }else if($scope.counter === 4){
+                $scope.isActiveStep5 = false;
+
+            }else if($scope.counter === 5){
+                $scope.isActiveStep6 = false;
+
+            }else if($scope.counter === 6){
+                $scope.isActiveStep7 = false;
+            }
+        }
+
 
     }]);

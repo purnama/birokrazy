@@ -8,12 +8,12 @@
             Cari tau dokument apa saja yang kamu perlukan dengan memberi keterangan berikut:
         </p>
 
-        <form class="form-horizontal">
+        <form>
 
             <div class="form-group">
-                <label class="col-sm-4 control-label">Peruntukan</label>
+                <label class="control-label">Peruntukan</label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in peruntukanIMListOfOption track by option.id"
                             ng-model="peruntukanIMB"
                             ng-change="imbPeruntukanIMB(peruntukanIMB)">
@@ -21,10 +21,10 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowAtasNamaPerusahaan">
-                <label class="col-sm-4 control-label">Atas nama perusahaan</label>
+            <div class="form-group" ng-show="isShowAtasNamaPerusahaan" >
+                <label class="control-label">Atas nama perusahaan</label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="atasNamaPerusahaan"
                             ng-change="imbAtasNamaPerusahaan(atasNamaPerusahaan)">
@@ -32,10 +32,10 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowSuratKepemilikanTanah">
-                <label class="col-sm-4 control-label">Fotocopy Surat Kepemilikan Tanah</label>
+            <div class="form-group" ng-show="isShowSuratKepemilikanTanah" >
+                <label class="control-label">Fotocopy Surat Kepemilikan Tanah</label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in suratKepemilikanTanahListOfOption track by option.id"
                             ng-model="suratKepemilikanTanah"
                             ng-change="imbSuratKepemilikanTanah(suratKepemilikanTanah)">
@@ -43,11 +43,20 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowOlehRTLP">
-                <label class="col-sm-4 control-label">Lokasi peruntukan disyaratkan oleh RTLB <span
-                        class="glyphicon glyphicon-question-sign"/></label>
+            <div class="form-group" ng-show="isShowOlehRTLP" >
+                <label class="control-label">
+                    Lokasi peruntukan disyaratkan oleh RTLB
+                    <span
+                            class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                            style="text-indent: 0em;"
+                            data-toggle="popover"
+                            title="Lama waktu proses"
+                            data-trigger="hover"
+                            data-container="body"
+                            data-content="RTLB adalah Rencana Tata Letak Bangunan"/>
+                </label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="olehRTLP"
                             ng-change="imbOlehRTLP(olehRTLP)">
@@ -55,10 +64,10 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowLuasTanah">
-                <label class="col-sm-4 control-label">Luas tanah > 5000 m2</label>
+            <div class="form-group" ng-show="isShowLuasTanah" >
+                <label class="control-label">Luas tanah > 5000 m2</label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="luasTanah"
                             ng-change="imbLuasTanah(luasTanah)">
@@ -66,11 +75,19 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowZonaKhusus">
-                <label class="col-sm-4 control-label">Zona khusus <span
-                        class="glyphicon glyphicon-question-sign"/></label>
+            <div class="form-group" ng-show="isShowZonaKhusus" >
+                <label class="control-label">Zona khusus
+                    <span
+                            class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                            style="text-indent: 0em;"
+                            data-toggle="popover"
+                            title="Lama waktu proses"
+                            data-trigger="hover"
+                            data-container="body"
+                            data-content="Mengenai Zona Khusus kamu dapat membaca di..."/>
+                </label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="zonaKhusus"
                             ng-change="imbZonaKhusus(zonaKhusus)">
@@ -78,11 +95,19 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowGolonganLokasi">
-                <label class="col-sm-4 control-label">Lokasi termasuk golongan pemugaran A, B, C <span
-                        class="glyphicon glyphicon-question-sign"/></label>
+            <div class="form-group" ng-show="isShowGolonganLokasi" >
+                <label class="control-label">Lokasi termasuk golongan pemugaran A, B, C
+                    <span
+                            class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                            style="text-indent: 0em;"
+                            data-toggle="popover"
+                            title="Lama waktu proses"
+                            data-trigger="hover"
+                            data-container="body"
+                            data-content="Pemugaran gologan A, B dan C adalah..."/>
+                </label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="golonganLokasi"
                             ng-change="imbGolonganLokasi(golonganLokasi)">
@@ -90,11 +115,20 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-show="isShowBentangBangunan">
-                <label class="col-sm-4 control-label">Bangunan bertingkat dgn bentang > 5 meter <span
-                        class="glyphicon glyphicon-question-sign"/></label>
+            <div class="form-group" ng-show="isShowBentangBangunan" >
+                <label class="control-label">
+                    Bangunan bertingkat dgn bentang > 5 meter
+                    <span
+                            class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                            style="text-indent: 0em;"
+                            data-toggle="popover"
+                            title="Lama waktu proses"
+                            data-trigger="hover"
+                            data-container="body"
+                            data-content="Bentang bangunan 5 meter dihitung dari pagar atau dinding terluar dari bangunan tersebut."/>
+                </label>
 
-                <div class="col-sm-8">
+                <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
                             ng-model="bentangBangunan"
                             ng-change="imbBentangBangunan(bentangBangunan)">
@@ -114,56 +148,57 @@
         <div class="panel-body">
             Berdasarkan kebutuhan kamu, maka kamu memerlukan dokument sebagai berikut:
             <div class="panel-body funkyradio">
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox1" id="checkbox1"/><label
-                        for="checkbox1">Foto Copy KTP</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox2" id="checkbox2"/><label
-                        for="checkbox2">Foto copy tanda lunas PBB dan SPPT tahun terakhir</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox3" id="checkbox3"/><label
-                        for="checkbox3">Foto copy tanda bukti status kepemilikan hak atas tanah yang telah
-                    disahkan
-                    oleh pejabat yang berwenang</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox4" id="checkbox4"/><label
-                        for="checkbox4">Foto copy akta pendirian badan dan/atau perubahannya yang telah disahkan
-                    oleh pejabat yang berwenang</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox5" id="checkbox5"/><label
-                        for="checkbox5">Foto copy Surat Keterangan Rencana Kota (SKRK) atau foto copy IMB yang
-                    dimiliki sebelumnya atau siteplan yang telah dilegalisasi oleh Dinas Cipta Karya dan Tata
-                    Ruang</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox6" id="checkbox6"/><label
-                        for="checkbox6">Surat Keterangan Lurah & Camat (untuk status kepemilikan tanah selain
-                    SHM,
-                    HGB & IPT)</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox7" id="checkbox7"/><label
-                        for="checkbox7">Surat Pernyataan keabsahan dan kebenaran dokumen, sanggup memenuhi
-                    dokumen
-                    teknis dan membayar retribusi</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox8" id="checkbox8"/><label
-                        for="checkbox8">Rencana teknis bangunan</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox9" id="checkbox9"/><label
-                        for="checkbox9">Surat pernyataan pertanggungjawaban konstruksi/rancang bangun dari
-                    penanggung jawab bangunan (pemilik, perencana, pengawas/pelaksana)</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox10" id="checkbox10"/><label
-                        for="checkbox10">Foto Bangunan yang sudah berdiri</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox11" id="checkbox11"/><label
-                        for="checkbox11">Analisis mengenai dampak lingkungan bagi bangunan yang menimbulkan
-                    dampak
-                    penting terhadap lingkungan atau Upaya Pemantauan Lingkungan Hidup (UPL) dan Upaya
-                    Pengelolaan
-                    Lingkungan Hidup (UPL) dalam hal dampak terhadap lingkungan tersebut dapat diatasi secara
-                    teknis</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox12" id="checkbox12"/><label
-                        for="checkbox12">Foto copy berita acara serah terima administrasi prasarana lingkungan,
-                    utilitas umum dan fasilitas sosial</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox13" id="checkbox13"/><label
-                        for="checkbox13">Rekomendasi Andalalin dari Dinas Perhubungan</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox14" id="checkbox14"/><label
-                        for="checkbox14">Rekomendasi Cagar Budaya dari Dinas Pariwisata</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox15" id="checkbox15"/><label
-                        for="checkbox15">Rekomendasi Drainase dari DPUBMP</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox16" id="checkbox16"/><label
-                        for="checkbox16">Rekomendasi FKUB dan Depag untuk bangunan tempat ibadah</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkbox17" id="checkbox17"/><label
-                        for="checkbox17">Rekomendasi Dinas Pemadam Kebakaran</label></div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox1" id="checkbox1"/><label for="checkbox1">Foto Copy KTP</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox2" id="checkbox2"/><label for="checkbox2">Foto copy tanda lunas PBB dan SPPT tahun terakhir</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox3" id="checkbox3"/><label for="checkbox3">Foto copy tanda bukti status kepemilikan hak atas tanah yang telah disahkan oleh pejabat yang berwenang</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox4" id="checkbox4"/><label for="checkbox4">Foto copy akta pendirian badan dan/atau perubahannya yang telah disahkan oleh pejabat yang berwenang</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox5" id="checkbox5"/><label for="checkbox5">Foto copy Surat Keterangan Rencana Kota (SKRK) atau foto copy IMB yang dimiliki sebelumnya atau siteplan yang telah dilegalisasi oleh Dinas Cipta Karya dan Tata Ruang</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox6" id="checkbox6"/><label for="checkbox6">Surat Keterangan Lurah & Camat (untuk status kepemilikan tanah selain SHM, HGB & IPT)</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox7" id="checkbox7"/><label for="checkbox7">Surat Pernyataan keabsahan dan kebenaran dokumen, sanggup memenuhi dokumen teknis dan membayar retribusi</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox8" id="checkbox8"/><label for="checkbox8">Rencana teknis bangunan</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox9" id="checkbox9"/><label for="checkbox9">Surat pernyataan pertanggungjawaban konstruksi/rancang bangun dari penanggung jawab bangunan (pemilik, perencana, pengawas/pelaksana)</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox10" id="checkbox10"/><label for="checkbox10">Foto Bangunan yang sudah berdiri</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox11" id="checkbox11"/><label for="checkbox11">Analisis mengenai dampak lingkungan bagi bangunan yang menimbulkan dampak penting terhadap lingkungan atau Upaya Pemantauan Lingkungan Hidup (UPL) dan Upaya Pengelolaan Lingkungan Hidup (UPL) dalam hal dampak terhadap lingkungan tersebut dapat diatasi secara teknis</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox12" id="checkbox12"/><label for="checkbox12">Foto copy berita acara serah terima administrasi prasarana lingkungan, utilitas umum dan fasilitas sosial</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox13" id="checkbox13"/><label for="checkbox13">Rekomendasi Andalalin dari Dinas Perhubungan</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox14" id="checkbox14"/><label for="checkbox14">Rekomendasi Cagar Budaya dari Dinas Pariwisata</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox15" id="checkbox15"/><label for="checkbox15">Rekomendasi Drainase dari DPUBMP</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox16" id="checkbox16"/><label for="checkbox16">Rekomendasi FKUB dan Depag untuk bangunan tempat ibadah</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkbox17" id="checkbox17"/><label for="checkbox17">Rekomendasi Dinas Pemadam Kebakaran</label>
+                </div>
 
             </div>
 
@@ -178,47 +213,86 @@
         <div class="panel-body">
 
             <p>
-                Untuk mendapatkan IMB, anda dapat melakukan langkah-langkah sebagai berikut.
-            </p>
-
-            <p>
                 Proses Pengajuan IMB anda:
                 <br/>
 
             <div class="progress">
-                <div class="progress-bar progress-bar-striped " role="progressbar" aria-valuenow="60"
+                <div class="progress-bar progress-bar-striped " role="progressbar" aria-valuenow="{{currentBar}}"
                      aria-valuemin="0"
-                     aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete</span>60%
+                     aria-valuemax="100" style="{{currentWidth}}"><span class="sr-only">{{currentBar}}% Complete</span>{{currentBar}}%
                 </div>
             </div>
             </p>
 
             <div class="panel-body funkyradio">
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB01"
-                                                       id="checkboxProsesIMB01"/><label
-                        for="checkboxProsesIMB01">Mengurus
-                    di PTSP Kecamatan</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB02"
-                                                       id="checkboxProsesIMB02"/><label
-                        for="checkboxProsesIMB02">Pemohon
-                    mengajukan Permohonan IMB (PIMB)</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB03"
-                                                       id="checkboxProsesIMB03"/><label
-                        for="checkboxProsesIMB03">Proses
-                    pemeriksaan dan penerbitan Surat Ketetapan Retribusi Daerah (SKRD)</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB04"
-                                                       id="checkboxProsesIMB04"/><label
-                        for="checkboxProsesIMB04">Membayar
-                    retribusi IMB ke kas daerah</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB05"
-                                                       id="checkboxProsesIMB05"/><label
-                        for="checkboxProsesIMB05">Menyerahkan
-                    bukti pembayaran ke PTSP</label></div>
-                <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesIMB06"
-                                                       id="checkboxProsesIMB06"/><label
-                        for="checkboxProsesIMB06">IMB
-                    selesai</label></div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkboxProsesIMB01" id="checkboxProsesIMB01" ng-model="confirmed1" ng-change="processCheckBox(confirmed1)" />
+                    <label for="checkboxProsesIMB01">Mengurus di PTSP Kecamatan</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkboxProsesIMB02" id="checkboxProsesIMB02" ng-model="confirmed2" ng-change="processCheckBox(confirmed2)" ng-disabled="isActiveStep2" />
+                    <label for="checkboxProsesIMB02">Pemohon mengajukan Permohonan IMB (PIMB)</label>
+                </div>
+                <div class="funkyradio-success" >
+                    <input type="checkbox" name="checkboxProsesIMB03" id="checkboxProsesIMB03" ng-model="confirmed3" ng-change="processCheckBox(confirmed3)" ng-disabled="isActiveStep3" />
+                    <label for="checkboxProsesIMB03" data-toggle="modal" data-target="#imbSKRDDuration" >
+                        Proses pemeriksaan dan penerbitan Surat Ketetapan Retribusi Daerah (SKRD)
+                        <span
+                                class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                                style="text-indent: 0em;"
+                                data-toggle="popover"
+                                title="Lama waktu proses"
+                                data-trigger="hover"
+                                data-container="body"
+                                data-content="Proses pemeriksaan dan penerbitan Surat Ketetapan Retribusi Daerah (SKRD) berlangsung tidak lebih dari 1 minggu."/>
+                    </label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkboxProsesIMB04" id="checkboxProsesIMB04" ng-model="confirmed4" ng-change="processCheckBox(confirmed4)" ng-disabled="isActiveStep4" />
+                    <label for="checkboxProsesIMB04">Membayar retribusi IMB ke kas daerah</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkboxProsesIMB05" id="checkboxProsesIMB05" ng-model="confirmed5" ng-change="processCheckBox(confirmed5)" ng-disabled="isActiveStep5" />
+                    <label for="checkboxProsesIMB05">Menyerahkan bukti pembayaran ke PTSP</label>
+                </div>
+                <div class="funkyradio-success">
+                    <input type="checkbox" name="checkboxProsesIMB06" id="checkboxProsesIMB06" ng-model="confirmed6" ng-change="processCheckBox(confirmed6)" ng-disabled="isActiveStep6" />
+                    <label for="checkboxProsesIMB06">IMB selesai</label>
+                </div>
 
+            </div>
+
+            <div class="modal fade" id="imbSKRDDuration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Berapa lama waktu yang benar-benar dibutuhkan?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label class="sr-only" for="durasi">Durasi</label>
+                                    <input type="text" class="form-control" id="durasi" value="1" placeholder="Durasi">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="satuan">Satuan</label>
+                                    <select class="form-control" id="satuan">
+                                        <option>Jam</option>
+                                        <option>Hari</option>
+                                        <option selected>Minggu</option>
+                                        <option>Bulan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" >Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
