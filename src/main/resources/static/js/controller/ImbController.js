@@ -49,6 +49,14 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             {id: 2, name: 'Berupa Kartu Kapling dari Pemerintah Daerah/ Pusat (yang dilegalisir Pemerintah Kotamadya/ Instansi Pusat penerbit Kartu Kapling)'}
         ];
 
+        $scope.listOfOptionsImb_peruntukan = [
+            {id: 0, name: '--pilih--'},
+            {id: 1, name: 'Rumah Tinggal (Real Estate)'},
+            {id: 2, name: 'Rumah Tinggal (Pemugaran gol A dan B)'},
+            {id: 3, name: 'Bangunan Umum (Kurang dari 8 Lantai)'},
+            {id: 4, name: 'Bangunan Umum (8 Lantai dan lebih)'}
+        ];
+
         $scope.isShowSyarat = false;
 
         $scope.isShowAtasNamaPerusahaan = false;
@@ -95,6 +103,15 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
         }
 
 
+        $scope.imbPeruntukanIMB = function(peruntukanIMB){
+            if(peruntukanIMB.id !== 0){
+                $scope.isShowAtasNamaPerusahaan = true;
+            }else {
+                $scope.isShowAtasNamaPerusahaan = false;
+            }
+        }
+
+
         $scope.imbAtasNamaPerusahaan = function(atasNamaPerusahaan){
             if(atasNamaPerusahaan.id !== 0){
                 $scope.isShowSuratKepemilikanTanah = true;
@@ -105,36 +122,46 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
 
         $scope.imbSuratKepemilikanTanah = function(suratKepemilikanTanah){
             if(suratKepemilikanTanah.id !== 0){
+                $scope.isShowOlehRTLP = true;
             }else {
+                $scope.isShowOlehRTLP = false;
             }
         }
 
         $scope.imbOlehRTLP = function(olehRTLP){
             if(olehRTLP.id !== 0){
+                $scope.isShowLuasTanah = true;
             }else {
+                $scope.isShowLuasTanah = false;
             }
         }
 
         $scope.imbLuasTanah = function(luasTanah){
             if(luasTanah.id !== 0){
+                $scope.isShowZonaKhusus = true;
             }else {
+                $scope.isShowZonaKhusus = false;
             }
         }
 
         $scope.imbZonaKhusus = function(zonaKhusus){
             if(zonaKhusus.id !== 0){
+                $scope.isShowGolonganLokasi = true;
             }else {
+                $scope.isShowGolonganLokasi = false;
             }
         }
 
         $scope.imbGolonganLokasi = function(golonganLokasi){
             if(golonganLokasi.id !== 0){
+                $scope.isShowBentangBangunan = true;
             }else {
+                $scope.isShowBentangBangunan = false;
             }
         }
 
         $scope.imbBentangBangunan = function(bentangBangunan){
-            if(olehRTLP.id !== 0){
+            if(bentangBangunan.id !== 0){
             }else {
             }
         }

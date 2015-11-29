@@ -14,12 +14,9 @@
                 <label class="col-sm-4 control-label">Peruntukan</label>
 
                 <div class="col-sm-8">
-                    <select class="form-control">
-                        <option value="0">-- pilih --</option>
-                        <option value="0">Rumah Tinggal (Real Estate)</option>
-                        <option value="0">Rumah Tinggal (Pemugaran gol A dan B)</option>
-                        <option value="0">Bangunan Umum (Kurang dari 8 Lantai)</option>
-                        <option value="0">Bangunan Umum (8 Lantai dan lebih)</option>
+                    <select class="form-control" ng-options="option.name for option in listOfOptionsImb_peruntukan track by option.id"
+                            ng-model="peruntukanIMB"
+                            ng-change="imbPeruntukanIMB(peruntukanIMB)">
                     </select>
                 </div>
             </div>
