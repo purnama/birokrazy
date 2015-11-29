@@ -1,0 +1,23 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2>Paspor</h2>
+            </div>
+
+            <ul class="nav nav-tabs " role="tablist">
+                <li ng-class="{ active: isActive('/paspor')}" role="presentation"><a href="/paspor">Informasi</a></li>
+                <!-- <li ng-class="{ active: isActive('/imb/persyaratan')}" role="presentation"><a href="/imb/persyaratan">Persyaratan & Proses</a></li> -->
+                <li ng-class="{ active: isActive('/paspor/proses')}" role="presentation"><a href="/paspor/proses">Persyaratan
+                    & Proses</a></li>
+                <li ng-class="{ active: isActive('/paspor/lapor')}" role="presentation"><a
+                        href="/paspor/lapor">Lapor</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <ng-include src="templateUrl"/>
+    </div>
+
+</div>

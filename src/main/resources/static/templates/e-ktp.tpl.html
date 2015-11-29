@@ -7,19 +7,24 @@
             </div>
 
             <ul class="nav nav-tabs " role="tablist">
-                <li ng-class="{ active: isActive('/e-ktp/informasi')}" role="presentation"><a href="/e-ktp/informasi">Informasi</a>
+                <li ng-class="{ active: isActive('/e-ktp/informasi')}" role="presentation">
+                    <a href="/e-ktp/informasi">Informasi</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation"><a
-                        href="/e-ktp/proses">Proses</a>
+                <li ng-class="{ active: isActive('/e-ktp/review')}" role="presentation">
+                    <a href="/e-ktp/review">Review</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/lapor')}" role="presentation"><a
-                        href="/e-ktp/lapor">Lapor</a>
+                <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation">
+                    <a href="/e-ktp/proses">Proses</a>
+                </li>
+                <li ng-class="{ active: isActive('/e-ktp/lapor')}" role="presentation">
+                    <a href="/e-ktp/lapor">Lapor</a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
+            <p>&nbsp;</p>
             <ng-include src="templateUrl"/>
         </div>
     </div>

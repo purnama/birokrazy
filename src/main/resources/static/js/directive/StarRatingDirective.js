@@ -7,7 +7,8 @@ hackMdk3App.directive("hackmdk3StarRating", function(){
         link: function(scope, iElement, iAttrs) {
             $(iElement).rating({
                 readonly: true,
-                showClear: false
+                showClear: false,
+                showCaption: false
             });
         }
     }

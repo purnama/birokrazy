@@ -50,6 +50,10 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
         }).
+        when('/e-ktp/review', {
+            templateUrl: 'templates/e-ktp.tpl.html',
+            controller: 'EKtpController'
+        }).
         when('/e-ktp/persyaratan', {
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
@@ -90,7 +94,34 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/imb.tpl.html',
             controller: 'ImbController'
         }).
-
+        when('/paspor', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/persyaratan', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/proses', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/deskripsi', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/lokasi', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/statistik', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
+        when('/paspor/lapor', {
+            templateUrl: 'templates/paspor.tpl.html',
+            controller: 'PasporController'
+        }).
         when('/izinUsaha', {
             templateUrl: 'templates/e-ktp.tpl.html',
         }).
