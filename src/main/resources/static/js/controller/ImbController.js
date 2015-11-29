@@ -35,8 +35,8 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
         else if($location.path() === '/imb/lapor') {
             $scope.templateUrl = 'templates/addReview.tpl.html';
         }
-        else if($location.path() === '/imb/testing') {
-            $scope.templateUrl = 'templates/userOpenProcess.tpl.html';
+        else if($location.path() === '/imb/listDokumen') {
+            $scope.templateUrl = 'templates/user.dokument.list.tpl.html';
         }
         else {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
