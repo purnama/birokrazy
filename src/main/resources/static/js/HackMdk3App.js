@@ -46,10 +46,6 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
         }).
-        when('/e-ktp/informasi', {
-            templateUrl: 'templates/e-ktp.tpl.html',
-            controller: 'EKtpController'
-        }).
         when('/e-ktp/review', {
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'
@@ -122,8 +118,21 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/paspor.tpl.html',
             controller: 'PasporController'
         }).
-        when('/izinUsaha', {
-            templateUrl: 'templates/e-ktp.tpl.html',
+        when('/izin-usaha', {
+            templateUrl: 'templates/izin-usaha.tpl.html',
+            controller: 'IzinUsahaController'
+        }).
+        when('/izin-usaha/review', {
+            templateUrl: 'templates/izin-usaha.tpl.html',
+            controller: 'IzinUsahaController'
+        }).
+        when('/izin-usaha/persyaratan', {
+            templateUrl: 'templates/izin-usaha.tpl.html',
+            controller: 'IzinUsahaController'
+        }).
+        when('/izin-usaha/proses', {
+            templateUrl: 'templates/izin-usaha.tpl.html',
+            controller: 'IzinUsahaController'
         }).
         when('/official', {
             templateUrl: $constant.templates.include,
@@ -151,10 +160,6 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 permissions: [$constant.roles.admin]
             }
         }).
-        when('/review', {
-            templateUrl: 'templates/review.tpl.html',
-            controller: "ReviewController"
-        }).
         when('/trend', {
             templateUrl: 'templates/trend.tpl.html',
             controller: "TrendController"
@@ -162,5 +167,10 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
         otherwise({redirectTo: '/error/404.html'});
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    }]).run(['$rootScope', '$location',
+    function ($rootScope, $location) {
+        $rootScope.path = $location.path();
+        $('.navbar-collapse').click('li', function() {
+            $('.navbar-collapse').collapse('hide');
+        });
     }]);
-

@@ -54,11 +54,10 @@
                 <li ng-class="{ active: isActive('/e-ktp')}"><a href="/e-ktp">E-KTP</a></li>
                 <li ng-class="{ active: isActive('/paspor')}"><a href="/paspor">Paspor</a></li>
                 <li ng-class="{ active: isActive('/imb')}"><a href="/imb">IMB</a></li>
-                <li ng-class="{ active: isActive('/izinUsaha')}"><a href="/izinUsaha">Izin Usaha</a></li>
+                <li ng-class="{ active: isActive('/izin-usaha')}"><a href="/izin-usaha">Izin Usaha</a></li>
                 <li ng-class="{ active: isActive('/user')}"><a href="/user">User</a></li>
                 <li ng-class="{ active: isActive('/official')}"><a href="/official">Official</a></li>
                 <li ng-class="{ active: isActive('/requirement')}"><a href="/requirement">Requirement</a></li>
-                <li ng-class="{ active: isActive('/review')}"><a href="/review">Review</a></li>
             </ul>
             <div ng-controller="AuthController">
                 <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
@@ -104,6 +103,7 @@
 <script src="js/service/IndexService.js"></script>
 <script src="js/service/AuthService.js"></script>
 <script src="js/service/UserService.js"></script>
+<script src="js/service/LocationService.js"></script>
 <script src="js/service/ErrorService.js"></script>
 <script src="js/controller/IndexController.js"></script>
 <script src="js/controller/EKtpController.js"></script>
@@ -115,7 +115,7 @@
 <script src="js/controller/LoginController.js"></script>
 <script src="js/controller/ImbController.js"></script>
 <script src="js/controller/PasporController.js"></script>
-<script src="js/controller/ReviewController.js"></script>
+<script src="js/controller/IzinUsahaController.js"></script>
 <script src="js/controller/TrendController.js"></script>
 <script src="js/directive/StarRatingDirective.js"></script>
 <script src="js/directive/PopOverDirective.js"></script>

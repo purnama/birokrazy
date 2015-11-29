@@ -1,0 +1,28 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2>Izin Usaha Toko</h2>
+            </div>
+
+            <ul class="nav nav-tabs " role="tablist">
+                <li ng-class="{ active: isActive('/izin-usaha')}" role="presentation">
+                    <a href="/izin-usaha">Informasi</a>
+                </li>
+                <li ng-class="{ active: isActive('/izin-usaha/review')}" role="presentation">
+                    <a href="/izin-usaha/review">Review</a>
+                </li>
+                <li ng-class="{ active: isActive('/izin-usaha/proses')}" role="presentation">
+                    <a href="/izin-usaha/proses">Persyaratan & Proses</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>&nbsp;</p>
+            <ng-include src="templateUrl"/>
+        </div>
+    </div>
+</div>
