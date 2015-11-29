@@ -111,7 +111,6 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             }
         }
 
-
         $scope.imbAtasNamaPerusahaan = function(atasNamaPerusahaan){
             if(atasNamaPerusahaan.id !== 0){
                 $scope.isShowSuratKepemilikanTanah = true;
