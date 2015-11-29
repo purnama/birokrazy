@@ -14,7 +14,8 @@
                 <label class="control-label">Peruntukan</label>
 
                 <div>
-                    <select class="form-control" ng-options="option.name for option in peruntukanIMListOfOption track by option.id"
+                    <select class="form-control" ng-options="option.name for option in peruntukanIMBListOfOption track by option.id"
+                            ng-init="peruntukanIMB = peruntukanIMBListOfOption[0]"
                             ng-model="peruntukanIMB"
                             ng-change="imbPeruntukanIMB(peruntukanIMB)">
                     </select>
@@ -26,6 +27,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="atasNamaPerusahaan = yesNoQuestionListOfOption[0]"
                             ng-model="atasNamaPerusahaan"
                             ng-change="imbAtasNamaPerusahaan(atasNamaPerusahaan)">
                     </select>
@@ -37,6 +39,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in suratKepemilikanTanahListOfOption track by option.id"
+                            ng-init="suratKepemilikanTanah = suratKepemilikanTanahListOfOption[0]"
                             ng-model="suratKepemilikanTanah"
                             ng-change="imbSuratKepemilikanTanah(suratKepemilikanTanah)">
                     </select>
@@ -58,6 +61,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="olehRTLP = yesNoQuestionListOfOption[0]"
                             ng-model="olehRTLP"
                             ng-change="imbOlehRTLP(olehRTLP)">
                     </select>
@@ -69,6 +73,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="luasTanah = yesNoQuestionListOfOption[0]"
                             ng-model="luasTanah"
                             ng-change="imbLuasTanah(luasTanah)">
                     </select>
@@ -89,6 +94,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="zonaKhusus = yesNoQuestionListOfOption[0]"
                             ng-model="zonaKhusus"
                             ng-change="imbZonaKhusus(zonaKhusus)">
                     </select>
@@ -109,6 +115,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="golonganLokasi = yesNoQuestionListOfOption[0]"
                             ng-model="golonganLokasi"
                             ng-change="imbGolonganLokasi(golonganLokasi)">
                     </select>
@@ -130,6 +137,7 @@
 
                 <div>
                     <select class="form-control" ng-options="option.name for option in yesNoQuestionListOfOption track by option.id"
+                            ng-init="bentangBangunan = yesNoQuestionListOfOption[0]"
                             ng-model="bentangBangunan"
                             ng-change="imbBentangBangunan(bentangBangunan)">
                     </select>

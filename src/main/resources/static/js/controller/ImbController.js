@@ -49,7 +49,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
             {id: 2, name: 'Berupa Kartu Kapling dari Pemerintah Daerah/ Pusat (yang dilegalisir Pemerintah Kotamadya/ Instansi Pusat penerbit Kartu Kapling)'}
         ];
 
-        $scope.peruntukanIMListOfOption = [
+        $scope.peruntukanIMBListOfOption = [
             {id: 0, name: '--pilih--'},
             {id: 1, name: 'Rumah Tinggal (Real Estate)'},
             {id: 2, name: 'Rumah Tinggal (Pemugaran gol A dan B)'},
