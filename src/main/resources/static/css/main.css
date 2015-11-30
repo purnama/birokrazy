@@ -48,8 +48,10 @@ html, body {
     display: inline;
 }
 
-#jumbo-text{
-    text-align: right;
+@media screen and (max-width: 767px) {
+    .jumbotron .text-right {
+        text-align: left;
+    }
 }
 
 .jumbotron h2 {
@@ -61,7 +63,7 @@ html, body {
     font-size: 1em;
 }
 
-.jumbotron .embed-responsive{
+.jumbotron .embed-responsive {
     border: 10px solid white;
 }
 
