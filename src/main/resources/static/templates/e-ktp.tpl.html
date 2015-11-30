@@ -1,12 +1,19 @@
+<div class="hackmdk3-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>KTP Elektronik</h1>
+                    <span>Kartu tanda penduduk elektronik</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-12">
-            <div class="page-header">
-                <h2>E-KTP</h2>
-            </div>
-
-            <ul class="nav nav-tabs nav-justified" role="tablist">
+            <ul class="nav nav-tabs hackmdk3-nav-justified">
                 <li ng-class="{ active: isActive('/e-ktp')}" role="presentation">
                     <a href="/e-ktp">Informasi</a>
                 </li>
@@ -17,12 +24,11 @@
                     <a href="/e-ktp/proses">Persyaratan & Proses</a>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>&nbsp;</p>
+
             <ng-include src="templateUrl"/>
+
+
         </div>
     </div>
+
 </div>

@@ -1,8 +1,8 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('ReviewPostController', ['$scope',
-    function ($scope) {
+hackMdk3App.controller('ReviewPostController', ['$scope', '$rootScope',
+    function ($scope, $rootScope) {
         $scope.facebookAction = function () {
             $scope.facebook = $scope.facebook ? false : true;
         }

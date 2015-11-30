@@ -1,6 +1,7 @@
 var hackMdk3App = angular.module('hackMdk3App', [
     'ngRoute',
-    'ngCookies']);
+    'ngCookies',
+    'ui.bootstrap']);
 hackMdk3App.constant('$constant', {
     apiVersion: {
         public: 'api/v1/public',

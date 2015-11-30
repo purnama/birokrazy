@@ -1,179 +1,160 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Paspor biasa</h3>
-                </div>
-                <div class="panel-body">
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>
+            Cari tahu dokumen apa saja yang anda perlukan dengan memberi keterangan berikut:
+        </p>
+        <form>
+            <div class="form-group">
+                <label class="control-label">Domisili</label>
 
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <p>
-                                Cari tahu dokumen apa saja yang anda perlukan dengan memberi keterangan berikut:
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">Domisili</label>
-
-                            <select class="form-control" ng-init="domisiliPaspor=listOfOptionsDomisili[0]"
-                                    ng-options="option.name for option in listOfOptionsDomisili track by option.id"
-                                    ng-model="domisiliPaspor"
-                                    ng-change="pasporDomisiliPaspor(domisiliPaspor)">
-                            </select>
-                        </div>
-                        <div class="form-group" ng-show="isShowPeruntukan">
-                            <label class="control-label">Peruntukan</label>
-
-                            <select class="form-control" ng-init="peruntukanPaspor=listOfOptionsPeruntukan[0]"
-                                    ng-options="option.name for option in listOfOptionsPeruntukan track by option.id"
-                                    ng-model="peruntukanPaspor"
-                                    ng-change="pasporPeruntukanPaspor(peruntukanPaspor)">
-                            </select>
-                        </div>
-                        <div class="form-group" ng-show="isShowProses">
-                            <label class="control-label">Pilih proses</label>
-
-                            <select class="form-control" ng-init="prosesPaspor=listOfOptionsProses[0]"
-                                    ng-options="option.name for option in listOfOptionsProses track by option.id"
-                                    ng-model="prosesPaspor"
-                                    ng-change="pasporProsesPaspor(prosesPaspor)">
-                            </select>
-                        </div>
-                    </form>
-                </div>
+                <select class="form-control" ng-init="domisiliPaspor=listOfOptionsDomisili[0]"
+                        ng-options="option.name for option in listOfOptionsDomisili track by option.id"
+                        ng-model="domisiliPaspor"
+                        ng-change="pasporDomisiliPaspor(domisiliPaspor)">
+                </select>
             </div>
-        </div>
-    </div>
-    <div class="row" ng-show="isShowSyaratDanProses">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Persyaratan Paspor Biasa</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="panel-body funkyradio">
-                        <div class="funkyradio-success"><input type="checkbox" name="checkbox1" id="checkbox1"/><label
-                                for="checkbox1">KTP yang masih berlaku</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkbox2" id="checkbox2"/><label
-                                for="checkbox2">Foto copy Kartu Keluarga</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkbox3" id="checkbox3"/><label
-                                for="checkbox3">Akte lahir, akte nikah, ijazah atau surat baptis</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkbox4" id="checkbox4"/><label
-                                for="checkbox4">Surat pewarganegaraan Indonesia bagi WNA yang sudah memperoleh
-                            kewarganegaraan Indonesia</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkbox5" id="checkbox5"/><label
-                                for="checkbox5">Surat penetapan ganti nama (Bila pernah ganti nama)</label></div>
-                    </div>
+            <div class="form-group" ng-show="isShowPeruntukan">
+                <label class="control-label">Peruntukan</label>
 
-                </div>
-
+                <select class="form-control" ng-init="peruntukanPaspor=listOfOptionsPeruntukan[0]"
+                        ng-options="option.name for option in listOfOptionsPeruntukan track by option.id"
+                        ng-model="peruntukanPaspor"
+                        ng-change="pasporPeruntukanPaspor(peruntukanPaspor)">
+                </select>
             </div>
-        </div>
+            <div class="form-group" ng-show="isShowProses">
+                <label class="control-label">Pilih proses</label>
+
+                <select class="form-control" ng-init="prosesPaspor=listOfOptionsProses[0]"
+                        ng-options="option.name for option in listOfOptionsProses track by option.id"
+                        ng-model="prosesPaspor"
+                        ng-change="pasporProsesPaspor(prosesPaspor)">
+                </select>
+            </div>
+        </form>
     </div>
-    <div class="row" ng-show="isShowSyaratDanProses">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Proses Pengajuan Paspor</h3>
-                </div>
-                <div class="panel-body">
+</div>
 
-                    <p>
-                        Untuk membuat paspor, anda dapat melakukan langkah-langkah sebagai berikut.
-                    </p>
 
-                    <p>
-                        Proses pembuatan paspor anda:
-                        <br/>
+<div class="panel panel-default" ng-show="isShowSyaratDanProses">
+    <div class="panel-heading">
+        <h3 class="panel-title">Persyaratan Paspor Biasa</h3>
+    </div>
+    <div class="panel-body">
+        <div class="panel-body funkyradio">
+            <div class="funkyradio-success"><input type="checkbox" name="checkbox1" id="checkbox1"/><label
+                    for="checkbox1">KTP yang masih berlaku</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkbox2" id="checkbox2"/><label
+                    for="checkbox2">Foto copy Kartu Keluarga</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkbox3" id="checkbox3"/><label
+                    for="checkbox3">Akte lahir, akte nikah, ijazah atau surat baptis</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkbox4" id="checkbox4"/><label
+                    for="checkbox4">Surat pewarganegaraan Indonesia bagi WNA yang sudah memperoleh
+                kewarganegaraan Indonesia</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkbox5" id="checkbox5"/><label
+                    for="checkbox5">Surat penetapan ganti nama (Bila pernah ganti nama)</label></div>
+        </div>
 
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped " role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0"
-                             aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete</span>60%
-                        </div>
+    </div>
+
+</div>
+
+<div class="panel panel-default" ng-show="isShowSyaratDanProses">
+    <div class="panel-heading">
+        <h3 class="panel-title">Proses Pengajuan Paspor</h3>
+    </div>
+    <div class="panel-body">
+
+        <p>
+            Untuk membuat paspor, anda dapat melakukan langkah-langkah sebagai berikut.
+        </p>
+
+        <p>
+            Proses pembuatan paspor anda:
+            <br/>
+
+            <uib-progressbar class="progress-striped" max="100" value="currentBar"><span
+                    style="color:white; white-space:nowrap;">{{currentBar}}%</span></uib-progressbar>
+        </p>
+
+        <div class="panel-body funkyradio">
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass01"
+                                                   id="checkboxProsesPass01"/><label
+                    for="checkboxProsesPass01">Mengisi formulir data & melampirkan dokumen
+                persyaratan</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass02"
+                                                   id="checkboxProsesPass02"/><label
+                    for="checkboxProsesPass02">Data pemohon & kelengkapan dokumen
+                terverifikasi</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass03"
+                                                   id="checkboxProsesPass03"/><label
+                    for="checkboxProsesPass03">Pengambilan foto dan sidik jari</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass04"
+                                                   id="checkboxProsesPass04"/><label
+                    for="checkboxProsesPass04">Proses wawancara</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass05"
+                                                   id="checkboxProsesPass05"/><label
+                    for="checkboxProsesPass05">Menerima tanda bukti sudah melakukan pengambilan foto, sidik
+                jari dan wawancara</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass06"
+                                                   id="checkboxProsesPass06"/><label
+                    for="checkboxProsesPass06">Membayar biaya pembuatan paspor</label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass07"
+                                                   id="checkboxProsesPass07"/><label
+                    for="checkboxProsesPass07" data-toggle="modal" data-target="#durationModal">Menunggu
+                paspor selesai dibuat<span
+                        class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
+                        style="text-indent: 0em;"
+                        data-toggle="popover"
+                        title="Lama waktu proses"
+                        data-trigger="hover"
+                        data-container="body"
+                        data-placement="auto"
+                        data-content="Proses pembuatan paspor berlangsung tidak lebih dari 4 hari sejak wawancara dilakukan."/>
+
+            </label></div>
+            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass08"
+                                                   id="checkboxProsesPass08"/><label
+                    for="checkboxProsesPass08">Mengambil paspor & menandatangani bukti sudah menerima
+                paspor didepan petugas</label></div>
+        </div>
+        <div class="modal fade" id="durationModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Berapa lama waktu yang benar-benar
+                            dibutuhkan?</h4>
                     </div>
-                    </p>
-
-                    <div class="panel-body funkyradio">
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass01"
-                                                               id="checkboxProsesPass01"/><label
-                                for="checkboxProsesPass01">Mengisi formulir data & melampirkan dokumen
-                            persyaratan</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass02"
-                                                               id="checkboxProsesPass02"/><label
-                                for="checkboxProsesPass02">Data pemohon & kelengkapan dokumen
-                            terverifikasi</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass03"
-                                                               id="checkboxProsesPass03"/><label
-                                for="checkboxProsesPass03">Pengambilan foto dan sidik jari</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass04"
-                                                               id="checkboxProsesPass04"/><label
-                                for="checkboxProsesPass04">Proses wawancara</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass05"
-                                                               id="checkboxProsesPass05"/><label
-                                for="checkboxProsesPass05">Menerima tanda bukti sudah melakukan pengambilan foto, sidik
-                            jari dan wawancara</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass06"
-                                                               id="checkboxProsesPass06"/><label
-                                for="checkboxProsesPass06">Membayar biaya pembuatan paspor</label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass07"
-                                                               id="checkboxProsesPass07"/><label
-                                for="checkboxProsesPass07" data-toggle="modal" data-target="#durationModal">Menunggu
-                            paspor selesai dibuat<span
-                                    class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
-                                    style="text-indent: 0em;"
-                                    data-toggle="popover"
-                                    title="Lama waktu proses"
-                                    data-trigger="hover"
-                                    data-container="body"
-                                    data-placement="auto"
-                                    data-content="Proses pembuatan paspor berlangsung tidak lebih dari 4 hari sejak wawancara dilakukan."/>
-
-                        </label></div>
-                        <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass08"
-                                                               id="checkboxProsesPass08"/><label
-                                for="checkboxProsesPass08">Mengambil paspor & menandatangani bukti sudah menerima
-                            paspor didepan petugas</label></div>
-                    </div>
-                    <div class="modal fade" id="durationModal" tabindex="-1" role="dialog"
-                         aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Berapa lama waktu yang benar-benar
-                                        dibutuhkan?</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-inline">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="durasi">Durasi</label>
-                                            <input type="text" class="form-control" id="durasi" value="4"
-                                                   placeholder="Durasi">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="satuan">Satuan</label>
-                                            <select class="form-control" id="satuan">
-                                                <option>Jam</option>
-                                                <option selected>Hari</option>
-                                                <option>Minggu</option>
-                                                <option>Bulan</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Submit</button>
-                                </div>
+                    <div class="modal-body">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label class="sr-only" for="durasi">Durasi</label>
+                                <input type="text" class="form-control" id="durasi" value="4"
+                                       placeholder="Durasi">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="satuan">Satuan</label>
+                                <select class="form-control" id="satuan">
+                                    <option>Jam</option>
+                                    <option selected>Hari</option>
+                                    <option>Minggu</option>
+                                    <option>Bulan</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
+
+

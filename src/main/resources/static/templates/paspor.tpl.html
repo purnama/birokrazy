@@ -1,22 +1,28 @@
+<div class="hackmdk3-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Paspor Umum</h1>
+                    <span>Surat Perjalanan keluar negeri untuk umum.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
-    <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-12">
-            <div class="page-header">
-                <h2>Paspor</h2>
-            </div>
-
-            <ul class="nav nav-tabs nav-justified" role="tablist">
+            <ul class="nav nav-tabs hackmdk3-nav-justified" role="tablist">
                 <li ng-class="{ active: isActive('/paspor')}" role="presentation"><a href="/paspor">Informasi</a></li>
                 <li ng-class="{ active: isActive('/paspor/review')}" role="presentation"><a
                         href="/paspor/review">Review</a></li>
                 <li ng-class="{ active: isActive('/paspor/proses')}" role="presentation"><a href="/paspor/proses">Persyaratan
                     & Proses</a></li>
             </ul>
+
+            <ng-include src="templateUrl"/>
         </div>
-    </div>
-    <div class="row">
-        <ng-include src="templateUrl"/>
     </div>
 
 </div>

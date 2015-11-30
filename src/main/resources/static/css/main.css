@@ -48,9 +48,55 @@ html, body {
     display: inline;
 }
 
+.nav-tabs.hackmdk3-nav-justified {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 767px) {
     .jumbotron .text-right {
         text-align: left;
+    }
+
+    .nav-tabs.hackmdk3-nav-justified {
+        width: 100%;
+        border-bottom: 0;
+    }
+    .nav-tabs.hackmdk3-nav-justified > li {
+        float: none;
+    }
+    .nav-tabs.hackmdk3-nav-justified > li > a {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .nav-tabs.hackmdk3-nav-justified > .dropdown .dropdown-menu {
+        top: auto;
+        left: auto;
+    }
+
+    .nav-tabs.hackmdk3-nav-justified > li > a {
+        margin-right: 0;
+        border-radius: 4px;
+    }
+    .nav-tabs.hackmdk3-nav-justified > .active > a,
+    .nav-tabs.hackmdk3-nav-justified > .active > a:hover,
+    .nav-tabs.hackmdk3-nav-justified > .active > a:focus {
+        border: 1px solid #ddd;
+    }
+
+    .hackmdk3-nav-justified {
+        width: 100%;
+    }
+    .hackmdk3-nav-justified > li {
+        float: none;
+    }
+    .hackmdk3-nav-justified > li > a {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .hackmdk3-nav-justified > .dropdown .dropdown-menu {
+        top: auto;
+        left: auto;
     }
 }
 
@@ -65,6 +111,14 @@ html, body {
 
 .jumbotron .embed-responsive {
     border: 10px solid white;
+}
+
+.hackmdk3-page-header {
+    background-color: #b9f2ef;
+}
+
+.hackmdk3-page-header .page-header {
+    border-bottom: none;
 }
 
 
