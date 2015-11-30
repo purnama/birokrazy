@@ -25,9 +25,10 @@
     </style>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" media="all" >
+    <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" media="all">
     <link rel="stylesheet" href="css/funky-radio.css">
     <link rel="stylesheet" href="css/social-buttons.css">
+    <link rel="stylesheet" href="css/box-shadow.css">
     <link rel="stylesheet" href="css/main.css">
 
     <script src="bower_components/modernizr/modernizr.js"></script>
@@ -38,7 +39,7 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -55,46 +56,57 @@
                 <li class="menu-point" ng-class="{ active: isActive('/')}"><a href="/">Beranda</a></li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengurusan <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Pengurusan <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="menu-point" ng-class="{ active: isActive('/e-ktp')}"><a href="/e-ktp">E-KTP</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/paspor')}"><a href="/paspor">Paspor</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/paspor')}"><a href="/paspor">Paspor</a>
+                        </li>
                         <li class="menu-point" ng-class="{ active: isActive('/imb')}"><a href="/imb">IMB</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/izin-usaha')}"><a href="/izin-usaha">Izin Usaha</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/izin-usaha')}"><a href="/izin-usaha">Izin
+                            Usaha</a></li>
                     </ul>
                 </li>
 
             </ul>
             <div ng-controller="AuthController">
                 <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
-                    <li class="menu-point"><a href="/login"><span class="glyphicon glyphicon-log-in" ></span> Sign in</a></li>
+                    <li class="menu-point"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a>
+                    </li>
                 </ul>
                 <ul ng-show="authenticated" class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{user.name}} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li class="menu-point"><a href="/user/application"><span class="fa fa-files-o"></span>&nbsp;Permohonan</a></li>
-                            <li class="menu-point"><a href="/user"<span class="fa fa-users"></span>&nbsp;User</a></li>
-                            <li class="menu-point"><a href="/official"><span class="fa fa-file-text"></span>&nbsp;Official</a></li>
-                            <li class="menu-point"><a href="/requirement"><span class="fa fa-bank"></span> Requirement</a></li>
+                            <li class="menu-point"><a href="/user/application"><span class="fa fa-files-o"></span>&nbsp;Permohonan</a>
+                            </li>
+                            <li class="menu-point"><a href="/user"><span class="fa fa-users"></span>&nbsp;User</a></li>
+                            <li class="menu-point"><a href="/official"><span class="fa fa-file-text"></span>&nbsp;Official</a>
+                            </li>
+                            <li class="menu-point"><a href="/requirement"><span class="fa fa-bank"></span>
+                                Requirement</a></li>
                         </ul>
                     </li>
-                    <li class="menu-point"><a href="" ng-click="logout()">Sign out <span class="glyphicon glyphicon-log-out" ></span></a>  </li>
+                    <li class="menu-point"><a href="" ng-click="logout()">Sign out <span
+                            class="glyphicon glyphicon-log-out"></span></a></li>
                 </ul>
             </div>
 
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
-
-<div ng-view></div>
+<div class="wrapper">
+    <div ng-view></div>
+    <div class="push"></div>
+</div>
 <!-- /container -->
-<div class="container">
-    <hr>
-
-    <footer>
-        <p>&copy; HackMdk3 2015</p>
-    </footer>
+<div class="footer">
+    <div class="container">
+        <footer>
+            <p>&copy; HackMdk3 2015</p>
+        </footer>
+    </div>
 </div>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.js"><\/script>')</script>

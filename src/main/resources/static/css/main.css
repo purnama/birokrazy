@@ -1,8 +1,35 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/* Footer */
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+    height: 80px; /* .push must be the same height as .footer */
+}
+
+.footer {
+    background-color: #b9f2ef;
+}
+
+/* Footer */
+
+.jumbotron {
+    background-color: #b9f2ef;
+}
 
 .star-rating {
     display: inline;
@@ -17,11 +44,26 @@
     height: 360px;
 }
 
-.display-inline{
+.display-inline {
     display: inline;
 }
 
+#jumbo-text{
+    text-align: right;
+}
 
+.jumbotron h2 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.jumbotron p {
+    font-size: 1em;
+}
+
+.jumbotron .embed-responsive{
+    border: 10px solid white;
+}
 
 
 
