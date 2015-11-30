@@ -52,7 +52,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" ng-controller="HeaderController">
-                <li class="menu-point" ng-class="{ active: isActive('/')}"><a href="/">Start</a></li>
+                <li class="menu-point" ng-class="{ active: isActive('/')}"><a href="/">Beranda</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengurusan <span class="caret"></span></a>
@@ -67,16 +67,13 @@
             </ul>
             <div ng-controller="AuthController">
                 <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
-                    <li class="menu-point"><a href="#"><span class="glyphicon glyphicon-edit" ></span> Register</a></li>
                     <li class="menu-point"><a href="/login"><span class="glyphicon glyphicon-log-in" ></span> Sign in</a></li>
                 </ul>
                 <ul ng-show="authenticated" class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li class="menu-point"><a href="/user/myDocument"><span class="fa fa-files-o"></span>&nbsp;Permohonan</a></li>
-                            <li class="menu-point"><a href="#"><span class="fa fa-cog"></span>&nbsp;Account Settings</a></li>
-                            <li class="menu-point"><a href="#"><span class="glyphicon glyphicon-lock"></span>&nbsp;Change Password</a></li>
+                            <li class="menu-point"><a href="/user/application"><span class="fa fa-files-o"></span>&nbsp;Permohonan</a></li>
                             <li class="menu-point"><a href="/user"<span class="fa fa-users"></span>&nbsp;User</a></li>
                             <li class="menu-point"><a href="/official"><span class="fa fa-file-text"></span>&nbsp;Official</a></li>
                             <li class="menu-point"><a href="/requirement"><span class="fa fa-bank"></span> Requirement</a></li>
@@ -118,7 +115,6 @@
 <script src="js/controller/IndexController.js"></script>
 <script src="js/controller/EKtpController.js"></script>
 <script src="js/controller/OfficialController.js"></script>
-<script src="js/controller/RequirementController.js"></script>
 <script src="js/controller/AuthController.js"></script>
 <script src="js/controller/HeaderController.js"></script>
 <script src="js/controller/UserController.js"></script>

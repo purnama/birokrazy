@@ -80,11 +80,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location',
         }
         else if($location.path() === '/imb/review') {
             $scope.templateUrl = 'templates/include.review.tpl.html';
-        }
-        else if($location.path() === '/imb/listDokumen') {
-            $scope.templateUrl = 'templates/user.dokument.list.tpl.html';
-        }
-        else {
+        }else {
             $scope.templateUrl = 'templates/imb.info.tpl.html';
         }
 

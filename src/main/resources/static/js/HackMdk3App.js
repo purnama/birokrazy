@@ -103,15 +103,6 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 atLeastOne: true
             }
         }).
-        when('/requirement', {
-            templateUrl: $constant.templates.include,
-            controller: 'RequirementController',
-            access: {
-                requiresLogin: true,
-                permissions: [$constant.roles.admin, $constant.roles.user],
-                atLeastOne: true
-            }
-        }).
         when('/user', {
             templateUrl: $constant.templates.include,
             controller: 'UserController',
@@ -120,9 +111,14 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 permissions: [$constant.roles.admin]
             }
         }).
-        when('/user/myDocument', {
-            templateUrl: 'templates/user.dokument.list.tpl.html',
-            controller: 'UserController'
+        when('/user/application', {
+            templateUrl: 'templates/user.application.list.tpl.html',
+            controller: 'UserController',
+            access: {
+                requiresLogin: true,
+                permissions: [$constant.roles.admin, $constant.roles.user],
+                atLeastOne: true
+            }
         }).
         when('/trend', {
             templateUrl: 'templates/trend.tpl.html',
