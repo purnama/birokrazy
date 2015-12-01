@@ -146,11 +146,14 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     }]).run(['$rootScope', '$location',
     function ($rootScope, $location) {
-        $rootScope.path = $location.path();
-        $('li.menu-point').click(function () {
-            $('.navbar-collapse').collapse('hide');
-        });
-        $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
-            $("#success-alert").alert('close');
+        $rootScope.$on('$routeChangeStart', function (event, next, current) {
+            $rootScope.path = $location.path();
+            $rootScope.showNavSearch = $location.path() !== '/';
+            $('li.menu-point').click(function () {
+                $('.navbar-collapse').collapse('hide');
+            });
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                $("#success-alert").alert('close');
+            });
         });
     }]);
