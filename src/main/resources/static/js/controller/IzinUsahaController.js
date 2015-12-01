@@ -1,11 +1,13 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', 'LocationService',
-    function ($scope, $location, $rootScope, locationService) {
+hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', 'LocationService', 'HighchartService',
+    function ($scope, $location, $rootScope, locationService, highchartService) {
 
         $scope.isShowWaralaba = false;
         $scope.isShowProses = false;
+
+        $scope.waitingTime = highchartService.waitingTime;
 
         $scope.listOfJenisUsaha = [
             {id: 0, name: '-- pilih --'},
@@ -21,6 +23,8 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
 
         if ($location.path() === '/izin-usaha/review') {
             $scope.templateUrl = 'templates/include.review.tpl.html';
+        } else if ($location.path() === '/izin-usaha/trend') {
+            $scope.templateUrl = 'templates/include.trend.tpl.html';
         } else if ($location.path() === '/izin-usaha/proses') {
             $scope.templateUrl = 'templates/izin-usaha.proses.tpl.html';
         } else if ($location.path() === '/izin-usaha') {

@@ -1,14 +1,16 @@
-hackMdk3App.controller('PasporController', ['$scope', '$location',
-    function ($scope, $location) {
+hackMdk3App.controller('PasporController', ['$scope', '$location', 'HighchartService',
+    function ($scope, $location, highchartService) {
+
+        $scope.waitingTime = highchartService.waitingTime;
 
         if ($location.path() === '/paspor') {
             $scope.templateUrl = 'templates/paspor.info.tpl.html';
-        }
-        else if ($location.path() === '/paspor/proses') {
+        } else if ($location.path() === '/paspor/proses') {
             $scope.templateUrl = 'templates/paspor.proses.tpl.html';
-        }
-        else if ($location.path() === '/paspor/review') {
+        } else if ($location.path() === '/paspor/review') {
             $scope.templateUrl = 'templates/include.review.tpl.html';
+        } else if ($location.path() === '/paspor/trend') {
+            $scope.templateUrl = 'templates/include.trend.tpl.html';
         }
 
         $scope.isActive = function (viewLocation) {

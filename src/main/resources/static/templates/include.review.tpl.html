@@ -2,12 +2,16 @@
     <div class="panel-body">
         <div>
             <input type="text" rating-class="display-inline" readonly hackmdk3-star-rating class="rating" value="2"/>
-            <a href="/trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
-            <button ng-show="!showPost && authenticated" class="btn btn-success pull-right" ng-click="showPostAction()"><span class="glyphicon glyphicon-plus"></span> Add review </button>
+            <a href="{{path}}/../trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
+            <button ng-show="!showPost && authenticated" class="btn btn-success pull-right" ng-click="showPostAction()">
+                <span class="glyphicon glyphicon-plus"></span> Add review
+            </button>
         </div>
         <p>2,218 Reviews</p>
+
         <div class="alert-dismissable alert alert-success fade in" data-alert="alert" ng-show="alert">
             <a class="close" data-dismiss="alert" href="#">&times;</a>
+
             <p>{{successMessage}}</p>
         </div>
         <div ng-show="showPost">
