@@ -51,6 +51,7 @@ html, body {
 .nav-tabs.hackmdk3-nav-justified {
     padding-top: 20px;
     margin-bottom: 20px;
+    height: auto !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -105,6 +106,48 @@ html, body {
         top: auto;
         left: auto;
     }
+}
+
+.xs-toggle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.xs-collapse {
+    display: none;
+    visibility: hidden;
+}
+
+.xs-collapse.collapse.in{
+    visibility: visible;
+}
+
+@media (min-width: 768px) {
+    .xs-toggle {
+        display: none;
+        visibility: hidden;
+    }
+    .xs-collapse {
+        display: block;
+        visibility: visible;
+    }
+}
+
+/* Styles for toggle button (optional) */
+
+.xs-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.xs-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+}
+
+.btn-default.xs-toggle .icon-bar {
+    background-color: #888;
 }
 
 .jumbotron h2 {

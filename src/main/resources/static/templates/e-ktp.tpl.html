@@ -13,7 +13,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-tabs hackmdk3-nav-justified">
+            <button type="button" class="btn btn-default xs-toggle" data-toggle="collapse" data-target="#nav-tabs"
+                    aria-expanded="false" aria-controls="nav-tabs">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
                 <li ng-class="{ active: isActive('/e-ktp')}" role="presentation">
                     <a href="/e-ktp">Informasi</a>
                 </li>
