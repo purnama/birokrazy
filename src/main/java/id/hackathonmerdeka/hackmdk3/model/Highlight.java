@@ -17,7 +17,7 @@ public class Highlight implements Serializable {
     private Long version;
 
     @Column(nullable = false)
-    private String title;
+    private String image;
 
     @Column(nullable = false)
     private String description;
@@ -30,12 +30,20 @@ public class Highlight implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public Long getVersion() {
+        return version;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {

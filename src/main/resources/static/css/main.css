@@ -62,13 +62,16 @@ html, body {
         width: 100%;
         border-bottom: 0;
     }
+
     .nav-tabs.hackmdk3-nav-justified > li {
         float: none;
     }
+
     .nav-tabs.hackmdk3-nav-justified > li > a {
         margin-bottom: 5px;
         text-align: center;
     }
+
     .nav-tabs.hackmdk3-nav-justified > .dropdown .dropdown-menu {
         top: auto;
         left: auto;
@@ -78,6 +81,7 @@ html, body {
         margin-right: 0;
         border-radius: 4px;
     }
+
     .nav-tabs.hackmdk3-nav-justified > .active > a,
     .nav-tabs.hackmdk3-nav-justified > .active > a:hover,
     .nav-tabs.hackmdk3-nav-justified > .active > a:focus {
@@ -87,13 +91,16 @@ html, body {
     .hackmdk3-nav-justified {
         width: 100%;
     }
+
     .hackmdk3-nav-justified > li {
         float: none;
     }
+
     .hackmdk3-nav-justified > li > a {
         margin-bottom: 5px;
         text-align: center;
     }
+
     .hackmdk3-nav-justified > .dropdown .dropdown-menu {
         top: auto;
         left: auto;
@@ -121,9 +128,42 @@ html, body {
     border-bottom: none;
 }
 
+.background-grey {
+    background-color: #e2e3e3;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
 
+@media screen and (min-width: 1200px) {
+    .highlight-description {
+        margin-top: 20px;
+        font-size: 1.4em;
+    }
+}
 
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .highlight-description {
+        margin-top: 10px;
+        font-size: 1.2em;
+    }
+}
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .highlight-description {
+        margin-top: 20px;
+    }
+}
+
+.footer .container footer{
+    height: 80px;
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+.footer .container footer *{
+    display: table-cell;
+    vertical-align: middle;
+}
 
 
 
