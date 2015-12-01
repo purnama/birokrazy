@@ -113,7 +113,7 @@ html, body {
     }
 }
 
-.xs-toggle{
+.xs-toggle {
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -123,7 +123,7 @@ html, body {
     visibility: hidden;
 }
 
-.xs-collapse.collapse.in{
+.xs-collapse.collapse.in {
     visibility: visible;
 }
 
@@ -132,6 +132,7 @@ html, body {
         display: none;
         visibility: hidden;
     }
+
     .xs-collapse {
         display: block;
         visibility: visible;
@@ -182,6 +183,10 @@ html, body {
     margin-bottom: 10px;
 }
 
+.angular-google-map-container {
+    height: 400px;
+}
+
 @media screen and (min-width: 1200px) {
     .highlight-description {
         margin-top: 20px;
@@ -202,13 +207,14 @@ html, body {
     }
 }
 
-.footer .container footer{
+.footer .container footer {
     height: 80px;
     width: 100%;
     display: table;
     text-align: center;
 }
-.footer .container footer *{
+
+.footer .container footer * {
     display: table-cell;
     vertical-align: middle;
 }

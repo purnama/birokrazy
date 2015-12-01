@@ -1,7 +1,8 @@
 var hackMdk3App = angular.module('hackMdk3App', [
     'ngRoute',
     'ngCookies',
-    'ui.bootstrap']);
+    'ui.bootstrap',
+    'uiGmapgoogle-maps']);
 hackMdk3App.constant('$constant', {
     apiVersion: {
         public: 'api/v1/public',
@@ -31,8 +32,14 @@ hackMdk3App.constant('$constant', {
         authorised: 'AUTHORISED'
     }
 });
-hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$constant',
-    function ($routeProvider, $locationProvider, $httpProvider, $constant) {
+hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$constant', 'uiGmapGoogleMapApiProvider',
+    function ($routeProvider, $locationProvider, $httpProvider, $constant, uiGmapGoogleMapApiProvider) {
+
+        uiGmapGoogleMapApiProvider.configure({
+            v: '3.20', //defaults to latest 3.X anyhow
+            libraries: 'weather,geometry,visualization'
+        });
+
         $locationProvider.html5Mode(true);
         $routeProvider.
         when($constant.routes.index, {
