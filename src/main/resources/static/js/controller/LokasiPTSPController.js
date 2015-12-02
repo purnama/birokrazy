@@ -77,11 +77,18 @@ hackMdk3App.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGo
             {
                 id: 4,
                 nama: 'PTSP Cengkareng Timur',
-                alamat: 'jalan Cengkareng Timur Raya no. 123',
-                kodePos: 'Jakarta Barat, 10044',
-                telp: 'Telp. 021-954385',
+                alamat: 'Jl. Fajar Baru Utara, Cengkareng, ',
+                kodePos: 'Jakarta Barat, 11730',
+                telp: 'Telp. +62 21 6198529',
                 email: 'Email: ptsp-cengkareng-timur@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.145154',
+                        longitude: '106.733279'
+                    }
+                }
             },
             {
                 id: 5,
