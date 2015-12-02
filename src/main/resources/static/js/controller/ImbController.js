@@ -1,7 +1,19 @@
-hackMdk3App.controller('ImbController', ['$scope', '$location', 'HighchartService',
-    function ($scope, $location, highchartService) {
+hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+    function ($scope, $location, $constant, highchartService, durationModalService) {
 
         $scope.waitingTime = highchartService.waitingTime;
+
+        $scope.duration = {
+            modal: false,
+            checked: false,
+            units: $constant.duration.units,
+            value: 1,
+            unit: $constant.duration.minggu
+        };
+
+        $scope.modalOpen = function () {
+            durationModalService.open($scope);
+        }
 
         $scope.daftarProvinsi = [
             {id: 1, name: '-- Pilih Propinsi --'},

@@ -1,7 +1,18 @@
-hackMdk3App.controller('PasporController', ['$scope', '$location', 'HighchartService',
-    function ($scope, $location, highchartService) {
+hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+    function ($scope, $location, $constant, highchartService, durationModalService) {
 
         $scope.waitingTime = highchartService.waitingTime;
+
+        $scope.duration = {
+            modal: false,
+            checked: false,
+            units: $constant.duration.units,
+            value: 4,
+            unit: $constant.duration.hari
+        };
+        $scope.modalOpen = function () {
+            durationModalService.open($scope);
+        }
 
         if ($location.path() === '/paspor') {
             $scope.templateUrl = 'templates/paspor.info.tpl.html';

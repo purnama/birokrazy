@@ -34,7 +34,7 @@
     </div>
 </div>
 <div class="panel panel-default" ng-show="isShowProses">
-    <div class="panel-heading"><h2>Persyaratan</h2></div>
+    <div class="panel-heading"><h2 class="panel-title">Persyaratan</h2></div>
     <div class="panel-body">
         <div class="funkyradio">
             <div class="funkyradio-success">
@@ -69,7 +69,7 @@
     </div>
 </div>
 <div class="panel panel-default" ng-show="isShowProses">
-    <div class="panel-heading"><h2>Proses</h2></div>
+    <div class="panel-heading"><h2 class="panel-title">Proses</h2></div>
     <div class="panel-body">
         <div class="funkyradio">
             <div class="funkyradio-success">
@@ -85,8 +85,8 @@
                 <label for="checkbox10">Membayar retribusi yang telah ditentukan</label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox11"/>
-                <label for="checkbox11" data-toggle="modal" data-target="#durationModal">Menunggu penerbitan izin usaha.
+                <input type="checkbox" name="checkbox" id="checkbox11" ng-model="duration.checked" ng-click="modalOpen()"/>
+                <label for="checkbox11" >Menunggu penerbitan izin usaha.
                         <span
                                 class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
                                 style="text-indent: 0em;"
@@ -101,38 +101,6 @@
             <div class="funkyradio-success">
                 <input type="checkbox" name="checkbox" id="checkbox10"/>
                 <label for="checkbox10">Mengambil surat ijin usaha yang telah diterbitkan di kantor Walikota / Kabupaten.</label>
-            </div>
-        </div>
-        <div class="modal fade" id="durationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Berapa lama waktu yang benar-benar dibutuhkan?</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-inline">
-                            <div class="form-group">
-                                <label class="sr-only" for="durasi">Durasi</label>
-                                <input type="text" class="form-control" id="durasi" value="3" placeholder="Durasi">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="satuan">Satuan</label>
-                                <select class="form-control" id="satuan">
-                                    <option>Jam</option>
-                                    <option>Hari</option>
-                                    <option selected>Minggu</option>
-                                    <option>Bulan</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

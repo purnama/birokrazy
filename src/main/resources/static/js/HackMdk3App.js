@@ -17,6 +17,13 @@ hackMdk3App.constant('$constant', {
         error500: 'templates/500.tpl.html',
         error520: 'templates/520.tpl.html'
     },
+    duration: {
+        jam : 'Jam',
+        hari : 'Hari',
+        minggu : 'Minggu',
+        bulan : 'Bulan',
+        units: ['Jam', 'Hari', 'Minggu', 'Bulan']
+    },
     routes: {
         index: '/',
         login: '/login'
@@ -144,15 +151,11 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 atLeastOne: true
             }
         }).
-        when('/trend', {
-            templateUrl: 'templates/trend.tpl.html',
-            controller: "TrendController"
-        }).
         otherwise({redirectTo: '/error/404.html'});
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-    }]).run(['$rootScope', '$location',
-    function ($rootScope, $location) {
+    }]).run(['$rootScope', '$constant', '$location',
+    function ($rootScope, $constant, $location) {
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
             $rootScope.path = $location.path();
             $rootScope.showNavSearch = $location.path() !== '/';

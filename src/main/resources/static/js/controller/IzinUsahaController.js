@@ -1,13 +1,23 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', 'LocationService', 'HighchartService',
-    function ($scope, $location, $rootScope, locationService, highchartService) {
+hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService', 'HighchartService', 'DurationModalService',
+    function ($scope, $location, $rootScope, $constant, locationService, highchartService, durationModalService) {
 
         $scope.isShowWaralaba = false;
         $scope.isShowProses = false;
 
         $scope.waitingTime = highchartService.waitingTime;
+        $scope.duration = {
+            modal: false,
+            checked: false,
+            units: $constant.duration.units,
+            value: 3,
+            unit: $constant.duration.minggu
+        };
+        $scope.modalOpen = function () {
+            durationModalService.open($scope);
+        }
 
         $scope.listOfJenisUsaha = [
             {id: 0, name: '-- pilih --'},

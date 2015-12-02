@@ -3,6 +3,7 @@
         <p>
             Cari tahu dokumen apa saja yang anda perlukan dengan memberi keterangan berikut:
         </p>
+
         <form>
             <div class="form-group">
                 <label class="control-label">Domisili</label>
@@ -99,10 +100,10 @@
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass06"
                                                    id="checkboxProsesPass06"/><label
                     for="checkboxProsesPass06">Membayar biaya pembuatan paspor</label></div>
-            <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass07"
-                                                   id="checkboxProsesPass07"/><label
-                    for="checkboxProsesPass07" data-toggle="modal" data-target="#durationModal">Menunggu
-                paspor selesai dibuat<span
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkboxProsesPass07" ng-model="duration.checked" ng-click="modalOpen()"
+                       id="checkboxProsesPass07"/>
+                <label for="checkboxProsesPass07">Menunggu paspor selesai dibuat <span
                         class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
                         style="text-indent: 0em;"
                         data-toggle="popover"
@@ -112,46 +113,12 @@
                         data-placement="auto"
                         data-content="Proses pembuatan paspor berlangsung tidak lebih dari 4 hari sejak wawancara dilakukan."/>
 
-            </label></div>
+                </label>
+            </div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass08"
                                                    id="checkboxProsesPass08"/><label
                     for="checkboxProsesPass08">Mengambil paspor & menandatangani bukti sudah menerima
                 paspor didepan petugas</label></div>
-        </div>
-        <div class="modal fade" id="durationModal" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Berapa lama waktu yang benar-benar
-                            dibutuhkan?</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-inline">
-                            <div class="form-group">
-                                <label class="sr-only" for="durasi">Durasi</label>
-                                <input type="text" class="form-control" id="durasi" value="4"
-                                       placeholder="Durasi">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="satuan">Satuan</label>
-                                <select class="form-control" id="satuan">
-                                    <option>Jam</option>
-                                    <option selected>Hari</option>
-                                    <option>Minggu</option>
-                                    <option>Bulan</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
