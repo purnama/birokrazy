@@ -50,29 +50,50 @@ hackMdk3App.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGo
             {
                 id: 1,
                 nama: 'PTSP Kedaung',
-                alamat: 'jalan Kedaung Raya no. 123',
+                alamat: 'Jl. Komplek Departemen Agama, Kedaung Kali Angke',
                 kodePos: 'Jakarta Barat, 10011',
                 telp: 'Telp. 021-112233',
-                email: 'Email: ptsp-kedaung@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                email: 'Email: ptsp-kedaung@jakarta-barat.id',
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.153593',
+                        longitude: '106.762150'
+                    }
+                }
             },
             {
                 id: 2,
                 nama: 'PTSP Kapuk',
-                alamat: 'jalan Kapuk Raya no. 123',
+                alamat: 'JL. Kapuk Raya, No.1 RT. 002/03',
                 kodePos: 'Jakarta Barat, 10022',
                 telp: 'Telp. 021-554433',
                 email: 'Email: ptsp-kapuk@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.131836',
+                        longitude: '106.747880'
+                    }
+                }
             },
             {
                 id: 3,
                 nama: 'PTSP Cengkareng Barat',
-                alamat: 'jalan Cengkareng Barat Raya no. 123',
-                kodePos: 'Jakarta Barat, 10033',
+                alamat: 'Jl. Utama Raya No.42, Cengkareng',
+                kodePos: 'Jakarta Barat, 11730',
                 telp: 'Telp. 021-121212',
-                email: 'Email: ptsp-cengkareng-barat@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                email: 'Email: ptsp-cengkareng-barat@jakarta-barat.id',
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.149574',
+                        longitude: '106.721845'
+                    }
+                }
             },
             {
                 id: 4,
@@ -93,20 +114,34 @@ hackMdk3App.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGo
             {
                 id: 5,
                 nama: 'PTSP Rawa Buaya',
-                alamat: 'jalan Rawa Buaya Raya no. 123',
-                kodePos: 'Jakarta Barat, 10055',
+                alamat: 'Jl. Bojong Raya No. 48M, RT 05 RW 04, Rawa Buaya',
+                kodePos: 'Jakarta Barat, 11740',
                 telp: 'Telp. 021-983426',
-                email: 'Email: ptsp-rawa-buaya@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                email: 'Email: ptsp-rawa-buaya@jakarta-barat.id',
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.170794',
+                        longitude: '106.731184'
+                    }
+                }
             },
             {
                 id: 6,
                 nama: 'PTSP Duri Kosambi',
-                alamat: 'jalan Duri Kosambi Raya no. 123',
-                kodePos: 'Jakarta Barat, 10066',
+                alamat: 'Jl. Raya Duri Kosambi, Cengkareng',
+                kodePos: 'Jakarta Barat, 11750',
                 telp: 'Telp. 021-787878',
-                email: 'Email: ptsp-duri-kosambi@jakarta-utara.id',
-                jamBuka: 'Senin - Jumat 09:00 - 17:00'
+                email: 'Email: ptsp-duri-kosambi@jakarta-barat.id',
+                jamBuka: 'Senin - Jumat 09:00 - 17:00',
+                map: {
+                    zoom: 18,
+                    center: {
+                        latitude: '-6.170080',
+                        longitude: '106.722279'
+                    }
+                }
             }
         ];
 
