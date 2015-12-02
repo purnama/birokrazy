@@ -77,11 +77,13 @@
                 <label for="checkbox8">Menyerahkan persyaratan dan berkas pada petugs di kantor Walikota / Kabupaten</label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox9"/>
+                <input type="checkbox" name="checkbox" id="checkbox9" ng-model="confirmed2"
+                       ng-change="processCheckBox(confirmed2)" ng-disabled="isActiveStep2"/>
                 <label for="checkbox9">Petugas telah mengecek kecocokan berkas dengan kondisi di lapangan</label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox10"/>
+                <input type="checkbox" name="checkbox" id="checkbox10" ng-model="confirmed3"
+                       ng-change="processCheckBox(confirmed3)" ng-disabled="isActiveStep3"/>
                 <label for="checkbox10">Membayar retribusi yang telah ditentukan</label>
             </div>
             <div class="funkyradio-success">
@@ -99,7 +101,8 @@
                 </label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox10"/>
+                <input type="checkbox" name="checkbox" id="checkbox10" ng-model="confirmed5"
+                       ng-change="processCheckBox(confirmed5)" ng-disabled="isActiveStep5"/>
                 <label for="checkbox10">Mengambil surat ijin usaha yang telah diterbitkan di kantor Walikota / Kabupaten.</label>
             </div>
         </div>
