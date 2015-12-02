@@ -71,9 +71,17 @@
 <div class="panel panel-default" ng-show="isShowProses">
     <div class="panel-heading"><h2 class="panel-title">Proses</h2></div>
     <div class="panel-body">
+
+        <p>
+            Proses Pengajuan Izin Usaha Anda: <br/>
+            <uib-progressbar class="progress-striped" max="100" value="currentBar"><span
+                    style="color:white; white-space:nowrap;">{{currentBar}}%</span></uib-progressbar>
+        </p>
+
         <div class="funkyradio">
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox8"/>
+                <input type="checkbox" name="checkbox" id="checkbox8" ng-model="confirmed1"
+                       ng-change="processCheckBox(confirmed1)" />
                 <label for="checkbox8">Menyerahkan persyaratan dan berkas pada petugs di kantor Walikota / Kabupaten</label>
             </div>
             <div class="funkyradio-success">
@@ -87,7 +95,10 @@
                 <label for="checkbox10">Membayar retribusi yang telah ditentukan</label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox11" ng-model="duration.checked" ng-click="modalOpen()"/>
+                <input type="checkbox" name="checkbox" id="checkbox11"
+                       ng-model="duration.checked" ng-click="modalOpen()"
+                       ng-change="processCheckBox(duration.checked)" ng-disabled="isActiveStep4"
+                />
                 <label for="checkbox11" >Menunggu penerbitan izin usaha.
                         <span
                                 class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
@@ -101,9 +112,9 @@
                 </label>
             </div>
             <div class="funkyradio-success">
-                <input type="checkbox" name="checkbox" id="checkbox10" ng-model="confirmed5"
+                <input type="checkbox" name="checkbox" id="checkbox12" ng-model="confirmed5"
                        ng-change="processCheckBox(confirmed5)" ng-disabled="isActiveStep5"/>
-                <label for="checkbox10">Mengambil surat ijin usaha yang telah diterbitkan di kantor Walikota / Kabupaten.</label>
+                <label for="checkbox12">Mengambil surat ijin usaha yang telah diterbitkan di kantor Walikota / Kabupaten.</label>
             </div>
         </div>
     </div>

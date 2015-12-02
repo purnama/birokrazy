@@ -68,6 +68,11 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
 
         };
 
+        $scope.counter = 0;
+        $scope.maxbar = 5;
+        $scope.currentBar = 0;
+        $scope.currentWidth = ''
+
         $scope.Math = window.Math;
 
         $scope.isActiveStep2 = true;
