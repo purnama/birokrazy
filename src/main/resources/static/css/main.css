@@ -2,7 +2,7 @@
    Author's custom styles
    ========================================================================== */
 
-.hackmdk3-text-color{
+.hackmdk3-text-color {
     color: #1088a0 !important;
 }
 
@@ -219,6 +219,13 @@ html, body {
     vertical-align: middle;
 }
 
+.info-image {
+    cursor: pointer;
+}
+
+.info-image:hover {
+    box-shadow: none;
+}
 
 
 
