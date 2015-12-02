@@ -67,10 +67,6 @@
     <div class="panel-body">
 
         <p>
-            Untuk membuat paspor, anda dapat melakukan langkah-langkah sebagai berikut.
-        </p>
-
-        <p>
             Proses pembuatan paspor anda:
             <br/>
 
@@ -80,29 +76,38 @@
 
         <div class="panel-body funkyradio">
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass01"
-                                                   id="checkboxProsesPass01"/><label
+                                                   id="checkboxProsesPass01" ng-model="confirmed1"
+                                                   ng-change="processCheckBox(confirmed1)"/><label
                     for="checkboxProsesPass01">Mengisi formulir data & melampirkan dokumen
                 persyaratan</label></div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass02"
-                                                   id="checkboxProsesPass02"/><label
+                                                   id="checkboxProsesPass02" ng-model="confirmed2"
+                                                   ng-change="processCheckBox(confirmed2)"
+                                                   ng-disabled="isActiveStep2"/><label
                     for="checkboxProsesPass02">Data pemohon & kelengkapan dokumen
                 terverifikasi</label></div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass03"
-                                                   id="checkboxProsesPass03"/><label
+                                                   id="checkboxProsesPass03" ng-model="confirmed3"
+                                                   ng-change="processCheckBox(confirmed3)"
+                                                   ng-disabled="isActiveStep3"/><label
                     for="checkboxProsesPass03">Pengambilan foto dan sidik jari</label></div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass04"
-                                                   id="checkboxProsesPass04"/><label
+                                                   id="checkboxProsesPass04" ng-model="confirmed4"
+                                                   ng-change="processCheckBox(confirmed4)" ng-disabled="isActiveStep4"/><label
                     for="checkboxProsesPass04">Proses wawancara</label></div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass05"
-                                                   id="checkboxProsesPass05"/><label
+                                                   id="checkboxProsesPass05" ng-model="confirmed5"
+                                                   ng-change="processCheckBox(confirmed5)" ng-disabled="isActiveStep5"/><label
                     for="checkboxProsesPass05">Menerima tanda bukti sudah melakukan pengambilan foto, sidik
                 jari dan wawancara</label></div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass06"
-                                                   id="checkboxProsesPass06"/><label
+                                                   id="checkboxProsesPass06" ng-model="confirmed6"
+                                                   ng-change="processCheckBox(confirmed6)" ng-disabled="isActiveStep6"/><label
                     for="checkboxProsesPass06">Membayar biaya pembuatan paspor</label></div>
             <div class="funkyradio-success">
                 <input type="checkbox" name="checkboxProsesPass07" ng-model="duration.checked" ng-click="modalOpen()"
-                       id="checkboxProsesPass07"/>
+                       id="checkboxProsesPass07" ng-change="processCheckBox(duration.checked)"
+                       ng-disabled="isActiveStep7"/>
                 <label for="checkboxProsesPass07">Menunggu paspor selesai dibuat <span
                         class="glyphicon glyphicon-question-sign" hackmdk3-pop-over
                         style="text-indent: 0em;"
@@ -116,7 +121,8 @@
                 </label>
             </div>
             <div class="funkyradio-success"><input type="checkbox" name="checkboxProsesPass08"
-                                                   id="checkboxProsesPass08"/><label
+                                                   id="checkboxProsesPass08" ng-model="confirmed8"
+                                                   ng-change="processCheckBox(confirmed8)" ng-disabled="isActiveStep8"/><label
                     for="checkboxProsesPass08">Mengambil paspor & menandatangani bukti sudah menerima
                 paspor didepan petugas</label></div>
         </div>

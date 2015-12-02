@@ -65,13 +65,12 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
             }else {
                 $scope.isShowProses = false;
             }
-
         };
 
         $scope.counter = 0;
         $scope.maxbar = 5;
         $scope.currentBar = 0;
-        $scope.currentWidth = ''
+        $scope.currentWidth = '';
 
         $scope.Math = window.Math;
 
@@ -79,7 +78,6 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
         $scope.isActiveStep3 = true;
         $scope.isActiveStep4 = true;
         $scope.isActiveStep5 = true;
-        $scope.isActiveStep6 = true;
 
         $scope.processCheckBox = function (confirmed) {
             if (confirmed) {
@@ -106,8 +104,6 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
             } else if ($scope.counter === 5) {
                 $scope.isActiveStep6 = false;
 
-            } else if ($scope.counter === 6) {
-                $scope.isActiveStep7 = false;
             }
         }
 
