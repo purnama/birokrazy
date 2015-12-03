@@ -30,7 +30,7 @@
                 <li ng-class="{ active: isActive('/e-ktp/trend')}" role="presentation">
                     <a href="/e-ktp/trend">Trend</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation">
+                <li ng-show="authenticated" ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation">
                     <a href="/e-ktp/proses">Persyaratan & Proses</a>
                 </li>
             </ul>

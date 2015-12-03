@@ -1,9 +1,9 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('LoginController', ['$scope', '$rootScope', '$location', '$constant',
-    function ($scope, $rootScope, $location, $constant) {
+hackMdk3App.controller('LoginController', ['$scope', '$rootScope', '$location',
+    function ($scope, $rootScope, $location) {
     if($rootScope.authenticated){
-        $location.path($constant.routes.index);
+        $location.path("/user/application");
     }
 }]);

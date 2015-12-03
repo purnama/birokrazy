@@ -7,21 +7,21 @@ hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '
         if ($cookies.getObject("authenticated")) {
             $rootScope.authenticated = $cookies.getObject("authenticated");
             $rootScope.user = $cookies.getObject("user");
-            $scope.user = $rootScope.user;
+            $scope.userObj = $rootScope.user;
         }
         $scope.login = function () {
             authService.authenticate($scope.credentials, function () {
                 if ($rootScope.authenticated) {
                     $scope.error = false;
-                    $scope.user = $rootScope.user
+                    $scope.userObj = $rootScope.user
                     if ($location.path() === $constant.routes.login) {
-                        $location.path($constant.routes.index);
+                        $location.path("/user/application");
                     }else{
                         $window.location.reload();
                     }
                 } else {
                     $scope.error = true;
-                    $scope.user = undefined;
+                    $scope.userObj = undefined;
                 }
             });
         };
@@ -29,11 +29,11 @@ hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '
             authService.invalidate(function () {
                 if (!$rootScope.authenticated) {
                     $scope.error = false;
-                    $scope.user = undefined;
+                    $scope.userObj = undefined;
                     $location.path($constant.routes.index);
                 } else {
                     $scope.error = true;
-                    $scope.user = undefined;
+                    $scope.userObj = undefined;
                 }
             });
         }
