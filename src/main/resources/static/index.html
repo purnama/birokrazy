@@ -90,7 +90,7 @@
                             class="glyphicon glyphicon-log-out"></span></a></li>
                 </ul>
             </div>
-            <form class="navbar-form" ng-show="showNavSearch">
+            <form class="navbar-form" action="/search/pelayanan" method="get" ng-show="showNavSearch">
                 <div style="display:table;" class="form-group has-feedback">
                     <input type="text" autocomplete="off" placeholder="Cari pelayanan atau instansi" name="search" style="width: 100%" class="form-control">
                     <i style="width: 1%; display: table-cell; padding-right: 8px;"><i style="padding-right: 16px;" class="glyphicon glyphicon-search form-control-feedback"></i></i>
@@ -146,6 +146,7 @@
 <script src="js/controller/IzinUsahaController.js"></script>
 <script src="js/controller/LokasiPTSPController.js"></script>
 <script src="js/controller/ReviewPostController.js"></script>
+<script src="js/controller/SearchResultController.js"></script>
 <script src="js/directive/StarRatingDirective.js"></script>
 <script src="js/directive/PopOverDirective.js"></script>
 <script src="js/directive/HighchartDirective.js"></script>

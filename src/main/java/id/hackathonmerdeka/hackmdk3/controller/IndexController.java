@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
 
     @RequestMapping(path = {"/e-ktp", "/e-ktp/**","/izin-", "/izin-usaha/**", "/imb", "/imb/**", "/paspor", "/paspor/**",
-            "/izinUsaha", "/login", "/user", "/user/**", "/official"})
+            "/izinUsaha", "/login", "/user", "/user/**", "/search/**", "/official"})
     public String forward(){
         return "forward:/";
     }

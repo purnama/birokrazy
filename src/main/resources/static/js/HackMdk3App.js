@@ -125,6 +125,14 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/izin-usaha.tpl.html',
             controller: 'IzinUsahaController'
         }).
+        when('/search/pelayanan', {
+            templateUrl: 'templates/search.result.tpl.html',
+            controller: 'SearchResultController'
+        }).
+        when('/search/instansi', {
+            templateUrl: 'templates/search.result.tpl.html',
+            controller: 'SearchResultController'
+        }).
         when('/official', {
             templateUrl: $constant.templates.include,
             controller: 'OfficialController',
