@@ -228,6 +228,10 @@ html, body {
     box-shadow: none;
 }
 
+.dropdown-menu {
+    width: 100%;
+}
+
 
 
 

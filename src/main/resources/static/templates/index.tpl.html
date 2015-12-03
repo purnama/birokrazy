@@ -7,9 +7,11 @@
 
                     <p>Temukan informasi dan prosedur penerbitan dokumen atau layanan pemerintah yang dibutuhkan.</p>
                 </div>
-                <form class="form-group" action="/search/pelayanan" method="get">
+                <form class="form-group" action="/search/pelayanan" method="get" ng-controller="SearchResultController">
                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Cari pelayanan atau instansi">
+                        <input ng-model="selected"
+                               uib-typeahead="find for find in finds | filter:$viewValue | limitTo:8" type="text"
+                               class="form-control" placeholder="Cari pelayanan atau instansi">
                         <i class="glyphicon glyphicon-search form-control-feedback"></i>
                     </div>
                 </form>
@@ -26,12 +28,14 @@
 </div>
 
 <div ng-repeat="highlight in highlights" ng-class="{'background-grey': highlight.id % 2 === 0}">
-    <div class="container" >
+    <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1" ng-class="{'col-md-push-6': highlight.id % 2 === 0, 'col-sm-push-6' : highlight.id % 2 === 0}" >
+            <div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1"
+                 ng-class="{'col-md-push-6': highlight.id % 2 === 0, 'col-sm-push-6' : highlight.id % 2 === 0}">
                 <img ng-src="/images/{{highlight.image}}" class="img-responsive">
             </div>
-            <div class="col-sm-6 col-md-6 highlight-description" ng-class="{'col-md-pull-4': highlight.id % 2 === 0 , 'col-sm-pull-4' : highlight.id % 2 === 0}" >
+            <div class="col-sm-6 col-md-6 highlight-description"
+                 ng-class="{'col-md-pull-4': highlight.id % 2 === 0 , 'col-sm-pull-4' : highlight.id % 2 === 0}">
                 <p>{{highlight.description}}</p>
             </div>
         </div>
