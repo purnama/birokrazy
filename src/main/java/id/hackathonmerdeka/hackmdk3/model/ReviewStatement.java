@@ -1,5 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -32,6 +34,7 @@ public class ReviewStatement {
     private Long dislike = 0l;
 
     @OneToOne
+    @JsonIgnore
     private CivilServiceReview civilServiceReview;
 
     @ManyToOne

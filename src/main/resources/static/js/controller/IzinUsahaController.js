@@ -1,12 +1,24 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService', 'HighchartService', 'DurationModalService',
-    function ($scope, $location, $rootScope, $constant, locationService, highchartService, durationModalService) {
+hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService',
+    'HighchartService', 'DurationModalService', 'CivilServiceService',
+    function ($scope, $location, $rootScope, $constant, locationService, highchartService, durationModalService, civilServiceService) {
 
         $scope.isShowWaralaba = false;
         $scope.isShowProses = false;
-
+        civilServiceService.findById(4).then(function(data){
+            $scope.civilService = data;
+            if ($location.path() === '/izin-usaha/review') {
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            } else if ($location.path() === '/izin-usaha/trend') {
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            } else if ($location.path() === '/izin-usaha/proses') {
+                $scope.templateUrl = 'templates/izin-usaha.proses.tpl.html';
+            } else if ($location.path() === '/izin-usaha') {
+                $scope.templateUrl = 'templates/izin-usaha.info.tpl.html';
+            }
+        });
         $scope.waitingTime = highchartService.waitingTime;
         $scope.duration = {
             modal: false,
@@ -31,15 +43,6 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
             {id: 2, name: 'Tidak'}
         ]
 
-        if ($location.path() === '/izin-usaha/review') {
-            $scope.templateUrl = 'templates/include.review.tpl.html';
-        } else if ($location.path() === '/izin-usaha/trend') {
-            $scope.templateUrl = 'templates/include.trend.tpl.html';
-        } else if ($location.path() === '/izin-usaha/proses') {
-            $scope.templateUrl = 'templates/izin-usaha.proses.tpl.html';
-        } else if ($location.path() === '/izin-usaha') {
-            $scope.templateUrl = 'templates/izin-usaha.info.tpl.html';
-        }
         $scope.location = locationService;
 
         $scope.isActive = function (viewLocation) {

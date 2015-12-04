@@ -31,7 +31,6 @@ public class CivilService {
     private Long reviews;
 
     @OneToMany(mappedBy = "civilService")
-    @JsonIgnore
     private List<CivilServiceReview> reviewList;
 
     public Long getId() {

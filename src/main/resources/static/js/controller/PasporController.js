@@ -1,8 +1,20 @@
 hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
-    function ($scope, $location, $constant, highchartService, durationModalService) {
+    'CivilServiceService',
+    function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 
         $scope.waitingTime = highchartService.waitingTime;
-
+        civilServiceService.findById(2).then(function(data){
+            $scope.civilService = data;
+            if ($location.path() === '/paspor') {
+                $scope.templateUrl = 'templates/paspor.info.tpl.html';
+            } else if ($location.path() === '/paspor/proses') {
+                $scope.templateUrl = 'templates/paspor.proses.tpl.html';
+            } else if ($location.path() === '/paspor/review') {
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            } else if ($location.path() === '/paspor/trend') {
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            }
+        });
         $scope.duration = {
             modal: false,
             checked: false,
@@ -12,16 +24,6 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
         };
         $scope.modalOpen = function () {
             durationModalService.open($scope);
-        }
-
-        if ($location.path() === '/paspor') {
-            $scope.templateUrl = 'templates/paspor.info.tpl.html';
-        } else if ($location.path() === '/paspor/proses') {
-            $scope.templateUrl = 'templates/paspor.proses.tpl.html';
-        } else if ($location.path() === '/paspor/review') {
-            $scope.templateUrl = 'templates/include.review.tpl.html';
-        } else if ($location.path() === '/paspor/trend') {
-            $scope.templateUrl = 'templates/include.trend.tpl.html';
         }
 
         $scope.isActive = function (viewLocation) {

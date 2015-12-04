@@ -2,9 +2,24 @@
  * @author Arthur Purnama (arthur@purnama.de)
  */
 hackMdk3App.controller('EKtpController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
-    function ($scope, $location, $constant, highchartService, durationModalService) {
+    'CivilServiceService',
+    function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 
         $scope.waitingTime = highchartService.waitingTime;
+
+        civilServiceService.findById(1).then(function(data){
+            $scope.civilService = data;
+            if ($location.path() === '/e-ktp/review') {
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            } else if ($location.path() === '/e-ktp/trend') {
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            } else if ($location.path() === '/e-ktp/proses') {
+                $scope.templateUrl = 'templates/e-ktp.proses.tpl.html';
+            } else if ($location.path() === '/e-ktp') {
+                $scope.templateUrl = 'templates/e-ktp.info.tpl.html';
+            }
+        });
+
         $scope.duration = {
             modal: false,
             checked: false,
@@ -13,15 +28,7 @@ hackMdk3App.controller('EKtpController', ['$scope', '$location', '$constant', 'H
             unit: $constant.duration.minggu
         };
 
-        if ($location.path() === '/e-ktp/review') {
-            $scope.templateUrl = 'templates/include.review.tpl.html';
-        } else if ($location.path() === '/e-ktp/trend') {
-            $scope.templateUrl = 'templates/include.trend.tpl.html';
-        } else if ($location.path() === '/e-ktp/proses') {
-            $scope.templateUrl = 'templates/e-ktp.proses.tpl.html';
-        } else if ($location.path() === '/e-ktp') {
-            $scope.templateUrl = 'templates/e-ktp.info.tpl.html';
-        }
+
 
         $scope.modalOpen = function () {
             durationModalService.open($scope);

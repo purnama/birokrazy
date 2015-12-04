@@ -1,174 +1,67 @@
-<div class="panel panel-default" ng-controller="ReviewPostController">
+<div class="panel panel-default">
     <div class="panel-body">
-        <div>
-            <input type="text" rating-class="display-inline" readonly hackmdk3-star-rating class="rating" value="2"/>
-            <a href="{{path}}/../trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
-            <button ng-show="!showPost && authenticated" class="btn btn-success pull-right" ng-click="showPostAction()">
+        <div ng-controller="ReviewPostController" class="text-right">
+            <button ng-show="!showPost" class="btn btn-success" ng-click="showPostAction()">
                 <span class="glyphicon glyphicon-plus"></span> Add review
             </button>
+            <div ng-show="showPost">
+                <ng-include src="'templates/include.review.post.tpl.html'"></ng-include>
+            </div>
         </div>
-        <p>2,218 Reviews</p>
+        <div>
+            <input type="text" rating-class="display-inline" readonly hackmdk3-star-rating class="rating"
+                   ng-model="civilService.rating"/>
+            <a href="{{path}}/../trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
+        </div>
+        <p>{{civilService.reviews}} Reviews</p>
 
         <div class="alert-dismissable alert alert-success fade in" data-alert="alert" ng-show="alert">
             <a class="close" data-dismiss="alert" href="#">&times;</a>
 
             <p>{{successMessage}}</p>
         </div>
-        <div ng-show="showPost">
-            <ng-include src="'templates/include.review.post.tpl.html'"></ng-include>
-        </div>
 
-        <div class="panel panel-default">
+         <div class="panel panel-default" ng-repeat="review in civilService.reviewList">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-8">
-                        <h4 class="panel-title display-inline">Great work</h4>
-                        <br />
-                        <small>Kelurahan Pejagalan, Kecamatan Penjaringan, Jakarta Utara, DKI Jakarta</small>
-                        <br />
-                        <small>3 Desember 2015 15:21:55</small>
+                        <h4 class="panel-title">{{review.subject}}</h4>
+                        <small>{{review.location}}</small>
+                        <br/>
+                        <small>{{review.createDate | date:'yyyy-MM-dd HH:mm:ss'}}</small>
                     </div>
                     <div class="col-md-4 text-right">
-                        <button class="btn btn-sm btn-danger"> 25 <span class="fa fa-thumbs-down"></span>
+                        <button class="btn btn-sm btn-danger"> {{review.dislike}} <span class="fa fa-thumbs-down"></span>
                         </button>
-                        <button class="btn btn-sm btn-primary"> 1609 <span
+                        <button class="btn btn-sm btn-primary"> {{review.like}} <span
                                 class="fa fa-thumbs-up"></span></button>
                     </div>
                 </div>
             </div>
             <div class="panel-body">
-                <input type="text" class="rating" hackmdk3-star-rating readonly data-size="xs" value="5"/>
+                <input type="text" class="rating" hackmdk3-star-rating readonly data-size="xs" ng-model="review.rating"/>
 
                 <p>
-                    Lorem ipsum dolor sit amet, <a href="">#transparan</a> adipiscing elit. Phasellus eget erat at
-                    leo interdum
-                    imperdiet
-                    id nec quam. Ut sollicitudin ex sit amet nisl faucibus facilisis. Pellentesque tempus, lacus a
-                    tincidunt diam, id <a href="">#sopan</a> nisl nulla nec metus. Class aptent taciti
-                    sociosqu
-                    ad
-                    litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus
-                    vestibulum
-                    mattis. Proin eget massa nulla. In <a href="#">#cepat</a> maximus sem sed consectetur. Aliquam
-                    id erat nec mi
-                    luctus
-                    iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae. Suspendisse
-                    potenti.
-                    Nulla
-                    venenatis dapibus erat sed vehicula.
+                    {{review.content}}
                 </p>
-
-                <div>
-                    <b>Pros</b>
-
-                    <p>
-                        In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus
-                        iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae. Suspendisse
-                        potenti. Nulla
-                        venenatis dapibus erat sed vehicula.
-                    </p>
-                </div>
-                <div>
-                    <b>Cons</b>
-
-                    <p>
-                        Ut sollicitudin ex sit amet nisl faucibus facilisis. Pellentesque tempus, lacus a tincidunt
-                        vestibulum, erat enim semper diam, id elementum nisl nulla nec metus.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="panel-title">Not Bad</h4>
-                        <small>Kelurahan Sunter Agung, Kecamatan Tanjung Priok, Jakarta Utara, DKI Jakarta</small>
-                        <br />
-                        <small>1 Desember 2015 10:33:25</small>
-                    </div>
-                    <div class="col-md-4 text-right">
-                        <button class="btn btn-sm btn-danger"> 274 <span class="fa fa-thumbs-down"></span>
-                        </button>
-                        <button class="btn btn-sm btn-primary"> 511 <span
-                                class="fa fa-thumbs-up"></span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-body">
-                <input type="text" class="rating" hackmdk3-star-rating readonly data-size="xs" value="2.5"/>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur <a href="">#pingPong</a> elit. Phasellus eget erat at
-                    leo interdum
-                    imperdiet
-                    id nec quam. Ut <a href="">#pungli</a> ex sit amet nisl faucibus facilisis. Pellentesque tempus,
-                    lacus
-                    a
-                    tincidunt
-                    vestibulum, erat enim semper diam, id elementum <a href="#">#korup</a> nulla nec metus. Class
-                    aptent taciti
-                    sociosqu
-                    ad
-                    litora torquent per <a href="">#lama</a> nostra, per inceptos himenaeos. Etiam quis ligula eget
-                    purus
-                    vestibulum
-                    mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec
-                    mi
-                    luctus
-                    iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae. Suspendisse
-                    potenti.
-                    Nulla
-                    venenatis dapibus erat sed vehicula.
-                </p>
-
-                <div>
-                    <b>Pros</b>
-
-                    <p>
-                        In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus
-                        iaculis a vel est. Aliquam mollis sapien nisl, in rhoncus ex convallis vitae.
-                        Suspendisse
-                        potenti. Nulla
-                        venenatis dapibus erat sed vehicula.
-                    </p>
-                </div>
-                <div>
-                    <b>Cons</b>
-
-                    <p>
-                        Ut sollicitudin ex sit amet nisl faucibus facilisis. Pellentesque tempus, lacus a
-                        tincidunt
-                        vestibulum, erat enim semper diam, id elementum nisl nulla nec metus.
-                    </p>
-                </div>
-                <div class="panel panel-info">
+                <div class="panel panel-info" ng-show="review.reviewStatement">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-8">
                                 <h4 class="panel-title">Official Statement</h4>
-                                <small>3 Desember 2015 15:21:55</small>
+                                <small>{{review.reviewStatement.createDate | date:'yyyy-MM-dd HH:mm:ss'}}</small>
                             </div>
                             <div class="col-md-4 text-right">
-                                <button class="btn btn-sm btn-danger"> 15 <span class="fa fa-thumbs-down"></span>
+                                <button class="btn btn-sm btn-danger"> {{review.reviewStatement.dislike}} <span class="fa fa-thumbs-down"></span>
                                 </button>
-                                <button class="btn btn-sm btn-primary"> 91 <span
+                                <button class="btn btn-sm btn-primary"> {{review.reviewStatement.like}} <span
                                         class="fa fa-thumbs-up"></span></button>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <p>
-                            Class aptent taciti
-                            sociosqu
-                            ad
-                            litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus
-                            vestibulum
-                            mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat
-                            nec
-                            mi
-                            luctus
-                            iaculis a vel est.
+                            {{review.reviewStatement.content}}
                         </p>
                     </div>
                 </div>

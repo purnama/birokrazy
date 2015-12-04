@@ -1,8 +1,20 @@
 hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
-    function ($scope, $location, $constant, highchartService, durationModalService) {
+    'CivilServiceService',
+    function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 
         $scope.waitingTime = highchartService.waitingTime;
-
+        civilServiceService.findById(3).then(function(data){
+            $scope.civilService = data;
+            if ($location.path() === '/imb') {
+                $scope.templateUrl = 'templates/imb.info.tpl.html';
+            } else if ($location.path() === '/imb/proses') {
+                $scope.templateUrl = 'templates/imb.proses.tpl.html';
+            } else if ($location.path() === '/imb/review') {
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            } else if ($location.path() === '/imb/trend') {
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            }
+        });
         $scope.duration = {
             modal: false,
             checked: false,
@@ -87,18 +99,6 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
         $scope.isShowImbProcess = true;
 
         $scope.totalAnswered = 0;
-
-        if ($location.path() === '/imb') {
-            $scope.templateUrl = 'templates/imb.info.tpl.html';
-        } else if ($location.path() === '/imb/proses') {
-            $scope.templateUrl = 'templates/imb.proses.tpl.html';
-        } else if ($location.path() === '/imb/review') {
-            $scope.templateUrl = 'templates/include.review.tpl.html';
-        } else if ($location.path() === '/imb/trend') {
-            $scope.templateUrl = 'templates/include.trend.tpl.html';
-        } else {
-            $scope.templateUrl = 'templates/imb.info.tpl.html';
-        }
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();

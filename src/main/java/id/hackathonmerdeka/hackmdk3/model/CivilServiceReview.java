@@ -1,5 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -41,6 +43,7 @@ public class CivilServiceReview {
     private Double rating = 0d;
 
     @ManyToOne
+    @JsonIgnore
     private CivilService civilService;
 
     @ManyToOne

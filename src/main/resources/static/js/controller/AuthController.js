@@ -15,7 +15,9 @@ hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '
                     $scope.error = false;
                     $scope.userObj = $rootScope.user
                     if ($location.path() === $constant.routes.login) {
-                        $location.path("/user/application");
+                        var loginDestination = $cookies.loginDestination || $constant.routes.index;
+                        $cookies.loginDestination = null;
+                        $location.path(loginDestination);
                     }else{
                         $window.location.reload();
                     }
