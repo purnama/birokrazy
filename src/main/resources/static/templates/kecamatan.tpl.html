@@ -1,0 +1,26 @@
+<div class="hackmdk3-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Kantor Kecamatan</h1>
+                    <span>lokasi Kantor Kecamatan {{title}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                <li ng-class="{ active: isActive('/kecamatan/{{pageName}}/informasi')}" role="presentation"><a href="/kecamatan/{{pageName}}/informasi">Informasi</a></li>
+                <li ng-class="{ active: isActive('/kecamatan/{{pageName}}/review')}" role="presentation"><a href="/kecamatan/{{pageName}}/review">Review</a>
+                </li>
+            </ul>
+
+            <!-- <ng-include src="templateUrl"/> -->
+        </div>
+    </div>
+
+</div>

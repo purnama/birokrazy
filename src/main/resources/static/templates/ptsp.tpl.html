@@ -1,0 +1,26 @@
+<div class="hackmdk3-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>PTSP - Pelayanan Terpadu Satu Atap</h1>
+                    <span>lokasi untuk PTSP {{title}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                <li ng-class="{ active: isActive('/ptsp/{{pageName}}/informasi')}" role="presentation"><a href="/ptsp/{{pageName}}/informasi">Informasi</a></li>
+                <li ng-class="{ active: isActive('/ptsp/{{pageName}}/review')}" role="presentation"><a href="/ptsp/{{pageName}}/review">Review</a>
+                </li>
+            </ul>
+
+            <!-- <ng-include src="templateUrl"/> -->
+        </div>
+    </div>
+
+</div>

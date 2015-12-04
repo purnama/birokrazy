@@ -105,6 +105,10 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
                 $scope.isActiveStep6 = false;
 
             }
+        };
+
+        $scope.testingF = function(modelTest) {
+            console.log(modelTest);
         }
 
     }]);

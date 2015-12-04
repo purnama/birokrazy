@@ -10,8 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class IndexController {
 
-    @RequestMapping(path = {"/e-ktp", "/e-ktp/**","/izin-", "/izin-usaha/**", "/imb", "/imb/**", "/paspor", "/paspor/**",
-            "/izinUsaha", "/login", "/user", "/user/**", "/search/**", "/official"})
+    @RequestMapping(path = {
+            "/e-ktp", "/e-ktp/**",
+            "/izin-", "/izinUsaha", "/izin-usaha/**",
+            "/imb", "/imb/**",
+            "/paspor", "/paspor/**",
+            "/login",
+            "/user", "/user/**",
+            "/search/**",
+            "/official",
+            "/ptsp", "/ptsp/**",
+            "/walikota", "/walikota/**",
+            "/kecamatan", "/kecamatan/**"
+
+    })
     public String forward(){
         return "forward:/";
     }

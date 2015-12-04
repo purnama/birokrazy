@@ -125,6 +125,24 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: 'templates/izin-usaha.tpl.html',
             controller: 'IzinUsahaController'
         }).
+        when('/ptsp/:name*', {
+            templateUrl: function(subPage){
+                return 'templates/ptsp.tpl.html';
+            },
+            controller: 'PTSPController'
+        }).
+        when('/walikota/:name*', {
+            templateUrl: function(subPage){
+                return 'templates/walikota.tpl.html';
+            },
+            controller: 'WalikotaController'
+        }).
+        when('/kecamatan/:name*', {
+            templateUrl: function(subPage){
+                return 'templates/kecamatan.tpl.html';
+            },
+            controller: 'KecamatanController'
+        }).
         when('/search/pelayanan', {
             templateUrl: 'templates/search.result.tpl.html',
             controller: 'SearchResultController'
