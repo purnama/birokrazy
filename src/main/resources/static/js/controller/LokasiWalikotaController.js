@@ -174,6 +174,7 @@ hackMdk3App.controller('LokasiWalikotaController', ['$scope', '$location', 'uiGm
         $scope.changeKabupatenKota = function (selectedKabupatenKota) {
             if (selectedKabupatenKota.id !== 0) {
                 $scope.filterStep = 3;
+                $scope.currentWalikota = $scope.daftarWalikota[selectedKabupatenKota.id];
             } else {
                 $scope.filterStep = 2;
             }
@@ -205,21 +206,15 @@ hackMdk3App.controller('LokasiWalikotaController', ['$scope', '$location', 'uiGm
         $scope.updateQuestionsView = function (filterStep) {
             if (filterStep === 1) {
                 $scope.isShowKabupatenKota = false;
-                $scope.isShowKecamatan = false;
-                $scope.isShowKelurahan = false;
                 $scope.isShowResultWalikota = false;
             }
             else if (filterStep === 2) {
                 $scope.isShowKabupatenKota = true;
-                $scope.isShowKecamatan = false;
-                $scope.isShowKelurahan = false;
                 $scope.isShowResultWalikota = false;
             }
             else if (filterStep === 3) {
                 $scope.isShowKabupatenKota = true;
-                $scope.isShowKecamatan = true;
-                $scope.isShowKelurahan = false;
-                $scope.isShowResultWalikota = false;
+                $scope.isShowResultWalikota = true;
             }
             else if (filterStep === 4) {
                 $scope.isShowKabupatenKota = true;

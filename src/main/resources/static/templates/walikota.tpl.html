@@ -20,8 +20,8 @@
 
             <div ng-if="isWalikotaRootPage == false">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                    <li ng-class="{ active: isActive('/ptsp/{{walikota.pageName}}/informasi') || isActive('/ptsp/{{walikota.pageName}}')}" role="presentation"><a href="/ptsp/{{walikota.pageName}}/informasi">Informasi</a></li>
-                    <li ng-class="{ active: isActive('/ptsp/{{walikota.pageName}}/review')}" role="presentation"><a href="/ptsp/{{walikota.pageName}}/review">Review</a>
+                    <li ng-class="{ active: isActive('{{walikota.pageName}}/informasi') || isActive('{{walikota.pageName}}')}" role="presentation"><a href="{{walikota.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('{{walikota.pageName}}/review')}" role="presentation"><a href="{{walikota.pageName}}/review">Review</a>
                     </li>
                 </ul>
                 <div class="panel panel-default">

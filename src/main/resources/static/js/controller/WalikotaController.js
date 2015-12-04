@@ -72,12 +72,12 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.googleMaps.lan = '123 03030';
         }else {
             $scope.walikota.title = 'PTSP Unknown...';
-            $scope.walikota.pageName = 'else';
+            $scope.walikota.pageName = $location.url();
 
             $scope.walikota.name = 'PTSP Unknown';
             $scope.walikota.alamat = 'alamat ptsp Unknown';
             $scope.walikota.jamBuka = 'jam buka ptsp Unknown';
-            $scope.walikota.informasi = 'review Unknown';
+            $scope.walikota.informasi = 'review for ' + $location.path();
             $scope.walikota.reviewLink = 'link untuk Unknown';
             $scope.walikota.googleMaps.lat = '123 xyz';
             $scope.walikota.googleMaps.lan = '123 xyz';

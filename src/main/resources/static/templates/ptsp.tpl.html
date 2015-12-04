@@ -20,8 +20,8 @@
 
             <div ng-if="isPTSPRootPage == false">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/informasi') || isActive('/ptsp/{{ptsp.pageName}}')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/informasi">Informasi</a></li>
-                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/review')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/review">Review</a>
+                    <li ng-class="{ active: isActive('{{ptsp.pageName}}/informasi') || isActive('{{ptsp.pageName}}')}" role="presentation"><a href="{{ptsp.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('{{ptsp.pageName}}/review')}" role="presentation"><a href="{{ptsp.pageName}}/review">Review</a>
                     </li>
                 </ul>
                 <div class="panel panel-default">

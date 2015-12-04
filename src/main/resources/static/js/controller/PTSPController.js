@@ -74,12 +74,12 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lan = '123 xyz';
         }else {
             $scope.ptsp.title = 'PTSP Unknown...';
-            $scope.ptsp.pageName = 'else';
+            $scope.ptsp.pageName = $location.url();
 
             $scope.ptsp.name = 'PTSP Unknown';
             $scope.ptsp.alamat = 'alamat ptsp Unknown';
             $scope.ptsp.jamBuka = 'jam buka ptsp Unknown';
-            $scope.ptsp.informasi = 'review Unknown';
+            $scope.ptsp.informasi = 'review for ' + $location.path();
             $scope.ptsp.reviewLink = 'link untuk Unknown';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';

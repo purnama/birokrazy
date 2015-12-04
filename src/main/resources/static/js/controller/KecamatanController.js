@@ -72,12 +72,12 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.googleMaps.lan = '123 03030';
         }else {
             $scope.kecamatan.title = 'PTSP Unknown...';
-            $scope.kecamatan.pageName = 'else';
+            $scope.kecamatan.pageName = $location.url();
 
             $scope.kecamatan.name = 'PTSP Unknown';
             $scope.kecamatan.alamat = 'alamat ptsp Unknown';
             $scope.kecamatan.jamBuka = 'jam buka ptsp Unknown';
-            $scope.kecamatan.informasi = 'review Unknown';
+            $scope.kecamatan.informasi = 'review for ' + $location.path();
             $scope.kecamatan.reviewLink = 'link untuk Unknown';
             $scope.kecamatan.googleMaps.lat = '123 xyz';
             $scope.kecamatan.googleMaps.lan = '123 xyz';

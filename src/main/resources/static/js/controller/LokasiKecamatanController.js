@@ -184,6 +184,7 @@ hackMdk3App.controller('LokasiKecamatanController', ['$scope', '$location', 'uiG
         $scope.changeKecamatan = function (selectedKecamatan) {
             if (selectedKecamatan.id !== 0) {
                 $scope.filterStep = 4;
+                $scope.currentKecamatan = $scope.listKecamatan[selectedKecamatan.id];
             } else {
                 $scope.filterStep = 3;
             }
@@ -206,26 +207,22 @@ hackMdk3App.controller('LokasiKecamatanController', ['$scope', '$location', 'uiG
             if (filterStep === 1) {
                 $scope.isShowKabupatenKota = false;
                 $scope.isShowKecamatan = false;
-                $scope.isShowKelurahan = false;
                 $scope.isShowResultKecamatan = false;
             }
             else if (filterStep === 2) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = false;
-                $scope.isShowKelurahan = false;
                 $scope.isShowResultKecamatan = false;
             }
             else if (filterStep === 3) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = true;
-                $scope.isShowKelurahan = false;
                 $scope.isShowResultKecamatan = false;
             }
             else if (filterStep === 4) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = true;
-                $scope.isShowKelurahan = true;
-                $scope.isShowResultKecamatan = false;
+                $scope.isShowResultKecamatan = true;
             }
             else if (filterStep === 5) {
                 $scope.isShowResultKecamatan = true;
