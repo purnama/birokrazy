@@ -35,16 +35,6 @@ hackMdk3App.controller('LokasiKecamatanController', ['$scope', '$location', 'uiG
             {id: 5, name: 'Kembangan'}
         ];
 
-        $scope.daftarKelurahan = [
-            {id: 0, name: '-- Pilih Kelurahan --'},
-            {id: 1, name: 'Kedaung'},
-            {id: 2, name: 'Kapuk'},
-            {id: 3, name: 'Cengkareng Barat'},
-            {id: 4, name: 'Cengkareng Timur'},
-            {id: 5, name: 'Rawa Buaya'},
-            {id: 6, name: 'Duri Kosambi'}
-        ];
-
         $scope.listKecamatan = [
             {id: 0, nama: '-', alamat: '-', kodePos: '-', telp: '-', email: '-', jamBuka: '-'},
             {

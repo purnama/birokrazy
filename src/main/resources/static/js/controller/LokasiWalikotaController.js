@@ -26,25 +26,6 @@ hackMdk3App.controller('LokasiWalikotaController', ['$scope', '$location', 'uiGm
             {id: 5, name: 'Jakarta Pusat'}
         ];
 
-        $scope.daftarKecamatan = [
-            {id: 0, name: '-- Pilih Kecamatan --'},
-            {id: 1, name: 'Cengkareng'},
-            {id: 2, name: 'Grogol Petamburan'},
-            {id: 3, name: 'Kalideres'},
-            {id: 4, name: 'Kebon Jeruk'},
-            {id: 5, name: 'Kembangan'}
-        ];
-
-        $scope.daftarKelurahan = [
-            {id: 0, name: '-- Pilih Kelurahan --'},
-            {id: 1, name: 'Kedaung'},
-            {id: 2, name: 'Kapuk'},
-            {id: 3, name: 'Cengkareng Barat'},
-            {id: 4, name: 'Cengkareng Timur'},
-            {id: 5, name: 'Rawa Buaya'},
-            {id: 6, name: 'Duri Kosambi'}
-        ];
-
         $scope.daftarWalikota = [
             {id: 0, nama: '-', alamat: '-', kodePos: '-', telp: '-', email: '-', jamBuka: '-'},
             {
