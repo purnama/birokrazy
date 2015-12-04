@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="page-header">
                     <h1>Kantor Kecamatan</h1>
-                    <span>lokasi Kantor Kecamatan {{title}}</span>
+                    <span>lokasi Kantor Kecamatan {{kecamatan.title}}</span>
                 </div>
             </div>
         </div>
@@ -14,12 +14,59 @@
     <div class="row">
         <div class="col-md-12">
             <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/kecamatan/{{pageName}}/informasi')}" role="presentation"><a href="/kecamatan/{{pageName}}/informasi">Informasi</a></li>
-                <li ng-class="{ active: isActive('/kecamatan/{{pageName}}/review')}" role="presentation"><a href="/kecamatan/{{pageName}}/review">Review</a>
+                <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/informasi') || isActive('/kecamatan/{{kecamatan.pageName}}')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/informasi">Informasi</a></li>
+                <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/review')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/review">Review</a>
                 </li>
             </ul>
 
             <!-- <ng-include src="templateUrl"/> -->
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>kecamatan.name</td>
+                    <td>{{kecamatan.name}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.alamat</td>
+                    <td>{{kecamatan.alamat}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.jamBuka</td>
+                    <td>{{kecamatan.jamBuka}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.informasi</td>
+                    <td>{{kecamatan.informasi}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.reviewLink</td>
+                    <td>{{kecamatan.reviewLink}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.googleMaps.lat</td>
+                    <td>{{kecamatan.googleMaps.lat}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.googleMaps.lan</td>
+                    <td>{{kecamatan.googleMaps.lan}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.title</td>
+                    <td>{{kecamatan.title}}</td>
+                </tr>
+                <tr>
+                    <td>kecamatan.pageName</td>
+                    <td>{{kecamatan.pageName}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

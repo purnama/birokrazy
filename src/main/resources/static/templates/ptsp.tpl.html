@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="page-header">
                     <h1>PTSP - Pelayanan Terpadu Satu Atap</h1>
-                    <span>lokasi untuk PTSP {{title}}</span>
+                    <span>lokasi untuk PTSP {{ptsp.title}}</span>
                 </div>
             </div>
         </div>
@@ -14,12 +14,60 @@
     <div class="row">
         <div class="col-md-12">
             <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/ptsp/{{pageName}}/informasi')}" role="presentation"><a href="/ptsp/{{pageName}}/informasi">Informasi</a></li>
-                <li ng-class="{ active: isActive('/ptsp/{{pageName}}/review')}" role="presentation"><a href="/ptsp/{{pageName}}/review">Review</a>
+                <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/informasi') || isActive('/ptsp/{{ptsp.pageName}}')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/informasi">Informasi</a></li>
+                <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/review')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/review">Review</a>
                 </li>
             </ul>
 
             <!-- <ng-include src="templateUrl"/> -->
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>ptsp.name</td>
+                    <td>{{ptsp.name}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.alamat</td>
+                    <td>{{ptsp.alamat}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.jamBuka</td>
+                    <td>{{ptsp.jamBuka}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.informasi</td>
+                    <td>{{ptsp.informasi}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.reviewLink</td>
+                    <td>{{ptsp.reviewLink}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.googleMaps.lat</td>
+                    <td>{{ptsp.googleMaps.lat}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.googleMaps.lan</td>
+                    <td>{{ptsp.googleMaps.lan}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.title</td>
+                    <td>{{ptsp.title}}</td>
+                </tr>
+                <tr>
+                    <td>ptsp.pageName</td>
+                    <td>{{ptsp.pageName}}</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 
