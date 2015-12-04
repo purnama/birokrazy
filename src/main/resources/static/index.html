@@ -92,8 +92,15 @@
             </div>
             <form class="navbar-form" action="/search/pelayanan" ng-controller="SearchResultController" method="get" ng-show="showNavSearch">
                 <div style="display:table;" class="form-group has-feedback">
-                    <input ng-model="selected" uib-typeahead="find for find in finds | filter:$viewValue | limitTo:8" type="text" autocomplete="off" placeholder="Cari pelayanan atau instansi" name="search" style="width: 100%" class="form-control">
-                    <i style="width: 1%; display: table-cell; padding-right: 8px;"><i style="padding-right: 16px;" class="glyphicon glyphicon-search form-control-feedback"></i></i>
+                    <input ng-model="selected"
+                           uib-typeahead="find as find.name for find in finds | filter:$viewValue | limitTo:8"
+                           typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false" typeahead-focus-first="false"
+                           type="text" autocomplete="off"
+                           placeholder="Cari pelayanan atau instansi" name="search"
+                           style="width: 100%" class="form-control">
+                    <i style="width: 1%; display: table-cell; padding-right: 8px;">
+                        <i style="padding-right: 16px;" class="glyphicon glyphicon-search form-control-feedback"></i>
+                    </i>
                 </div>
             </form>
 

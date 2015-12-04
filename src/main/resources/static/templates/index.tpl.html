@@ -10,7 +10,8 @@
                 <form class="form-group" action="/search/pelayanan" method="get" ng-controller="SearchResultController">
                     <div class="form-group has-feedback">
                         <input ng-model="selected"
-                               uib-typeahead="find for find in finds | filter:$viewValue | limitTo:8" type="text"
+                               uib-typeahead="find as find.name for find in finds | filter:$viewValue | limitTo:8" type="text"
+                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false" typeahead-focus-first="false"
                                class="form-control" placeholder="Cari pelayanan atau instansi">
                         <i class="glyphicon glyphicon-search form-control-feedback"></i>
                     </div>
