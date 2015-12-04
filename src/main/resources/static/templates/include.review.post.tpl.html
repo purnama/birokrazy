@@ -7,6 +7,7 @@
             <div class="form-group social-buttons">
                 <label class="control-label">Rating</label>
                 <input type="text" class="rating form-control" hackmdk3-star-rating data-size="xs"/>
+
                 <div class="pull-right">
                     <button class="btn" ng-click="facebookAction()" ng-class="{'btn-facebook': facebook}">
                         <i class="fa fa-facebook"></i>
@@ -28,6 +29,78 @@
             <div class="form-group">
                 <label for="inputFile">Sisipkan media</label>
                 <input type="file" id="inputFile">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Lokasi</label>
+            </div>
+            <div class="panel panel-default" ng-controller="LokasiPTSPController">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div>
+                            <select class="form-control"
+                                    ng-options="option.name for option in daftarProvinsi track by option.id"
+                                    ng-init="selectedProvinsi = daftarProvinsi[0]"
+                                    ng-model="selectedProvinsi"
+                                    ng-change="changeProvinsi(selectedProvinsi)">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-show="isShowKabupatenKota">
+                        <div>
+                            <select class="form-control"
+                                    ng-options="option.name for option in daftarKabupatenKota track by option.id"
+                                    ng-init="selectedKabupatenKota = daftarKabupatenKota[0]"
+                                    ng-model="selectedKabupatenKota"
+                                    ng-change="changeKabupatenKota(selectedKabupatenKota)">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-show="isShowKecamatan">
+                        <div>
+                            <select class="form-control"
+                                    ng-options="option.name for option in daftarKecamatan track by option.id"
+                                    ng-init="selectedKecamatan = daftarKecamatan[0]"
+                                    ng-model="selectedKecamatan"
+                                    ng-change="changeKecamatan(selectedKecamatan)">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-show="isShowKelurahan">
+                        <div>
+                            <select class="form-control"
+                                    ng-options="option.name for option in daftarKelurahan track by option.id"
+                                    ng-init="selectedKelurahan = daftarKelurahan[0]"
+                                    ng-model="selectedKelurahan"
+                                    ng-change="changeKelurahan(selectedKelurahan)">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="isShowResult">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    {{currentPTSP.nama}}<br/>
+                                    {{currentPTSP.alamat}}<br/>
+                                    {{currentPTSP.kodePos}}<br/>
+                                    {{currentPTSP.telp}}<br/>
+                                    {{currentPTSP.email}}<br/><br/>
+                                    Jam Buka:<br/>
+                                    {{currentPTSP.jamBuka}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ui-gmap-google-map center='currentPTSP.map.center' zoom='currentPTSP.map.zoom'>
+                                <ui-gmap-marker coords="currentPTSP.map.center" idkey="currentPTSP.id">
+                                </ui-gmap-marker>
+                            </ui-gmap-google-map>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="form-inline form-group">
                 <button ng-click="submitAction('true')" type="submit" class="btn btn-primary pull-right">Kirim</button>
