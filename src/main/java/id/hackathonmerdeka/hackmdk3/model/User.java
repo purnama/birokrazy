@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -34,6 +35,10 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user")
     private Set<UserRole> roles;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<CivilServiceReview> civilServiceReviewList;
 
     public Long getId() {
         return id;
@@ -89,5 +94,13 @@ public class User implements Serializable {
 
     public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public List<CivilServiceReview> getCivilServiceReviewList() {
+        return civilServiceReviewList;
+    }
+
+    public void setCivilServiceReviewList(List<CivilServiceReview> civilServiceReviewList) {
+        this.civilServiceReviewList = civilServiceReviewList;
     }
 }
