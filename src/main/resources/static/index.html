@@ -65,14 +65,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;&nbsp;Instansi <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/jakartaTimur')}"><a href="/ptsp/jakartaTimur">PTSP Jakarta Timur</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/jakartaBarat')}"><a href="/ptsp/jakartaBarat">PTSP Jakarta Barat</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/ptsp')}"><a href="/ptsp">PTSP</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/bandung')}"><a href="/walikota/bandung">Walikota Bandung</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/solo')}"><a href="/walikota/solo">Walikota Solo</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/dago')}"><a href="/kecamatan/dago">Kecamatan Dago</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/ligar')}"><a href="/kecamatan/ligar">Kecamatan Ligar</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/walikota')}"><a href="/walikota">Kantor Walikota</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan')}"><a href="/kecamatan">Kantor Kecamatan</a></li>
                     </ul>
                 </li>
 
@@ -165,6 +161,9 @@
 <script src="js/controller/PTSPController.js"></script>
 <script src="js/controller/WalikotaController.js"></script>
 <script src="js/controller/KecamatanController.js"></script>
+<script src="js/controller/LokasiKecamatanController.js"></script>
+<script src="js/controller/LokasiWalikotaController.js"></script>
+<script src="js/controller/LokasiPTSPController.js"></script>
 <script src="js/directive/StarRatingDirective.js"></script>
 <script src="js/directive/PopOverDirective.js"></script>
 <script src="js/directive/HighchartDirective.js"></script>

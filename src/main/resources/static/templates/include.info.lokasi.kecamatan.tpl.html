@@ -1,6 +1,6 @@
-<div class="panel panel-default" ng-controller="LokasiPTSPController">
+<div class="panel panel-default" ng-controller="LokasiKecamatanController">
     <div class="panel-heading">
-        <h3 class="panel-title">Lokasi PTSP</h3>
+        <h3 class="panel-title">Lokasi Kantor Kecamatan</h3>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -62,25 +62,25 @@
                 </form>
             </div>
         </div>
-        <div class="row" ng-show="isShowResult">
+        <div class="row" ng-show="isShowResultKecamatan">
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h3>{{currentPTSP.nama}}</h3>
-                        {{currentPTSP.alamat}}<br />
-                        {{currentPTSP.kodePos}}<br />
-                        {{currentPTSP.telp}}<br />
-                        {{currentPTSP.email}}<hr />
-                        Jam Buka: <i>{{currentPTSP.jamBuka}}</i>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-sm btn-info" ng-click="gotoPTSP(currentPTSP.link)">
-                            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;&nbsp;Open PTSP
+                        <h3>{{currentKecamatan.nama}}</h3>
+                        {{currentKecamatan.alamat}}<br />
+                        {{currentKecamatan.kodePos}}<br />
+                        {{currentKecamatan.telp}}<br />
+                        {{currentKecamatan.email}}<hr />
+                        Jam Buka: <i>{{currentKecamatan.jamBuka}}</i>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-sm btn-info" ng-click="gotoKecamatan(currentKecamatan.link)">
+                            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;&nbsp;Open Kecamatan
                         </button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <ui-gmap-google-map center='currentPTSP.map.center' zoom='currentPTSP.map.zoom'>
-                    <ui-gmap-marker coords="currentPTSP.map.center" idkey="currentPTSP.id">
+                <ui-gmap-google-map center='currentKecamatan.map.center' zoom='currentKecamatan.map.zoom'>
+                    <ui-gmap-marker coords="currentKecamatan.map.center" idkey="currentKecamatan.id">
                     </ui-gmap-marker>
                 </ui-gmap-google-map>
             </div>

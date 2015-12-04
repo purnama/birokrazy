@@ -20,7 +20,12 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             pageName : '',
         }
 
-        if (($location.path() === '/kecamatan/dago') || ($location.path() === '/kecamatan/dago/informasi')) {
+        $scope.isKecamatanRootPage = false;
+
+        if ($location.path() === '/kecamatan') {
+            $scope.isKecamatanRootPage = true;
+
+        }else if (($location.path() === '/kecamatan/dago') || ($location.path() === '/kecamatan/dago/informasi')) {
             $scope.kecamatan.title = 'Dago - Bandung';
             $scope.kecamatan.pageName = 'dago';
 
@@ -65,6 +70,17 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.reviewLink = 'link untuk kantor kecamatan Ligar - bandung';
             $scope.kecamatan.googleMaps.lat = '123 30303';
             $scope.kecamatan.googleMaps.lan = '123 03030';
+        }else {
+            $scope.kecamatan.title = 'PTSP Unknown...';
+            $scope.kecamatan.pageName = 'else';
+
+            $scope.kecamatan.name = 'PTSP Unknown';
+            $scope.kecamatan.alamat = 'alamat ptsp Unknown';
+            $scope.kecamatan.jamBuka = 'jam buka ptsp Unknown';
+            $scope.kecamatan.informasi = 'review Unknown';
+            $scope.kecamatan.reviewLink = 'link untuk Unknown';
+            $scope.kecamatan.googleMaps.lat = '123 xyz';
+            $scope.kecamatan.googleMaps.lan = '123 xyz';
         }
 
         $scope.isActive = function (viewLocation) {

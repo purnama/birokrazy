@@ -20,7 +20,12 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             pageName : '',
         }
 
-        if (($location.path() === '/ptsp/jakartaTimur') || ($location.path() === '/ptsp/jakartaTimur/informasi')) {
+        $scope.isPTSPRootPage = false;
+
+        if ($location.path() === '/ptsp') {
+            $scope.isPTSPRootPage = true;
+
+        }else if(($location.path() === '/ptsp/jakartaTimur') || ($location.path() === '/ptsp/jakartaTimur/informasi')) {
             $scope.ptsp.title = 'Jakarta Timur';
             $scope.ptsp.pageName = 'jakartaTimur';
 
@@ -65,6 +70,17 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
             $scope.ptsp.informasi = 'review jakarta barat';
             $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 xyz';
+            $scope.ptsp.googleMaps.lan = '123 xyz';
+        }else {
+            $scope.ptsp.title = 'PTSP Unknown...';
+            $scope.ptsp.pageName = 'else';
+
+            $scope.ptsp.name = 'PTSP Unknown';
+            $scope.ptsp.alamat = 'alamat ptsp Unknown';
+            $scope.ptsp.jamBuka = 'jam buka ptsp Unknown';
+            $scope.ptsp.informasi = 'review Unknown';
+            $scope.ptsp.reviewLink = 'link untuk Unknown';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
         }

@@ -20,7 +20,12 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             pageName : '',
         }
 
-        if (($location.path() === '/walikota/bandung') || ($location.path() === '/walikota/bandung/informasi')) {
+        $scope.isWalikotaRootPage = false;
+
+        if ($location.path() === '/walikota') {
+            $scope.isWalikotaRootPage = true;
+
+        }else if (($location.path() === '/walikota/bandung') || ($location.path() === '/walikota/bandung/informasi')) {
             $scope.walikota.title = 'Bandung Raya';
             $scope.walikota.pageName = 'bandung';
 
@@ -65,6 +70,17 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
             $scope.walikota.googleMaps.lat = '123 30303';
             $scope.walikota.googleMaps.lan = '123 03030';
+        }else {
+            $scope.walikota.title = 'PTSP Unknown...';
+            $scope.walikota.pageName = 'else';
+
+            $scope.walikota.name = 'PTSP Unknown';
+            $scope.walikota.alamat = 'alamat ptsp Unknown';
+            $scope.walikota.jamBuka = 'jam buka ptsp Unknown';
+            $scope.walikota.informasi = 'review Unknown';
+            $scope.walikota.reviewLink = 'link untuk Unknown';
+            $scope.walikota.googleMaps.lat = '123 xyz';
+            $scope.walikota.googleMaps.lan = '123 xyz';
         }
 
         $scope.isActive = function (viewLocation) {

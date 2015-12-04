@@ -13,60 +13,27 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/informasi') || isActive('/walikota/{{walikota.pageName}}')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/informasi">Informasi</a></li>
-                <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/review')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/review">Review</a>
-                </li>
-            </ul>
+            <div ng-if="isWalikotaRootPage">
+                <p></p>
+                <ng-include src="'templates/include.info.lokasi.walikota.tpl.html'"></ng-include>
+            </div>
 
-            <!-- <ng-include src="templateUrl"/> -->
+            <div ng-if="isWalikotaRootPage == false">
+                <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                    <li ng-class="{ active: isActive('/ptsp/{{walikota.pageName}}/informasi') || isActive('/ptsp/{{walikota.pageName}}')}" role="presentation"><a href="/ptsp/{{walikota.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/ptsp/{{walikota.pageName}}/review')}" role="presentation"><a href="/ptsp/{{walikota.pageName}}/review">Review</a>
+                    </li>
+                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Deskripsi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{walikota.informasi}}</p>
+                    </div>
+                </div>
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>name</th>
-                    <th>value</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>walikota.name</td>
-                    <td>{{walikota.name}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.alamat</td>
-                    <td>{{walikota.alamat}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.jamBuka</td>
-                    <td>{{walikota.jamBuka}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.informasi</td>
-                    <td>{{walikota.informasi}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.reviewLink</td>
-                    <td>{{walikota.reviewLink}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.googleMaps.lat</td>
-                    <td>{{walikota.googleMaps.lat}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.googleMaps.lan</td>
-                    <td>{{walikota.googleMaps.lan}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.title</td>
-                    <td>{{walikota.title}}</td>
-                </tr>
-                <tr>
-                    <td>walikota.pageName</td>
-                    <td>{{walikota.pageName}}</td>
-                </tr>
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
 
