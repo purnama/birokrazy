@@ -7,8 +7,12 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
 
         //view-model, this will be filled from database later...
         $scope.ptsp = {
+            id: '',
             name : '',
             alamat : '',
+            kodePos : '',
+            telp : '',
+            email : '',
             jamBuka : '',
             informasi : '',
             reviewLink : '',
@@ -18,40 +22,53 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             },
             title : '',
             pageName : '',
+            map: {
+                zoom: 18,
+                center: {
+                    latitude: '-6.131836',
+                    longitude: '106.747880'
+                }
+            },
         }
+
+        var stringFromURL = $location.path().split('/');
+        var selectedPage = stringFromURL[stringFromURL.length - 1];
 
         $scope.isPTSPRootPage = false;
 
         if ($location.path() === '/ptsp') {
             $scope.isPTSPRootPage = true;
 
-        }else if(($location.path() === '/ptsp/jakartaTimur') || ($location.path() === '/ptsp/jakartaTimur/informasi')) {
-            $scope.ptsp.title = 'Jakarta Timur';
-            $scope.ptsp.pageName = 'jakartaTimur';
+        }else if(($location.path() === '/ptsp/kedaung') || ($location.path() === '/ptsp/kedaung/informasi')) {
 
-            $scope.ptsp.name = 'PTSP Jakarta Timur';
-            $scope.ptsp.alamat = 'alamat ptsp jakarta timur';
+            $scope.ptsp.title = 'Kedaung';
+            $scope.ptsp.pageName = 'kedaung';
+
+            $scope.ptsp.name = 'PTSP Kedaung';
+            $scope.ptsp.alamat = 'alamat ptsp kedaung';
             $scope.ptsp.jamBuka = 'jam buka ptsp jakarta timur';
             $scope.ptsp.informasi = 'informasi jakarta timur';
             $scope.ptsp.reviewLink = 'link untuk jakarta timur';
             $scope.ptsp.googleMaps.lat = '123 9090';
             $scope.ptsp.googleMaps.lan = '123 9090';
 
-        } else if ($location.path() === '/ptsp/jakartaTimur/review') {
-            $scope.ptsp.title = 'Jakarta Timur Review';
-            $scope.ptsp.pageName = 'jakartaTimur';
+        } else if ($location.path() === '/ptsp/kedaung/review') {
 
-            $scope.ptsp.name = 'PTSP Jakarta Timur';
-            $scope.ptsp.alamat = 'alamat ptsp jakarta timur';
+            $scope.ptsp.title = 'Kedaung Review';
+            $scope.ptsp.pageName = 'kedaung';
+
+            $scope.ptsp.name = 'PTSP Kedaung';
+            $scope.ptsp.alamat = 'alamat ptsp kedaung';
             $scope.ptsp.jamBuka = 'jam buka ptsp jakarta timur';
             $scope.ptsp.informasi = 'review jakarta timur';
             $scope.ptsp.reviewLink = 'link untuk jakarta timur';
             $scope.ptsp.googleMaps.lat = 'xyz 123';
             $scope.ptsp.googleMaps.lan = 'xyz 123';
 
-        } else if (($location.path() === '/ptsp/jakartaBarat') || ($location.path() === '/ptsp/jakartaBarat/informasi')) {
+        } else if (($location.path() === '/ptsp/cengkarengBarat') || ($location.path() === '/ptsp/cengkarengBarat/informasi')) {
+
             $scope.ptsp.title = 'Jakarta Barat';
-            $scope.ptsp.pageName = 'jakartaBarat';
+            $scope.ptsp.pageName = 'cengkarengBarat';
 
             $scope.ptsp.name = 'PTSP Jakarta Barat';
             $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
@@ -61,9 +78,85 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 123';
             $scope.ptsp.googleMaps.lan = '123 123';
 
-        } else if ($location.path() === '/ptsp/jakartaBarat/review') {
+        } else if ($location.path() === '/ptsp/cengkarengBarat/review') {
+
             $scope.ptsp.title = 'Jakarta Barat Review';
-            $scope.ptsp.pageName = 'jakartaBarat';
+            $scope.ptsp.pageName = 'cengkarengBarat';
+
+            $scope.ptsp.name = 'PTSP Jakarta Barat';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'review jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 xyz';
+            $scope.ptsp.googleMaps.lan = '123 xyz';
+        } else if (($location.path() === '/ptsp/rawaBuaya') || ($location.path() === '/ptsp/rawaBuaya/informasi')) {
+
+            $scope.ptsp.title = 'Rawa Buaya';
+            $scope.ptsp.pageName = 'rawaBuaya';
+
+            $scope.ptsp.name = 'PTSP Rawa Buaya';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'informasi jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 123';
+            $scope.ptsp.googleMaps.lan = '123 123';
+
+        } else if ($location.path() === '/ptsp/rawaBuaya/review') {
+
+            $scope.ptsp.title = 'Rawa Buaya Review';
+            $scope.ptsp.pageName = 'rawaBuaya';
+
+            $scope.ptsp.name = 'PTSP Rawa Buaya';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'review jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 xyz';
+            $scope.ptsp.googleMaps.lan = '123 xyz';
+        } else if (($location.path() === '/ptsp/duriKosambi') || ($location.path() === '/ptsp/duriKosambi/informasi')) {
+
+            $scope.ptsp.title = 'Jakarta Barat';
+            $scope.ptsp.pageName = 'duriKosambi';
+
+            $scope.ptsp.name = 'PTSP Jakarta Barat';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'informasi jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 123';
+            $scope.ptsp.googleMaps.lan = '123 123';
+
+        } else if ($location.path() === '/ptsp/duriKosambi/review') {
+
+            $scope.ptsp.title = 'Jakarta Barat Review';
+            $scope.ptsp.pageName = 'duriKosambi';
+
+            $scope.ptsp.name = 'PTSP Jakarta Barat';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'review jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 xyz';
+            $scope.ptsp.googleMaps.lan = '123 xyz';
+        } else if (($location.path() === '/ptsp/kapuk') || ($location.path() === '/ptsp/kapuk/informasi')) {
+
+            $scope.ptsp.title = 'Jakarta Barat';
+            $scope.ptsp.pageName = 'kapuk';
+
+            $scope.ptsp.name = 'PTSP Jakarta Barat';
+            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
+            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
+            $scope.ptsp.informasi = 'informasi jakarta barat';
+            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
+            $scope.ptsp.googleMaps.lat = '123 123';
+            $scope.ptsp.googleMaps.lan = '123 123';
+
+        } else if ($location.path() === '/ptsp/kapuk/review') {
+
+            $scope.ptsp.title = 'Jakarta Barat Review';
+            $scope.ptsp.pageName = 'kapuk';
 
             $scope.ptsp.name = 'PTSP Jakarta Barat';
             $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
@@ -73,13 +166,14 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
         }else {
-            $scope.ptsp.title = 'PTSP Unknown...';
+
+            $scope.ptsp.title = 'PTSP ' + selectedPage;
             $scope.ptsp.pageName = $location.url();
 
             $scope.ptsp.name = 'PTSP Unknown';
             $scope.ptsp.alamat = 'alamat ptsp Unknown';
             $scope.ptsp.jamBuka = 'jam buka ptsp Unknown';
-            $scope.ptsp.informasi = 'review for ' + $location.path();
+            $scope.ptsp.informasi = 'review for ' + + selectedPage + ' from : ' + $location.path();
             $scope.ptsp.reviewLink = 'link untuk Unknown';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';

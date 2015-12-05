@@ -20,13 +20,52 @@
 
             <div ng-if="isPTSPRootPage == false">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                    <li ng-class="{ active: isActive('{{ptsp.pageName}}/informasi') || isActive('{{ptsp.pageName}}')}" role="presentation"><a href="{{ptsp.pageName}}/informasi">Informasi</a></li>
-                    <li ng-class="{ active: isActive('{{ptsp.pageName}}/review')}" role="presentation"><a href="{{ptsp.pageName}}/review">Review</a>
+                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/informasi') || isActive('/ptsp/{{ptsp.pageName}}')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/review')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/review">Review</a>
                     </li>
                 </ul>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Deskripsi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ptsp.informasi}}</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Lokasi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h3>{{ptsp.name}}</h3>
+                                    {{ptsp.alamat}}<br />
+                                    {{ptsp.kodePos}}<br />
+                                    {{ptsp.telp}}<br />
+                                    {{ptsp.email}}<hr />
+                                    Jam Buka: <i>{{ptsp.jamBuka}}</i>&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-sm btn-info" ng-click="gotoPTSP(ptsp.link)">
+                                        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;&nbsp;Open PTSP
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ui-gmap-google-map center='ptsp.map.center' zoom='ptsp.map.zoom'>
+                                <ui-gmap-marker coords="ptsp.map.center" idkey="ptsp.id">
+                                </ui-gmap-marker>
+                            </ui-gmap-google-map>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pelayanan</h3>
                     </div>
                     <div class="panel-body">
                         <p>{{ptsp.informasi}}</p>
