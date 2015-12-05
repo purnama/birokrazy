@@ -96,7 +96,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
         $scope.isShowBentangBangunan = false;
 
         $scope.isShowImbPersyaratan = false;
-        $scope.isShowImbProcess = true;
+        $scope.isShowImbProcess = false;
 
         $scope.totalAnswered = 0;
 
