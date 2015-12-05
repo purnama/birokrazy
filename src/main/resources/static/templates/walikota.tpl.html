@@ -13,15 +13,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div ng-if="isWalikotaRootPage">
+            <div ng-if="isWalikotaFindPage">
                 <p></p>
                 <ng-include src="'templates/include.info.lokasi.walikota.tpl.html'"></ng-include>
             </div>
 
-            <div ng-if="isWalikotaRootPage == false">
+            <div ng-if="isWalikotaInfoPage">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                    <li ng-class="{ active: isActive('{{walikota.pageName}}/informasi') || isActive('{{walikota.pageName}}')}" role="presentation"><a href="{{walikota.pageName}}/informasi">Informasi</a></li>
-                    <li ng-class="{ active: isActive('{{walikota.pageName}}/review')}" role="presentation"><a href="{{walikota.pageName}}/review">Review</a>
+                    <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/informasi') || isActive('/walikota/{{walikota.pageName}}')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/review')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/review">Review</a>
                     </li>
                 </ul>
                 <div class="panel panel-default">
@@ -34,6 +34,15 @@
                 </div>
 
             </div>
+            <div ng-if="isWalikotaReviewPage">
+                <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                    <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/informasi') || isActive('/walikota/{{walikota.pageName}}')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/walikota/{{walikota.pageName}}/review')}" role="presentation"><a href="/walikota/{{walikota.pageName}}/review">Review</a>
+                    </li>
+                </ul>
+                <ng-include src="'templates/include.info.review.tpl.html'"></ng-include>
+            </div>
+
         </div>
     </div>
 

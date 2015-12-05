@@ -20,7 +20,9 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             pageName : '',
         }
 
-        $scope.isKecamatanRootPage = false;
+        $scope.isKecamatanFindPage = false;
+        $scope.isKecamatanInfoPage = false;
+        $scope.isKecamatanReviewPage = false;
 
         if ($location.path() === '/kecamatan') {
             $scope.isKecamatanRootPage = true;
@@ -37,6 +39,9 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.googleMaps.lat = '123 30303';
             $scope.kecamatan.googleMaps.lan = '123 03030';
 
+            $scope.isKecamatanInfoPage = true;
+            $scope.isKecamatanReviewPage = false;
+
         } else if ($location.path() === '/kecamatan/dago/review') {
             $scope.kecamatan.title = 'Dago - Bandung';
             $scope.kecamatan.pageName = 'dago';
@@ -48,6 +53,10 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.reviewLink = 'link untuk kantor kecamatan dago - bandung';
             $scope.kecamatan.googleMaps.lat = '123 30303';
             $scope.kecamatan.googleMaps.lan = '123 03030';
+
+            $scope.isKecamatanInfoPage = false;
+            $scope.isKecamatanReviewPage = true;
+
         } else if (($location.path() === '/kecamatan/ligar') || ($location.path() === '/kecamatan/ligar/informasi')) {
             $scope.kecamatan.title = 'Ligar - Bandung';
             $scope.kecamatan.pageName = 'ligar';
@@ -59,6 +68,10 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.reviewLink = 'link untuk kantor kecamatan Ligar - bandung';
             $scope.kecamatan.googleMaps.lat = '123 30303';
             $scope.kecamatan.googleMaps.lan = '123 03030';
+
+            $scope.isKecamatanInfoPage = true;
+            $scope.isKecamatanReviewPage = false;
+
         } else if ($location.path() === '/kecamatan/ligar/review') {
             $scope.kecamatan.title = 'Ligar - Bandung';
             $scope.kecamatan.pageName = 'ligar';
@@ -70,6 +83,10 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.reviewLink = 'link untuk kantor kecamatan Ligar - bandung';
             $scope.kecamatan.googleMaps.lat = '123 30303';
             $scope.kecamatan.googleMaps.lan = '123 03030';
+
+            $scope.isKecamatanInfoPage = false;
+            $scope.isKecamatanReviewPage = true;
+
         }else {
             $scope.kecamatan.title = 'PTSP Unknown...';
             $scope.kecamatan.pageName = $location.url();

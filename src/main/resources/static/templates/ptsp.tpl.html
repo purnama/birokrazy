@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="page-header">
                     <h1>PTSP</h1>
-                    <span>Pelayanan Terpadu Satu Atap</span>
+                    <span>Pelayanan Terpadu Satu Pintu</span>
                 </div>
             </div>
         </div>
@@ -13,12 +13,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div ng-if="isPTSPRootPage">
+            <div ng-if="isPTSPFindPage">
                 <p></p>
                 <ng-include src="'templates/include.info.lokasi.tpl.html'"></ng-include>
             </div>
 
-            <div ng-if="isPTSPRootPage == false">
+            <div ng-if="isPTSPInfoPage">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
                     <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/informasi') || isActive('/ptsp/{{ptsp.pageName}}')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/informasi">Informasi</a></li>
                     <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/review')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/review">Review</a>
@@ -30,7 +30,68 @@
                         <h3 class="panel-title">Deskripsi</h3>
                     </div>
                     <div class="panel-body">
-                        <p>{{ptsp.informasi}}</p>
+                        <h3>Tentang PTSP</h3>
+                        <p>
+                            Bermula dari sebuah pemikiran Joko Widodo saat menjabat Gubernur DKI Jakarta tanggal 15 Oktober 2012 dilanjutkan oleh Basuki T. Purnama ingin mewujudkan  pelayanan perizinan dan non perizinan yang tepat waktu, tidak berbelit dan menciptakan mudahnya akses masyarakat terhadap layanan pemerintah, dibentuk suatu Badan yang melayani masyarakat pada bidang perizinan dan non perizinan.
+                        </p>
+                        <p>
+                            Awal tahun, dikenalkan kepada masyarakat mimpi yang diwujudkan bernama Pelayanan Terpadu Satu Pintu atau PTSP, yang secara administrasi menerima semua berkas yang diajukan masyarakat serta menghapuskan pintu-pintu lain yang sebelumnya tersebar pada banyak instansi. Sehingga masyarakat cukup datang ke PTSP dan tidak perlu mondar-mandir ke instansi-instansi lain.
+                        </p>
+                        <p>
+                            Pelayanan Terpadu Satu Pintu adalah kegiatan penyelenggaraan perizinan dan non perizinan yang proses pengelolaannya mulai dari tahap permohonan sampai ke tahap terbitnya dokumen dilakukan secara terpadu dengan sistem satu pintu di Provinsi Daerah Khusus Ibukota Jakarta.
+                        </p>
+                        <p>
+                            Penyelenggaraan pelayanan terpadu di DKI Jakarta dimaksudkan untuk memberikan kemudahan dan kepastian bagi masyarakat dalam memperoleh pelayanan perizinan dan non perizinan. Kemudahan dalam memperoleh pelayanan perizinan dan non perizinan dan memperoleh informasi tempat, waktu, biaya, persyaratan, prosedur, penyampaian dan penyelesaian pengaduan. Serta kepastian hukum terhadap waktu, biaya, persyaratan, prosedur dan penyelesaian pengaduan, belum sepenuhnya terlaksana karena masih tergantung oleh SKPD/UKPD Teknis terkait.
+                        </p>
+                        <p>
+                            Tujuan awal adanya penyelenggaraan PTSP adalah :
+                        </p>
+                        <p>
+                            <ul>
+                            <li>Meningkatkan kualitas pelayanan perizinan dan non perizinan</li>
+                            <li>Memberikan kemudahan kepada masyarakat untuk memperoleh pelayanan perizinan dan non perizinan</li>
+                            <li>Meningkatkan kepastian pelayanan perizinan dan non perizinan</li>
+                            <li>Badan Pelayanan Terpadu Satu Pintu yang selanjutnya disingkat BPTSP adalah Satuan Kerja Perangkat Daerah yang menyelenggarakan Pelayanan Terpadu Satu Pintu, yang dibentuk berdasarkan Peraturan Daerah Nomor 12 Tahun 2013 tentang Penyelenggaraan Pelayanan Terpadu Satu Pintu. BPTSP mempunyai tugas melaksanakan pembinaan, pengendalian, monitoring dan evaluasi penyelenggaraan PTSP oleh Kantor PTSP, Satuan Pelaksana (Satlak) PTSP Kecamatan dan Satlak PTSP Kelurahan serta pelayanan dan penandatanganan izin dan non izin serta dokumen administrasi yang menjadi kewenangannya.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            Sedangkan fungsi yang diselenggarakan adalah :
+                        </p>
+                        <p>
+                            perumusan kebijakan teknis penyelenggaraan PTSP sesuai dengan ketentuan peraturan perundang-undangan;
+                            pembinaan, pengendalian, monitoring dan evaluasi pelayanan perizinan dan non perizinan serta dokumen administrasi oleh Kantor PTSP, Satlak PTSP Kecamatan dan Satlak PTSP Kelurahan;
+                            penerimaan berkas permohonan perizinan dan non perizinan serta dokumen administrasi sesuai kewenangannya;
+                            penelitian/pemeriksaan berkas permohonan perizinan dan non perizinan serta dokumen administrasi sesuai kewenangannya;
+                            pelaksanaan penelitian teknis/pengujian fisik permohonan perizinan dan non perizinan serla dokumen administrasi sesuai kewenangannya;
+                            penandatanganan dokumen izin, non izin dan administrasi sesuai kewenangannya;
+                            penyerahan dokumen izin, non izin dan administrasi sesuai kewenangannya;
+                            pengelolaan arsip dokumen izin, non izin dan administrasi sesuai kewenangannya;
+                            penetapan dan pemberian sanksi terhadap penyalahgunaan izin dan non izin serta dokumen administrasi sesuai kewenangannya;
+                            pengelolaan sistem teknologi informasi penyelenggaraan PTSP;
+                            pelayanan, pemprosesan dan penyelesaian pengaduan/keluhan atas penyelenggaraan PTSP;
+                            pelayanan dan penyelesaian pengaduan/keluhan atas pelayanan di Kantor PTSP serta pengaduan/keluhan atas pelayanan Satlak PTSP Kecamatan dan Satlak PTSP Kelurahan yang tidak dapat diselesaikan oleh Kantor PTSP;
+                            pencatatan, pembukuan dan pelaporan retribusi pelayanan penyelenggaraan PTSP;
+                            BPTSP diresmikan operasionalnya oleh Gubernur Provinsi DKI Jakarta, Basuki T. Purnama pada tanggal 2 Januari 2015, mempunyai struktur organisasi yang tersebar dari tingkat Provinsi sampai dengan Kelurahan sebanyak 318 unit kerja (service point) yaitu :
+                        </p>
+                        <p>
+                            Badan PTSP Provinsi, 1 unit yang berkedudukan di Kompleks Balaikota DKI Jakarta
+                            Kantor PTSP Kota/Kabupaten, 6 unit yang berkedudukan di Kantor Walikota/Bupati
+                            Satuan Pelaksana PTSP Kecamatan, 44 unit yang berkedudukan di Kantor Camat
+                            Satuan Pelaksana PTSP Kelurahan, 267 unit yang berkedudukan di Kantor Lurah
+                            Service point Badan PTSP yang berlokasi di seluruh kantor pemerintahan, dimaksudkan untuk mendekatkan pelayanan kepada masyarakat, yang memungkinkan masyarakat mengajukan permohonan perizinan dan non perizinan dari lokasi PTSP terdekat. Dengan konsep PTSP sebagai “calo resmi” perizinan di DKI Jakarta, maka masyarakat tidak perlu lagi pusing mengurus perizinan tetapi cukup mendatangi lokasi PTSP terdekat. Dan menjadi kewajiban petugas PTSP untuk memproses perizinan dan non perizinan lebih lanjut.
+
+
+                        </p>
+                        <p>
+                            Dalam perjalanannya, BPTSP sampai saat ini telah melakukan beberapa inovasi produk pelayanan diantaranya :
+                        </p>
+                        <p>
+                            Telah melaksanakan pelayanan perizinan dan non perizinan yang penyelesaiannya hanya membutuhkan waktu 1 hari/One Day Service (ODS).
+                            Melaksanakan pelayanan prioritas, dimana pelayanan ini dibagi menjadi 2 jenis yaitu :
+                            Paket pelayanan inovasi, dimana dalam paket pelayanan ini, BPTSP hanya membutuhkan waktu 122 hari kerja untuk menyelesaikan semua izin/non izin, mulai dari izin prinsip, SP3L, KRK, SIPPT, RTLB, IMB, Izin lingkungan, UUG, SLF serta izin usaha.
+                            Pelayanan Drive-thru, dimana dalam pelayanan ini, BPTSP hanya membutuhkan waktu 1 jam untuk menyelesaikan izin & Non Izin. Jenis layanan Drive-thru terdiri dari RPTKA, izin penelitian, legalisir, IUJK dan UGB.
+                        </p>
+
                     </div>
                 </div>
 
@@ -39,6 +100,7 @@
                         <h3 class="panel-title">Lokasi</h3>
                     </div>
                     <div class="panel-body">
+                        <div class="row">
                         <div class="col-md-6">
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -60,6 +122,7 @@
                                 </ui-gmap-marker>
                             </ui-gmap-google-map>
                         </div>
+                        </div>
                     </div>
                 </div>
 
@@ -72,6 +135,15 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div ng-if="isPTSPReviewPage">
+                <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/informasi') || isActive('/ptsp/{{ptsp.pageName}}')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/ptsp/{{ptsp.pageName}}/review')}" role="presentation"><a href="/ptsp/{{ptsp.pageName}}/review">Review</a>
+                    </li>
+                </ul>
+                <ng-include src="'templates/include.info.review.tpl.html'"></ng-include>
             </div>
 
         </div>

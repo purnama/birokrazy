@@ -34,7 +34,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
         var stringFromURL = $location.path().split('/');
         var selectedPage = stringFromURL[stringFromURL.length - 1];
 
-        $scope.isPTSPRootPage = false;
+        $scope.isPTSPFindPage = false;
+        $scope.isPTSPInfoPage = false;
+        $scope.isPTSPReviewPage = false;
 
         if ($location.path() === '/ptsp') {
             $scope.isPTSPRootPage = true;
@@ -52,6 +54,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 9090';
             $scope.ptsp.googleMaps.lan = '123 9090';
 
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         } else if ($location.path() === '/ptsp/kedaung/review') {
 
             $scope.ptsp.title = 'Kedaung Review';
@@ -64,6 +69,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk jakarta timur';
             $scope.ptsp.googleMaps.lat = 'xyz 123';
             $scope.ptsp.googleMaps.lan = 'xyz 123';
+
+            $scope.isPTSPInfoPage = false;
+            $scope.isPTSPReviewPage = true;
 
         } else if (($location.path() === '/ptsp/cengkarengBarat') || ($location.path() === '/ptsp/cengkarengBarat/informasi')) {
 
@@ -78,6 +86,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 123';
             $scope.ptsp.googleMaps.lan = '123 123';
 
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         } else if ($location.path() === '/ptsp/cengkarengBarat/review') {
 
             $scope.ptsp.title = 'Jakarta Barat Review';
@@ -90,6 +101,10 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk jakarta barat';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
+
+            $scope.isPTSPInfoPage = false;
+            $scope.isPTSPReviewPage = true;
+
         } else if (($location.path() === '/ptsp/rawaBuaya') || ($location.path() === '/ptsp/rawaBuaya/informasi')) {
 
             $scope.ptsp.title = 'Rawa Buaya';
@@ -103,6 +118,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 123';
             $scope.ptsp.googleMaps.lan = '123 123';
 
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         } else if ($location.path() === '/ptsp/rawaBuaya/review') {
 
             $scope.ptsp.title = 'Rawa Buaya Review';
@@ -115,6 +133,10 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk jakarta barat';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
+
+            $scope.isPTSPInfoPage = false;
+            $scope.isPTSPReviewPage = true;
+
         } else if (($location.path() === '/ptsp/duriKosambi') || ($location.path() === '/ptsp/duriKosambi/informasi')) {
 
             $scope.ptsp.title = 'Jakarta Barat';
@@ -128,6 +150,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 123';
             $scope.ptsp.googleMaps.lan = '123 123';
 
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         } else if ($location.path() === '/ptsp/duriKosambi/review') {
 
             $scope.ptsp.title = 'Jakarta Barat Review';
@@ -140,6 +165,10 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk jakarta barat';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
+
+            $scope.isPTSPInfoPage = false;
+            $scope.isPTSPReviewPage = true;
+
         } else if (($location.path() === '/ptsp/kapuk') || ($location.path() === '/ptsp/kapuk/informasi')) {
 
             $scope.ptsp.title = 'Jakarta Barat';
@@ -153,6 +182,9 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.googleMaps.lat = '123 123';
             $scope.ptsp.googleMaps.lan = '123 123';
 
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         } else if ($location.path() === '/ptsp/kapuk/review') {
 
             $scope.ptsp.title = 'Jakarta Barat Review';
@@ -165,6 +197,10 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk jakarta barat';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
+
+            $scope.isPTSPInfoPage = false;
+            $scope.isPTSPReviewPage = true;
+
         }else {
 
             $scope.ptsp.title = 'PTSP ' + selectedPage;
@@ -177,6 +213,10 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.ptsp.reviewLink = 'link untuk Unknown';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';
+
+            $scope.isPTSPInfoPage = true;
+            $scope.isPTSPReviewPage = false;
+
         }
 
         $scope.isActive = function (viewLocation) {

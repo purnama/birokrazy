@@ -13,15 +13,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div ng-if="isKecamatanRootPage">
+            <div ng-if="isKecamatanFindPage">
                 <p></p>
                 <ng-include src="'templates/include.info.lokasi.kecamatan.tpl.html'"></ng-include>
             </div>
 
-            <div ng-if="isKecamatanRootPage == false">
+            <div ng-if="isKecamatanInfoPage">
                 <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                    <li ng-class="{ active: isActive('{{kecamatan.pageName}}/informasi') || isActive('{{kecamatan.pageName}}')}" role="presentation"><a href="{{kecamatan.pageName}}/informasi">Informasi</a></li>
-                    <li ng-class="{ active: isActive('{{kecamatan.pageName}}/review')}" role="presentation"><a href="{{kecamatan.pageName}}/review">Review</a>
+                    <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/informasi') || isActive('/kecamatan/{{kecamatan.pageName}}')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/review')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/review">Review</a>
                     </li>
                 </ul>
                 <div class="panel panel-default">
@@ -33,6 +33,14 @@
                     </div>
                 </div>
 
+            </div>
+            <div ng-if="isKecamatanReviewPage">
+                <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                    <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/informasi') || isActive('/kecamatan/{{kecamatan.pageName}}')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/informasi">Informasi</a></li>
+                    <li ng-class="{ active: isActive('/kecamatan/{{kecamatan.pageName}}/review')}" role="presentation"><a href="/kecamatan/{{kecamatan.pageName}}/review">Review</a>
+                    </li>
+                </ul>
+                <ng-include src="'templates/include.info.review.tpl.html'"></ng-include>
             </div>
         </div>
     </div>

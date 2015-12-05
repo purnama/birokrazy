@@ -20,10 +20,12 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             pageName : '',
         }
 
-        $scope.isWalikotaRootPage = false;
+        $scope.isWalikotaFindPage = false;
+        $scope.isWalikotaInfoPage = false;
+        $scope.isWalikotaReviewPage = false;
 
         if ($location.path() === '/walikota') {
-            $scope.isWalikotaRootPage = true;
+            $scope.isWalikotaFindPage = true;
 
         }else if (($location.path() === '/walikota/bandung') || ($location.path() === '/walikota/bandung/informasi')) {
             $scope.walikota.title = 'Bandung Raya';
@@ -37,6 +39,9 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.googleMaps.lat = '123 30303';
             $scope.walikota.googleMaps.lan = '123 03030';
 
+            $scope.isWalikotaInfoPage = true;
+            $scope.isWalikotaReviewPage = false;
+
         } else if ($location.path() === '/walikota/bandung/review') {
             $scope.walikota.title = 'Bandung Raya';
             $scope.walikota.pageName = 'bandung';
@@ -48,6 +53,10 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
             $scope.walikota.googleMaps.lat = '123 30303';
             $scope.walikota.googleMaps.lan = '123 03030';
+
+            $scope.isWalikotaInfoPage = false;
+            $scope.isWalikotaReviewPage = true;
+
         } else if (($location.path() === '/walikota/solo') || ($location.path() === '/walikota/solo/informasi')) {
             $scope.walikota.title = 'Solo';
             $scope.walikota.pageName = 'solo';
@@ -59,6 +68,10 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
             $scope.walikota.googleMaps.lat = '123 30303';
             $scope.walikota.googleMaps.lan = '123 03030';
+
+            $scope.isWalikotaInfoPage = true;
+            $scope.isWalikotaReviewPage = false;
+
         } else if ($location.path() === '/walikota/solo/review') {
             $scope.walikota.title = 'Solo';
             $scope.walikota.pageName = 'solo';
@@ -70,6 +83,10 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
             $scope.walikota.googleMaps.lat = '123 30303';
             $scope.walikota.googleMaps.lan = '123 03030';
+
+            $scope.isWalikotaInfoPage = false;
+            $scope.isWalikotaReviewPage = true;
+
         }else {
             $scope.walikota.title = 'PTSP Unknown...';
             $scope.walikota.pageName = $location.url();
