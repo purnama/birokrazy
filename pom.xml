@@ -88,6 +88,11 @@
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
+                        <configuration>
+                            <nodeVersion>latest</nodeVersion>
+                            <npmVersion>latest</npmVersion>
+                        </configuration>
+
                     </execution>
                     <execution>
                         <id>npm install</id>
