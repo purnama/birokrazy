@@ -31,7 +31,7 @@ public class CivilServiceReview {
     private String location;
 
     @Column(nullable = false)
-    private Date createDate;
+    private Date createDate = new Date();
 
     @Column(nullable = false, name = "revlike")
     private Long like = 0l;

@@ -24,7 +24,7 @@ public class CivilServiceProtectedController extends ProtectedController {
 
     @RequestMapping(path = "/civil-service/{id}/review", method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMINISTRATOR')")
     public CivilServiceReview saveOrUpdateReview(@PathVariable("id") Long id, @RequestBody CivilServiceReview civilServiceReview, Principal principal) {
         return civilServiceService.saveReview(id, civilServiceReview, principal);
     }

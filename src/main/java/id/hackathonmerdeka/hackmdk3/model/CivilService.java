@@ -1,6 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.core.annotation.Order;
 
 import javax.persistence.*;
 import java.util.List;
@@ -31,6 +32,7 @@ public class CivilService {
     private Long reviews;
 
     @OneToMany(mappedBy = "civilService")
+    @OrderBy("id desc")
     private List<CivilServiceReview> reviewList;
 
     public Long getId() {

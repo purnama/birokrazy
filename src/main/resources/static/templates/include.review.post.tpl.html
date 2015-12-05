@@ -3,10 +3,10 @@
         <h3 class="panel-title">Write Review</h3>
     </div>
     <div class="panel-body">
-        <form>
+        <form ng-submit="submitAction()">
             <div class="form-group social-buttons">
                 <label class="control-label">Rating</label>
-                <input type="text" class="rating form-control" hackmdk3-star-rating data-size="xs"/>
+                <input type="text" class="rating form-control" hackmdk3-star-rating data-size="xs" ng-model="reviewPost.rating" />
 
                 <div class="pull-right">
                     <button class="btn" ng-click="facebookAction()" ng-class="{'btn-facebook': facebook}">
@@ -20,15 +20,15 @@
 
             <div class="form-group">
                 <label class="control-label">Subject</label>
-                <input type="text" class="form-control" placeholder="Subject">
+                <input type="text" class="form-control" placeholder="Subject" ng-model="reviewPost.subject">
             </div>
             <div class="form-group">
                 <label class="control-label">Keterangan</label>
-                <textarea class="form-control" placeholder="Tulis keterangan" rows="4"></textarea>
+                <textarea class="form-control" placeholder="Tulis keterangan" rows="4" ng-model="reviewPost.content"></textarea>
             </div>
             <div class="form-group">
                 <label for="inputFile">Sisipkan media</label>
-                <input type="file" id="inputFile">
+                <input type="file" id="inputFile" ng-model="reviewPost.media">
             </div>
             <div class="form-group">
                 <label class="control-label">Lokasi</label>
@@ -73,7 +73,7 @@
                             <select class="form-control"
                                     ng-options="option.name for option in daftarKelurahan track by option.id"
                                     ng-init="selectedKelurahan = daftarKelurahan[0]"
-                                    ng-model="selectedKelurahan"
+                                    ng-model="reviewPost.location"
                                     ng-change="changeKelurahan(selectedKelurahan)">
                             </select>
                         </div>
@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="form-inline form-group">
-                <button ng-click="submitAction('true')" type="submit" class="btn btn-primary pull-right">Kirim</button>
+                <button type="submit" class="btn btn-primary pull-right">Kirim</button>
                 <button ng-click="showPostAction()" type="button" class="btn btn-default">Batal</button>
             </div>
         </form>
