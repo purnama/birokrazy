@@ -2,8 +2,8 @@
  * Created by hackathon on 04.12.15.
  */
 
-hackMdk3App.controller('PTSPController', ['$scope', '$location',
-    function ($scope, $location) {
+hackMdk3App.controller('PTSPController', ['$scope', '$location', 'CivilServiceService',
+    function ($scope, $location, civilServiceService) {
 
         //view-model, this will be filled from database later...
         $scope.ptsp = {
@@ -218,6 +218,24 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location',
             $scope.isPTSPReviewPage = false;
 
         }
+
+        if($location.path().indexOf('trend') !== 0){
+            var stringArray = $location.path().split('/');
+            $scope.ptsp.pageName = stringArray[2];
+        }
+
+        civilServiceService.findById(1).then(function(data){
+            $scope.civilService = data;
+            if($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/informasi' ||
+                $location.path() === '/ptsp/'+$scope.ptsp.pageName
+            ){
+                $scope.templateUrl = 'templates/ptsp.info.tpl.html';
+            }else if ($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/review'){
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            }else if ($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/trend'){
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            }
+        });
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();

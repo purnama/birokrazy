@@ -8,7 +8,9 @@ hackMdk3App.directive("hackmdk3StarRating", function(){
             model : '=ngModel'
         },
         link: function(scope, iElement, iAttrs) {
-            $(iElement).val(scope.model);
+            if(scope.model) {
+                $(iElement).val(scope.model);
+            }
             $(iElement).rating({
                 readonly: iAttrs.readonly?true:false,
                 showClear: false,

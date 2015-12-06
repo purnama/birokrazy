@@ -2,8 +2,8 @@
  * Created by hackathon on 04.12.15.
  */
 
-hackMdk3App.controller('KecamatanController', ['$scope', '$location',
-    function ($scope, $location) {
+hackMdk3App.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService',
+    function ($scope, $location, civilServiceService) {
 
         //view-model, this will be filled from database later...
         $scope.kecamatan = {
@@ -99,6 +99,24 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location',
             $scope.kecamatan.googleMaps.lat = '123 xyz';
             $scope.kecamatan.googleMaps.lan = '123 xyz';
         }
+
+        if($location.path().indexOf('trend') !== 0){
+            var stringArray = $location.path().split('/');
+            $scope.kecamatan.pageName = stringArray[2];
+        }
+
+        civilServiceService.findById(3).then(function(data){
+            $scope.civilService = data;
+            if($location.path() === '/kecamatan/'+$scope.kecamatan.pageName+'/informasi' ||
+                $location.path() === '/kecamatan/'+$scope.kecamatan.pageName
+            ){
+                $scope.templateUrl = 'templates/kecamatan.info.tpl.html';
+            }else if ($location.path() === '/kecamatan/'+$scope.kecamatan.pageName+'/review'){
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            }else if ($location.path() === '/kecamatan/'+$scope.kecamatan.pageName+'/trend'){
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            }
+        });
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();

@@ -2,8 +2,8 @@
  * Created by hackathon on 04.12.15.
  */
 
-hackMdk3App.controller('WalikotaController', ['$scope', '$location',
-    function ($scope, $location) {
+hackMdk3App.controller('WalikotaController', ['$scope', '$location', 'CivilServiceService',
+    function ($scope, $location, civilServiceService) {
 
         //view-model, this will be filled from database later...
         $scope.walikota = {
@@ -99,6 +99,24 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location',
             $scope.walikota.googleMaps.lat = '123 xyz';
             $scope.walikota.googleMaps.lan = '123 xyz';
         }
+
+        if($location.path().indexOf('trend') !== 0){
+            var stringArray = $location.path().split('/');
+            $scope.walikota.pageName = stringArray[2];
+        }
+
+        civilServiceService.findById(2).then(function(data){
+            $scope.civilService = data;
+            if($location.path() === '/walikota/'+$scope.walikota.pageName+'/informasi' ||
+                $location.path() === '/walikota/'+$scope.walikota.pageName
+            ){
+                $scope.templateUrl = 'templates/walikota.info.tpl.html';
+            }else if ($location.path() === '/walikota/'+$scope.walikota.pageName+'/review'){
+                $scope.templateUrl = 'templates/include.review.tpl.html';
+            }else if ($location.path() === '/walikota/'+$scope.walikota.pageName+'/trend'){
+                $scope.templateUrl = 'templates/include.trend.tpl.html';
+            }
+        });
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
