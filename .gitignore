@@ -3,6 +3,10 @@
 .settings/
 .project
 
+# Node.JS
+node_modules
+node_tmp
+
 # Intellij
 .idea/
 *.iml
