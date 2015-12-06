@@ -3,6 +3,38 @@
         <h3 class="panel-title">Deskripsi</h3>
     </div>
     <div class="panel-body">
-        <p>{{kecamatan.informasi}}</p>
+        <p>Kecamatan mempunyai tugas pokok :</p>
+        <p>"menyelenggarakan sebagian kewenangan pemerintahan yang dilimpahkan dari Walikota untuk menangani sebagian urusan otonomi daerah"</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Alamat Kantor Kecamatan</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>{{kecamatan.name}}</h3>
+                        {{kecamatan.alamat}}<br />
+                        {{kecamatan.kodePos}}<br />
+                        {{kecamatan.telp}}<br />
+                        {{kecamatan.email}}<hr />
+                        Jam Buka: <i>{{kecamatan.jamBuka}}</i>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-sm btn-info" ng-click="gotoKecamatan(kecamatan.link)">
+                            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;&nbsp;Open Kecamatan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ui-gmap-google-map center='kecamatan.map.center' zoom='kecamatan.map.zoom'>
+                    <ui-gmap-marker coords="kecamatan.map.center" idkey="kecamatan.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
     </div>
 </div>

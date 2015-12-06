@@ -3,6 +3,38 @@
         <h3 class="panel-title">Deskripsi</h3>
     </div>
     <div class="panel-body">
-        <p>{{walikota.informasi}}</p>
+        <p>Wali Kota memiliki tugas dan wewenang memimpin penyelenggaraan daerah berdasarkan kebijakan yang ditetapkan bersama DPRD Kota.</p>
+        <p>Wali kota dipilih dalam satu paket pasangan dengan Wakil Wali Kota melalui Pilkada. Wali kota merupakan jabatan politis, dan bukan Pegawai Negeri Sipil.</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Alamat Kantor Walikota</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>{{walikota.name}}</h3>
+                        {{walikota.alamat}}<br />
+                        {{walikota.kodePos}}<br />
+                        {{walikota.telp}}<br />
+                        {{walikota.email}}<hr />
+                        Jam Buka: <i>{{walikota.jamBuka}}</i>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-sm btn-info" ng-click="gotoWalikota(walikota.link)">
+                            <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>&nbsp;&nbsp;Open Walikota
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ui-gmap-google-map center='walikota.map.center' zoom='walikota.map.zoom'>
+                    <ui-gmap-marker coords="walikota.map.center" idkey="walikota.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
     </div>
 </div>

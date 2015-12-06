@@ -46,61 +46,75 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location', 'CivilServiceSe
             $scope.ptsp.title = 'Kedaung';
             $scope.ptsp.pageName = 'kedaung';
 
-            $scope.ptsp.name = 'PTSP Kedaung';
-            $scope.ptsp.alamat = 'alamat ptsp kedaung';
-            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta timur';
-            $scope.ptsp.informasi = 'informasi jakarta timur';
-            $scope.ptsp.reviewLink = 'link untuk jakarta timur';
-            $scope.ptsp.googleMaps.lat = '123 9090';
-            $scope.ptsp.googleMaps.lan = '123 9090';
+            $scope.ptsp.id= '1';
+            $scope.ptsp.nama = 'PTSP Kedaung';
+            $scope.ptsp.alamat =  'Jl. Komplek Departemen Agama, Kedaung Kali Angke';
+            $scope.ptsp.kodePos = 'Jakarta Barat, 10011';
+            $scope.ptsp.telp = 'Telp. 021-112233';
+            $scope.ptsp.email = 'Email: ptsp-kedaung@jakarta-barat.id';
+            $scope.ptsp.jamBuka = 'Senin - Jumat 09:00 - 17:00';
+            $scope.ptsp.map.center.latitude = '-6.153593';
+            $scope.ptsp.map.center.longitude = '106.762150';
+
+            $scope.ptsp.link= 'ptsp/kedaung';
 
             $scope.isPTSPInfoPage = true;
             $scope.isPTSPReviewPage = false;
 
         } else if ($location.path() === '/ptsp/kedaung/review') {
 
-            $scope.ptsp.title = 'Kedaung Review';
+            $scope.ptsp.title = 'Kedaung';
             $scope.ptsp.pageName = 'kedaung';
 
-            $scope.ptsp.name = 'PTSP Kedaung';
-            $scope.ptsp.alamat = 'alamat ptsp kedaung';
-            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta timur';
-            $scope.ptsp.informasi = 'review jakarta timur';
-            $scope.ptsp.reviewLink = 'link untuk jakarta timur';
-            $scope.ptsp.googleMaps.lat = 'xyz 123';
-            $scope.ptsp.googleMaps.lan = 'xyz 123';
+            $scope.ptsp.id= '1';
+            $scope.ptsp.nama = 'PTSP Kedaung';
+            $scope.ptsp.alamat =  'Jl. Komplek Departemen Agama, Kedaung Kali Angke';
+            $scope.ptsp.kodePos = 'Jakarta Barat, 10011';
+            $scope.ptsp.telp = 'Telp. 021-112233';
+            $scope.ptsp.email = 'Email: ptsp-kedaung@jakarta-barat.id';
+            $scope.ptsp.jamBuka = 'Senin - Jumat 09:00 - 17:00';
+            $scope.ptsp.map.center.latitude = '-6.153593';
+            $scope.ptsp.map.center.longitude = '106.762150';
+
+            $scope.ptsp.link= 'ptsp/kedaung';
 
             $scope.isPTSPInfoPage = false;
             $scope.isPTSPReviewPage = true;
 
         } else if (($location.path() === '/ptsp/cengkarengBarat') || ($location.path() === '/ptsp/cengkarengBarat/informasi')) {
 
-            $scope.ptsp.title = 'Jakarta Barat';
+            $scope.ptsp.title = 'Cengkareng Barat';
             $scope.ptsp.pageName = 'cengkarengBarat';
 
-            $scope.ptsp.name = 'PTSP Jakarta Barat';
-            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
-            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
-            $scope.ptsp.informasi = 'informasi jakarta barat';
-            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
-            $scope.ptsp.googleMaps.lat = '123 123';
-            $scope.ptsp.googleMaps.lan = '123 123';
+            $scope.ptsp.id = '3';
+            $scope.ptsp.nama = 'PTSP Cengkareng Barat';
+            $scope.ptsp.alamat = 'Jl. Utama Raya No.42, Cengkareng';
+            $scope.ptsp.kodePos = 'Jakarta Barat, 11730';
+            $scope.ptsp.telp ='Telp. 021-121212';
+            $scope.ptsp.email = 'Email: ptsp-cengkareng-barat@jakarta-barat.id';
+            $scope.ptsp.jamBuka = 'Senin - Jumat 09:00 - 17:00';
+            $scope.ptsp.map.center.latitude = '-6.149574';
+            $scope.ptsp.map.center.longitude = '106.721845';
+            $scope.ptsp.link = 'ptsp/cengkarengBarat';
 
             $scope.isPTSPInfoPage = true;
             $scope.isPTSPReviewPage = false;
 
         } else if ($location.path() === '/ptsp/cengkarengBarat/review') {
 
-            $scope.ptsp.title = 'Jakarta Barat Review';
+            $scope.ptsp.title = 'Cengkareng Barat';
             $scope.ptsp.pageName = 'cengkarengBarat';
 
-            $scope.ptsp.name = 'PTSP Jakarta Barat';
-            $scope.ptsp.alamat = 'alamat ptsp jakarta barat';
-            $scope.ptsp.jamBuka = 'jam buka ptsp jakarta barat';
-            $scope.ptsp.informasi = 'review jakarta barat';
-            $scope.ptsp.reviewLink = 'link untuk jakarta barat';
-            $scope.ptsp.googleMaps.lat = '123 xyz';
-            $scope.ptsp.googleMaps.lan = '123 xyz';
+            $scope.ptsp.id = '3';
+            $scope.ptsp.nama = 'PTSP Cengkareng Barat';
+            $scope.ptsp.alamat = 'Jl. Utama Raya No.42, Cengkareng';
+            $scope.ptsp.kodePos = 'Jakarta Barat, 11730';
+            $scope.ptsp.telp ='Telp. 021-121212';
+            $scope.ptsp.email = 'Email: ptsp-cengkareng-barat@jakarta-barat.id';
+            $scope.ptsp.jamBuka = 'Senin - Jumat 09:00 - 17:00';
+            $scope.ptsp.map.center.latitude = '-6.149574';
+            $scope.ptsp.map.center.longitude = '106.721845';
+            $scope.ptsp.link = 'ptsp/cengkarengBarat';
 
             $scope.isPTSPInfoPage = false;
             $scope.isPTSPReviewPage = true;

@@ -7,6 +7,7 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location', 'CivilServi
 
         //view-model, this will be filled from database later...
         $scope.walikota = {
+            id:'',
             name : '',
             alamat : '',
             jamBuka : '',
@@ -18,6 +19,15 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location', 'CivilServi
             },
             title : '',
             pageName : '',
+            map: {
+                zoom: 18,
+                center: {
+                    latitude: '-6.131836',
+                    longitude: '106.747880'
+                }
+            },
+            telp: '',
+            email: '',
         }
 
         $scope.isWalikotaFindPage = false;
@@ -27,68 +37,80 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location', 'CivilServi
         if ($location.path() === '/walikota') {
             $scope.isWalikotaFindPage = true;
 
-        }else if (($location.path() === '/walikota/bandung') || ($location.path() === '/walikota/bandung/informasi')) {
-            $scope.walikota.title = 'Bandung Raya';
-            $scope.walikota.pageName = 'bandung';
+        }else if (($location.path() === '/walikota/bekasi') || ($location.path() === '/walikota/bekasi/informasi')) {
+            $scope.walikota.title = 'Bekasi';
+            $scope.walikota.pageName = 'bekasi';
 
-            $scope.walikota.name = 'Kantor Walikota Bandung';
-            $scope.walikota.alamat = 'alamat kantor walikota bandung';
-            $scope.walikota.jamBuka = 'jam buka kantor walikota bandung';
-            $scope.walikota.informasi = 'informasi untuk kantor walikota bandung';
-            $scope.walikota.reviewLink = 'link untuk kantor walikota bandung';
-            $scope.walikota.googleMaps.lat = '123 30303';
-            $scope.walikota.googleMaps.lan = '123 03030';
+            $scope.walikota.name = 'Kantor Walikota Bekasi';
+            $scope.walikota.alamat = 'Jl. Jendral Ahmad Yani No. 1 Bekasi Selatan';
+            $scope.walikota.kodePos = '17141';
+            $scope.walikota.telp = '(021) 88960250-3200. 88342729';
+            $scope.walikota.email = 'info@bekasikota.go.id';
+
+            $scope.walikota.reviewLink = 'link untuk kantor walikota bekasi';
+
+            $scope.walikota.map.center.latitude = '-6.2419722';
+            $scope.walikota.map.center.longitude = '106.9931039';
 
             $scope.isWalikotaInfoPage = true;
             $scope.isWalikotaReviewPage = false;
 
-        } else if ($location.path() === '/walikota/bandung/review') {
-            $scope.walikota.title = 'Bandung Raya';
-            $scope.walikota.pageName = 'bandung';
+        } else if ($location.path() === '/walikota/bekasi/review') {
+            $scope.walikota.title = 'Bekasi';
+            $scope.walikota.pageName = 'bekasi';
 
-            $scope.walikota.name = 'Kantor Walikota Solo';
-            $scope.walikota.alamat = 'alamat kantor walikota solo';
-            $scope.walikota.jamBuka = 'jam buka kantor walikota solo';
-            $scope.walikota.informasi = 'review untuk kantor walikota solo';
-            $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
-            $scope.walikota.googleMaps.lat = '123 30303';
-            $scope.walikota.googleMaps.lan = '123 03030';
+            $scope.walikota.name = 'Kantor Walikota Bekasi';
+            $scope.walikota.alamat = 'Jl. Jendral Ahmad Yani No. 1 Bekasi Selatan';
+            $scope.walikota.kodePos = '17141';
+            $scope.walikota.telp = '(021) 88960250-3200. 88342729';
+            $scope.walikota.email = 'info@bekasikota.go.id';
+
+            $scope.walikota.reviewLink = 'link untuk kantor walikota bekasi';
+
+            $scope.walikota.map.center.latitude = '-6.2419722';
+            $scope.walikota.map.center.longitude = '106.9931039';
 
             $scope.isWalikotaInfoPage = false;
             $scope.isWalikotaReviewPage = true;
 
-        } else if (($location.path() === '/walikota/solo') || ($location.path() === '/walikota/solo/informasi')) {
-            $scope.walikota.title = 'Solo';
-            $scope.walikota.pageName = 'solo';
+        } else if (($location.path() === '/walikota/cilegon') || ($location.path() === '/walikota/cilegon/informasi')) {
+            $scope.walikota.title = 'Cilegon';
+            $scope.walikota.pageName = 'cilegon';
 
-            $scope.walikota.name = 'Kantor Walikota Solo';
-            $scope.walikota.alamat = 'alamat kantor walikota solo';
-            $scope.walikota.jamBuka = 'jam buka kantor walikota solo';
-            $scope.walikota.informasi = 'informasi untuk kantor walikota solo';
-            $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
-            $scope.walikota.googleMaps.lat = '123 30303';
-            $scope.walikota.googleMaps.lan = '123 03030';
+            $scope.walikota.name = 'Kantor Walikota Cilegon';
+            $scope.walikota.alamat = 'Jl. Jend. Sudirman No. 2 Cilegon - Banten';
+            $scope.walikota.kodePos = '42431';
+            $scope.walikota.telp = '(0254) 380577';
+            $scope.walikota.email = 'kominfo@cilegon.go.id';
+
+            $scope.walikota.reviewLink = 'link untuk kantor walikota cilegon';
+
+            $scope.walikota.map.center.latitude = '-5.998853';
+            $scope.walikota.map.center.longitude = '106.032737';
 
             $scope.isWalikotaInfoPage = true;
             $scope.isWalikotaReviewPage = false;
 
-        } else if ($location.path() === '/walikota/solo/review') {
-            $scope.walikota.title = 'Solo';
-            $scope.walikota.pageName = 'solo';
+        } else if ($location.path() === '/walikota/cilegon/review') {
+            $scope.walikota.title = 'Cilegon';
+            $scope.walikota.pageName = 'cilegon';
 
-            $scope.walikota.name = 'Kantor Walikota Solo';
-            $scope.walikota.alamat = 'alamat kantor walikota solo';
-            $scope.walikota.jamBuka = 'jam buka kantor walikota solo';
-            $scope.walikota.informasi = 'review untuk kantor walikota solo';
-            $scope.walikota.reviewLink = 'link untuk kantor walikota solo';
-            $scope.walikota.googleMaps.lat = '123 30303';
-            $scope.walikota.googleMaps.lan = '123 03030';
+            $scope.walikota.name = 'Kantor Walikota Cilegon';
+            $scope.walikota.alamat = 'Jl. Jend. Sudirman No. 2 Cilegon - Banten';
+            $scope.walikota.kodePos = '42431';
+            $scope.walikota.telp = '(0254) 380577';
+            $scope.walikota.email = 'kominfo@cilegon.go.id';
+
+            $scope.walikota.reviewLink = 'link untuk kantor walikota cilegon';
+
+            $scope.walikota.map.center.latitude = '-5.998853';
+            $scope.walikota.map.center.longitude = '106.032737';
 
             $scope.isWalikotaInfoPage = false;
             $scope.isWalikotaReviewPage = true;
 
         }else {
-            $scope.walikota.title = 'PTSP Unknown...';
+            $scope.walikota.title = 'Walikota Unknown...';
             $scope.walikota.pageName = $location.url();
 
             $scope.walikota.name = 'PTSP Unknown';
