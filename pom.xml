@@ -86,7 +86,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <executions>
@@ -116,7 +116,7 @@
                             <goal>exec</goal>
                         </goals>
                     </execution>
-                    <!--execution>
+                    <execution>
                         <id>exec-grunt</id>
                         <phase>process-resources</phase>
                         <configuration>
@@ -125,9 +125,9 @@
                         <goals>
                             <goal>exec</goal>
                         </goals>
-                    </execution-->
+                    </execution>
                 </executions>
-            </plugin>
+            </plugin-->
         </plugins>
     </build>
 
