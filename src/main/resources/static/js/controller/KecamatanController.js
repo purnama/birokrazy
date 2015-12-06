@@ -2,8 +2,10 @@
  * Created by hackathon on 04.12.15.
  */
 
-hackMdk3App.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService',
-    function ($scope, $location, civilServiceService) {
+hackMdk3App.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
+    function ($scope, $location, civilServiceService, highchartService) {
+
+        $scope.waitingTime = highchartService.waitingTime;
 
         //view-model, this will be filled from database later...
         $scope.kecamatan = {
