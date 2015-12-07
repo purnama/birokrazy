@@ -21,7 +21,8 @@ public class IndexController {
             "/official",
             "/ptsp", "/ptsp/**",
             "/walikota", "/walikota/**",
-            "/kecamatan", "/kecamatan/**"
+            "/kecamatan", "/kecamatan/**",
+            "/demo", "/team"
 
     })
     public String forward(){

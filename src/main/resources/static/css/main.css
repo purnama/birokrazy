@@ -215,7 +215,7 @@ html, body {
     text-align: center;
 }
 
-.footer .container footer * {
+.footer .container footer div {
     display: table-cell;
     vertical-align: middle;
 }

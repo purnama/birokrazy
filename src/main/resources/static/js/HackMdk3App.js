@@ -189,6 +189,12 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
                 atLeastOne: true
             }
         }).
+        when('/demo', {
+            templateUrl: 'templates/demo.tpl.html'
+        }).
+        when('/team', {
+            templateUrl: 'templates/team.tpl.html'
+        }).
         otherwise({redirectTo: '/error/404.html'});
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
