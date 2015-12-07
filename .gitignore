@@ -18,5 +18,5 @@ node_tmp
 # Build
 target
 .mvn/
-#bower_components/
+bower_components/
 log/
