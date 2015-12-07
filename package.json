@@ -4,7 +4,9 @@
   "description": "Birokrazy - Hackathon Merdeka 3.0",
   "main": "index.js",
   "dependencies": {
-    "bower": "^1.6.9"
+    "bower": "^1.6.9",
+    "grunt-cli": "^0.1.13",
+    "grunt-init": "^0.3.2"
   },
   "devDependencies": {},
   "scripts": {
