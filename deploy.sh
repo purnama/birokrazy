@@ -5,5 +5,5 @@ if [ ! -h $mda ]; then
 fi
 $mda stop
 git -C /home/ubuntu/hackmdk3 pull
-mvn -f /home/ubuntu/hackmdk3 clean package
+mvn -f /home/ubuntu/hackmdk3 clean package -Pprod
 $mda start

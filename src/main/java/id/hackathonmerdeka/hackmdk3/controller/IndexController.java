@@ -10,21 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class IndexController {
 
-    @RequestMapping(path = {
-            "/e-ktp", "/e-ktp/**",
-            "/izin-", "/izinUsaha", "/izin-usaha/**",
-            "/imb", "/imb/**",
-            "/paspor", "/paspor/**",
-            "/login",
-            "/user", "/user/**",
-            "/search/**",
-            "/official",
-            "/ptsp", "/ptsp/**",
-            "/walikota", "/walikota/**",
-            "/kecamatan", "/kecamatan/**",
-            "/demo", "/team"
-
-    })
+    @RequestMapping(value = "/{path:^(?!api\\/v).*$")
     public String forward(){
         return "forward:/";
     }
