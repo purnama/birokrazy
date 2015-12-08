@@ -14,13 +14,13 @@ hackMdk3App.factory('DurationModalService', ['$uibModal', '$constant', function 
                             $scope.duration.modal = true;
                             $scope.duration.checked = true;
                             $uibModalInstance.close($scope.duration);
-                        }
+                        };
 
                         $scope.modalClose = function () {
                             $scope.duration.modal = false;
                             $scope.duration.checked = false;
                             $uibModalInstance.close($scope.duration);
-                        }
+                        };
 
                     },
                     templateUrl: 'templates/include.proses.duration.modal.tpl.html',

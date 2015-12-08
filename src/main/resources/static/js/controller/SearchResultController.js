@@ -28,5 +28,5 @@ hackMdk3App.controller('SearchResultController', ['$scope', '$location',
 
         $scope.selectAction = function ($item, $model, $label) {
             $location.path($model.url);
-        }
+        };
     }]);

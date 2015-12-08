@@ -10,8 +10,7 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                     $rootScope.user = $cookies.getObject("user");
                 } else {
                     var headers = credentials ? {
-                        authorization: "Basic "
-                        + btoa(credentials.username + ":" + credentials.password)
+                        authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
                     } : {};
                     // $http returns a promise, which has a then function, which also returns a promise
                     $http.get($constant.apiVersion.protected + '/login', {
@@ -21,10 +20,10 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                         $cookies.putObject("authenticated", true);
                         $rootScope.user = response.data;
                         $cookies.putObject("user", response.data);
-                        callback && callback();
+                        return callback && callback();
                     }, function (response) {
                         $rootScope.authenticated = false;
-                        callback && callback();
+                        return callback && callback();
                     });
                 }
             },
@@ -34,16 +33,16 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                     $rootScope.user = undefined;
                     $cookies.remove("authenticated");
                     $cookies.remove("user");
-                    callback && callback();
+                    return callback && callback();
                 }, function (response) {
                     $rootScope.authenticated = false;
-                    callback && callback();
+                    return callback && callback();
                 });
             },
             authorize: function ($scope, callback) {
                 var current = $route.routes[$location.path()];
                 $scope.templateUrl = undefined;
-                if (current.access != undefined) {
+                if (current.access !== undefined) {
                     var user = $rootScope.user,
                         loweredPermissions = [],
                         hasPermission = true,
@@ -84,7 +83,7 @@ hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookie
                     }
                 }
                 if(!$scope.templateUrl) {
-                    callback && callback();
+                    return callback && callback();
                 }
             }
         };

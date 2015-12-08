@@ -32,7 +32,7 @@ hackMdk3App.controller('EKtpController', ['$scope', '$location', '$constant', 'H
 
         $scope.modalOpen = function () {
             durationModalService.open($scope);
-        }
+        };
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
@@ -72,5 +72,5 @@ hackMdk3App.controller('EKtpController', ['$scope', '$location', '$constant', 'H
                 $scope.isActiveStep5 = false;
 
             }
-        }
+        };
     }]);

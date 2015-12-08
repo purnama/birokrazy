@@ -29,7 +29,7 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
         };
         $scope.modalOpen = function () {
             durationModalService.open($scope);
-        }
+        };
 
         $scope.listOfJenisUsaha = [
             {id: 0, name: '-- pilih --'},
@@ -41,7 +41,7 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
             {id: 0, name: '-- pilih --'},
             {id: 1, name: 'Ya'},
             {id: 2, name: 'Tidak'}
-        ]
+        ];
 
         $scope.location = locationService;
 
@@ -112,6 +112,6 @@ hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScop
 
         $scope.testingF = function(modelTest) {
             console.log(modelTest);
-        }
+        };
 
     }]);

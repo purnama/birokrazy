@@ -20,3 +20,4 @@ target
 .mvn/
 bower_components/
 log/
+src/main/resources/public

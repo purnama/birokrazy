@@ -25,7 +25,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
 
         $scope.modalOpen = function () {
             durationModalService.open($scope);
-        }
+        };
 
         $scope.daftarProvinsi = [
             {id: 1, name: '-- Pilih Propinsi --'},
@@ -102,22 +102,22 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
-        }
+        };
 
         $scope.testFunction = function (data) {
             $scope.testValue = data;
             console.log($scope.testValue);
-        }
+        };
 
         $scope.showPersyaratan = function (data) {
             if (data === '1') {
 
             }
-        }
+        };
 
         $scope.selectedItemChanged = function (data) {
             console.log(data);
-        }
+        };
 
         $scope.imbPeruntukanIMB = function (peruntukanIMB) {
             if (peruntukanIMB.id !== 0) {
@@ -127,7 +127,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbAtasNamaPerusahaan = function (atasNamaPerusahaan) {
             if (atasNamaPerusahaan.id !== 0) {
@@ -137,7 +137,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbSuratKepemilikanTanah = function (suratKepemilikanTanah) {
             if (suratKepemilikanTanah.id !== 0) {
@@ -147,7 +147,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbOlehRTLP = function (olehRTLP) {
             if (olehRTLP.id !== 0) {
@@ -157,7 +157,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbLuasTanah = function (luasTanah) {
             if (luasTanah.id !== 0) {
@@ -167,7 +167,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbZonaKhusus = function (zonaKhusus) {
             if (zonaKhusus.id !== 0) {
@@ -177,7 +177,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbGolonganLokasi = function (golonganLokasi) {
             if (golonganLokasi.id !== 0) {
@@ -187,7 +187,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.imbBentangBangunan = function (bentangBangunan) {
             if (bentangBangunan.id !== 0) {
@@ -197,7 +197,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             }
 
             $scope.updateQuestionsView($scope.totalAnswered);
-        }
+        };
 
         $scope.updateQuestionsView = function (totalAnsweredQuestion) {
 
@@ -272,7 +272,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
                 $scope.isShowAtasNamaPerusahaan = true;
 
             }
-        }
+        };
 
         $scope.counter = 0;
         $scope.maxbar = 6;
@@ -315,7 +315,7 @@ hackMdk3App.controller('ImbController', ['$scope', '$location', '$constant', 'Hi
             } else if ($scope.counter === 6) {
                 $scope.isActiveStep7 = false;
             }
-        }
+        };
 
 
     }]);

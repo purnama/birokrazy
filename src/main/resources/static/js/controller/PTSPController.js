@@ -31,7 +31,7 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location', 'CivilServiceSe
                     longitude: '106.747880'
                 }
             },
-        }
+        };
 
         var stringFromURL = $location.path().split('/');
         var selectedPage = stringFromURL[stringFromURL.length - 1];
@@ -225,7 +225,7 @@ hackMdk3App.controller('PTSPController', ['$scope', '$location', 'CivilServiceSe
             $scope.ptsp.name = 'PTSP Unknown';
             $scope.ptsp.alamat = 'alamat ptsp Unknown';
             $scope.ptsp.jamBuka = 'jam buka ptsp Unknown';
-            $scope.ptsp.informasi = 'review for ' + + selectedPage + ' from : ' + $location.path();
+            $scope.ptsp.informasi = 'review for ' + selectedPage + ' from : ' + $location.path();
             $scope.ptsp.reviewLink = 'link untuk Unknown';
             $scope.ptsp.googleMaps.lat = '123 xyz';
             $scope.ptsp.googleMaps.lan = '123 xyz';

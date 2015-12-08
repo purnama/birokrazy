@@ -30,7 +30,7 @@ hackMdk3App.controller('KecamatanController', ['$scope', '$location', 'CivilServ
             },
             telp: '',
             email: '',
-        }
+        };
 
         $scope.isKecamatanFindPage = false;
         $scope.isKecamatanInfoPage = false;

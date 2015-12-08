@@ -17,5 +17,5 @@ hackMdk3App.directive("hackmdk3StarRating", function(){
                 showCaption: false
             });
         }
-    }
+    };
 });

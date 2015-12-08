@@ -71,6 +71,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/static/**</exclude>
+                </excludes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -118,9 +127,22 @@
                     </execution>
                     <execution>
                         <id>exec-grunt</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <executable>grunt</executable>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>clean-grunt</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>grunt</executable>
+                            <arguments>
+                                <argument>cleaning</argument>
+                            </arguments>
                         </configuration>
                         <goals>
                             <goal>exec</goal>

@@ -30,7 +30,7 @@ hackMdk3App.controller('WalikotaController', ['$scope', '$location', 'CivilServi
             },
             telp: '',
             email: '',
-        }
+        };
 
         $scope.isWalikotaFindPage = false;
         $scope.isWalikotaInfoPage = false;

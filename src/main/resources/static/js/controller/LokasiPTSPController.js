@@ -238,6 +238,6 @@ hackMdk3App.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGo
         $scope.gotoPTSP = function(link){
             console.log(link);
             window.location = link;
-        }
+        };
 
     }]);

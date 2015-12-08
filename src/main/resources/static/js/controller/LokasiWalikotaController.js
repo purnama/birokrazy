@@ -214,6 +214,6 @@ hackMdk3App.controller('LokasiWalikotaController', ['$scope', '$location', 'uiGm
         $scope.gotoWalikota = function(link){
             console.log(link);
             window.location = link;
-        }
+        };
 
     }]);

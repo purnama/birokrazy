@@ -13,7 +13,7 @@ hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '
             authService.authenticate($scope.credentials, function () {
                 if ($rootScope.authenticated) {
                     $scope.error = false;
-                    $scope.userObj = $rootScope.user
+                    $scope.userObj = $rootScope.user;
                     if ($location.path() === $constant.routes.login) {
                         var loginDestination = $cookies.loginDestination || $constant.routes.index;
                         $cookies.loginDestination = null;
@@ -38,5 +38,5 @@ hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '
                     $scope.userObj = undefined;
                 }
             });
-        }
+        };
     }]);

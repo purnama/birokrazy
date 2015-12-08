@@ -24,7 +24,7 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
         };
         $scope.modalOpen = function () {
             durationModalService.open($scope);
-        }
+        };
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();
@@ -58,7 +58,7 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
             } else {
                 $scope.isShowPeruntukan = false;
             }
-        }
+        };
 
         $scope.pasporPeruntukanPaspor = function (peruntukanPaspor) {
             if (peruntukanPaspor.id !== 0) {
@@ -66,7 +66,7 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
             } else {
                 $scope.isShowProses = false;
             }
-        }
+        };
 
         $scope.pasporProsesPaspor = function (prosesPaspor) {
             if (prosesPaspor.id !== 0) {
@@ -74,7 +74,7 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
             } else {
                 $scope.isShowSyaratDanProses = false;
             }
-        }
+        };
 
         $scope.counter = 0;
         $scope.maxbar = 8;
@@ -125,6 +125,6 @@ hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 
             } else if ($scope.counter === 8) {
                 $scope.isActiveStep9 = false;
             }
-        }
+        };
 
     }]);

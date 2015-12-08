@@ -10,5 +10,5 @@ hackMdk3App.directive("hackmdk3Highchart", function () {
         link: function (scope, iElement, iAttrs) {
             $(iElement).highcharts(scope.model);
         }
-    }
+    };
 });

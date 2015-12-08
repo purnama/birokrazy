@@ -225,6 +225,6 @@ hackMdk3App.controller('LokasiKecamatanController', ['$scope', '$location', 'uiG
         $scope.gotoKecamatan = function(link){
             console.log(link);
             window.location = link;
-        }
+        };
 
     }]);
