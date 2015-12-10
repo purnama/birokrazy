@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(path = "api/v1/protected")
-public class ProtectedController {
+abstract public class ProtectedController {
 }
