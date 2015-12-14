@@ -6,7 +6,10 @@ import id.hackathonmerdeka.hackmdk3.repository.CivilServiceRepository;
 import id.hackathonmerdeka.hackmdk3.service.CivilServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -28,8 +31,8 @@ public class CivilServiceController extends PublicController {
     @RequestMapping(path = "/service/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public CivilService findById(@PathVariable("id") String id) {
         try {
-            return civilServiceRepository.findOne(Long.getLong(id));
-        } catch (SecurityException ex) {
+            return civilServiceRepository.findOne(Long.parseLong(id));
+        } catch (NumberFormatException ex) {
             return civilServiceRepository.findByUniqueName(id);
         }
     }

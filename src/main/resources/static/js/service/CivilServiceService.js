@@ -5,25 +5,25 @@ hackMdk3App.factory('CivilServiceService', ['$http', '$constant', function ($htt
 
     var civilServiceService = {
         findAll: function () {
-            return$http.get($constant.apiVersion.public + '/civil-service').then(function (response) {
+            return$http.get($constant.apiVersion.public + '/service').then(function (response) {
                 return response.data;
             });
 
         },
         findById: function (id) {
-            return $http.get($constant.apiVersion.public + '/civil-service/' + id).then(function (response) {
+            return $http.get($constant.apiVersion.public + '/service/' + id).then(function (response) {
                 return response.data;
             });
 
         },
         findAllReviewById: function (id) {
-            return $http.get($constant.apiVersion.public + '/civil-service/' + id + '/review').then(function (response) {
+            return $http.get($constant.apiVersion.public + '/service/' + id + '/review').then(function (response) {
                 return response.data;
             });
 
         },
         saveReview: function(id, reviewObj){
-            return $http.put($constant.apiVersion.protected + '/civil-service/' + id + '/review', reviewObj).then(function (response) {
+            return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj).then(function (response) {
                 return response.data;
             });
         }

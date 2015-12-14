@@ -7,7 +7,7 @@ hackMdk3App.controller('ServiceController', ['$scope', '$location', '$constant',
 
         $scope.waitingTime = highchartService.waitingTime;
 
-        civilServiceService.findById(1).then(function(data){
+        civilServiceService.findById($routeParams.name).then(function(data){
             $scope.civilService = data;
             if ($location.path() === '/e-ktp/review') {
                 $scope.templateUrl = 'templates/include.review.tpl.html';
