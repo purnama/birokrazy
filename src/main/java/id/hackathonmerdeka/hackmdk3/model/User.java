@@ -38,7 +38,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private List<CivilServiceReview> civilServiceReviewList;
+    private List<Review> reviewList;
 
     public Long getId() {
         return id;
@@ -96,11 +96,11 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
-    public List<CivilServiceReview> getCivilServiceReviewList() {
-        return civilServiceReviewList;
+    public List<Review> getReviewList() {
+        return reviewList;
     }
 
-    public void setCivilServiceReviewList(List<CivilServiceReview> civilServiceReviewList) {
-        this.civilServiceReviewList = civilServiceReviewList;
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
     }
 }

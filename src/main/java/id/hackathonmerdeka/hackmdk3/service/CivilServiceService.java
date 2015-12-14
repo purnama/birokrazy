@@ -1,8 +1,8 @@
 package id.hackathonmerdeka.hackmdk3.service;
 
-import id.hackathonmerdeka.hackmdk3.model.CivilServiceReview;
+import id.hackathonmerdeka.hackmdk3.model.Review;
 import id.hackathonmerdeka.hackmdk3.repository.CivilServiceRepository;
-import id.hackathonmerdeka.hackmdk3.repository.CivilServiceReviewRepository;
+import id.hackathonmerdeka.hackmdk3.repository.ReviewRepository;
 import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,18 +21,18 @@ public class CivilServiceService {
     private CivilServiceRepository civilServiceRepository;
 
     @Autowired
-    private CivilServiceReviewRepository civilServiceReviewRepository;
+    private ReviewRepository reviewRepository;
 
     @Autowired
     private UserRepository userRepository;
 
-    public Iterable<CivilServiceReview> findAllReview(Long id) {
-        return civilServiceReviewRepository.findByCivilService(civilServiceRepository.findOne(id));
+    public Iterable<Review> findAllReview(Long id) {
+        return reviewRepository.findByCivilService(civilServiceRepository.findOne(id));
     }
 
-    public CivilServiceReview saveReview(Long id, CivilServiceReview civilServiceReview, Principal principal) {
+    public Review saveReview(Long id, Review civilServiceReview, Principal principal) {
         civilServiceReview.setUser(userRepository.findByUsername(principal.getName()));
         civilServiceReview.setCivilService(civilServiceRepository.findOne(id));
-        return civilServiceReviewRepository.save(civilServiceReview);
+        return reviewRepository.save(civilServiceReview);
     }
 }

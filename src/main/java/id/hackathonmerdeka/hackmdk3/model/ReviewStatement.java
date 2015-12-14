@@ -35,7 +35,7 @@ public class ReviewStatement {
 
     @OneToOne
     @JsonIgnore
-    private CivilServiceReview civilServiceReview;
+    private Review review;
 
     @ManyToOne
     private User user;
@@ -104,11 +104,11 @@ public class ReviewStatement {
         this.user = user;
     }
 
-    public CivilServiceReview getCivilServiceReview() {
-        return civilServiceReview;
+    public Review getReview() {
+        return review;
     }
 
-    public void setCivilServiceReview(CivilServiceReview civilServiceReview) {
-        this.civilServiceReview = civilServiceReview;
+    public void setReview(Review review) {
+        this.review = review;
     }
 }

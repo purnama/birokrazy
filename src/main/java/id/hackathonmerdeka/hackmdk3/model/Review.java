@@ -3,13 +3,14 @@ package id.hackathonmerdeka.hackmdk3.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Entity
-public class CivilServiceReview {
+public class Review {
 
     @Id
     @GeneratedValue
@@ -28,9 +29,6 @@ public class CivilServiceReview {
     private String media;
 
     @Column(nullable = false)
-    private String location;
-
-    @Column(nullable = false)
     private Date createDate = new Date();
 
     @Column(nullable = false, name = "revlike")
@@ -42,14 +40,22 @@ public class CivilServiceReview {
     @Column(nullable = false)
     private Double rating = 0d;
 
+    @Column
+    private BigDecimal cost;
+
+    @Column
+    private Long waitingTime;
+
     @ManyToOne
-    @JsonIgnore
+    private Department department;
+
+    @ManyToOne
     private CivilService civilService;
 
     @ManyToOne
     private User user;
 
-    @OneToOne(mappedBy = "civilServiceReview")
+    @OneToOne(mappedBy = "review")
     ReviewStatement reviewStatement;
 
     public Long getId() {
@@ -92,12 +98,12 @@ public class CivilServiceReview {
         this.media = media;
     }
 
-    public String getLocation() {
-        return location;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public Date getCreateDate() {
@@ -154,5 +160,21 @@ public class CivilServiceReview {
 
     public void setReviewStatement(ReviewStatement reviewStatement) {
         this.reviewStatement = reviewStatement;
+    }
+
+    public BigDecimal getCost() {
+        return cost;
+    }
+
+    public void setCost(BigDecimal cost) {
+        this.cost = cost;
+    }
+
+    public Long getWaitingTime() {
+        return waitingTime;
+    }
+
+    public void setWaitingTime(Long waitingTime) {
+        this.waitingTime = waitingTime;
     }
 }

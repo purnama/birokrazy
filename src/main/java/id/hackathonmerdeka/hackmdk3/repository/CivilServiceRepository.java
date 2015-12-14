@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CivilServiceRepository extends CrudRepository<CivilService, Long>{
 
+    CivilService findByUniqueName(String uniqueName);
 }

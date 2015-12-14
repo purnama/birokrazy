@@ -1,8 +1,8 @@
 package id.hackathonmerdeka.hackmdk3.controller;
 
-import id.hackathonmerdeka.hackmdk3.model.CivilServiceReview;
+import id.hackathonmerdeka.hackmdk3.model.Review;
 import id.hackathonmerdeka.hackmdk3.model.User;
-import id.hackathonmerdeka.hackmdk3.repository.CivilServiceReviewRepository;
+import id.hackathonmerdeka.hackmdk3.repository.ReviewRepository;
 import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,7 +22,7 @@ public class UserController extends ProtectedController {
 	private UserRepository repository;
 
 	@Autowired
-	private CivilServiceReviewRepository reviewRepository;
+	private ReviewRepository reviewRepository;
 
 
 	@PreAuthorize("hasAuthority('ADMINISTRATOR')")
@@ -32,7 +32,7 @@ public class UserController extends ProtectedController {
 	}
 
 	@RequestMapping(path="/user/{id}/review", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public Iterable<CivilServiceReview> findReviewById(@PathVariable("id") Long id){
+	public Iterable<Review> findReviewById(@PathVariable("id") Long id){
 		return reviewRepository.findByUser(repository.findOne(id));
 	}
 

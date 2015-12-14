@@ -57,6 +57,14 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             templateUrl: $constant.templates.login,
             controller: 'LoginController'
         }).
+        when('/service', {
+            templateUrl: 'templates/service.list.tpl.html',
+            controller: 'ServiceListController'
+        }).
+        when('/service/:name', {
+            templateUrl: 'templates/service.tpl.html',
+            controller: 'ServiceController'
+        }).
         when('/e-ktp', {
             templateUrl: 'templates/e-ktp.tpl.html',
             controller: 'EKtpController'

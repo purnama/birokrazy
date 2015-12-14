@@ -1,7 +1,6 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.core.annotation.Order;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +18,9 @@ public class CivilService {
     @Version
     private Long version;
 
+    @Column(nullable = false, unique = true)
+    private String uniqueName;
+
     @Column(nullable = false)
     private String name;
 
@@ -33,7 +35,13 @@ public class CivilService {
 
     @OneToMany(mappedBy = "civilService")
     @OrderBy("id desc")
-    private List<CivilServiceReview> reviewList;
+    @JsonIgnore
+    private List<Review> reviewList;
+
+    @ManyToMany
+    @OrderBy("id desc")
+    @JsonIgnore
+    private List<Department> departmentList;
 
     public Long getId() {
         return id;
@@ -83,11 +91,27 @@ public class CivilService {
         this.reviews = reviews;
     }
 
-    public List<CivilServiceReview> getReviewList() {
+    public List<Review> getReviewList() {
         return reviewList;
     }
 
-    public void setReviewList(List<CivilServiceReview> reviewList) {
+    public void setReviewList(List<Review> reviewList) {
         this.reviewList = reviewList;
+    }
+
+    public List<Department> getDepartmentList() {
+        return departmentList;
+    }
+
+    public void setDepartmentList(List<Department> departmentList) {
+        this.departmentList = departmentList;
+    }
+
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
+    public void setUniqueName(String uniqueName) {
+        this.uniqueName = uniqueName;
     }
 }
