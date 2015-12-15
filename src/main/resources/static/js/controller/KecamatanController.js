@@ -2,7 +2,7 @@
  * Created by hackathon on 04.12.15.
  */
 
-hackMdk3App.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
+birokrazyApp.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
     function ($scope, $location, civilServiceService, highchartService) {
 
         $scope.waitingTime = highchartService.waitingTime;

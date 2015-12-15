@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('SearchResultController', ['$scope', '$location',
+birokrazyApp.controller('SearchResultController', ['$scope', '$location',
     function ($scope, $location) {
         $scope.selected = undefined;
 

@@ -1,24 +1,29 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('ServiceController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService', 'DurationModalService',
+birokrazyApp.controller('ServiceController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService', 'DurationModalService',
     'CivilServiceService',
     function ($scope, $location, $constant, $routeParams, highchartService, durationModalService, civilServiceService) {
 
         $scope.waitingTime = highchartService.waitingTime;
-
-        civilServiceService.findById($routeParams.name).then(function(data){
+        $scope.civilService = {}
+        civilServiceService.findById($routeParams.name).then(function (data) {
             $scope.civilService = data;
-            if ($location.path() === '/e-ktp/review') {
-                $scope.templateUrl = 'templates/include.review.tpl.html';
-            } else if ($location.path() === '/e-ktp/trend') {
+            $scope.servicePath = $routeParams.name;
+            if ($location.path() === '/service/' + $scope.servicePath + '/review') {
+                civilServiceService.findAllReviewById($routeParams.name).then(function (data) {
+                    $scope.civilService.reviewList = data;
+                    $scope.templateUrl = 'templates/include.review.tpl.html';
+                });
+            } else if ($location.path() === '/service/' + $scope.servicePath + '/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
-            } else if ($location.path() === '/e-ktp/proses') {
-                $scope.templateUrl = 'templates/e-ktp.proses.tpl.html';
-            } else if ($location.path() === '/e-ktp') {
-                $scope.templateUrl = 'templates/e-ktp.info.tpl.html';
+            } else if ($location.path() === '/service/' + $scope.servicePath + '/process') {
+                $scope.templateUrl = 'templates/service.process.tpl.html';
+            } else if ($location.path() === '/service/' + $scope.servicePath) {
+                $scope.templateUrl = 'templates/service.info.tpl.html';
             }
         });
+
 
         $scope.duration = {
             modal: false,
@@ -27,7 +32,6 @@ hackMdk3App.controller('ServiceController', ['$scope', '$location', '$constant',
             value: 2,
             unit: $constant.duration.minggu
         };
-
 
 
         $scope.modalOpen = function () {
@@ -73,4 +77,6 @@ hackMdk3App.controller('ServiceController', ['$scope', '$location', '$constant',
 
             }
         };
-    }]);
+    }
+])
+;

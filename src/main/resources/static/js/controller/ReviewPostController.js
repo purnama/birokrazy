@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('ReviewPostController', ['$scope', '$rootScope', '$cookies', '$location', '$constant', '$window', 'CivilServiceService',
+birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$cookies', '$location', '$constant', '$window', 'CivilServiceService',
     function ($scope, $rootScope, $cookies, $location, $constant, $window, civilServiceService) {
         $scope.reviewPost = {};
         $scope.facebookAction = function () {

@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('ErrorService',['$constant', function($constant) {
+birokrazyApp.factory('ErrorService',['$constant', function($constant) {
     var errorService = {
         manageError: function(status) {
             switch (status){

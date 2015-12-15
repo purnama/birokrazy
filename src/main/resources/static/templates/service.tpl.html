@@ -21,17 +21,17 @@
                 <span class="icon-bar"></span>
             </button>
             <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/e-ktp')}" role="presentation">
-                    <a href="/e-ktp">Informasi</a>
+                <li ng-class="{ active: isActive('/service/'+servicePath)}" role="presentation">
+                    <a href="/service/{{servicePath}}">Informasi</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/review')}" role="presentation">
-                    <a href="/e-ktp/review">Review</a>
+                <li ng-class="{ active: isActive('/service/'+servicePath+'/review')}" role="presentation">
+                    <a href="/service/{{servicePath}}/review">Review</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/trend')}" role="presentation">
-                    <a href="/e-ktp/trend">Trend</a>
+                <li ng-class="{ active: isActive('/service/'+servicePath+'/trend')}" role="presentation">
+                    <a href="/service/{{servicePath}}/trend">Trend</a>
                 </li>
-                <li ng-class="{ active: isActive('/e-ktp/proses')}" role="presentation">
-                    <a href="/e-ktp/proses">Persyaratan & Proses</a>
+                <li ng-class="{ active: isActive('/service/'+servicePath+'/process')}" role="presentation">
+                    <a href="/service/{{servicePath}}/process">Persyaratan & Proses</a>
                 </li>
             </ul>
 

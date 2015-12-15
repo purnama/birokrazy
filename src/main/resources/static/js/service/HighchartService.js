@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('HighchartService', [function () {
+birokrazyApp.factory('HighchartService', [function () {
     var highchartService = {
         waitingTime: {
             chart: {

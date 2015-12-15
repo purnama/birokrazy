@@ -21,8 +21,11 @@ public class Department {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String description;
+
+    @Column
+    private String content;
 
     @Column(nullable = false)
     private Double rating;
@@ -201,5 +204,13 @@ public class Department {
 
     public void setOpeningHour(String openingHour) {
         this.openingHour = openingHour;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

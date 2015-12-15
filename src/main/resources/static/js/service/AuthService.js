@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookies', '$route', '$location',
+birokrazyApp.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookies', '$route', '$location',
     function ($http, $rootScope, $constant, $cookies, $route, $location) {
         var authService = {
             authenticate: function (credentials, callback) {

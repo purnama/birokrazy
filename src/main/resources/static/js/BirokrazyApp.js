@@ -1,9 +1,9 @@
-var hackMdk3App = angular.module('hackMdk3App', [
+var birokrazyApp = angular.module('birokrazyApp', [
     'ngRoute',
     'ngCookies',
     'ui.bootstrap',
     'uiGmapgoogle-maps']);
-hackMdk3App.constant('$constant', {
+birokrazyApp.constant('$constant', {
     apiVersion: {
         public: 'api/v1/public',
         protected: 'api/v1/protected'
@@ -39,7 +39,7 @@ hackMdk3App.constant('$constant', {
         authorised: 'AUTHORISED'
     }
 });
-hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$constant', 'uiGmapGoogleMapApiProvider',
+birokrazyApp.config(['$routeProvider', '$locationProvider', '$httpProvider', '$constant', 'uiGmapGoogleMapApiProvider',
     function ($routeProvider, $locationProvider, $httpProvider, $constant, uiGmapGoogleMapApiProvider) {
 
         uiGmapGoogleMapApiProvider.configure({
@@ -62,6 +62,18 @@ hackMdk3App.config(['$routeProvider', '$locationProvider', '$httpProvider', '$co
             controller: 'ServiceListController'
         }).
         when('/service/:name', {
+            templateUrl: 'templates/service.tpl.html',
+            controller: 'ServiceController'
+        }).
+        when('/service/:name/review', {
+            templateUrl: 'templates/service.tpl.html',
+            controller: 'ServiceController'
+        }).
+        when('/service/:name/trend', {
+            templateUrl: 'templates/service.tpl.html',
+            controller: 'ServiceController'
+        }).
+        when('/service/:name/process', {
             templateUrl: 'templates/service.tpl.html',
             controller: 'ServiceController'
         }).

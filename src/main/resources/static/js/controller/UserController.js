@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('UserController', ['$scope', '$constant', 'UserService', 'AuthService', 'ErrorService', '$location',
+birokrazyApp.controller('UserController', ['$scope', '$constant', 'UserService', 'AuthService', 'ErrorService', '$location',
     function ($scope, $constant, userService, authService, errorService, $location) {
         authService.authorize($scope, function () {
             if($location.path() === '/user/application') {

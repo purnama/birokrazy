@@ -24,8 +24,11 @@ public class CivilService {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String description;
+
+    @Column
+    private String content;
 
     @Column(nullable = false)
     private Double rating;
@@ -113,5 +116,13 @@ public class CivilService {
 
     public void setUniqueName(String uniqueName) {
         this.uniqueName = uniqueName;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

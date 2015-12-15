@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('DurationModalService', ['$uibModal', '$constant', function ($uibModal) {
+birokrazyApp.factory('DurationModalService', ['$uibModal', '$constant', function ($uibModal) {
     var durationModalService = {
         open: function ($scope) {
             if (!$scope.duration.checked && $scope.duration.modal) {

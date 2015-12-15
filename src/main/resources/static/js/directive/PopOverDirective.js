@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.directive("hackmdk3PopOver", function () {
+birokrazyApp.directive("hackmdk3PopOver", function () {
     return {
         restrict: 'A',
         link: function (scope, iElement, iAttrs) {

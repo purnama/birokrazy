@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('AuthController', ['$rootScope', '$scope', '$location', '$constant', '$cookies', '$window', 'AuthService',
+birokrazyApp.controller('AuthController', ['$rootScope', '$scope', '$location', '$constant', '$cookies', '$window', 'AuthService',
     function ($rootScope, $scope, $location, $constant, $cookies, $window, authService) {
         $scope.credentials = {};
         if ($cookies.getObject("authenticated")) {

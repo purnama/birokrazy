@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService',
+birokrazyApp.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService',
     'HighchartService', 'DurationModalService', 'CivilServiceService',
     function ($scope, $location, $rootScope, $constant, locationService, highchartService, durationModalService, civilServiceService) {
 

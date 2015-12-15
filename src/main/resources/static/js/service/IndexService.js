@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('IndexService',['$http', '$constant', function($http, $constant) {
+birokrazyApp.factory('IndexService',['$http', '$constant', function($http, $constant) {
     var promise;
     var indexService = {
         findAll: function() {

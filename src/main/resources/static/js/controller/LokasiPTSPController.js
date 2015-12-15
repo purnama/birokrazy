@@ -2,7 +2,7 @@
  * Created by hackathon on 29.11.15.
  */
 
-hackMdk3App.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGoogleMapApi',
+birokrazyApp.controller('LokasiPTSPController', ['$scope', '$location', 'uiGmapGoogleMapApi',
     function ($scope, $location, uiGmapGoogleMapApi) {
 
         $scope.map = {center: {latitude: 45, longitude: -73}, zoom: 8};

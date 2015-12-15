@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('CivilServiceService', ['$http', '$constant', function ($http, $constant) {
+birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($http, $constant) {
 
     var civilServiceService = {
         findAll: function () {

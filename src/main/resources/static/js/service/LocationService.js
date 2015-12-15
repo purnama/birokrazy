@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.factory('LocationService', ['$http', '$constant', function ($http, $constant) {
+birokrazyApp.factory('LocationService', ['$http', '$constant', function ($http, $constant) {
     var locationService = {
         daftarProvinsi: [
             {id: 1, name: '-- Pilih Propinsi --'},

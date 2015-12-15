@@ -38,8 +38,12 @@ public class CivilServiceController extends PublicController {
     }
 
     @RequestMapping(path = "/service/{id}/review", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Iterable<Review> findAllReview(@PathVariable("id") Long id) {
-        return civilServiceService.findAllReview(id);
+    public Iterable<Review> findAllReview(@PathVariable("id") String id) {
+        try {
+            return civilServiceService.findAllReview(Long.parseLong(id));
+        } catch (NumberFormatException ex) {
+            return civilServiceService.findAllReviewByUniqueName(id);
+        }
     }
 
 }

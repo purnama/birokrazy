@@ -11,15 +11,11 @@
         <div>
             <input type="text" rating-class="display-inline" readonly hackmdk3-star-rating class="rating"
                    ng-model="civilService.rating"/>
-            <a href="{{path}}/../trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
+            <a href="/service/{{servicePath}}/trend"> <span class="glyphicon glyphicon-stats"></span> Rating trends</a>
         </div>
         <p>{{civilService.reviews}} Reviews</p>
 
-        <div class="alert-dismissable alert alert-success fade in" data-alert="alert" ng-show="alert">
-            <a class="close" data-dismiss="alert" href="#">&times;</a>
-
-            <p>{{successMessage}}</p>
-        </div>
+        <uib-alert ng-repeat="alert in alerts" type="success">{{successMessage}}</uib-alert>
 
          <div class="panel panel-default" ng-repeat="review in civilService.reviewList">
             <div class="panel-heading">

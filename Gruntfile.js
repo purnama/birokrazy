@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             build: {
                 files: {
                     'src/main/resources/static/js/app.ugly.js': [
-                        'src/main/resources/static/js/HackMdk3App.js',
+                        'src/main/resources/static/js/BirokrazyApp.js',
                         'src/main/resources/static/js/service/*.js',
                         'src/main/resources/static/js/controller/*.js',
                         'src/main/resources/static/js/directive/*.js'

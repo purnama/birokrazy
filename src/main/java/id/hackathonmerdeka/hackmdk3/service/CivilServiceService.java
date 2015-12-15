@@ -30,6 +30,10 @@ public class CivilServiceService {
         return reviewRepository.findByCivilService(civilServiceRepository.findOne(id));
     }
 
+    public Iterable<Review> findAllReviewByUniqueName(String id) {
+        return reviewRepository.findByCivilService(civilServiceRepository.findByUniqueName(id));
+    }
+
     public Review saveReview(Long id, Review civilServiceReview, Principal principal) {
         civilServiceReview.setUser(userRepository.findByUsername(principal.getName()));
         civilServiceReview.setCivilService(civilServiceRepository.findOne(id));

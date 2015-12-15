@@ -1,4 +1,4 @@
-hackMdk3App.controller('PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+birokrazyApp.controller('PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
     'CivilServiceService',
     function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 

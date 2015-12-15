@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-hackMdk3App.directive("hackmdk3StarRating", function(){
+birokrazyApp.directive("hackmdk3StarRating", function(){
     return {
         restrict: 'A',
         scope : {
