@@ -1,8 +1,8 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookies', '$route', '$location',
-    function ($http, $rootScope, $constant, $cookies, $route, $location) {
+birokrazyApp.factory('AuthService', ['$http', '$rootScope', '$constant', '$cookies', '$route', '$location', '$routeParams',
+    function ($http, $rootScope, $constant, $cookies, $route, $location, $routeParams) {
         var authService = {
             authenticate: function (credentials, callback) {
                 if ($cookies.getObject("authenticated")) {
@@ -41,6 +41,7 @@ birokrazyApp.factory('AuthService', ['$http', '$rootScope', '$constant', '$cooki
             },
             authorize: function ($scope, callback) {
                 var current = $route.routes[$location.path()];
+                var test = $routeParams;
                 $scope.templateUrl = undefined;
                 if (current.access !== undefined) {
                     var user = $rootScope.user,

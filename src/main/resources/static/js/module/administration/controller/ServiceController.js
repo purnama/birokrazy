@@ -14,15 +14,13 @@ administrationModule.controller('administrationModule.ServiceController', ['$sco
                     $scope.civilServiceList = data;
                     $scope.templateUrl = $constant.module.administration.templates + 'service.list.tpl.html';
                 });
-            } else if ($location.path() === '/' + $scope.modulePath + '/' + $scope.servicePath + '/edit') {
+            } else if ($location.path() === '/' + $scope.modulePath + '/' + $scope.servicePath + '/edit/' + $routeParams.name) {
                 civilServiceService.findById($routeParams.name).then(function (data) {
                     $scope.civilService = data;
                     $scope.templateUrl = $constant.module.administration.templates + 'service.edit.tpl.html';
                 });
             }
         });
-
-
 
         $scope.duration = {
             modal: false,
