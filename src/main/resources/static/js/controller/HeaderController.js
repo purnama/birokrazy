@@ -1,19 +1,28 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('HeaderController', ['$scope', '$location', function ($scope, $location) {
-    $scope.isActive = function (viewLocation) {
-        /* return viewLocation === $location.path(); */
-        var isDebug = false;
+birokrazyApp.controller('HeaderController', ['$scope', '$location', '$routeParams', 'CivilServiceService',
+    function ($scope, $location, $routeParams, civilServiceService) {
+        civilServiceService.findAll().then(function(data){
+           $scope.serviceList = data;
+        });
+        $scope.isActive = function (viewLocation) {
+            if (viewLocation.length > 1) {
+                return $location.path().indexOf(viewLocation) === 0;
+            } else {
+                return viewLocation === $location.path();
+            }
+        };
 
-        if(isDebug) {
-            console.log('if : ' + viewLocation + ' same : ' + $location.path());
-        }
+        $scope.isStartActive = function () {
+            return ('/' === $location.path()) ? true : false;
+        };
+        
+        $scope.isServiceActive = function () {
+          return ('service' === $routeParams.name) ? true : false;
+        };
 
-        if(viewLocation.length > 1) {
-            return $location.path().indexOf(viewLocation) === 0;
-        }else {
-            return viewLocation === $location.path();
+        $scope.isDepartmentActive = function (){
+            return ('department' === $routeParams.name) ? true : false;
         }
-    };
-}]);
+    }]);

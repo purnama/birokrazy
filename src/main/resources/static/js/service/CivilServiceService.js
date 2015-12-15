@@ -5,7 +5,7 @@ birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($ht
 
     var civilServiceService = {
         findAll: function () {
-            return$http.get($constant.apiVersion.public + '/service').then(function (response) {
+            return $http.get($constant.apiVersion.public + '/service').then(function (response) {
                 return response.data;
             });
 

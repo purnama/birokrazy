@@ -21,17 +21,17 @@
                 <span class="icon-bar"></span>
             </button>
             <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/service/'+servicePath)}" role="presentation">
-                    <a href="/service/{{servicePath}}">Informasi</a>
+                <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath)}" role="presentation">
+                    <a href="/{{modulePath}}/{{servicePath}}">Informasi</a>
                 </li>
-                <li ng-class="{ active: isActive('/service/'+servicePath+'/review')}" role="presentation">
-                    <a href="/service/{{servicePath}}/review">Review</a>
+                <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/review')}" role="presentation">
+                    <a href="/{{modulePath}}/{{servicePath}}/review">Review</a>
                 </li>
-                <li ng-class="{ active: isActive('/service/'+servicePath+'/trend')}" role="presentation">
-                    <a href="/service/{{servicePath}}/trend">Trend</a>
+                <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/trend')}" role="presentation">
+                    <a href="/{{modulePath}}/{{servicePath}}/trend">Trend</a>
                 </li>
-                <li ng-class="{ active: isActive('/service/'+servicePath+'/process')}" role="presentation">
-                    <a href="/service/{{servicePath}}/process">Persyaratan & Proses</a>
+                <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/process')}" role="presentation">
+                    <a href="/{{modulePath}}/{{servicePath}}/process">Persyaratan & Proses</a>
                 </li>
             </ul>
 

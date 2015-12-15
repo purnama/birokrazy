@@ -1,0 +1,26 @@
+<table class="table table-responsive">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>version</th>
+        <th>Unique Name</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="civilService in civilServiceList">
+        <td>{{civilService.id}}</td>
+        <td>{{civilService.version}}</td>
+        <td>{{civilService.uniqueName}}</td>
+        <td>{{civilService.name}}</td>
+        <td>{{civilService.description}}</td>
+        <td>{{civilService.rating}}</td>
+        <td>{{civilService.reviews}}</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>

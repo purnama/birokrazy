@@ -51,33 +51,38 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" ng-controller="HeaderController">
-                <li class="menu-point" ng-class="{ active: isActive('/')}"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Beranda</a></li>
+                <li class="menu-point" ng-class="{ active: isStartActive()}"><a href="/"><span
+                        class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Beranda</a></li>
 
-                <li class="dropdown" ng-class="{ active: isActive('/e-ktp') || isActive('/paspor') || isActive('/imb') || isActive('/izin-usaha')}">
+                <li class="dropdown" ng-class="{ active: isServiceActive()}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Pelayanan <span class="caret"></span></a>
+                       aria-expanded="false"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Pelayanan
+                        <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="menu-point" ng-class="{ active: isActive('/e-ktp')}"><a href="/e-ktp">E-KTP</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/paspor')}"><a href="/paspor">Paspor</a>
-                        </li>
-                        <li class="menu-point" ng-class="{ active: isActive('/imb')}"><a href="/imb">IMB</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/izin-usaha')}"><a href="/izin-usaha">Izin
-                            Usaha</a></li>
+                        <li ng-repeat="service in serviceList" class="menu-point" ng-class="{ active: isActive(service.uniqueName)}"><a
+                                href="/pelayanan/{{service.uniqueName}}">{{service.name}}</a></li>
                     </ul>
                 </li>
 
-                <li class="dropdown" ng-class="{ active: isActive('/ptsp') || isActive('/walikota') || isActive('/kecamatan')}">
+                <li class="dropdown" ng-class="{ active: isDepartmentActive()}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;&nbsp;Instansi <span class="caret"></span></a>
+                       aria-expanded="false"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;&nbsp;Instansi
+                        <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/kedaung')}"><a href="/ptsp/kedaung">PTSP Kedaung</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/cengkarengBarat')}"><a href="/ptsp/cengkarengBarat">PTSP Cengkareng</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/kedaung')}"><a href="/ptsp/kedaung">PTSP
+                            Kedaung</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/cengkarengBarat')}"><a
+                                href="/ptsp/cengkarengBarat">PTSP Cengkareng</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/cilegon')}"><a href="/walikota/cilegon">Walikota Cilegon</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/bekasi')}"><a href="/walikota/bekasi">Walikota Bekasi</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/walikota/cilegon')}"><a
+                                href="/walikota/cilegon">Walikota Cilegon</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/walikota/bekasi')}"><a
+                                href="/walikota/bekasi">Walikota Bekasi</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/cicendo')}"><a href="/kecamatan/cicendo">Kec. Cicendo</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/buahBatu')}"><a href="/kecamatan/buahBatu">Kec. Buah Batu</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/cicendo')}"><a
+                                href="/kecamatan/cicendo">Kec. Cicendo</a></li>
+                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/buahBatu')}"><a
+                                href="/kecamatan/buahBatu">Kec. Buah Batu</a></li>
                     </ul>
                 </li>
 
@@ -103,11 +108,13 @@
                             class="glyphicon glyphicon-log-out"></span></a></li>
                 </ul>
             </div>
-            <form class="navbar-form" action="/search/pelayanan" ng-controller="SearchResultController" method="get" ng-show="showNavSearch">
+            <form class="navbar-form" action="/search/pelayanan" ng-controller="SearchResultController" method="get"
+                  ng-show="showNavSearch">
                 <div style="display:table;" class="form-group has-feedback">
                     <input ng-model="selected"
                            uib-typeahead="find as find.name for find in finds | filter:$viewValue | limitTo:8"
-                           typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false" typeahead-focus-first="false"
+                           typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
+                           typeahead-focus-first="false"
                            type="text" autocomplete="off"
                            placeholder="Cari pelayanan atau instansi" name="search"
                            style="width: 100%" class="form-control">
@@ -129,7 +136,7 @@
     <div class="container">
         <footer>
             <div>
-            <a href="/demo">Demo Video</a> &middot; <a href="/team">Tentang Kami</a> &middot; <span>&copy; Birokrazy 2015</span>
+                <a href="/demo">Demo Video</a> &middot; <a href="/team">Tentang Kami</a> &middot; <span>&copy; Birokrazy 2015</span>
             </div>
         </footer>
     </div>
@@ -147,6 +154,7 @@
 <script src='bower_components/lodash/lodash.min.js'></script>
 <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
 <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
 
 <script src="js/BirokrazyApp.js"></script>
 <script src="js/service/IndexService.js"></script>
@@ -176,16 +184,33 @@
 <script src="js/controller/LokasiKecamatanController.js"></script>
 <script src="js/controller/LokasiWalikotaController.js"></script>
 <script src="js/controller/LokasiPTSPController.js"></script>
-<script src="js/controller/ServiceController.js"></script>
 <script src="js/directive/StarRatingDirective.js"></script>
 <script src="js/directive/PopOverDirective.js"></script>
 <script src="js/directive/HighchartDirective.js"></script>
+
+<!-- Service Module -->
+<script src="js/module/service/ServiceModule.js"></script>
+<script src="js/module/service/controller/ServiceController.js"></script>
+
+<!-- Administration Module -->
+<script src="js/module/administration/AdministrationModule.js"></script>
+<script src="js/module/administration/controller/ServiceController.js"></script>
+
+<script src="js/Constant.js"></script>
+
 <!-- /build -->
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-71160049-1', 'auto');
     ga('send', 'pageview');

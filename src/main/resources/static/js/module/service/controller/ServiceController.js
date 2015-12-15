@@ -1,26 +1,28 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('ServiceController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService', 'DurationModalService',
-    'CivilServiceService',
+"use strict";
+serviceModule.controller('serviceModule.ServiceController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService',
+    'DurationModalService', 'CivilServiceService',
     function ($scope, $location, $constant, $routeParams, highchartService, durationModalService, civilServiceService) {
 
         $scope.waitingTime = highchartService.waitingTime;
-        $scope.civilService = {}
+        $scope.civilService = {};
+        $scope.modulePath = $constant.module.service.path;
         civilServiceService.findById($routeParams.name).then(function (data) {
             $scope.civilService = data;
             $scope.servicePath = $routeParams.name;
-            if ($location.path() === '/service/' + $scope.servicePath + '/review') {
+            if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/review') {
                 civilServiceService.findAllReviewById($routeParams.name).then(function (data) {
                     $scope.civilService.reviewList = data;
                     $scope.templateUrl = 'templates/include.review.tpl.html';
                 });
-            } else if ($location.path() === '/service/' + $scope.servicePath + '/trend') {
+            } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
-            } else if ($location.path() === '/service/' + $scope.servicePath + '/process') {
+            } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/process') {
                 $scope.templateUrl = 'templates/service.process.tpl.html';
-            } else if ($location.path() === '/service/' + $scope.servicePath) {
-                $scope.templateUrl = 'templates/service.info.tpl.html';
+            } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath) {
+                $scope.templateUrl = $constant.module.service.templates + 'service.info.tpl.html';
             }
         });
 
