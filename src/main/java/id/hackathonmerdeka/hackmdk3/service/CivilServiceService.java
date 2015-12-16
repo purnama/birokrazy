@@ -1,5 +1,6 @@
 package id.hackathonmerdeka.hackmdk3.service;
 
+import id.hackathonmerdeka.hackmdk3.model.CivilService;
 import id.hackathonmerdeka.hackmdk3.model.Review;
 import id.hackathonmerdeka.hackmdk3.repository.CivilServiceRepository;
 import id.hackathonmerdeka.hackmdk3.repository.ReviewRepository;
@@ -32,6 +33,29 @@ public class CivilServiceService {
 
     public Iterable<Review> findAllReviewByUniqueName(String id) {
         return reviewRepository.findByCivilService(civilServiceRepository.findByUniqueName(id));
+    }
+
+    public CivilService create(CivilService civilService) {
+        CivilService newCivilService = new CivilService();
+        newCivilService.setContent(civilService.getContent());
+        newCivilService.setName(civilService.getName());
+        newCivilService.setUniqueName(civilService.getUniqueName());
+        newCivilService.setDescription(civilService.getDescription());
+        return civilServiceRepository.save(newCivilService);
+    }
+
+    public CivilService update(String id, CivilService civilService) {
+        CivilService oldCivilService;
+        try {
+            oldCivilService = civilServiceRepository.findOne(Long.parseLong(id));
+        }catch(NumberFormatException e){
+            oldCivilService = civilServiceRepository.findByUniqueName(id);
+        }
+        oldCivilService.setContent(civilService.getContent());
+        oldCivilService.setName(civilService.getName());
+        oldCivilService.setUniqueName(civilService.getUniqueName());
+        oldCivilService.setDescription(civilService.getDescription());
+        return civilServiceRepository.save(oldCivilService);
     }
 
     public Review saveReview(Long id, Review civilServiceReview, Principal principal) {

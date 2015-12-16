@@ -28,14 +28,14 @@ public class CivilService {
     @Column
     private String description;
 
-    @Column
+    @Column(columnDefinition = "longvarchar")
     private String content;
 
     @Column(nullable = false)
-    private Double rating;
+    private Double rating = 0d;
 
     @Column(nullable = false)
-    private Long reviews;
+    private Long reviews = 0l;
 
     @OneToMany(mappedBy = "civilService")
     @OrderBy("id desc")

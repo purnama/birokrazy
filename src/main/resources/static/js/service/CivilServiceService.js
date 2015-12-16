@@ -22,6 +22,16 @@ birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($ht
             });
 
         },
+        create: function(civilServiceObj){
+            return $http.put($constant.apiVersion.protected + '/service' , civilServiceObj).then(function (response) {
+                return response.data;
+            });
+        },
+        update: function(id, civilServiceObj){
+            return $http.post($constant.apiVersion.protected + '/service/' + id , civilServiceObj).then(function (response) {
+                return response.data;
+            });
+        },
         saveReview: function(id, reviewObj){
             return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj).then(function (response) {
                 return response.data;

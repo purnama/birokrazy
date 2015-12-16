@@ -1,8 +1,8 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$cookies', '$location', '$constant', '$window', 'CivilServiceService',
-    function ($scope, $rootScope, $cookies, $location, $constant, $window, civilServiceService) {
+birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$location', '$constant', '$window', 'CivilServiceService',
+    function ($scope, $rootScope, $location, $constant, $window, civilServiceService) {
         $scope.reviewPost = {};
         $scope.facebookAction = function () {
             $scope.facebook = $scope.facebook ? false : true;
@@ -14,7 +14,7 @@ birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$cooki
             if ($rootScope.authenticated) {
                 $scope.showPost = $scope.showPost ? false : true;
             } else {
-                $cookies.loginDestination = $location.path();
+                $rootScope.loginRedirect = $location.path();
                 $location.path($constant.routes.login);
             }
         };

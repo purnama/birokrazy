@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @RestController
-public class CivilServiceController extends PublicController {
+public class CivilServicePublicController extends PublicController {
 
     @Autowired
     private CivilServiceRepository civilServiceRepository;

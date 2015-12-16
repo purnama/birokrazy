@@ -1,44 +1,20 @@
-<div class="hackmdk3-page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header">
-                    <h1>{{civilService.name}}</h1>
-                    <span>{{civilService.description}}</span>
-                </div>
-            </div>
-        </div>
+<form ng-submit="submitAction()">
+    <div class="form-group">
+        <label for="civilServiceName">Name</label>
+        <input type="text" ng-model="civilService.name" class="form-control" id="civilServiceName" placeholder="Name">
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-default xs-toggle" data-toggle="collapse" data-target="#nav-tabs"
-                    aria-expanded="false" aria-controls="nav-tabs">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
-                <li ng-class="{ active: isActive('/administrator/'+servicePath)}" role="presentation">
-                    <a href="/pelayanan/{{servicePath}}">Informasi</a>
-                </li>
-                <li ng-class="{ active: isActive('/administrator/'+servicePath+'/review')}" role="presentation">
-                    <a href="/pelayanan/{{servicePath}}/review">Review</a>
-                </li>
-                <li ng-class="{ active: isActive('/administrator/'+servicePath+'/trend')}" role="presentation">
-                    <a href="/pelayanan/{{servicePath}}/trend">Trend</a>
-                </li>
-                <li ng-class="{ active: isActive('/administrator/'+servicePath+'/process')}" role="presentation">
-                    <a href="/pelayanan/{{servicePath}}/process">Persyaratan & Proses</a>
-                </li>
-            </ul>
-
-            <ng-include src="templateUrl"/>
-
-
-        </div>
+    <div class="form-group">
+        <label for="civilServiceUniqueName">Unique Name</label>
+        <input type="text" ng-model="civilService.uniqueName" class="form-control" id="civilServiceUniqueName" placeholder="Unique Name">
     </div>
-
-</div>
+    <div class="form-group">
+        <label for="civilServiceDescription">Description</label>
+        <input type="text" ng-model="civilService.description" class="form-control" id="civilServiceDescription"
+               placeholder="Short Description">
+    </div>
+    <div class="form-group">
+        <label for="civilServiceContent">Description</label>
+        <text-angular id="civilServiceContent" style="height: 120px;" ng-model="civilService.content"></text-angular>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

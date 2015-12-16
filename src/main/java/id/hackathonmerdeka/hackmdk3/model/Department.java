@@ -24,7 +24,7 @@ public class Department {
     @Column
     private String description;
 
-    @Column
+    @Column(columnDefinition = "longvarchar")
     private String content;
 
     @Column(nullable = false)

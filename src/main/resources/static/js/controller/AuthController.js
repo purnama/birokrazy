@@ -15,9 +15,9 @@ birokrazyApp.controller('AuthController', ['$rootScope', '$scope', '$location', 
                     $scope.error = false;
                     $scope.userObj = $rootScope.user;
                     if ($location.path() === $constant.routes.login) {
-                        var loginDestination = $cookies.loginDestination || $constant.routes.index;
-                        $cookies.loginDestination = null;
-                        $location.path(loginDestination);
+                        var loginRedirect = $rootScope.loginRedirect || $constant.routes.index;
+                        $rootScope.loginRedirect = null;
+                        $location.path(loginRedirect);
                     }else{
                         $window.location.reload();
                     }

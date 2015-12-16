@@ -29,6 +29,8 @@
     "components-font-awesome": "~4.5.0",
     "angular-ui-bootstrap": "~0.14.3",
     "angular-bootstrap": "~0.14.3",
-    "angular-google-maps": "~2.2.1"
+    "angular-google-maps": "~2.2.1",
+    "angular-bootstrap-colorpicker": "~3.0.22",
+    "textAngular": "~1.4.6"
   }
 }
