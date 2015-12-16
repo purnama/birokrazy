@@ -39,6 +39,7 @@ public class CivilServiceService {
         CivilService newCivilService = new CivilService();
         newCivilService.setContent(civilService.getContent());
         newCivilService.setName(civilService.getName());
+        newCivilService.setPrice(civilService.getPrice());
         newCivilService.setUniqueName(civilService.getUniqueName());
         newCivilService.setDescription(civilService.getDescription());
         return civilServiceRepository.save(newCivilService);
@@ -55,7 +56,19 @@ public class CivilServiceService {
         oldCivilService.setName(civilService.getName());
         oldCivilService.setUniqueName(civilService.getUniqueName());
         oldCivilService.setDescription(civilService.getDescription());
+        oldCivilService.setPrice(civilService.getPrice());
         return civilServiceRepository.save(oldCivilService);
+    }
+
+    public CivilService delete(String id){
+        CivilService oldCivilService;
+        try {
+            oldCivilService = civilServiceRepository.findOne(Long.parseLong(id));
+        }catch(NumberFormatException e){
+            oldCivilService = civilServiceRepository.findByUniqueName(id);
+        }
+        civilServiceRepository.delete(oldCivilService);
+        return oldCivilService;
     }
 
     public Review saveReview(Long id, Review civilServiceReview, Principal principal) {

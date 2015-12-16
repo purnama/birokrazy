@@ -10,10 +10,10 @@ INSERT INTO user_role(user_id, role) VALUES (1, 'ADMINISTRATOR');
 INSERT INTO user_role(user_id, role) VALUES (2, 'USER');
 INSERT INTO user_role(user_id, role) VALUES (3, 'OFFICIAL');
 
-INSERT INTO civil_service (unique_name, name, description, rating, reviews) VALUES ('e-ktp', 'KTP Elektronik', 'Kartu tanda penduduk elektronik', 4.2, 21218);
-INSERT INTO civil_service (unique_name, name, description, rating, reviews) VALUES ('paspor', 'Paspor Umum', 'Surat Perjalanan keluar negeri untuk umum', 2.4, 11432);
-INSERT INTO civil_service (unique_name, name, description, rating, reviews) VALUES ('imb', 'Izin Mendirikan Bangunan (IMB)', 'Untuk bangunan rumah tinggal atau bangunan umum', 3.4, 3213);
-INSERT INTO civil_service (unique_name, name, description, rating, reviews) VALUES ('ritel', 'Izin Usaha Ritel', 'Untuk usaha perdagangan barang eceran', 3.8, 5278);
+INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('e-ktp', 'KTP Elektronik', 'Kartu tanda penduduk elektronik', 0, 4.2, 21218);
+INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('paspor', 'Paspor Umum', 'Surat Perjalanan keluar negeri untuk umum', 0, 2.4, 11432);
+INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('imb', 'Izin Mendirikan Bangunan (IMB)', 'Untuk bangunan rumah tinggal atau bangunan umum', 0, 3.4, 3213);
+INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('ritel', 'Izin Usaha Ritel', 'Untuk usaha perdagangan barang eceran', 0, 3.8, 5278);
 
 INSERT INTO department (rating, reviews, name, description, telephone, email, opening_hour, address, zip_code, state, latitude, longitude) VALUES(0, 0, 'PTSP Kedaung', 'PTSP Kedaung', 'Jl. Komplek Departemen Agama, Kedaung Kali Angke', '021-112233', 'ptsp-kedaung@jakarta-barat.id', 'Senin - Jumat 09:00 - 17:00', '10011', 'Jakarta Barat', '-6.153593', '106.762150');
 INSERT INTO department (rating, reviews, name, description, telephone, email, opening_hour, address, zip_code, state, latitude, longitude) VALUES(0, 0, 'PTSP Kapuk', 'PTSP Kapuk', 'JL. Kapuk Raya, No.1 RT. 002/03', '021-554433', 'ptsp-kapuk@jakarta-utara.id', 'Senin - Jumat 09:00 - 17:00', '10022', 'Jakarta Utara', '-6.131836', '106.747880');

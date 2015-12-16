@@ -24,10 +24,10 @@
                     <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath)}" role="presentation">
                         <a href="/{{modulePath}}/{{servicePath}}">List</a>
                     </li>
-                    <li ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/new')}" role="presentation">
-                        <a href="/{{modulePath}}/{{servicePath}}/new">New</a>
+                    <li ng-class="{ active: isActive('/'+modulePath+'/new/'+servicePath)}" role="presentation">
+                        <a href="/{{modulePath}}/new/{{servicePath}}">New</a>
                     </li>
-                    <li ng-show="isActive('/'+modulePath+'/'+servicePath+'/edit/'+pathParamName)" ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/edit/'+pathParamName)}" role="presentation">
+                    <li ng-show="isActive('/'+modulePath+'/'+servicePath+'/'+pathParamName)" ng-class="{ active: isActive('/'+modulePath+'/'+servicePath+'/'+pathParamName)}" role="presentation">
                         <a href="#">Edit</a>
                     </li>
                 </ul>

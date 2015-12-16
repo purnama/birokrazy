@@ -5,6 +5,7 @@
         <th>version</th>
         <th>Unique Name</th>
         <th>Name</th>
+        <th>Price</th>
         <th>Description</th>
         <th>Rating</th>
         <th>Reviews</th>
@@ -17,10 +18,18 @@
         <td>{{civilService.version}}</td>
         <td>{{civilService.uniqueName}}</td>
         <td>{{civilService.name}}</td>
+        <td>{{civilService.price}}</td>
         <td>{{civilService.description}}</td>
         <td>{{civilService.rating}}</td>
         <td>{{civilService.reviews}}</td>
-        <td><a href="/{{modulePath}}/{{servicePath}}/edit/{{civilService.uniqueName}}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</a> </td>
+        <td>
+            <a href="/{{modulePath}}/{{servicePath}}/{{civilService.uniqueName}}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </a>
+            <a ng-click="delete(civilService)" class="btn btn-danger">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </a>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -14,7 +14,7 @@ administrationModule.controller('administrationModule.ServiceController', ['$sco
                 $scope.civilServiceList = data;
                 $scope.templateUrl = $constant.module.administration.templates + 'service.list.tpl.html';
             });
-        } else if ($location.path() === '/' + $scope.modulePath + '/' + $scope.servicePath + '/edit/' + $routeParams.name) {
+        } else if ($location.path() === '/' + $scope.modulePath + '/' + $scope.servicePath + '/' + $routeParams.name) {
             civilServiceService.findById($routeParams.name).then(function (data) {
                 $scope.civilService = data;
                 $scope.submitAction = function () {
@@ -24,7 +24,7 @@ administrationModule.controller('administrationModule.ServiceController', ['$sco
                 };
                 $scope.templateUrl = $constant.module.administration.templates + 'service.edit.tpl.html';
             });
-        } else if ($location.path() === '/' + $scope.modulePath + '/' + $scope.servicePath + '/new') {
+        } else if ($location.path() === '/' + $scope.modulePath + '/new/' + $scope.servicePath ) {
             $scope.civilService = {};
             $scope.submitAction = function () {
                 civilServiceService.create($scope.civilService).then(function (data) {
@@ -32,6 +32,12 @@ administrationModule.controller('administrationModule.ServiceController', ['$sco
                 });
             };
             $scope.templateUrl = $constant.module.administration.templates + 'service.edit.tpl.html';
+        }
+
+        $scope.delete = function(civilService){
+            civilServiceService.delete(civilService.uniqueName).then(function (data) {
+                $scope.civilServiceList.splice($scope.civilServiceList.indexOf(civilService), 1);
+            });
         }
 
         $scope.isActive = function (viewLocation) {

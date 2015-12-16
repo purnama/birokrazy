@@ -14,7 +14,7 @@ var administrationModule = angular.module('birokrazyApp.administrationModule', [
                     permissions: [$constant.roles.admin]
                 }
             }).
-            when('/'+$constant.module.administration.path+'/'+$constant.module.service.path+'/new', {
+            when('/'+$constant.module.administration.path+'/new/'+$constant.module.service.path, {
                 templateUrl: $constant.module.administration.templates + 'service.tpl.html',
                 controller: 'administrationModule.ServiceController',
                 access: {
@@ -22,7 +22,7 @@ var administrationModule = angular.module('birokrazyApp.administrationModule', [
                     permissions: [$constant.roles.admin]
                 }
             }).
-            when('/'+$constant.module.administration.path+'/'+$constant.module.service.path+'/edit/:name', {
+            when('/'+$constant.module.administration.path+'/'+$constant.module.service.path+'/:name', {
                 templateUrl: $constant.module.administration.templates + 'service.tpl.html',
                 controller: 'administrationModule.ServiceController',
                 access: {

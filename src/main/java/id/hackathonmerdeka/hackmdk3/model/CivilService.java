@@ -3,6 +3,7 @@ package id.hackathonmerdeka.hackmdk3.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -27,6 +28,9 @@ public class CivilService {
 
     @Column
     private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price = BigDecimal.ZERO;
 
     @Column(columnDefinition = "longvarchar")
     private String content;
@@ -125,5 +129,13 @@ public class CivilService {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

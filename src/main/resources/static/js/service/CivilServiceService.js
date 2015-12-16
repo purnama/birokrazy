@@ -32,6 +32,11 @@ birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($ht
                 return response.data;
             });
         },
+        delete: function(id){
+            return $http.delete($constant.apiVersion.protected + '/service/' + id ).then(function (response) {
+                return response.data;
+            });
+        },
         saveReview: function(id, reviewObj){
             return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj).then(function (response) {
                 return response.data;
