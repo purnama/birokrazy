@@ -18,6 +18,11 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -47,8 +52,9 @@ public class Application {
     }
 
     @Configuration
-    @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
-    protected static class ApiWebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @EnableResourceServer
+    protected static class ResourceServerConfiguration extends
+            ResourceServerConfigurerAdapter {
 
         @Bean
         public UserDetailsService customUserDetailsService() {
@@ -56,17 +62,17 @@ public class Application {
         }
 
         @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.csrf().csrfTokenRepository(csrfTokenRepository()).
-                    and().httpBasic().
-                    and().authorizeRequests().antMatchers("/api/v1/protected/**").authenticated().
-                    and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).
-                    logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+        public void configure(ResourceServerSecurityConfigurer resources) {
+            resources.resourceId("birokrazy");
+            //resources.userDetailsService(customUserDetailsService());
         }
 
         @Override
-        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(customUserDetailsService());
+        public void configure(HttpSecurity http) throws Exception {
+            http.csrf().csrfTokenRepository(csrfTokenRepository());
+            http.httpBasic().disable();
+            http.authorizeRequests().antMatchers("/api/v1/protected/**").authenticated().
+                    and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
         }
 
         private CsrfTokenRepository csrfTokenRepository() {
@@ -74,5 +80,11 @@ public class Application {
             repository.setHeaderName("X-XSRF-TOKEN");
             return repository;
         }
+    }
+
+    @Configuration
+    @EnableAuthorizationServer
+    protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
+
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "/{path:^(?!api)(?!index)(?!bower)(?!css)(?!error)(?!images)(?!js)(?!templates).*$}/**")
+    @RequestMapping(value = "/{path:^(?!api)(?!index)(?!bower)(?!css)(?!error)(?!images)(?!js)(?!templates)(?!oauth).*$}/**")
     public String forward(@PathVariable(value = "path") String path) {
         return "forward:/";
     }
