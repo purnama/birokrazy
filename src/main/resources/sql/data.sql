@@ -2,13 +2,13 @@ INSERT INTO highlight (image, description) VALUES ('fitur-informasi.png', 'Birok
 INSERT INTO highlight (image, description) VALUES ('fitur-tracking.png', 'Birokrazy memungkinkan kita untuk memantau sendiri proses pengerjaan dokumen setiap saat.');
 INSERT INTO highlight (image, description) VALUES ('fitur-statistik.png', 'Birokrazy memberi kita kesempatan untuk menilai proses pengurusan dokumen, berbagi pengalaman dan informasi terbaru.');
 
-INSERT INTO user (username, password, name, email) VALUES ('admin', 'admin', 'Bimantara Adipramana', 'bimantara.adipramana@momoku.net');
-INSERT INTO user (username, password, name, email) VALUES ('user', 'user', 'Pramudya Cokroatmojo', 'pramudya.cokroatmojo@momoku.net');
-INSERT INTO user (username, password, name, email) VALUES ('pns', 'pns', 'Bagus Wicaksana', 'bagus.wicaksana@momoku.net');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('admin', 'adminpass', 'ADMINISTRATOR', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('user', 'userpass', 'USER', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('pns', 'pnspass', 'OFFICIAL', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
 
-INSERT INTO user_role(user_id, role) VALUES (1, 'ADMINISTRATOR');
-INSERT INTO user_role(user_id, role) VALUES (2, 'USER');
-INSERT INTO user_role(user_id, role) VALUES (3, 'OFFICIAL');
+INSERT INTO user (username, oauth_client_details_clientId, name, email) VALUES ('admin', 'admin', 'Bimantara Adipramana', 'bimantara.adipramana@momoku.net');
+INSERT INTO user (username, oauth_client_details_clientId, name, email) VALUES ('user', 'user', 'Pramudya Cokroatmojo', 'pramudya.cokroatmojo@momoku.net');
+INSERT INTO user (username, oauth_client_details_clientId, name, email) VALUES ('pns', 'pns', 'Bagus Wicaksana', 'bagus.wicaksana@momoku.net');
 
 INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('e-ktp', 'KTP Elektronik', 'Kartu tanda penduduk elektronik', 0, 4.2, 21218);
 INSERT INTO civil_service (unique_name, name, description, price, rating, reviews) VALUES ('paspor', 'Paspor Umum', 'Surat Perjalanan keluar negeri untuk umum', 0, 2.4, 11432);
@@ -36,5 +36,3 @@ INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike,
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 4, 79, 13, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 6, 289, 11, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 8, 79, 2, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
-
-INSERT INTO oauth_client_details(client_id, client_secret, authorized_grant_types, scope, autoapprove) VALUES('admin', 'adminpass', 'authorization_code,refresh_token,password', 'default', 'default');

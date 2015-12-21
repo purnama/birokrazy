@@ -1,8 +1,12 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($http, $constant) {
-
+birokrazyApp.factory('CivilServiceService', ['$http', '$constant', '$rootScope', function ($http, $constant, $rootScope) {
+    var restConfig = $rootScope.authenticated ? {
+        headers: {
+            authorization: "Bearer " + $rootScope.token.access_token
+        }
+    } : {};
     var civilServiceService = {
         findAll: function () {
             return $http.get($constant.apiVersion.public + '/service').then(function (response) {
@@ -23,22 +27,22 @@ birokrazyApp.factory('CivilServiceService', ['$http', '$constant', function ($ht
 
         },
         create: function(civilServiceObj){
-            return $http.put($constant.apiVersion.protected + '/service' , civilServiceObj).then(function (response) {
+            return $http.put($constant.apiVersion.protected + '/service' , civilServiceObj, restConfig).then(function (response) {
                 return response.data;
             });
         },
         update: function(id, civilServiceObj){
-            return $http.post($constant.apiVersion.protected + '/service/' + id , civilServiceObj).then(function (response) {
+            return $http.post($constant.apiVersion.protected + '/service/' + id , civilServiceObj, restConfig).then(function (response) {
                 return response.data;
             });
         },
         delete: function(id){
-            return $http.delete($constant.apiVersion.protected + '/service/' + id ).then(function (response) {
+            return $http.delete($constant.apiVersion.protected + '/service/' + id , restConfig).then(function (response) {
                 return response.data;
             });
         },
         saveReview: function(id, reviewObj){
-            return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj).then(function (response) {
+            return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj, restConfig).then(function (response) {
                 return response.data;
             });
         }

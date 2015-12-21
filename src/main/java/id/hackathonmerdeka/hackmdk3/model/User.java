@@ -1,11 +1,11 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import id.hackathonmerdeka.hackmdk3.model.oauth2.OauthClientDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -24,21 +24,20 @@ public class User implements Serializable {
     private String username;
 
     @Column(nullable = false)
-    @JsonIgnore
-    private String password;
-
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false, unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user")
-    private Set<UserRole> roles;
-
-    @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<Review> reviewList;
+
+    @OneToOne
+    private OauthClientDetails oauthClientDetails;
+
+    @Transient
+    private Set<String> roles;
 
     public Long getId() {
         return id;
@@ -64,14 +63,6 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getName() {
         return name;
     }
@@ -88,19 +79,27 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Set<UserRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<UserRole> roles) {
-        this.roles = roles;
-    }
-
     public List<Review> getReviewList() {
         return reviewList;
     }
 
     public void setReviewList(List<Review> reviewList) {
         this.reviewList = reviewList;
+    }
+
+    public OauthClientDetails getOauthClientDetails() {
+        return oauthClientDetails;
+    }
+
+    public void setOauthClientDetails(OauthClientDetails oauthClientDetails) {
+        this.oauthClientDetails = oauthClientDetails;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 }
