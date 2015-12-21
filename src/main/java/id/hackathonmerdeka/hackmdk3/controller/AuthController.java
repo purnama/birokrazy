@@ -1,6 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.controller;
 
 import id.hackathonmerdeka.hackmdk3.model.User;
+import id.hackathonmerdeka.hackmdk3.model.oauth2.OauthClientDetails;
 import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

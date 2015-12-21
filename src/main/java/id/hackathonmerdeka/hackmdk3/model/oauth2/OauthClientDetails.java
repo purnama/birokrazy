@@ -1,8 +1,11 @@
 package id.hackathonmerdeka.hackmdk3.model.oauth2;
 
+import id.hackathonmerdeka.hackmdk3.model.User;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -42,6 +45,9 @@ public class OauthClientDetails {
 
     @Column
     private String autoapprove;
+
+    @OneToOne
+    private User user;
 
     public String getClientId() {
         return clientId;
@@ -129,5 +135,13 @@ public class OauthClientDetails {
 
     public void setAutoapprove(String autoapprove) {
         this.autoapprove = autoapprove;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

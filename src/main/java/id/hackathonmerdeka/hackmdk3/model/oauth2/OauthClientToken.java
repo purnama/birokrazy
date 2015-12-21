@@ -1,10 +1,9 @@
 package id.hackathonmerdeka.hackmdk3.model.oauth2;
 
-import org.hibernate.type.BinaryType;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Blob;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -19,7 +18,7 @@ public class OauthClientToken {
     private String tokenId;
 
     @Column
-    private BinaryType token;
+    private Blob token;
 
     @Column
     private String userName;
@@ -35,11 +34,11 @@ public class OauthClientToken {
         this.tokenId = tokenId;
     }
 
-    public BinaryType getToken() {
+    public Blob getToken() {
         return token;
     }
 
-    public void setToken(BinaryType token) {
+    public void setToken(Blob token) {
         this.token = token;
     }
 

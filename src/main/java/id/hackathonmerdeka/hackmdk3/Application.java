@@ -3,18 +3,13 @@ package id.hackathonmerdeka.hackmdk3;
 import id.hackathonmerdeka.hackmdk3.service.CsrfHeaderFilter;
 import id.hackathonmerdeka.hackmdk3.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
@@ -25,38 +20,35 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
-import org.springframework.security.oauth2.client.OAuth2RestOperations;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.token.*;
-import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeAccessTokenProvider;
-import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.*;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+import org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.security.KeyPair;
-import java.util.Arrays;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @SpringBootApplication
-@EnableOAuth2Client
 public class Application {
 
     public static void main(String[] args) {
@@ -75,46 +67,6 @@ public class Application {
         });
     }
 
-    @Value("${oauth.resource:http://localhost:8080}")
-    private String baseUrl;
-
-    @Value("${oauth.authorize:http://localhost:8080/oauth/authorize}")
-    private String authorizeUrl;
-
-    @Value("${oauth.token:http://localhost:8080/oauth/token}")
-    private String tokenUrl;
-
-    @Resource
-    @Qualifier("accessTokenRequest")
-    private AccessTokenRequest accessTokenRequest;
-
-    @Autowired
-    private DataSource dataSource;
-
-
-    @Bean
-    @Scope(value = "session", proxyMode = ScopedProxyMode.INTERFACES)
-    public OAuth2RestOperations restTemplate() {
-        OAuth2RestTemplate template = new OAuth2RestTemplate(resource(), new DefaultOAuth2ClientContext(accessTokenRequest));
-        AccessTokenProviderChain provider = new AccessTokenProviderChain(Arrays.asList(new AuthorizationCodeAccessTokenProvider()));
-        provider.setClientTokenServices(clientTokenServices());
-        return template;
-    }
-
-    @Bean
-    public ClientTokenServices clientTokenServices() {
-        return new JdbcClientTokenServices(dataSource);
-    }
-
-    @Bean
-    protected OAuth2ProtectedResourceDetails resource() {
-        AuthorizationCodeResourceDetails resource = new AuthorizationCodeResourceDetails();
-        resource.setAccessTokenUri(tokenUrl);
-        resource.setUserAuthorizationUri(authorizeUrl);
-        resource.setClientId("my-trusted-client");
-        return resource;
-    }
-
     @Configuration
     @EnableResourceServer
     protected static class ResourceServerConfiguration extends
@@ -128,6 +80,7 @@ public class Application {
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) {
             resources.resourceId("birokrazy");
+
             //resources.userDetailsService(customUserDetailsService());
         }
 
@@ -136,16 +89,62 @@ public class Application {
             http.csrf().csrfTokenRepository(csrfTokenRepository()).and().
                     authorizeRequests().
                     antMatchers("/api/v1/protected/**").authenticated().
-                    antMatchers("/oauth/token").authenticated().
-                    and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).
+                    and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).httpBasic().disable().
                     sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().httpBasic().disable();
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
 
         private CsrfTokenRepository csrfTokenRepository() {
             HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
             repository.setHeaderName("X-XSRF-TOKEN");
             return repository;
+        }
+    }
+
+    @Configuration
+    protected static class ApiWebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Autowired
+        private AuthenticationManager auth;
+
+        @Bean
+        public UserDetailsService customUserDetailsService() {
+            return new CustomUserDetailsService();
+        }
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.csrf().csrfTokenRepository(csrfTokenRepository()).requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/token")).disable()
+                    .exceptionHandling().accessDeniedHandler(accessDeniedHandler()).and().
+                    httpBasic().authenticationEntryPoint(authenticationEntryPoint()).and().
+                    authorizeRequests().antMatchers("/api/v1/protected/**").authenticated().
+                    and().
+                    addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        }
+
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.parentAuthenticationManager(this.auth);
+            auth.userDetailsService(customUserDetailsService());
+        }
+
+        private CsrfTokenRepository csrfTokenRepository() {
+            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+            repository.setHeaderName("X-XSRF-TOKEN");
+            return repository;
+        }
+
+        @Bean
+        protected AccessDeniedHandler accessDeniedHandler() {
+            return new OAuth2AccessDeniedHandler();
+        }
+
+        @Bean
+        protected AuthenticationEntryPoint authenticationEntryPoint() {
+            OAuth2AuthenticationEntryPoint entryPoint = new OAuth2AuthenticationEntryPoint();
+            entryPoint.setTypeName("Basic");
+            entryPoint.setRealmName("oauth2/client");
+            return entryPoint;
         }
     }
 
@@ -184,6 +183,8 @@ public class Application {
         @Override
         public void configure(AuthorizationServerSecurityConfigurer security)
                 throws Exception {
+            security.tokenKeyAccess("permitAll()").checkTokenAccess(
+                    "isAuthenticated()");
             /*security.passwordEncoder(passwordEncoder);*/
         }
 
@@ -192,9 +193,7 @@ public class Application {
                 throws Exception {
             endpoints.authorizationCodeServices(authorizationCodeServices())
                     .authenticationManager(auth).tokenStore(tokenStore())
-                    .approvalStoreDisabled();
-            /*endpoints.authenticationManager(auth).accessTokenConverter(
-                    jwtAccessTokenConverter());*/
+                    .approvalStoreDisabled().accessTokenConverter(jwtAccessTokenConverter());
         }
 
         @Override

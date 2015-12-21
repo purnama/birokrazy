@@ -1,9 +1,9 @@
 package id.hackathonmerdeka.hackmdk3.controller;
 
 import id.hackathonmerdeka.hackmdk3.model.Review;
-import id.hackathonmerdeka.hackmdk3.model.User;
+import id.hackathonmerdeka.hackmdk3.model.oauth2.OauthClientDetails;
 import id.hackathonmerdeka.hackmdk3.repository.ReviewRepository;
-import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
+import id.hackathonmerdeka.hackmdk3.repository.OauthClientDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController extends ProtectedController {
 
 	@Autowired
-	private UserRepository repository;
+	private OauthClientDetailsRepository repository;
 
 	@Autowired
 	private ReviewRepository reviewRepository;
@@ -27,13 +27,13 @@ public class UserController extends ProtectedController {
 
 	@PreAuthorize("hasAuthority('ADMINISTRATOR')")
 	@RequestMapping(path="/user", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public Iterable<User> findAll(){
+	public Iterable<OauthClientDetails> findAll(){
 		return repository.findAll();
 	}
 
 	@RequestMapping(path="/user/{id}/review", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Iterable<Review> findReviewById(@PathVariable("id") Long id){
-		return reviewRepository.findByUser(repository.findOne(id));
+		return reviewRepository.findAll();
 	}
 
 }
