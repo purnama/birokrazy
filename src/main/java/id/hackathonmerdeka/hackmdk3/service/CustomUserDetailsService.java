@@ -20,6 +20,7 @@ import java.util.Set;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Service
+@Transactional
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired

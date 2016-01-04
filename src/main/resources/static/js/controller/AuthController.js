@@ -1,12 +1,12 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('AuthController', ['$rootScope', '$scope', '$location', '$constant', '$cookies', '$window', 'AuthService',
-    function ($rootScope, $scope, $location, $constant, $cookies, $window, authService) {
+birokrazyApp.controller('AuthController', ['$rootScope', '$scope', '$location', '$constant', '$localStorage', '$window', 'AuthService',
+    function ($rootScope, $scope, $location, $constant, $localStorage, $window, authService) {
         $scope.credentials = {};
-        if ($cookies.getObject("authenticated")) {
-            $rootScope.authenticated = $cookies.getObject("authenticated");
-            $rootScope.user = $cookies.getObject("user");
+        if ($localStorage.authenticated) {
+            $rootScope.authenticated = $localStorage.authenticated;
+            $rootScope.user = $localStorage.user;
             $scope.userObj = $rootScope.user;
         }
         $scope.login = function () {

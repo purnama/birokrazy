@@ -2,6 +2,7 @@
 var birokrazyApp = angular.module('birokrazyApp', [
         'ngRoute',
         'ngCookies',
+        'ngStorage',
         'ui.bootstrap',
         'uiGmapgoogle-maps',
         'colorpicker.module',
@@ -178,16 +179,16 @@ var birokrazyApp = angular.module('birokrazyApp', [
 
             $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         }])
-    .run(['$rootScope', '$constant', '$location', '$cookies',
-        function ($rootScope, $constant, $location, $cookies) {
+    .run(['$rootScope', '$constant', '$location', '$localStorage',
+        function ($rootScope, $constant, $location, $localStorage) {
             $rootScope.$on('$routeChangeStart', function (event, next, current) {
                 $rootScope.path = $location.path();
                 $rootScope.showNavSearch = $location.path() !== '/';
                 if (next.access !== undefined) {
                     if (next.access.requiresLogin) {
-                        if ($cookies.getObject("authenticated")) {
-                            $rootScope.authenticated = $cookies.getObject("authenticated");
-                            $rootScope.user = $cookies.getObject("user");
+                        if ($localStorage.authenticated) {
+                            $rootScope.authenticated = $localStorage.authenticated;
+                            $rootScope.user = $localStorage.user;
                         }
                         if ($rootScope.authenticated) {
                             if (next.access.permissions === undefined || next.access.permissions.length === 0) {
@@ -197,7 +198,7 @@ var birokrazyApp = angular.module('birokrazyApp', [
                                 var loweredPermissions = [],
                                     hasPermission = true;
                                 angular.forEach($rootScope.user.roles, function (userRole) {
-                                    loweredPermissions.push(userRole.role.toLowerCase());
+                                    loweredPermissions.push(userRole.toLowerCase());
                                 });
                                 for (var i = 0; i < next.access.permissions.length; i += 1) {
                                     var permission = next.access.permissions[i].toLowerCase();

@@ -2,15 +2,18 @@ package id.hackathonmerdeka.hackmdk3;
 
 import id.hackathonmerdeka.hackmdk3.service.CsrfHeaderFilter;
 import id.hackathonmerdeka.hackmdk3.service.CustomUserDetailsService;
+import id.hackathonmerdeka.hackmdk3.service.DatabaseCsrfTokenService;
+import org.apache.catalina.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.ErrorPage;
+import org.springframework.boot.context.embedded.tomcat.TomcatContextCustomizer;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -39,11 +42,11 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 import java.security.KeyPair;
+import java.util.Arrays;
 
 /**
  * @author Arthur Purnama (arthur@purnama.de)
@@ -67,21 +70,50 @@ public class Application {
         });
     }
 
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+        factory.setTomcatContextCustomizers(Arrays.asList(new CustomTomcatContextCustomizer()));
+        return factory;
+    }
+
+    @Bean
+    public CsrfHeaderFilter createCsrfHeaderFilter() {
+        return new CsrfHeaderFilter();
+    }
+
+    @Bean
+    public UserDetailsService customUserDetailsService() {
+        return new CustomUserDetailsService();
+    }
+
+    @Bean
+    public CsrfTokenRepository customDatabaseCsrfTokenService() {
+        return new DatabaseCsrfTokenService();
+    }
+
+    static class CustomTomcatContextCustomizer implements TomcatContextCustomizer {
+        @Override
+        public void customize(Context context) {
+            context.setUseHttpOnly(false);
+            context.setCookies(false);
+        }
+    }
+
     @Configuration
     @EnableResourceServer
     protected static class ResourceServerConfiguration extends
             ResourceServerConfigurerAdapter {
 
-        @Bean
-        public UserDetailsService customUserDetailsService() {
-            return new CustomUserDetailsService();
-        }
+        @Autowired
+        protected CsrfTokenRepository databaseCsrfTokenService;
+
+        @Autowired
+        protected CsrfHeaderFilter csrfHeaderFilter;
 
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) {
             resources.resourceId("birokrazy");
-
-            //resources.userDetailsService(customUserDetailsService());
         }
 
         @Override
@@ -89,15 +121,15 @@ public class Application {
             http.csrf().csrfTokenRepository(csrfTokenRepository()).and().
                     authorizeRequests().
                     antMatchers("/api/v1/protected/**").authenticated().
-                    and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).httpBasic().disable().
+                    and().addFilterAfter(csrfHeaderFilter, CsrfFilter.class).httpBasic().disable().
                     sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
 
         private CsrfTokenRepository csrfTokenRepository() {
-            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-            repository.setHeaderName("X-XSRF-TOKEN");
-            return repository;
+            //HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+            //csrfTokenRepository.setHeaderName("X-XSRF-TOKEN");
+            return databaseCsrfTokenService;
         }
     }
 
@@ -106,10 +138,14 @@ public class Application {
         @Autowired
         private AuthenticationManager auth;
 
-        @Bean
-        public UserDetailsService customUserDetailsService() {
-            return new CustomUserDetailsService();
-        }
+        @Autowired
+        UserDetailsService customUserDetailsService;
+
+        @Autowired
+        protected CsrfTokenRepository databaseCsrfTokenService;
+
+        @Autowired
+        protected CsrfHeaderFilter csrfHeaderFilter;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
@@ -118,20 +154,20 @@ public class Application {
                     httpBasic().authenticationEntryPoint(authenticationEntryPoint()).and().
                     authorizeRequests().antMatchers("/api/v1/protected/**").authenticated().
                     and().
-                    addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).sessionManagement()
+                    addFilterAfter(csrfHeaderFilter, CsrfFilter.class).sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
             auth.parentAuthenticationManager(this.auth);
-            auth.userDetailsService(customUserDetailsService());
+            auth.userDetailsService(customUserDetailsService);
         }
 
         private CsrfTokenRepository csrfTokenRepository() {
-            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-            repository.setHeaderName("X-XSRF-TOKEN");
-            return repository;
+            //HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+            //csrfTokenRepository.setHeaderName("X-XSRF-TOKEN");
+            return databaseCsrfTokenService;
         }
 
         @Bean

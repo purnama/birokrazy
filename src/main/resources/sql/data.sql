@@ -2,9 +2,9 @@ INSERT INTO highlight (image, description) VALUES ('fitur-informasi.png', 'Birok
 INSERT INTO highlight (image, description) VALUES ('fitur-tracking.png', 'Birokrazy memungkinkan kita untuk memantau sendiri proses pengerjaan dokumen setiap saat.');
 INSERT INTO highlight (image, description) VALUES ('fitur-statistik.png', 'Birokrazy memberi kita kesempatan untuk menilai proses pengurusan dokumen, berbagi pengalaman dan informasi terbaru.');
 
-INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('admin', 'adminpass', 'ADMINISTRATOR', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
-INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('user', 'userpass', 'USER', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
-INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('pns', 'pnspass', 'OFFICIAL', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('admin', 'admin', 'ADMINISTRATOR', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('user', 'user', 'USER', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
+INSERT INTO oauth_client_details(client_id, client_secret, authorities, authorized_grant_types, scope, autoapprove) VALUES('pns', 'pns', 'OFFICIAL', 'authorization_code,refresh_token,client_credentials', 'default', 'default');
 
 INSERT INTO user (username, oauth_client_details_clientId, name, email) VALUES ('admin', 'admin', 'Bimantara Adipramana', 'bimantara.adipramana@momoku.net');
 INSERT INTO user (username, oauth_client_details_clientId, name, email) VALUES ('user', 'user', 'Pramudya Cokroatmojo', 'pramudya.cokroatmojo@momoku.net');
