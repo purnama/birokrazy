@@ -51,6 +51,10 @@ public class CivilService {
     @JsonIgnore
     private List<Department> departmentList;
 
+    @OneToMany(mappedBy = "civilService")
+    @OrderBy("id desc")
+    private List<Infographic> infographicList;
+
     public Long getId() {
         return id;
     }
@@ -137,5 +141,13 @@ public class CivilService {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public List<Infographic> getInfographicList() {
+        return infographicList;
+    }
+
+    public void setInfographicList(List<Infographic> infographicList) {
+        this.infographicList = infographicList;
     }
 }

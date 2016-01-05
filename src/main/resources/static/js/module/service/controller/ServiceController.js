@@ -6,11 +6,20 @@ serviceModule.controller('serviceModule.ServiceController', ['$scope', '$locatio
     'DurationModalService', 'CivilServiceService',
     function ($scope, $location, $constant, $routeParams, highchartService, durationModalService, civilServiceService) {
 
+        function chunk(arr, size) {
+            var newArr = [];
+            for (var i=0; i<arr.length; i+=size) {
+                newArr.push(arr.slice(i, i+size));
+            }
+            return newArr;
+        }
+
         $scope.waitingTime = highchartService.waitingTime;
         $scope.civilService = {};
         $scope.modulePath = $constant.module.service.path;
         civilServiceService.findById($routeParams.name).then(function (data) {
             $scope.civilService = data;
+            $scope.civilService.infographicList = chunk($scope.civilService.infographicList, 4);
             $scope.servicePath = $routeParams.name;
             if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/review') {
                 civilServiceService.findAllReviewById($routeParams.name).then(function (data) {

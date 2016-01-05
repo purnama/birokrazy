@@ -36,3 +36,10 @@ INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike,
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 4, 79, 13, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 6, 289, 11, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
 INSERT INTO review_statement (create_date, user_id, review_id, revlike, dislike, content) VALUES (NOW(), 3, 8, 79, 2, 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam quis ligula eget purus vestibulum mattis. Proin eget massa nulla. In ultrices maximus sem sed consectetur. Aliquam id erat nec mi luctus iaculis a vel est.');
+
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(1, 'Diagram proses pembuatan E-KTP', '/images/e-ktp.png');
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(2, 'Diagram proses penerbitan paspor', '/images/passport.png');
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(3, 'Diagram prosedur pengurusan IMB', '/images/imb_1.png');
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(3, 'Diagram kelengkapan persyaratan', '/images/imb_2.png');
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(3, 'Diagram penerbitan SKRD', '/images/imb_3.png');
+INSERT INTO infographic (civil_service_id, description, resource) VALUES(4, 'Diagram proses pembuatan izin usaha', '/images/izin-usaha.png');
