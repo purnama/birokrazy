@@ -1,6 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.repository;
 
 import id.hackathonmerdeka.hackmdk3.model.CivilService;
+import id.hackathonmerdeka.hackmdk3.model.Department;
 import id.hackathonmerdeka.hackmdk3.model.Review;
 import id.hackathonmerdeka.hackmdk3.model.User;
 import org.springframework.data.repository.CrudRepository;
@@ -15,6 +16,8 @@ import java.util.List;
 public interface ReviewRepository extends CrudRepository<Review, Long>{
 
     List<Review> findByCivilService(CivilService civilService );
+
+    List<Review> findByDepartment(Department department);
 
     List<Review> findByUser(User user);
 }

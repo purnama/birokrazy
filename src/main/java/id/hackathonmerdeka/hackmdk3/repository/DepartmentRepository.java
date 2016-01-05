@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Repository
-public interface DepartementRepository extends CrudRepository<Department, Long>{
+public interface DepartmentRepository extends CrudRepository<Department, Long>{
 
+    Department findByUniqueName(String uniqueName);
 }

@@ -18,6 +18,9 @@ public class Department {
     @Version
     private Long version;
 
+    @Column(nullable = false, unique = true)
+    private String uniqueName;
+
     @Column(nullable = false)
     private String name;
 
@@ -212,5 +215,13 @@ public class Department {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
+    public void setUniqueName(String uniqueName) {
+        this.uniqueName = uniqueName;
     }
 }
