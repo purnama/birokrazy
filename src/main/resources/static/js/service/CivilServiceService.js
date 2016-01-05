@@ -1,10 +1,10 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.factory('CivilServiceService', ['$http', '$constant', '$rootScope', function ($http, $constant, $rootScope) {
-    var restConfig = $rootScope.authenticated ? {
+birokrazyApp.factory('CivilServiceService', ['$http', '$constant', '$localStorage', function ($http, $constant, $localStorage) {
+    var restConfig = $localStorage.authenticated ? {
         headers: {
-            authorization: "Bearer " + $rootScope.token.access_token
+            authorization: "Bearer " + $localStorage.token.access_token
         }
     } : {};
     var civilServiceService = {
