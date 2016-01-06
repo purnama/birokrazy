@@ -16,6 +16,7 @@ public class Department {
     private Long id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @Column(nullable = false, unique = true)

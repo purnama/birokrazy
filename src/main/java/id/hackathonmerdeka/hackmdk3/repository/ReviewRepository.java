@@ -3,7 +3,7 @@ package id.hackathonmerdeka.hackmdk3.repository;
 import id.hackathonmerdeka.hackmdk3.model.CivilService;
 import id.hackathonmerdeka.hackmdk3.model.Department;
 import id.hackathonmerdeka.hackmdk3.model.Review;
-import id.hackathonmerdeka.hackmdk3.model.User;
+import id.hackathonmerdeka.hackmdk3.model.UserData;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +19,5 @@ public interface ReviewRepository extends CrudRepository<Review, Long>{
 
     List<Review> findByDepartment(Department department);
 
-    List<Review> findByUser(User user);
+    List<Review> findByUser(UserData user);
 }

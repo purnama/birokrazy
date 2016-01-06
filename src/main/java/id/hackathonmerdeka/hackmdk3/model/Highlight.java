@@ -14,6 +14,7 @@ public class Highlight implements Serializable {
     private Long id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @Column(nullable = false)

@@ -1,6 +1,5 @@
 package id.hackathonmerdeka.hackmdk3.repository;
 
-import id.hackathonmerdeka.hackmdk3.model.User;
 import id.hackathonmerdeka.hackmdk3.model.oauth2.OauthClientDetails;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

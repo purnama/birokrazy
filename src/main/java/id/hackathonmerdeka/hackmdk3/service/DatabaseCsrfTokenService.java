@@ -39,26 +39,28 @@ public class DatabaseCsrfTokenService implements CsrfTokenRepository {
     @Override
     public void saveToken(CsrfToken token, HttpServletRequest request, HttpServletResponse response) {
         if (token == null) {
-            CsrfAccessToken csrfAccessToken = null;
-            for (CsrfAccessToken entity : databaseCsrfTokenRepository.findAll()) {
-                csrfAccessToken = entity;
-            }
-            if (csrfAccessToken != null) {
-                databaseCsrfTokenRepository.delete(csrfAccessToken);
+            if (request.getHeader(headerName) != null) {
+                CsrfAccessToken csrfAccessToken = databaseCsrfTokenRepository.findOne(request.getHeader(headerName));
+                if (csrfAccessToken != null) {
+                    databaseCsrfTokenRepository.delete(csrfAccessToken);
+                }
             }
         } else {
-            databaseCsrfTokenRepository.save(new CsrfAccessToken(token.getToken()));
+            CsrfAccessToken csrfAccessToken = databaseCsrfTokenRepository.findOne(token.getToken());
+            if (csrfAccessToken == null) {
+                databaseCsrfTokenRepository.save(new CsrfAccessToken(token.getToken()));
+            }
         }
     }
 
     @Override
     public CsrfToken loadToken(HttpServletRequest request) {
-        if(request.getHeader(headerName) == null){
+        if (request.getHeader(headerName) == null) {
             return null;
         }
         CsrfAccessToken csrfAccessToken = databaseCsrfTokenRepository.findOne(request.getHeader(headerName));
-        if(csrfAccessToken == null){
-            return  null;
+        if (csrfAccessToken == null) {
+            return null;
         }
         return new DefaultCsrfToken(headerName, parameterName, csrfAccessToken.getToken());
     }

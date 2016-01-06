@@ -19,7 +19,7 @@ var serviceModule = angular.module('birokrazyApp.constant', [])
             },
             department: {
                 path: 'instansi',
-                templates: 'js/module/departement/templates/'
+                templates: 'js/module/department/templates/'
             },
             administration: {
                 path: 'administration',

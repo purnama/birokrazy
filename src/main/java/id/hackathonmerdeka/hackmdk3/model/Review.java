@@ -1,7 +1,5 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,6 +15,7 @@ public class Review {
     private Long id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @Column(nullable = false)
@@ -53,7 +52,7 @@ public class Review {
     private CivilService civilService;
 
     @ManyToOne
-    private User user;
+    private UserData user;
 
     @OneToOne(mappedBy = "review")
     ReviewStatement reviewStatement;
@@ -146,11 +145,11 @@ public class Review {
         this.civilService = civilService;
     }
 
-    public User getUser() {
+    public UserData getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserData user) {
         this.user = user;
     }
 

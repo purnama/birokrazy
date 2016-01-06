@@ -11,13 +11,14 @@ import java.util.*;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Entity
-public class User implements Serializable {
+public class UserData implements Serializable {
 
     @Id
     @GeneratedValue()
     private Long id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @Column(nullable = false, unique = true)

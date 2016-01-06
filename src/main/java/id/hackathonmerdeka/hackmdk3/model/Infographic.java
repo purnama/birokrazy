@@ -15,6 +15,7 @@ public class Infographic {
     private Long Id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @ManyToOne

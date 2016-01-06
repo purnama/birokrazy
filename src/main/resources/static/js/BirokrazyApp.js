@@ -9,6 +9,7 @@ var birokrazyApp = angular.module('birokrazyApp', [
         'textAngular',
         'birokrazyApp.constant',
         'birokrazyApp.serviceModule',
+        'birokrazyApp.departmentModule',
         'birokrazyApp.administrationModule'])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', '$constant', 'uiGmapGoogleMapApiProvider',
         function ($routeProvider, $locationProvider, $httpProvider, $constant, uiGmapGoogleMapApiProvider) {

@@ -1,0 +1,41 @@
+<div class="hackmdk3-page-header" ng-show="authenticated">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Instansi</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-show="authenticated">
+                <button type="button" class="btn btn-default xs-toggle" data-toggle="collapse" data-target="#nav-tabs"
+                        aria-expanded="false" aria-controls="nav-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul id="nav-tabs" class="nav nav-tabs hackmdk3-nav-justified xs-collapse">
+                    <li ng-class="{ active: isActive('/'+modulePath+'/'+departmentPath)}" role="presentation">
+                        <a href="/{{modulePath}}/{{departmentPath}}">List</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/'+modulePath+'/new/'+departmentPath)}" role="presentation">
+                        <a href="/{{modulePath}}/new/{{departmentPath}}">New</a>
+                    </li>
+                    <li ng-show="isActive('/'+modulePath+'/'+departmentPath+'/'+pathParamName)" ng-class="{ active: isActive('/'+modulePath+'/'+departmentPath+'/'+pathParamName)}" role="presentation">
+                        <a href="#">Edit</a>
+                    </li>
+                </ul>
+            </div>
+            <ng-include src="templateUrl"/>
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+<table class="table table-responsive">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>version</th>
+        <th>Unique Name</th>
+        <th>Name</th>
+        <th>E-Mail</th>
+        <th>Telephone</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="department in departmentList">
+        <td>{{department.id}}</td>
+        <td>{{department.version}}</td>
+        <td>{{department.uniqueName}}</td>
+        <td>{{department.name}}</td>
+        <td>{{department.email}}</td>
+        <td>{{department.telephone}}</td>
+        <td>{{department.rating}}</td>
+        <td>{{department.reviews}}</td>
+        <td>
+            <a href="/{{modulePath}}/{{departmentPath}}/{{department.uniqueName}}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </a>
+            <a ng-click="delete(department)" class="btn btn-danger">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>

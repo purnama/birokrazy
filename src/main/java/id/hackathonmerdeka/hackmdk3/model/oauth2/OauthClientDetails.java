@@ -1,7 +1,7 @@
 package id.hackathonmerdeka.hackmdk3.model.oauth2;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import id.hackathonmerdeka.hackmdk3.model.User;
+import id.hackathonmerdeka.hackmdk3.model.UserData;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,7 +50,7 @@ public class OauthClientDetails {
 
     @OneToOne(mappedBy = "oauthClientDetails")
     @JsonIgnore
-    private User user;
+    private UserData user;
 
     public String getClientId() {
         return clientId;
@@ -140,11 +140,11 @@ public class OauthClientDetails {
         this.autoapprove = autoapprove;
     }
 
-    public User getUser() {
+    public UserData getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserData user) {
         this.user = user;
     }
 }

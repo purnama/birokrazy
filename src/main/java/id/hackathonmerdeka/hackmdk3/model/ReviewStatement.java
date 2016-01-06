@@ -16,6 +16,7 @@ public class ReviewStatement {
     private Long id;
 
     @Version
+    @Column(columnDefinition = "bigint default 0")
     private Long version;
 
     @Column(nullable = false)
@@ -38,7 +39,7 @@ public class ReviewStatement {
     private Review review;
 
     @ManyToOne
-    private User user;
+    private UserData user;
 
     public Long getId() {
         return id;
@@ -96,11 +97,11 @@ public class ReviewStatement {
         this.dislike = dislike;
     }
 
-    public User getUser() {
+    public UserData getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserData user) {
         this.user = user;
     }
 

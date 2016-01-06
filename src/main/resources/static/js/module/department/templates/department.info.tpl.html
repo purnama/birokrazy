@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Deskripsi</h3>
+    </div>
+    <div class="panel-body" ng-bind-html="department.content"></div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Lokasi</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3>{{department.name}}</h3>
+                        {{department.address}}<br />
+                        {{department.zipCode}}, {{department.state}}<br />
+                        Telephone: {{department.telephone}}<br />
+                        E-Mail: {{department.email}}<hr />
+                        Jam Buka: <i>{{department.openingHour}}</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ui-gmap-google-map center="department.geoLocation" zoom="18">
+                    <ui-gmap-marker coords="department.geoLocation" idkey="department.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Pelayanan</h3>
+    </div>
+    <div class="panel-body">
+        <p>{{department.informasi}}</p>
+    </div>
+</div>
+
+
+<ng-include src="'templates/include.info.review.tpl.html'"></ng-include>

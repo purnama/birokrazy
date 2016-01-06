@@ -1,10 +1,13 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('HeaderController', ['$scope', '$location', '$routeParams', 'CivilServiceService',
-    function ($scope, $location, $routeParams, civilServiceService) {
+birokrazyApp.controller('HeaderController', ['$scope', '$location', '$routeParams', 'CivilServiceService', 'DepartmentService',
+    function ($scope, $location, $routeParams, civilServiceService, departmentService) {
         civilServiceService.findAll().then(function(data){
            $scope.serviceList = data;
+        });
+        departmentService.findAll().then(function(data){
+            $scope.departmentList = data;
         });
         $scope.isActive = function (viewLocation) {
             if (viewLocation.length > 1) {

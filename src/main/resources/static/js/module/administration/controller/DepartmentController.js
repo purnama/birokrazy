@@ -3,7 +3,7 @@
  */
 "use strict";
 administrationModule.controller('administrationModule.DepartmentController', ['$scope', '$location', '$constant', '$routeParams',
-    'departmentService',
+    'DepartmentService',
     function ($scope, $location, $constant, $routeParams, departmentService) {
         $scope.department = {};
         $scope.modulePath = $constant.module.administration.path;

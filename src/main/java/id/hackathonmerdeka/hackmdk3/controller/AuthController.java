@@ -1,7 +1,6 @@
 package id.hackathonmerdeka.hackmdk3.controller;
 
-import id.hackathonmerdeka.hackmdk3.model.User;
-import id.hackathonmerdeka.hackmdk3.model.oauth2.OauthClientDetails;
+import id.hackathonmerdeka.hackmdk3.model.UserData;
 import id.hackathonmerdeka.hackmdk3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,8 +22,8 @@ public class AuthController extends ProtectedController {
     private UserRepository repository;
 
     @RequestMapping(path = "/login", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public User findByUsername(Principal user) {
-        User result = repository.findByUsername(user.getName());
+    public UserData findByUsername(Principal user) {
+        UserData result = repository.findByUsername(user.getName());
         if(result.getOauthClientDetails().getAuthorities() != null){
             result.setRoles(new HashSet<String>(Arrays.asList(result.getOauthClientDetails().getAuthorities().split(","))));
         }

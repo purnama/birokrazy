@@ -1,0 +1,66 @@
+<form ng-submit="submitAction()">
+    <div class="form-group">
+        <label for="departmentName">Name</label>
+        <input type="text" ng-model="department.name" class="form-control" id="departmentName" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="departmentUniqueName">Unique Name</label>
+        <input type="text" ng-model="department.uniqueName" class="form-control" id="departmentUniqueName"
+               placeholder="Unique Name">
+    </div>
+    <div class="form-group">
+        <label for="departmentDescription">Description</label>
+        <input type="text" ng-model="department.description" class="form-control" id="departmentDescription"
+               placeholder="Short Description">
+    </div>
+    <div class="form-group">
+        <label for="departmentAddress">Address</label>
+
+        <div class="form-group">
+            <input type="text" ng-model="department.address" class="form-control" id="departmentAddress"
+                   placeholder="Address">
+        </div>
+        <div class="form-group">
+            <input type="text" ng-model="department.addressAdd" class="form-control" id="departmentAddressAdd"
+                   placeholder="Address addition">
+        </div>
+        <div class="form-group">
+            <input type="text" ng-model="department.zipCode" class="form-control" id="departmentZip"
+                   placeholder="Zip Code">
+        </div>
+        <div class="form-group">
+            <input type="text" ng-model="department.state" class="form-control" id="departmentState"
+                   placeholder="State">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="departmentTelephone">Telephone</label>
+        <input type="text" ng-model="department.telephone" class="form-control" id="departmentTelephone"
+               placeholder="Telephone">
+    </div>
+    <div class="form-group">
+        <label for="departmentEmail">E-Mail</label>
+        <input type="text" ng-model="department.email" class="form-control" id="departmentEmail" placeholder="E-Mail">
+    </div>
+    <div class="form-group">
+        <label for="departmentOpeningHour">Opening Hour</label>
+        <input type="text" ng-model="department.openingHour" class="form-control" id="departmentOpeningHour"
+               placeholder="Opening Hour">
+    </div>
+    <div class="form-group">
+        <label for="departmentLongitude">GeoLocation</label>
+        <div class="form-group">
+            <input type="text" ng-model="department.longitude" class="form-control" id="departmentLongitude"
+                   placeholder="Longitude">
+        </div>
+        <div class="form-group">
+            <input type="text" ng-model="department.latitude" class="form-control" id="departmentLatitude"
+                   placeholder="Latitude">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="departmentContent">Content</label>
+        <text-angular id="departmentContent" style="height: 120px;" ng-model="department.content"></text-angular>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

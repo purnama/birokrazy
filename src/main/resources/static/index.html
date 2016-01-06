@@ -60,8 +60,10 @@
                        aria-expanded="false"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Pelayanan
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="service in serviceList" class="menu-point" ng-class="{ active: isActive(service.uniqueName)}"><a
-                                href="/pelayanan/{{service.uniqueName}}">{{service.name}}</a></li>
+                        <li ng-repeat="service in serviceList" class="menu-point"
+                            ng-class="{ active: isActive(service.uniqueName)}">
+                            <a href="/pelayanan/{{service.uniqueName}}">{{service.name}}</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -70,20 +72,10 @@
                        aria-expanded="false"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;&nbsp;Instansi
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="departement in departementList" class="menu-point" ng-class="{ active: isActive('/ptsp/kedaung')}"><a href="/ptsp/kedaung">PTSP
-                            Kedaung</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/ptsp/cengkarengBarat')}"><a
-                                href="/ptsp/cengkarengBarat">PTSP Cengkareng</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/cilegon')}"><a
-                                href="/walikota/cilegon">Walikota Cilegon</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/walikota/bekasi')}"><a
-                                href="/walikota/bekasi">Walikota Bekasi</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/cicendo')}"><a
-                                href="/kecamatan/cicendo">Kec. Cicendo</a></li>
-                        <li class="menu-point" ng-class="{ active: isActive('/kecamatan/buahBatu')}"><a
-                                href="/kecamatan/buahBatu">Kec. Buah Batu</a></li>
+                        <li ng-repeat="department in departmentList" class="menu-point"
+                            ng-class="{ active: isActive(department.uniqueName)}">
+                            <a href="/instansi/{{department.uniqueName}}">{{department.name}}</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -169,6 +161,7 @@
 <script src="js/service/LocationService.js"></script>
 <script src="js/service/HighchartService.js"></script>
 <script src="js/service/CivilServiceService.js"></script>
+<script src="js/service/DepartmentService.js"></script>
 <script src="js/service/ErrorService.js"></script>
 <script src="js/service/DurationModalService.js"></script>
 <script src="js/controller/IndexController.js"></script>
@@ -198,9 +191,14 @@
 <script src="js/module/service/ServiceModule.js"></script>
 <script src="js/module/service/controller/ServiceController.js"></script>
 
+<!-- Department Module -->
+<script src="js/module/department/DepartmentModule.js"></script>
+<script src="js/module/department/controller/DepartmentController.js"></script>
+
 <!-- Administration Module -->
 <script src="js/module/administration/AdministrationModule.js"></script>
 <script src="js/module/administration/controller/ServiceController.js"></script>
+<script src="js/module/administration/controller/DepartmentController.js"></script>
 
 <script src="js/Constant.js"></script>
 

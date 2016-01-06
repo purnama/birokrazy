@@ -29,5 +29,29 @@ var administrationModule = angular.module('birokrazyApp.administrationModule', [
                     requiresLogin: true,
                     permissions: [$constant.roles.admin]
                 }
+            }).
+            when('/'+$constant.module.administration.path+'/'+$constant.module.department.path, {
+                templateUrl: $constant.module.administration.templates + 'department.tpl.html',
+                controller: 'administrationModule.DepartmentController',
+                access: {
+                    requiresLogin: true,
+                    permissions: [$constant.roles.admin]
+                }
+            }).
+            when('/'+$constant.module.administration.path+'/new/'+$constant.module.department.path, {
+                templateUrl: $constant.module.administration.templates + 'department.tpl.html',
+                controller: 'administrationModule.DepartmentController',
+                access: {
+                    requiresLogin: true,
+                    permissions: [$constant.roles.admin]
+                }
+            }).
+            when('/'+$constant.module.administration.path+'/'+$constant.module.department.path+'/:name', {
+                templateUrl: $constant.module.administration.templates + 'department.tpl.html',
+                controller: 'administrationModule.DepartmentController',
+                access: {
+                    requiresLogin: true,
+                    permissions: [$constant.roles.admin]
+                }
             });
         }]);
