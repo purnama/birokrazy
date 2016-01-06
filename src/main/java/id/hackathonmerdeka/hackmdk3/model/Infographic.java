@@ -16,7 +16,7 @@ public class Infographic {
 
     @Version
     @Column(columnDefinition = "bigint default 0")
-    private Long version;
+    private Long  version;
 
     @ManyToOne
     @JsonIgnore
