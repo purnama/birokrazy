@@ -9,14 +9,14 @@ oldModule.controller('oldModule.IzinUsahaController', ['$scope', '$location', '$
         $scope.isShowProses = false;
         civilServiceService.findById(4).then(function(data){
             $scope.civilService = data;
-            if ($location.path() === '/izin-usaha/review') {
+            if ($location.path() === '/'+$constant.module.old.path+'/izin-usaha/review') {
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            } else if ($location.path() === '/izin-usaha/trend') {
+            } else if ($location.path() === '/'+$constant.module.old.path+'/izin-usaha/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
-            } else if ($location.path() === '/izin-usaha/proses') {
-                $scope.templateUrl = 'templates/izin-usaha.proses.tpl.html';
-            } else if ($location.path() === '/izin-usaha') {
-                $scope.templateUrl = 'templates/izin-usaha.info.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/izin-usaha/proses') {
+                $scope.templateUrl = $constant.module.old.templates+'izin-usaha.proses.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/izin-usaha') {
+                $scope.templateUrl = $constant.module.old.templates+'izin-usaha.info.tpl.html';
             }
         });
         $scope.waitingTime = highchartService.waitingTime;

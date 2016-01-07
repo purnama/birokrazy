@@ -1,8 +1,8 @@
 /**
  * Created by hackathon on 04.12.15.
  */
-oldModule.controller('oldModule.PTSPController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
-    function ($scope, $location, civilServiceService, highchartService) {
+oldModule.controller('oldModule.PTSPController', ['$scope', '$location', '$constant', 'CivilServiceService', 'HighchartService',
+    function ($scope, $location, $constant, civilServiceService, highchartService) {
 
         $scope.waitingTime = highchartService.waitingTime;
 
@@ -236,18 +236,18 @@ oldModule.controller('oldModule.PTSPController', ['$scope', '$location', 'CivilS
 
         if($location.path().indexOf('trend') !== 0){
             var stringArray = $location.path().split('/');
-            $scope.ptsp.pageName = stringArray[2];
+            $scope.ptsp.pageName = stringArray[3];
         }
 
         civilServiceService.findById(1).then(function(data){
             $scope.civilService = data;
-            if($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/informasi' ||
-                $location.path() === '/ptsp/'+$scope.ptsp.pageName
+            if($location.path() === '/'+$constant.module.old.path+'/ptsp/'+$scope.ptsp.pageName+'/informasi' ||
+                $location.path() === '/'+$constant.module.old.path+'/ptsp/'+$scope.ptsp.pageName
             ){
-                $scope.templateUrl = 'templates/ptsp.info.tpl.html';
-            }else if ($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/review'){
+                $scope.templateUrl = $constant.module.old.templates+'ptsp.info.tpl.html';
+            }else if ($location.path() === '/'+$constant.module.old.path+'/ptsp/'+$scope.ptsp.pageName+'/review'){
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            }else if ($location.path() === '/ptsp/'+$scope.ptsp.pageName+'/trend'){
+            }else if ($location.path() === '/'+$constant.module.old.path+'/ptsp/'+$scope.ptsp.pageName+'/trend'){
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
             }
         });

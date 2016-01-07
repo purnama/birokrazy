@@ -9,14 +9,14 @@ oldModule.controller('oldModule.EKtpController', ['$scope', '$location', '$const
 
         civilServiceService.findById(1).then(function(data){
             $scope.civilService = data;
-            if ($location.path() === '/e-ktp/review') {
+            if ($location.path() === '/'+$constant.module.old.path+'/e-ktp/review') {
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            } else if ($location.path() === '/e-ktp/trend') {
+            } else if ($location.path() === '/'+$constant.module.old.path+'/e-ktp/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
-            } else if ($location.path() === '/e-ktp/proses') {
-                $scope.templateUrl = 'templates/e-ktp.proses.tpl.html';
-            } else if ($location.path() === '/e-ktp') {
-                $scope.templateUrl = 'templates/e-ktp.info.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/e-ktp/proses') {
+                $scope.templateUrl = $constant.module.old.templates+'e-ktp.proses.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/e-ktp') {
+                $scope.templateUrl = $constant.module.old.templates+'e-ktp.info.tpl.html';
             }
         });
 

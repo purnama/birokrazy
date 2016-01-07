@@ -23,7 +23,7 @@ birokrazyApp.factory('DurationModalService', ['$uibModal', '$constant', function
                         };
 
                     },
-                    templateUrl: 'templates/include.proses.duration.modal.tpl.html',
+                    templateUrl: 'js/module/old/templates/include.proses.duration.modal.tpl.html',
                     resolve: {
                         duration: function () {
                             return $scope.duration;

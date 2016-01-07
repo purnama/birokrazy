@@ -8,13 +8,13 @@ oldModule.controller('oldModule.PasporController', ['$scope', '$location', '$con
         $scope.waitingTime = highchartService.waitingTime;
         civilServiceService.findById(2).then(function(data){
             $scope.civilService = data;
-            if ($location.path() === '/paspor') {
-                $scope.templateUrl = 'templates/paspor.info.tpl.html';
-            } else if ($location.path() === '/paspor/proses') {
-                $scope.templateUrl = 'templates/paspor.proses.tpl.html';
-            } else if ($location.path() === '/paspor/review') {
+            if ($location.path() === '/'+$constant.module.old.path+'/paspor') {
+                $scope.templateUrl = $constant.module.old.templates+'paspor.info.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/paspor/proses') {
+                $scope.templateUrl = $constant.module.old.templates+'paspor.proses.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/paspor/review') {
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            } else if ($location.path() === '/paspor/trend') {
+            } else if ($location.path() === '/'+$constant.module.old.path+'/paspor/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
             }
         });

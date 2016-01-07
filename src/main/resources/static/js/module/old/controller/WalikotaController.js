@@ -1,8 +1,8 @@
 /**
  * Created by hackathon on 04.12.15.
  */
-oldModule.controller('oldModule.WalikotaController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
-    function ($scope, $location, civilServiceService, highchartService) {
+oldModule.controller('oldModule.WalikotaController', ['$scope', '$location', '$constant', 'CivilServiceService', 'HighchartService',
+    function ($scope, $location, $constant, civilServiceService, highchartService) {
 
         $scope.waitingTime = highchartService.waitingTime;
 
@@ -125,18 +125,18 @@ oldModule.controller('oldModule.WalikotaController', ['$scope', '$location', 'Ci
 
         if($location.path().indexOf('trend') !== 0){
             var stringArray = $location.path().split('/');
-            $scope.walikota.pageName = stringArray[2];
+            $scope.walikota.pageName = stringArray[3];
         }
 
         civilServiceService.findById(2).then(function(data){
             $scope.civilService = data;
-            if($location.path() === '/walikota/'+$scope.walikota.pageName+'/informasi' ||
-                $location.path() === '/walikota/'+$scope.walikota.pageName
+            if($location.path() === '/'+$constant.module.old.path+'/walikota/'+$scope.walikota.pageName+'/informasi' ||
+                $location.path() === '/'+$constant.module.old.path+'/walikota/'+$scope.walikota.pageName
             ){
-                $scope.templateUrl = 'templates/walikota.info.tpl.html';
-            }else if ($location.path() === '/walikota/'+$scope.walikota.pageName+'/review'){
+                $scope.templateUrl = $constant.module.old.templates+'walikota.info.tpl.html';
+            }else if ($location.path() === '/'+$constant.module.old.path+'/walikota/'+$scope.walikota.pageName+'/review'){
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            }else if ($location.path() === '/walikota/'+$scope.walikota.pageName+'/trend'){
+            }else if ($location.path() === '/'+$constant.module.old.path+'/walikota/'+$scope.walikota.pageName+'/trend'){
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
             }
         });

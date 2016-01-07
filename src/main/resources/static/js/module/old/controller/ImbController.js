@@ -8,13 +8,13 @@ oldModule.controller('oldModule.ImbController', ['$scope', '$location', '$consta
         $scope.waitingTime = highchartService.waitingTime;
         civilServiceService.findById(3).then(function(data){
             $scope.civilService = data;
-            if ($location.path() === '/imb') {
-                $scope.templateUrl = 'templates/imb.info.tpl.html';
-            } else if ($location.path() === '/imb/proses') {
-                $scope.templateUrl = 'templates/imb.proses.tpl.html';
-            } else if ($location.path() === '/imb/review') {
+            if ($location.path() === '/'+$constant.module.old.path+'/imb') {
+                $scope.templateUrl = $constant.module.old.templates+'imb.info.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/imb/proses') {
+                $scope.templateUrl = $constant.module.old.templates+'imb.proses.tpl.html';
+            } else if ($location.path() === '/'+$constant.module.old.path+'/imb/review') {
                 $scope.templateUrl = 'templates/include.review.tpl.html';
-            } else if ($location.path() === '/imb/trend') {
+            } else if ($location.path() === '/'+$constant.module.old.path+'/imb/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
             }
         });
