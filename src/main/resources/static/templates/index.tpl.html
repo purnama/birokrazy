@@ -1,33 +1,35 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-5 col-md-offset-1">
-                <div class="text-right">
-                    <h2 class="">Apa yang <span class="hackmdk3-text-color">Birokrazy</span> bisa bantu?</h2>
-
-                    <p>Temukan informasi dan prosedur penerbitan dokumen atau layanan pemerintah yang dibutuhkan.</p>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="text-center">
+                    <h2 class="">Temukan layanan. Dukung transparansi birokrasi</h2>
                 </div>
-                <form class="form-group" action="/search/pelayanan" method="get" ng-controller="SearchResultController">
-                    <div class="form-group has-feedback">
-                        <input ng-model="selected"
-                               uib-typeahead="find as find.name for find in finds | filter:$viewValue | limitTo:8" type="text"
-                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false" typeahead-focus-first="false"
-                               class="form-control" placeholder="Cari pelayanan atau instansi">
-                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                <form action="/search/pelayanan" method="get"
+                      ng-controller="SearchResultController">
+                    <div class="input-group has-feedback" style="width: 100%">
+                        <input ng-model="serviceOrDepartmentSelected"
+                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | filter:$viewValue | limitTo:8"
+                               type="text"
+                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
+                               typeahead-focus-first="false"
+                               class="form-control input-lg" placeholder="Pelayanan atau Instansi">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input ng-model="locationSelected"
+                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | filter:$viewValue | limitTo:8"
+                               type="text"
+                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
+                               typeahead-focus-first="false"
+                               class="form-control input-lg" placeholder="Propinsi, Kota atau Kode Pos"
+                               style="border-radius: 0 6px 6px 0">
+                        <i class="btn-lg glyphicon glyphicon-search form-control-feedback"
+                           style="margin-right: 8px;"></i>
                     </div>
                 </form>
-            </div>
-            <div class="col-sm-6 col-md-5">
-                <!-- 16:9 aspect ratio -->
-                <div class="embed-responsive embed-responsive-16by9 box-shadow--6dp">
-                    <iframe class="embed-responsive-item"
-                            src="https://www.youtube.com/embed/gUqJziDfucE"></iframe>
-                </div>
             </div>
         </div>
     </div>
 </div>
-
 <div ng-repeat="highlight in highlights" ng-class="{'background-grey': highlight.id % 2 === 0}">
     <div class="container">
         <div class="row">
@@ -37,7 +39,25 @@
             </div>
             <div class="col-sm-6 col-md-6 highlight-description"
                  ng-class="{'col-md-pull-4': highlight.id % 2 === 0 , 'col-sm-pull-4' : highlight.id % 2 === 0}">
-                <p>{{highlight.description}}</p>
+                <p class="text-justify">{{highlight.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="background-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-md-push-6 col-sm-push-6">
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9 box-shadow--6dp">
+                    <iframe class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/gUqJziDfucE"></iframe>
+                </div>
+                <br/>
+            </div>
+            <div class="col-sm-6 col-md-6 highlight-description col-md-pull-4 col-sm-pull-4">
+                <p class="text-justify">Saksikan video presentasi untuk memahami lebih lanjut. Dukung transparansi birokrasi pelayanan
+                    publik di instansi pemerintah.</p>
             </div>
         </div>
     </div>

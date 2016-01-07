@@ -1,6 +1,9 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,10 +13,12 @@ import java.util.List;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Entity
+@Indexed
 public class CivilService {
 
     @Id
     @GeneratedValue
+    @DocumentId
     private Long id;
 
     @Version
@@ -24,6 +29,7 @@ public class CivilService {
     private String uniqueName;
 
     @Column(nullable = false)
+    @Field
     private String name;
 
     @Column

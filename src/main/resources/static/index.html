@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" media="all">
     <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
+    <link rel='stylesheet' href='bower_components/typeahead.js-bootstrap3.less/typeahead.css'>
     <link rel="stylesheet" href="css/funky-radio.css">
     <link rel="stylesheet" href="css/social-buttons.css">
     <link rel="stylesheet" href="css/box-shadow.css">
@@ -40,83 +41,101 @@
 <![endif]-->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand hackmdk3-text-color" href="/">Birokrazy</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" ng-controller="HeaderController">
-                <li class="menu-point" ng-class="{ active: isStartActive()}"><a href="/"><span
-                        class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Beranda</a></li>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand hackmdk3-text-color" href="/">Birokrazy</a>
+                </div>
+                <div id="navbar-left" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" ng-controller="HeaderController">
 
-                <li class="dropdown" ng-class="{ active: isServiceActive()}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Pelayanan
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="service in serviceList" class="menu-point"
-                            ng-class="{ active: isActive(service.uniqueName)}">
-                            <a href="/pelayanan/{{service.uniqueName}}">{{service.name}}</a>
+                        <li class="dropdown" ng-class="{ active: isServiceActive()}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Pelayanan
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="service in serviceList" class="menu-point"
+                                    ng-class="{ active: isActive(service.uniqueName)}">
+                                    <a href="/pelayanan/{{service.uniqueName}}">{{service.name}}</a>
+                                </li>
+                            </ul>
                         </li>
-                    </ul>
-                </li>
 
-                <li class="dropdown" ng-class="{ active: isDepartmentActive()}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>&nbsp;&nbsp;Instansi
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="department in departmentList" class="menu-point"
-                            ng-class="{ active: isActive(department.uniqueName)}">
-                            <a href="/instansi/{{department.uniqueName}}">{{department.name}}</a>
+                        <li class="dropdown" ng-class="{ active: isDepartmentActive()}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Instansi
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="department in departmentList" class="menu-point"
+                                    ng-class="{ active: isActive(department.uniqueName)}">
+                                    <a href="/instansi/{{department.uniqueName}}">{{department.name}}</a>
+                                </li>
+                            </ul>
                         </li>
-                    </ul>
-                </li>
 
-            </ul>
-            <div ng-controller="AuthController">
-                <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
-                    <li class="menu-point"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a>
-                    </li>
-                </ul>
-                <ul ng-show="authenticated" class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">{{user.name}} <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="menu-point"><a href="/user/application"><span class="fa fa-files-o"></span>&nbsp;Permohonan</a>
-                            </li>
-                            <li class="menu-point"><a href="/user"><span class="fa fa-users"></span>&nbsp;User</a></li>
-                            <li class="menu-point"><a href="/official"><span class="fa fa-file-text"></span>&nbsp;Official</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-top: 10px;">
+                <form action="/search/pelayanan" method="get"
+                      ng-controller="SearchResultController" ng-show="showNavSearch">
+                    <div class="input-group has-feedback" style="width: 100%">
+                        <input ng-model="serviceOrDepartmentSelected"
+                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | filter:$viewValue | limitTo:8"
+                               type="text"
+                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
+                               typeahead-focus-first="false"
+                               class="form-control" placeholder="Pelayanan atau Instansi">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input ng-model="locationSelected"
+                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | filter:$viewValue | limitTo:8"
+                               type="text"
+                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
+                               typeahead-focus-first="false"
+                               class="form-control" placeholder="Propinsi, Kota atau Kode Pos"
+                               style="border-radius: 0 6px 6px 0">
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-2">
+                <div id="navbar-right" class="navbar-collapse collapse">
+                    <div ng-controller="AuthController">
+                        <ul ng-show="!authenticated" class="nav navbar-nav navbar-right">
+                            <li class="menu-point"><a href="/login"><span class="glyphicon glyphicon-log-in"></span>
+                                Sign in</a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="menu-point"><a href="" ng-click="logout()">Sign out <span
-                            class="glyphicon glyphicon-log-out"></span></a></li>
-                </ul>
-            </div>
-            <form class="navbar-form" action="/search/pelayanan" ng-controller="SearchResultController" method="get"
-                  ng-show="showNavSearch">
-                <div style="display:table;" class="form-group has-feedback">
-                    <input ng-model="selected"
-                           uib-typeahead="find as find.name for find in finds | filter:$viewValue | limitTo:8"
-                           typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
-                           typeahead-focus-first="false"
-                           type="text" autocomplete="off"
-                           placeholder="Cari pelayanan atau instansi" name="search"
-                           style="width: 100%" class="form-control">
-                    <i style="width: 1%; display: table-cell; padding-right: 8px;">
-                        <i style="padding-right: 16px;" class="glyphicon glyphicon-search form-control-feedback"></i>
-                    </i>
+                        <ul ng-show="authenticated" class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">{{user.name}} <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu-point"><a href="/user/application"><span
+                                            class="fa fa-files-o"></span>&nbsp;Permohonan</a>
+                                    </li>
+                                    <li class="menu-point"><a href="/user"><span
+                                            class="fa fa-users"></span>&nbsp;User</a>
+                                    </li>
+                                    <li class="menu-point"><a href="/official"><span class="fa fa-file-text"></span>&nbsp;Official</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-point"><a href="" ng-click="logout()">Sign out <span
+                                    class="glyphicon glyphicon-log-out"></span></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </form>
-
+            </div>
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -155,6 +174,7 @@
 
 
 <script src="js/BirokrazyApp.js"></script>
+
 <script src="js/service/IndexService.js"></script>
 <script src="js/service/AuthService.js"></script>
 <script src="js/service/UserService.js"></script>
@@ -164,12 +184,15 @@
 <script src="js/service/DepartmentService.js"></script>
 <script src="js/service/ErrorService.js"></script>
 <script src="js/service/DurationModalService.js"></script>
+<script src="js/service/SearchService.js"></script>
+
 <script src="js/controller/IndexController.js"></script>
 <script src="js/controller/AuthController.js"></script>
 <script src="js/controller/HeaderController.js"></script>
 <script src="js/controller/LoginController.js"></script>
 <script src="js/controller/ReviewPostController.js"></script>
 <script src="js/controller/SearchResultController.js"></script>
+
 <script src="js/directive/StarRatingDirective.js"></script>
 <script src="js/directive/PopOverDirective.js"></script>
 <script src="js/directive/HighchartDirective.js"></script>

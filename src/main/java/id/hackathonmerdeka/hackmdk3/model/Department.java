@@ -1,6 +1,8 @@
 package id.hackathonmerdeka.hackmdk3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
  * @author Arthur Purnama (arthur@purnama.de)
  */
 @Entity
+@Indexed
 public class Department {
 
     @Id
@@ -23,6 +26,7 @@ public class Department {
     private String uniqueName;
 
     @Column(nullable = false)
+    @Field
     private String name;
 
     @Column
@@ -47,6 +51,9 @@ public class Department {
     private String zipCode;
 
     @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
     private String state;
 
     @Column
@@ -63,6 +70,7 @@ public class Department {
 
     @Column
     private String latitude;
+
 
     @OneToMany(mappedBy = "department")
     @OrderBy("id desc")
@@ -224,5 +232,18 @@ public class Department {
 
     public void setUniqueName(String uniqueName) {
         this.uniqueName = uniqueName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Field
+    public String getLocation() {
+        return city + " " + state + " " + zipCode;
     }
 }
