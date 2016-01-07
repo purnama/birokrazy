@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('EKtpController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+oldModule.controller('oldModule.EKtpController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
     'CivilServiceService',
     function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 

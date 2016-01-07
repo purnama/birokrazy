@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService',
+oldModule.controller('oldModule.IzinUsahaController', ['$scope', '$location', '$rootScope', '$constant', 'LocationService',
     'HighchartService', 'DurationModalService', 'CivilServiceService',
     function ($scope, $location, $rootScope, $constant, locationService, highchartService, durationModalService, civilServiceService) {
 

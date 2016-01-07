@@ -8,11 +8,15 @@ var serviceModule = angular.module('birokrazyApp.constant', [])
             public: 'api/v1/public',
             protected: 'api/v1/protected'
         },
-        oauth:{
+        oauth: {
             authorize: '/oauth/authorize',
             token: '/oauth/token'
         },
         module: {
+            old: {
+                path: 'old',
+                templates: 'js/module/old/templates/'
+            },
             service: {
                 path: 'pelayanan',
                 templates: 'js/module/service/templates/'

@@ -1,4 +1,7 @@
-birokrazyApp.controller('ImbController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+/**
+ * @author Arthur Purnama (arthur@purnama.de)
+ */
+oldModule.controller('oldModule.ImbController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
     'CivilServiceService',
     function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 

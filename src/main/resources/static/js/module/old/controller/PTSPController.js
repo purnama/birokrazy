@@ -1,8 +1,7 @@
 /**
  * Created by hackathon on 04.12.15.
  */
-
-birokrazyApp.controller('PTSPController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
+oldModule.controller('oldModule.PTSPController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
     function ($scope, $location, civilServiceService, highchartService) {
 
         $scope.waitingTime = highchartService.waitingTime;

@@ -1,8 +1,7 @@
 /**
  * Created by hackathon on 04.12.15.
  */
-
-birokrazyApp.controller('KecamatanController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
+oldModule.controller('oldModule.KecamatanController', ['$scope', '$location', 'CivilServiceService', 'HighchartService',
     function ($scope, $location, civilServiceService, highchartService) {
 
         $scope.waitingTime = highchartService.waitingTime;

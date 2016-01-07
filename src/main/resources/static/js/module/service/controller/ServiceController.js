@@ -36,15 +36,6 @@ serviceModule.controller('serviceModule.ServiceController', ['$scope', '$locatio
         });
 
 
-        $scope.duration = {
-            modal: false,
-            checked: false,
-            units: $constant.duration.units,
-            value: 2,
-            unit: $constant.duration.minggu
-        };
-
-
         $scope.modalOpen = function () {
             durationModalService.open($scope);
         };

@@ -1,4 +1,7 @@
-birokrazyApp.controller('PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
+/**
+ * @author Arthur Purnama (arthur@purnama.de)
+ */
+oldModule.controller('oldModule.PasporController', ['$scope', '$location', '$constant', 'HighchartService', 'DurationModalService',
     'CivilServiceService',
     function ($scope, $location, $constant, highchartService, durationModalService, civilServiceService) {
 

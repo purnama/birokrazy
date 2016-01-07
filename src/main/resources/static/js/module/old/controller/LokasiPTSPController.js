@@ -1,8 +1,7 @@
 /**
- * Created by hackathon on 04.12.15.
+ * Created by hackathon on 29.11.15.
  */
-
-birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'uiGmapGoogleMapApi',
+oldModule.controller('oldModule.LokasiPTSPController', ['$scope', '$location', 'uiGmapGoogleMapApi',
     function ($scope, $location, uiGmapGoogleMapApi) {
 
         $scope.map = {center: {latitude: 45, longitude: -73}, zoom: 8};
@@ -35,15 +34,25 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
             {id: 5, name: 'Kembangan'}
         ];
 
-        $scope.listKecamatan = [
+        $scope.daftarKelurahan = [
+            {id: 0, name: '-- Pilih Kelurahan --'},
+            {id: 1, name: 'Kedaung'},
+            {id: 2, name: 'Kapuk'},
+            {id: 3, name: 'Cengkareng Barat'},
+            {id: 4, name: 'Cengkareng Timur'},
+            {id: 5, name: 'Rawa Buaya'},
+            {id: 6, name: 'Duri Kosambi'}
+        ];
+
+        $scope.daftarPTSP = [
             {id: 0, nama: '-', alamat: '-', kodePos: '-', telp: '-', email: '-', jamBuka: '-'},
             {
                 id: 1,
-                nama: 'Kecamatan Kedaung',
+                nama: 'PTSP Kedaung',
                 alamat: 'Jl. Komplek Departemen Agama, Kedaung Kali Angke',
                 kodePos: 'Jakarta Barat, 10011',
                 telp: 'Telp. 021-112233',
-                email: 'Email: kecamatan-kedaung@jakarta-barat.id',
+                email: 'Email: ptsp-kedaung@jakarta-barat.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -52,15 +61,15 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.762150'
                     }
                 },
-                link: 'kecamatan/kedaung'
+                link: 'ptsp/kedaung'
             },
             {
                 id: 2,
-                nama: 'Kecamatan Kapuk',
+                nama: 'PTSP Kapuk',
                 alamat: 'JL. Kapuk Raya, No.1 RT. 002/03',
                 kodePos: 'Jakarta Barat, 10022',
                 telp: 'Telp. 021-554433',
-                email: 'Email: kecamatan-kapuk@jakarta-utara.id',
+                email: 'Email: ptsp-kapuk@jakarta-utara.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -69,15 +78,15 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.747880'
                     }
                 },
-                link: 'kecamatan/kapuk'
+                link: 'ptsp/kapuk'
             },
             {
                 id: 3,
-                nama: 'Kecamatan Cengkareng Barat',
+                nama: 'PTSP Cengkareng Barat',
                 alamat: 'Jl. Utama Raya No.42, Cengkareng',
                 kodePos: 'Jakarta Barat, 11730',
                 telp: 'Telp. 021-121212',
-                email: 'Email: kecamatan-cengkareng-barat@jakarta-barat.id',
+                email: 'Email: ptsp-cengkareng-barat@jakarta-barat.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -86,15 +95,15 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.721845'
                     }
                 },
-                link: 'kecamatan/cengkarengBarat'
+                link: 'ptsp/cengkarengBarat'
             },
             {
                 id: 4,
-                nama: 'Kecamatan Cengkareng Timur',
+                nama: 'PTSP Cengkareng Timur',
                 alamat: 'Jl. Fajar Baru Utara, Cengkareng, ',
                 kodePos: 'Jakarta Barat, 11730',
                 telp: 'Telp. +62 21 6198529',
-                email: 'Email: kecamatan-cengkareng-timur@jakarta-utara.id',
+                email: 'Email: ptsp-cengkareng-timur@jakarta-utara.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -103,15 +112,15 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.733279'
                     }
                 },
-                link: 'kecamatan/cengkarengTimur'
+                link: 'ptsp/cengkarengTimur'
             },
             {
                 id: 5,
-                nama: 'Kecamatan Rawa Buaya',
+                nama: 'PTSP Rawa Buaya',
                 alamat: 'Jl. Bojong Raya No. 48M, RT 05 RW 04, Rawa Buaya',
                 kodePos: 'Jakarta Barat, 11740',
                 telp: 'Telp. 021-983426',
-                email: 'Email: kecamatan-rawa-buaya@jakarta-barat.id',
+                email: 'Email: ptsp-rawa-buaya@jakarta-barat.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -120,15 +129,15 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.731184'
                     }
                 },
-                link: 'kecamatan/rawaBuaya'
+                link: 'ptsp/rawaBuaya'
             },
             {
                 id: 6,
-                nama: 'Kecamatan Duri Kosambi',
+                nama: 'PTSP Duri Kosambi',
                 alamat: 'Jl. Raya Duri Kosambi, Cengkareng',
                 kodePos: 'Jakarta Barat, 11750',
                 telp: 'Telp. 021-787878',
-                email: 'Email: kecamatan-duri-kosambi@jakarta-barat.id',
+                email: 'Email: ptsp-duri-kosambi@jakarta-barat.id',
                 jamBuka: 'Senin - Jumat 09:00 - 17:00',
                 map: {
                     zoom: 18,
@@ -137,13 +146,13 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
                         longitude: '106.722279'
                     }
                 },
-                link: 'kecamatan/duriKosambi'
+                link: 'ptsp/duriKosambi'
             }
         ];
 
-        $scope.currentKecamatan = $scope.listKecamatan[0];
+        $scope.currentPTSP = $scope.daftarPTSP[0];
 
-        $scope.isShowResultKecamatan = false;
+        $scope.isShowResult = false;
 
         $scope.isShowKabupatenKota = false;
         $scope.isShowKecamatan = false;
@@ -174,7 +183,6 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
         $scope.changeKecamatan = function (selectedKecamatan) {
             if (selectedKecamatan.id !== 0) {
                 $scope.filterStep = 4;
-                $scope.currentKecamatan = $scope.listKecamatan[selectedKecamatan.id];
             } else {
                 $scope.filterStep = 3;
             }
@@ -185,7 +193,7 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
         $scope.changeKelurahan = function (selectedKelurahan) {
             if (selectedKelurahan.id !== 0) {
                 $scope.filterStep = 5;
-                $scope.currentKecamatan = $scope.listKecamatan[selectedKelurahan.id];
+                $scope.currentPTSP = $scope.daftarPTSP[selectedKelurahan.id];
             } else {
                 $scope.filterStep = 4;
             }
@@ -197,32 +205,36 @@ birokrazyApp.controller('LokasiKecamatanController', ['$scope', '$location', 'ui
             if (filterStep === 1) {
                 $scope.isShowKabupatenKota = false;
                 $scope.isShowKecamatan = false;
-                $scope.isShowResultKecamatan = false;
+                $scope.isShowKelurahan = false;
+                $scope.isShowResult = false;
             }
             else if (filterStep === 2) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = false;
-                $scope.isShowResultKecamatan = false;
+                $scope.isShowKelurahan = false;
+                $scope.isShowResult = false;
             }
             else if (filterStep === 3) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = true;
-                $scope.isShowResultKecamatan = false;
+                $scope.isShowKelurahan = false;
+                $scope.isShowResult = false;
             }
             else if (filterStep === 4) {
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = true;
-                $scope.isShowResultKecamatan = true;
+                $scope.isShowKelurahan = true;
+                $scope.isShowResult = false;
             }
             else if (filterStep === 5) {
-                $scope.isShowResultKecamatan = true;
+                $scope.isShowResult = true;
                 $scope.isShowKabupatenKota = true;
                 $scope.isShowKecamatan = true;
                 $scope.isShowKelurahan = true;
             }
         };
 
-        $scope.gotoKecamatan = function(link){
+        $scope.gotoPTSP = function(link){
             console.log(link);
             window.location = link;
         };
