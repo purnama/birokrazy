@@ -22,3 +22,4 @@ bower_components/
 log/
 src/main/resources/public
 dataSource.db.*
+test/index/

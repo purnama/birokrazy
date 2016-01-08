@@ -46,9 +46,11 @@ module.exports = function (grunt) {
                 files: {
                     'src/main/resources/static/js/app.ugly.js': [
                         'src/main/resources/static/js/BirokrazyApp.js',
+                        'src/main/resources/static/js/Constant.js',
                         'src/main/resources/static/js/service/*.js',
                         'src/main/resources/static/js/controller/*.js',
-                        'src/main/resources/static/js/directive/*.js'
+                        'src/main/resources/static/js/directive/*.js',
+                        'src/main/resources/static/js/module/**/*.js'
                     ],
                     'src/main/resources/static/js/app.ugly.templates.js': [
                         'src/main/resources/static/js/app.templates.js'
@@ -68,13 +70,18 @@ module.exports = function (grunt) {
                         'src/main/resources/static/bower_components/bootstrap/dist/js/bootstrap.min.js',
                         'src/main/resources/static/bower_components/bootstrap-star-rating/js/star-rating.min.js',
                         'src/main/resources/static/bower_components/highcharts/highcharts.js',
-                        'src/main/resources/static/bower_components/lodash/lodash.min.js',
                         'src/main/resources/static/bower_components/angular/angular.min.js',
                         'src/main/resources/static/bower_components/angular-route/angular-route.min.js',
+                        'src/main/resources/static/bower_components/ngstorage/ngStorage.min.js',
                         'src/main/resources/static/bower_components/angular-cookies/angular-cookies.min.js',
                         'src/main/resources/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                        'src/main/resources/static/bower_components/lodash/lodash.min.js',
                         'src/main/resources/static/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js',
                         'src/main/resources/static/bower_components/angular-google-maps/dist/angular-google-maps.min.js',
+                        'src/main/resources/static/bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js',
+                        'src/main/resources/static/bower_components/textAngular/dist/textAngular-rangy.min.js',
+                        'src/main/resources/static/bower_components/textAngular/dist/textAngular-sanitize.min.js',
+                        'src/main/resources/static/bower_components/textAngular/dist/textAngular.min.js',
                         'src/main/resources/static/js/app.ugly.js',
                         'src/main/resources/static/js/app.ugly.templates.js'
                     ]
@@ -89,6 +96,7 @@ module.exports = function (grunt) {
                         'src/main/resources/static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
                         'src/main/resources/static/bower_components/components-font-awesome/css/font-awesome.min.css',
                         'src/main/resources/static/bower_components/bootstrap-star-rating/css/star-rating.min.css',
+                        'src/main/resources/static/bower_components/textAngular/dist/textAngular.css',
                         'src/main/resources/static/css/funky-radio.css',
                         'src/main/resources/static/css/social-buttons.css',
                         'src/main/resources/static/css/box-shadow.css',

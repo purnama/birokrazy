@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" media="all">
     <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
-    <link rel='stylesheet' href='bower_components/typeahead.js-bootstrap3.less/typeahead.css'>
     <link rel="stylesheet" href="css/funky-radio.css">
     <link rel="stylesheet" href="css/social-buttons.css">
     <link rel="stylesheet" href="css/box-shadow.css">
@@ -86,24 +85,23 @@
                 </div>
             </div>
             <div class="col-md-6" style="padding-top: 10px;">
-                <form action="/search/pelayanan" method="get"
+                <form ng-submit="" method="get"
                       ng-controller="SearchResultController" ng-show="showNavSearch">
-                    <div class="input-group has-feedback" style="width: 100%">
+                    <div class="input-group">
                         <input ng-model="serviceOrDepartmentSelected"
-                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | filter:$viewValue | limitTo:8"
-                               type="text"
-                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
-                               typeahead-focus-first="false"
+                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | limitTo:8"
+                               type="text" typeahead-editable="false"
+                               typeahead-focus-first="false" typeahead-wait-ms="1000"
                                class="form-control" placeholder="Pelayanan atau Instansi">
                         <span class="input-group-btn" style="width:0px;"></span>
                         <input ng-model="locationSelected"
-                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | filter:$viewValue | limitTo:8"
-                               type="text"
-                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
-                               typeahead-focus-first="false"
-                               class="form-control" placeholder="Propinsi, Kota atau Kode Pos"
-                               style="border-radius: 0 6px 6px 0">
-                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | limitTo:8"
+                               type="text" typeahead-editable="false"
+                               typeahead-focus-first="false" typeahead-wait-ms="1000"
+                               class="form-control" placeholder="Propinsi, Kota atau Kode Pos" >
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> </button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -174,6 +172,7 @@
 
 
 <script src="js/BirokrazyApp.js"></script>
+<script src="js/Constant.js"></script>
 
 <script src="js/service/IndexService.js"></script>
 <script src="js/service/AuthService.js"></script>
@@ -225,8 +224,6 @@
 <script src="js/module/administration/AdministrationModule.js"></script>
 <script src="js/module/administration/controller/ServiceController.js"></script>
 <script src="js/module/administration/controller/DepartmentController.js"></script>
-
-<script src="js/Constant.js"></script>
 
 <!-- /build -->
 <script>

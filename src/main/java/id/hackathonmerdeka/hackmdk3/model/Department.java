@@ -47,6 +47,9 @@ public class Department {
     @Column
     private String addressAdd;
 
+    @Column
+    private String district;
+
     @Column(nullable = false)
     private String zipCode;
 
@@ -242,8 +245,21 @@ public class Department {
         this.city = city;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
     @Field
     public String getLocation() {
-        return city + " " + state + " " + zipCode;
+        return address + " " + addressAdd + " " + district + " " + city + " " + state + " " + zipCode;
+    }
+
+    @Field
+    public String getLocationName() {
+        return district + ", " + city + " (" + zipCode + "), " + state;
     }
 }

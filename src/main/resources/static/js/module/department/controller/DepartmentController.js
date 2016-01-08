@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 departmentModule.controller('departmentModule.DepartmentController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService',
     'DurationModalService', 'DepartmentService',
     function ($scope, $location, $constant, $routeParams, highchartService, durationModalService, departmentService) {

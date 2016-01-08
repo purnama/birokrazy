@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 var serviceModule = angular.module('birokrazyApp.constant', [])
     .constant('$constant', {
         apiVersion: {

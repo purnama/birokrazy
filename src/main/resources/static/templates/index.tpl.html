@@ -5,25 +5,23 @@
                 <div class="text-center">
                     <h2 class="">Temukan layanan. Dukung transparansi birokrasi</h2>
                 </div>
-                <form action="/search/pelayanan" method="get"
+                <form ng-submit="submit()" method="get"
                       ng-controller="SearchResultController">
-                    <div class="input-group has-feedback" style="width: 100%">
+                    <div class="input-group input-group-lg">
                         <input ng-model="serviceOrDepartmentSelected"
-                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | filter:$viewValue | limitTo:8"
-                               type="text"
-                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
-                               typeahead-focus-first="false"
-                               class="form-control input-lg" placeholder="Pelayanan atau Instansi">
+                               uib-typeahead="serviceFind as serviceFind.name for serviceFind in findServiceOrDepartment($viewValue) | limitTo:8"
+                               type="text" typeahead-editable="false"
+                               typeahead-focus-first="false" typeahead-wait-ms="1000"
+                               class="form-control" placeholder="Pelayanan atau Instansi">
                         <span class="input-group-btn" style="width:0px;"></span>
                         <input ng-model="locationSelected"
-                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | filter:$viewValue | limitTo:8"
-                               type="text"
-                               typeahead-on-select="selectAction($item, $model, $label)" typeahead-editable="false"
-                               typeahead-focus-first="false"
-                               class="form-control input-lg" placeholder="Propinsi, Kota atau Kode Pos"
-                               style="border-radius: 0 6px 6px 0">
-                        <i class="btn-lg glyphicon glyphicon-search form-control-feedback"
-                           style="margin-right: 8px;"></i>
+                               uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | limitTo:8"
+                               type="text" typeahead-editable="false"
+                               typeahead-focus-first="false" typeahead-wait-ms="1000"
+                               class="form-control" placeholder="Propinsi, Kota atau Kode Pos" >
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> </button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -56,7 +54,8 @@
                 <br/>
             </div>
             <div class="col-sm-6 col-md-6 highlight-description col-md-pull-4 col-sm-pull-4">
-                <p class="text-justify">Saksikan video presentasi untuk memahami lebih lanjut. Dukung transparansi birokrasi pelayanan
+                <p class="text-justify">Saksikan video presentasi untuk memahami lebih lanjut. Dukung transparansi
+                    birokrasi pelayanan
                     publik di instansi pemerintah.</p>
             </div>
         </div>

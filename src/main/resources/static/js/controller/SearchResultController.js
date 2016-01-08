@@ -20,7 +20,8 @@ birokrazyApp.controller('SearchResultController', ['$scope', '$location', 'Searc
 
         $scope.findLocation = searchService.searchLocation;
 
-        $scope.selectAction = function ($item, $model, $label) {
-            $location.path($model.url);
+        $scope.submit = function () {
+            console.log($scope.serviceOrDepartmentSelected);
+            console.log($scope.locationSelected);
         };
     }]);

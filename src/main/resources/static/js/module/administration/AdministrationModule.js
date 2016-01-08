@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 var administrationModule = angular.module('birokrazyApp.administrationModule', ['birokrazyApp.constant'])
     .config(['$routeProvider', '$constant',
         function ($routeProvider, $constant) {

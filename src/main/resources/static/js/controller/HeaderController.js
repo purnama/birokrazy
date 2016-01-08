@@ -27,5 +27,5 @@ birokrazyApp.controller('HeaderController', ['$scope', '$location', '$routeParam
 
         $scope.isDepartmentActive = function (){
             return ('department' === $routeParams.name) ? true : false;
-        }
+        };
     }]);

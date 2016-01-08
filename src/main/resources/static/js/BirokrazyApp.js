@@ -1,4 +1,6 @@
-"use strict";
+/**
+ * @author Arthur Purnama (arthur@purnama.de)
+ */
 var birokrazyApp = angular.module('birokrazyApp', [
         'ngRoute',
         'ngCookies',

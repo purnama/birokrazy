@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 administrationModule.controller('administrationModule.ServiceController', ['$scope', '$location', '$constant', '$routeParams',
     'CivilServiceService',
     function ($scope, $location, $constant, $routeParams, civilServiceService) {
@@ -38,7 +37,7 @@ administrationModule.controller('administrationModule.ServiceController', ['$sco
             civilServiceService.delete(civilService.uniqueName).then(function (data) {
                 $scope.civilServiceList.splice($scope.civilServiceList.indexOf(civilService), 1);
             });
-        }
+        };
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();

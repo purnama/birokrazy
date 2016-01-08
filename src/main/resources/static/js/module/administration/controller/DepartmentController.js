@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 administrationModule.controller('administrationModule.DepartmentController', ['$scope', '$location', '$constant', '$routeParams',
     'DepartmentService',
     function ($scope, $location, $constant, $routeParams, departmentService) {
@@ -38,7 +37,7 @@ administrationModule.controller('administrationModule.DepartmentController', ['$
             departmentService.delete(department.uniqueName).then(function (data) {
                 $scope.departmentList.splice($scope.departmentList.indexOf(department), 1);
             });
-        }
+        };
 
         $scope.isActive = function (viewLocation) {
             return viewLocation === $location.path();

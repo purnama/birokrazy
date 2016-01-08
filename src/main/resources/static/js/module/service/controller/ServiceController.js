@@ -1,7 +1,6 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-"use strict";
 serviceModule.controller('serviceModule.ServiceController', ['$scope', '$location', '$constant', '$routeParams', 'HighchartService',
     'DurationModalService', 'CivilServiceService',
     function ($scope, $location, $constant, $routeParams, highchartService, durationModalService, civilServiceService) {
