@@ -1,4 +1,4 @@
-# Hackathon Merdeka 3.0
+# Birokrazy
 Sebuah contoh produk aplikasi web birokrasi kepengurusan dokumen di instansi pemerintahan. Dibuat sebagai bagian dari partisipasi acara Hackathon Merdeka 3.0 tanggal 5-6 Desember 2015.
 
 Tujuan aplikasi ini
@@ -20,7 +20,7 @@ The following dependencies are necessary:
 * maven 3
  
 ## Clone the Project
-    git clone https://github.com/purnama/hackmdk3.git
+    git clone https://github.com/purnama/birokrazy.git
 
 ## Installing frontend dependencies
 

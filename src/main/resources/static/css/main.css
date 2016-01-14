@@ -6,7 +6,7 @@ body {
     padding-bottom: 20px;
 }
 
-.hackmdk3-text-color {
+.birokrazy-text-color {
     color: #1088a0 !important;
 }
 
@@ -57,7 +57,7 @@ html, body {
     display: inline;
 }
 
-.nav-tabs.hackmdk3-nav-justified {
+.nav-tabs.birokrazy-nav-justified {
     padding-top: 20px;
     margin-bottom: 20px;
     height: auto !important;
@@ -68,50 +68,50 @@ html, body {
         text-align: left;
     }
 
-    .nav-tabs.hackmdk3-nav-justified {
+    .nav-tabs.birokrazy-nav-justified {
         width: 100%;
         border-bottom: 0;
     }
 
-    .nav-tabs.hackmdk3-nav-justified > li {
+    .nav-tabs.birokrazy-nav-justified > li {
         float: none;
     }
 
-    .nav-tabs.hackmdk3-nav-justified > li > a {
+    .nav-tabs.birokrazy-nav-justified > li > a {
         margin-bottom: 5px;
         text-align: center;
     }
 
-    .nav-tabs.hackmdk3-nav-justified > .dropdown .dropdown-menu {
+    .nav-tabs.birokrazy-nav-justified > .dropdown .dropdown-menu {
         top: auto;
         left: auto;
     }
 
-    .nav-tabs.hackmdk3-nav-justified > li > a {
+    .nav-tabs.birokrazy-nav-justified > li > a {
         margin-right: 0;
         border-radius: 4px;
     }
 
-    .nav-tabs.hackmdk3-nav-justified > .active > a,
-    .nav-tabs.hackmdk3-nav-justified > .active > a:hover,
-    .nav-tabs.hackmdk3-nav-justified > .active > a:focus {
+    .nav-tabs.birokrazy-nav-justified > .active > a,
+    .nav-tabs.birokrazy-nav-justified > .active > a:hover,
+    .nav-tabs.birokrazy-nav-justified > .active > a:focus {
         border: 1px solid #ddd;
     }
 
-    .hackmdk3-nav-justified {
+    .birokrazy-nav-justified {
         width: 100%;
     }
 
-    .hackmdk3-nav-justified > li {
+    .birokrazy-nav-justified > li {
         float: none;
     }
 
-    .hackmdk3-nav-justified > li > a {
+    .birokrazy-nav-justified > li > a {
         margin-bottom: 5px;
         text-align: center;
     }
 
-    .hackmdk3-nav-justified > .dropdown .dropdown-menu {
+    .birokrazy-nav-justified > .dropdown .dropdown-menu {
         top: auto;
         left: auto;
     }
@@ -173,11 +173,11 @@ html, body {
     border: 10px solid white;
 }
 
-.hackmdk3-page-header {
+.birokrazy-page-header {
     background-color: #b9f2ef;
 }
 
-.hackmdk3-page-header .page-header {
+.birokrazy-page-header .page-header {
     border-bottom: none;
 }
 

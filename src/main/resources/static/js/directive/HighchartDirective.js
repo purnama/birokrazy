@@ -1,7 +1,7 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.directive("hackmdk3Highchart", function () {
+birokrazyApp.directive("birokrazyHighchart", function () {
     return {
         restrict: 'A',
         scope : {

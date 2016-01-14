@@ -1,5 +1,5 @@
 {
-  "name": "hackmdk3",
+  "name": "birokrazy",
   "version": "0.0.1-SNAPSHOT",
   "license": "MIT",
   "authors": [
@@ -16,7 +16,7 @@
       "email": "saseno@gmail.com"
     }
   ],
-  "description": "Hackathon Merdeka 3.0",
+  "description": "Birokrazy",
   "dependencies": {
     "angular": "~1.4.8",
     "bootstrap": "~3.3.5",

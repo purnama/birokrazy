@@ -1,1 +1,1 @@
-web: java -jar target/hackmdk3-0.0.1-SNAPSHOT.war
+web: java -jar target/birokrazy-0.0.1-SNAPSHOT.war

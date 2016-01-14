@@ -1,5 +1,5 @@
 /**
- * Created by hackathon on 29.11.15.
+ * @author Widya Saseno (saseno@gmail.com)
  */
 oldModule.controller('oldModule.LokasiPTSPController', ['$scope', '$location', 'uiGmapGoogleMapApi',
     function ($scope, $location, uiGmapGoogleMapApi) {

@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>id.hackathonmerdeka</groupId>
-    <artifactId>hackmdk3</artifactId>
+    <groupId>id.birokrazy</groupId>
+    <artifactId>birokrazy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>Birokrazy</name>
-    <description>Hackathon Merdeka 3.0</description>
+    <description>Birokrazy</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

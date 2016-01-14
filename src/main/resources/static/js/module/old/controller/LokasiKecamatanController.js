@@ -1,5 +1,5 @@
 /**
- * Created by hackathon on 04.12.15.
+ * @author Widya Saseno (saseno@gmail.com)
  */
 oldModule.controller('oldModule.LokasiKecamatanController', ['$scope', '$location', 'uiGmapGoogleMapApi',
     function ($scope, $location, uiGmapGoogleMapApi) {

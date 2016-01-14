@@ -1,5 +1,5 @@
 /**
- * Created by hackathon on 04.12.15.
+ * @author Widya Saseno (saseno@gmail.com)
  */
 oldModule.controller('oldModule.PTSPController', ['$scope', '$location', '$constant', 'CivilServiceService', 'HighchartService',
     function ($scope, $location, $constant, civilServiceService, highchartService) {

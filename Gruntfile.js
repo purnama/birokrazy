@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             ]
         },
         ngtemplates: {
-            hackMdk3App: {
+            birokrazyApp: {
                 cwd: 'src/main/resources/static',
                 src: 'templates/**.html',
                 dest: 'src/main/resources/static/js/app.templates.js',
