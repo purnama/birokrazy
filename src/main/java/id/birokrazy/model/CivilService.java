@@ -1,6 +1,7 @@
 package id.birokrazy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
@@ -38,7 +39,8 @@ public class CivilService {
     @Column(nullable = false)
     private BigDecimal price = BigDecimal.ZERO;
 
-    @Column(columnDefinition = "longvarchar")
+    @Column
+    @Type(type = "text")
     private String content;
 
     @Column(nullable = false)

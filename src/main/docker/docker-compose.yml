@@ -1,10 +1,12 @@
 web:
-  image: purnama/birokrazy
+  image: purnama/birokrazy-web
   ports:
   - 8080:8080
-  links: database
+  links: [database]
 
 database:
-  image: mysql:5.7.10
+  image: purnama/birokrazy-database
   ports:
   - 3306:3306
+  environment:
+  - MYSQL_ALLOW_EMPTY_PASSWORD=true
