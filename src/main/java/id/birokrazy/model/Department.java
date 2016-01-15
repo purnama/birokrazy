@@ -1,6 +1,7 @@
 package id.birokrazy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
@@ -32,7 +33,8 @@ public class Department {
     @Column
     private String description;
 
-    @Column(columnDefinition = "longvarchar")
+    @Column()
+    @Type(type = "text")
     private String content;
 
     @Column(nullable = false)
