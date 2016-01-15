@@ -34,7 +34,7 @@ After cloning the repository, the following command installs the Javascript depe
     mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=main,hsql"
     
 ### With MySQL Database
-Run the MySQL Database Docker Container, give it a container name, map the port 3306 and detach it.
+Run the [MySQL Database Docker Container](https://hub.docker.com/r/purnama/birokrazy-database/), give it a container name, map the port 3306 and detach it.
 
     docker run --name database -p 3306:3306 -d purnama/birokrazy-database
 
@@ -51,7 +51,7 @@ In windows or mac the application running in docker container can be access unde
 
     docker-machine ls
 
-Run the MySQL Database Docker Container first. Then run the application docker container, map to port 8080 and detach it
+Run the [MySQL Database Docker Container](https://hub.docker.com/r/purnama/birokrazy-database/) first. Then run the [Web Application Docker Container](https://hub.docker.com/r/purnama/birokrazy-web/), map to port 8080 and detach it
 
     docker run --name web -p 8080:8080 -d purnama/birokrazy-web
     
