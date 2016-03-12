@@ -5,6 +5,7 @@ import id.birokrazy.repository.CivilServiceRepository;
 import id.birokrazy.repository.OauthClientDetailsRepository;
 import id.birokrazy.repository.ReviewRepository;
 import id.birokrazy.model.CivilService;
+import id.birokrazy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +26,7 @@ public class CivilServiceService {
     private ReviewRepository reviewRepository;
 
     @Autowired
-    private OauthClientDetailsRepository userRepository;
+    private UserRepository userRepository;
 
     public Iterable<Review> findAllReview(Long id) {
         return reviewRepository.findByCivilService(civilServiceRepository.findOne(id));
@@ -71,9 +72,10 @@ public class CivilServiceService {
         return oldCivilService;
     }
 
-    public Review saveReview(Long id, Review civilServiceReview, Principal principal) {
-        //civilServiceReview.setUser(userRepository.findByUsername(principal.getName()));
-        civilServiceReview.setCivilService(civilServiceRepository.findOne(id));
+    public Review saveReview(String service, String department, Review civilServiceReview, Principal principal) {
+        civilServiceReview.setUser(userRepository.findByUsername(principal.getName()));
+        civilServiceReview.setCivilService(civilServiceRepository.findByUniqueName(service));
+        civilServiceReview.setDepartment();
         return reviewRepository.save(civilServiceReview);
     }
 }

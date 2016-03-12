@@ -41,8 +41,8 @@ birokrazyApp.factory('CivilServiceService', ['$http', '$constant', '$localStorag
                 return response.data;
             });
         },
-        saveReview: function(id, reviewObj){
-            return $http.put($constant.apiVersion.protected + '/service/' + id + '/review', reviewObj, restConfig).then(function (response) {
+        saveReview: function(service, department, reviewObj){
+            return $http.put($constant.apiVersion.protected + '/review/' + service + '/' + department, reviewObj, restConfig).then(function (response) {
                 return response.data;
             });
         }

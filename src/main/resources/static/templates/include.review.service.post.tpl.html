@@ -1,0 +1,66 @@
+<div class="panel panel-default text-left">
+    <div class="panel-heading">
+        <h3 class="panel-title">Write Review Service</h3>
+    </div>
+    <div class="panel-body">
+        <form ng-submit="submitAction()">
+            <div class="form-group social-buttons">
+                <label class="control-label">Rating</label>
+                <input type="text" class="rating form-control" birokrazy-star-rating data-size="xs"
+                       ng-model="reviewPost.rating"/>
+
+                <div class="pull-right">
+                    <button class="btn" ng-click="facebookAction()" ng-class="{'btn-facebook': facebook}">
+                        <i class="fa fa-facebook"></i>
+                    </button>
+                    <button class="btn" ng-click="twitterAction()" ng-class="{'btn-twitter': twitter}">
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group" ng-controller="SearchResultController">
+                <label class="control-label">Lokasi</label>
+                <input ng-model="reviewPost.location"
+                       uib-typeahead="locationFind as locationFind.name for locationFind in findLocation($viewValue) | limitTo:8"
+                       type="text" typeahead-editable="false"
+                       typeahead-focus-first="false" typeahead-wait-ms="1000"
+                       class="form-control" placeholder="Propinsi, Kota atau Kode Pos">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Subject</label>
+                <input type="text" class="form-control" placeholder="Subject" ng-model="reviewPost.subject">
+            </div>
+            <div class="form-group">
+                <label for="inputFile">Biaya yang dikeluarkan</label>
+                <div class="input-group">
+                    <div class="input-group-addon">Rp.</div>
+                    <input class="form-control" type="text" ng-model="reviewPost.cost">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputFile">Durasi waktu proses</label>
+                <div class="form-inline">
+                    <input type="text" class="form-control" ng-model="reviewPost.waitingTime" placeholder="Durasi">
+                    <select class="form-control" id="satuan" ng-init="reviewPost.unit = duration.units[1]"
+                            ng-options="option for option in duration.units"
+                            ng-model="reviewPost.unit">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Keterangan</label>
+                <textarea class="form-control" placeholder="Tulis keterangan" rows="4"
+                          ng-model="reviewPost.content"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="inputFile">Sisipkan media</label>
+                <input type="file" id="inputFile" ng-model="reviewPost.media">
+            </div>
+
+            <div class="form-inline form-group">
+                <button type="submit" class="btn btn-primary pull-right">Kirim</button>
+                <button ng-click="showPostAction()" type="button" class="btn btn-default">Batal</button>
+            </div>
+        </form>
+    </div>
+</div>

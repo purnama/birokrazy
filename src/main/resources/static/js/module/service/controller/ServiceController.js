@@ -28,7 +28,15 @@ serviceModule.controller('serviceModule.ServiceController', ['$scope', '$locatio
             } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/trend') {
                 $scope.templateUrl = 'templates/include.trend.tpl.html';
             } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath + '/process') {
-                $scope.templateUrl = 'templates/service.process.tpl.html';
+                if($scope.servicePath === 'e-ktp') {
+                    $scope.templateUrl = $constant.module.service.templates + 'e-ktp.proses.tpl.html';
+                } else if($scope.servicePath === 'imb') {
+                    $scope.templateUrl = $constant.module.service.templates + 'imb.proses.tpl.html';
+                } else if($scope.servicePath === 'izin-usaha') {
+                    $scope.templateUrl = $constant.module.service.templates + 'izin-usaha.proses.tpl.html';
+                } else if($scope.servicePath === 'paspor') {
+                    $scope.templateUrl = $constant.module.service.templates + 'paspor.proses.tpl.html';
+                }
             } else if ($location.path() === '/' + $constant.module.service.path + '/' + $scope.servicePath) {
                 $scope.templateUrl = $constant.module.service.templates + 'service.info.tpl.html';
             }

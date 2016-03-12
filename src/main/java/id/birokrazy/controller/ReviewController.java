@@ -18,11 +18,11 @@ public class ReviewController extends ProtectedController {
     @Autowired
     private CivilServiceService civilServiceService;
 
-    @RequestMapping(path = "/review", method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE},
+    @RequestMapping(path = "/review/{service}/{department}", method = RequestMethod.PUT, consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     @PreAuthorize("hasAnyAuthority('USER', 'ADMINISTRATOR')")
-    public Review saveOrUpdateReview(@PathVariable("id") Long id, @RequestBody Review review, Principal principal) {
-        return civilServiceService.saveReview(id, review, principal);
+    public Review saveOrUpdateReview(@PathVariable("service") String service, @PathVariable("department") String department,  @RequestBody Review review, Principal principal) {
+        return civilServiceService.saveReview(service, department, review, principal);
     }
 
 }

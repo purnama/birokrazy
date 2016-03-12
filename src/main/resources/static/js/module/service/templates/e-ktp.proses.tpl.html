@@ -1,0 +1,80 @@
+<div class=" text-right" style="margin-bottom: 20px;">
+    <button class="btn btn-success"><span class="fa fa-save"></span> Simpan </button>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Persyaratan</h3></div>
+    <div class="panel-body">
+        <div class="funkyradio">
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox1"/>
+                <label for="checkbox1">Berumur diatas 17 tahun</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox2"/>
+                <label for="checkbox2">Memiliki surat penganter RT / RW</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox3"/>
+                <label for="checkbox3">Pernah mengisi formulir F1.01
+                        <span
+                                class="glyphicon glyphicon-question-sign" birokrazy-pop-over
+                                style="text-indent: 0em;"
+                                data-toggle="popover"
+                                title="Formulir F1.01"
+                                data-trigger="hover"
+                                data-container="body"
+                                data-placement="auto"
+                                data-content="Adalah formulir yang diperlukan untuk administrasi kependudukan."/>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Proses</h3></div>
+    <div class="panel-body">
+        <p>
+            Proses Pengajuan KTP Elektronik anda:
+            <br/>
+            <uib-progressbar class="progress-striped" max="100" value="currentBar"><span
+                    style="color:white; white-space:nowrap;">{{currentBar}}%</span></uib-progressbar>
+        </p>
+
+        <div class="funkyradio">
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox4" ng-model="confirmed1"
+                       ng-change="processCheckBox(confirmed1)"/>
+                <label for="checkbox4">Melaksanakan pengambilan foto, sidik jari, retina mata dan tanda
+                    tangan digital di kelurahan.</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox5" ng-model="confirmed2"
+                       ng-change="processCheckBox(confirmed2)" ng-disabled="isActiveStep2"/>
+                <label for="checkbox5">Menerima tanda tangan dan stempel dari petugas diatas surat panggilan
+                    sebagai tanda bukti.</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox6" ng-change="processCheckBox(duration.checked)"
+                       ng-disabled="isActiveStep3" ng-model="duration.checked" ng-click="modalOpen()"/>
+                <label for="checkbox6">Menunggu panggilan
+                    pengambilan E-KTP oleh petugas
+                        <span
+                                class="glyphicon glyphicon-question-sign" birokrazy-pop-over
+                                style="text-indent: 0em;"
+                                data-toggle="popover"
+                                title="Lama waktu proses"
+                                data-trigger="hover"
+                                data-container="body"
+                                data-placement="auto"
+                                data-content="Proses pembuatan E-KTP berlangsung tidak lebih dari 2 minggu."/>
+                </label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox7" ng-model="confirmed4"
+                       ng-change="processCheckBox(confirmed4)" ng-disabled="isActiveStep4"/>
+                <label for="checkbox7">Menerima tanda tangan dan stempel dari petugas diatas surat panggilan
+                    sebagai tanda bukti.</label>
+            </div>
+        </div>
+    </div>
+</div>

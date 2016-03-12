@@ -1,9 +1,28 @@
 /**
  * @author Arthur Purnama (arthur@purnama.de)
  */
-birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$location', '$constant', '$window', 'CivilServiceService',
-    function ($scope, $rootScope, $location, $constant, $window, civilServiceService) {
-        $scope.reviewPost = {};
+birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$location', '$constant', '$window', '$routeParams', 'CivilServiceService',
+    function ($scope, $rootScope, $location, $constant, $window, $routeParams, civilServiceService) {
+        var locationArray = $location.path().split("/");
+        $scope.reviewPost = {
+            'civilService' : $routeParams.name
+        };
+
+
+        if (locationArray[1] === $constant.module.service.path) {
+            $scope.reviewPostTemplateUrl = 'templates/include.review.service.post.tpl.html';
+        } else if (locationArray[1] === $constant.module.department.path) {
+            $scope.reviewPostTemplateUrl = 'templates/include.review.department.post.tpl.html';
+        }
+
+        $scope.duration = {
+            modal: false,
+            checked: false,
+            units: $constant.duration.units,
+            value: 2,
+            unit: $constant.duration.minggu
+        };
+
         $scope.facebookAction = function () {
             $scope.facebook = $scope.facebook ? false : true;
         };
@@ -18,19 +37,9 @@ birokrazyApp.controller('ReviewPostController', ['$scope', '$rootScope', '$locat
                 $location.path($constant.routes.login);
             }
         };
+
         $scope.submitAction = function () {
-            var civilService;
-            if ($location.path() === '/e-ktp/review') {
-                civilService = 1;
-            } else if ($location.path() === '/paspor/review') {
-                civilService = 2;
-            } else if ($location.path() === '/imb/review') {
-                civilService = 3;
-            } else if ($location.path() === '/izin-usaha/review') {
-                civilService = 4;
-            }
-            $scope.reviewPost.location = 'Kelurahan Kedaung, Kecamatan Cengkareng, Jakarta Barat, DKI Jakarta';
-            civilServiceService.saveReview(civilService, $scope.reviewPost).then(function (data) {
+            civilServiceService.saveReview($scope.reviewPost).then(function (data) {
                 $scope.showPost = false;
                 $scope.alert = true;
                 $scope.successMessage = 'Your review is successfully posted.';

@@ -1,0 +1,126 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <button class="btn btn-success pull-right"><span class="fa fa-save"></span> Simpan </button>
+        <p>
+            Cari tau dokument apa saja yang kamu perlukan dengan memberi keterangan berikut:
+        </p>
+
+        <form>
+            <div class="form-group">
+                <label class="control-label">Jenis Usaha</label>
+
+                <div>
+                    <select class="form-control" ng-init="jenisUsaha = listOfJenisUsaha[0]"
+                            ng-options="option.name for option in listOfJenisUsaha track by option.id"
+                            ng-model="jenisUsaha"
+                            ng-change="jenisUsahaChange(jenisUsaha)">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="isShowWaralaba">
+                <label class="control-label">Apakah usaha akan berupa waralaba</label>
+
+                <div>
+                    <select class="form-control"
+                            ng-init="waralaba = listOfWaralaba[0]"
+                            ng-options="option.name for option in listOfWaralaba track by option.id"
+                            ng-model="waralaba"
+                            ng-change="waralabaChange(waralaba)">
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default" ng-show="isShowProses">
+    <div class="panel-heading"><h2 class="panel-title">Persyaratan</h2></div>
+    <div class="panel-body">
+        <div class="funkyradio">
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox1"/>
+                <label for="checkbox1">Memiliki badan usaha</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox2"/>
+                <label for="checkbox2">Memiliki SIUP</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox3"/>
+                <label for="checkbox3">Memiliki TDP</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox4"/>
+                <label for="checkbox4">Memiliki TDP</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox5"/>
+                <label for="checkbox5">Memiliki IMB</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox6"/>
+                <label for="checkbox6">Memiliki Surat Keterangan Domisili Perusahaan</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox7"/>
+                <label for="checkbox7">Memiliki Izin Gangguan</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default" ng-show="isShowProses">
+    <div class="panel-heading"><h2 class="panel-title">Proses</h2></div>
+    <div class="panel-body">
+
+        <p>
+            Proses pembuatan Izin Usaha anda:
+            <br/>
+
+            <uib-progressbar class="progress-striped" max="100" value="currentBar"><span
+                    style="color:white; white-space:nowrap;">{{currentBar}}%</span></uib-progressbar>
+        </p>
+
+        <div class="funkyradio">
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox8" ng-model="confirmed1"
+                       ng-change="processCheckBox(confirmed1)"/>
+                <label for="checkbox8">Menyerahkan persyaratan dan berkas pada petugs di kantor Walikota /
+                    Kabupaten</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox9" ng-model="confirmed2"
+                       ng-change="processCheckBox(confirmed2)"
+                       ng-disabled="isActiveStep2"/>
+                <label for="checkbox9">Petugas telah mengecek kecocokan berkas dengan kondisi di lapangan</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox10" ng-model="confirmed3"
+                       ng-change="processCheckBox(confirmed3)"
+                       ng-disabled="isActiveStep3"/>
+                <label for="checkbox10">Membayar retribusi yang telah ditentukan</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox11" ng-model="duration.checked"
+                       ng-click="modalOpen()" ng-change="processCheckBox(duration.checked)"
+                       ng-disabled="isActiveStep4"/>
+                <label for="checkbox11">Menunggu penerbitan izin usaha.
+                        <span
+                                class="glyphicon glyphicon-question-sign" birokrazy-pop-over
+                                style="text-indent: 0em;"
+                                data-toggle="popover"
+                                title="Lama waktu proses"
+                                data-trigger="hover"
+                                data-container="body"
+                                data-placement="auto"
+                                data-content="Proses penerbitan izin usaha berlangsung tidak lebih dari 3 Minggu."/>
+                </label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="checkbox" name="checkbox" id="checkbox12" ng-model="confirmed5"
+                       ng-change="processCheckBox(confirmed5)" ng-disabled="isActiveStep5"/>
+                <label for="checkbox12">Mengambil surat ijin usaha yang telah diterbitkan di kantor Walikota /
+                    Kabupaten.</label>
+            </div>
+        </div>
+    </div>
+</div>
