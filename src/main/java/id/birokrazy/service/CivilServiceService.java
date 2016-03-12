@@ -75,7 +75,7 @@ public class CivilServiceService {
     public Review saveReview(String service, String department, Review civilServiceReview, Principal principal) {
         civilServiceReview.setUser(userRepository.findByUsername(principal.getName()));
         civilServiceReview.setCivilService(civilServiceRepository.findByUniqueName(service));
-        civilServiceReview.setDepartment();
+        //civilServiceReview.setDepartment();
         return reviewRepository.save(civilServiceReview);
     }
 }

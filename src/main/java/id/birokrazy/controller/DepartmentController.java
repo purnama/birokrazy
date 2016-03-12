@@ -22,7 +22,8 @@ public class DepartmentController extends ProtectedController {
             produces = {MediaType.APPLICATION_JSON_VALUE})
     @PreAuthorize("hasAnyAuthority('USER', 'ADMINISTRATOR')")
     public Review saveOrUpdateReview(@PathVariable("id") Long id, @RequestBody Review civilServiceReview, Principal principal) {
-        return civilServiceService.saveReview(id, civilServiceReview, principal);
+        return null;
+        //return civilServiceService.saveReview(id, civilServiceReview, principal);
     }
 
 }
